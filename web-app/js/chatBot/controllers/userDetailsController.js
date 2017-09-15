@@ -38,7 +38,7 @@ chatBot.controller("userDetailsController", function($scope,dashboardService,  $
     
     $scope.getUserDetails = function(){
         console.log("getUserDetails ")
-        $scope.toggleGridLoader("usersWidget")
+        $scope.toggleGridLoader("userDetailsWidget")
         var params = {
             appId : $scope.appId,
             userId : $routeParams.id
@@ -46,19 +46,19 @@ chatBot.controller("userDetailsController", function($scope,dashboardService,  $
         var promise = dashboardService.getUserDetails(params)
         promise.then(
             function(payload){
-                $scope.toggleGridLoader("usersWidget")
+                $scope.toggleGridLoader("userDetailsWidget")
                 $scope.userDetails = payload.data
                 console.log("userDetails :::::::::::::::  ",$scope.userDetails)
                 $scope.getUserConversation()
             },
             function(errorPayload) {
-                $scope.toggleGridLoader("usersWidget")
+                $scope.toggleGridLoader("userDetailsWidget")
             }) 
     }
     
     $scope.getUserConversation = function(){
         console.log("getUserConversation ")
-        $scope.toggleGridLoader("usersWidget")
+        $scope.toggleGridLoader("userDetailsWidget")
         var params = {
             appId : $scope.appId,
             userId : $routeParams.id            
@@ -66,14 +66,14 @@ chatBot.controller("userDetailsController", function($scope,dashboardService,  $
         var promise = dashboardService.getUserConversation(params)
         promise.then(
             function(payload){
-                $scope.toggleGridLoader("usersWidget")
+                $scope.toggleGridLoader("userDetailsWidget")
                 $scope.userConversation = payload.data.data
                 console.log("userConversation :::::::::::::::  ",$scope.userConversation)
                 $scope.openConversation($scope.userConversation[0])
 
             },
             function(errorPayload) {
-                $scope.toggleGridLoader("usersWidget")
+                $scope.toggleGridLoader("userDetailsWidget")
             }) 
     }
     
