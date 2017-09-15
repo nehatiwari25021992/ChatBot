@@ -26,14 +26,16 @@ chatBot.controller("manageIntentController", function($scope, $timeout,$location
     });
     console.log("socket :: ",socket)
     socket.on('learn_response', function (data) {
-        console.log("*********************data************",data)
-        notificationService.success('Training Completed.');
+        console.log("*********************data************",data)       
     });
         
     if($rootScope.saveSuccess){
         console.log("*********************************")
         socket.emit('learn', {});
         notificationService.info('Training Started.');
+        $timeout(function(){
+            notificationService.success('Training Completed.');
+        },15000)
     }
 
     $scope.goToAddIntent = function(){
