@@ -393,7 +393,7 @@ appbox-menu .item:hover .member-details { margin-top: -212px; }
 .prodList .dropdown-inbar a:hover { background-color: transparent!important; color: #9BA7B2 !important; font-weight: bold; }
 .prodList .dropdown-inbar a:hover .fa { color: #fff; }
 .prodList .dropdown-inbar li:last-child a { border-bottom: none; border-radius: 0px 0px 6px 6px; }
-.prodList .user-name-w { float: left; border: 1px solid #727375 !important; padding: 1px 10px 1px 20px !important; border-radius: 5px; color: #fff; background: url(../../images/dd_bg1.jpg); background-position: right; width: 210px; height: 32px; overflow: hidden }
+.prodList .user-name-w { float: left; border: 1px solid #727375 !important; padding: 1px 10px 1px 20px !important; border-radius: 5px; color: #fff;  background-position: right; width: 210px; height: 32px; overflow: hidden }
 .prodList .dropdown-menu { min-width: 180px !important; }
 .prodList .dropdown-inbar .a { padding: 25px 25px 9px!important }
 .prodList .dropdown-inbar .b { padding: 10px 25px 12px 25px!important }

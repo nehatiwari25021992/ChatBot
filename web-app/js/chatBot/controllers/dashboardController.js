@@ -22,6 +22,7 @@ chatBot.controller("dashboardController", function($scope,dashboardService) {
     });
     
     $scope.refreshDashboard =  function() {
+        $scope.activeHours = []
         $scope.init()
         $scope.getChatBotStatistics()
         $scope.getMostCommanPhrases()
@@ -86,6 +87,7 @@ chatBot.controller("dashboardController", function($scope,dashboardService) {
     }
     
     $scope.getChatBotStatistics = function(){
+        $scope.activeHours = []
         $scope.toggleGridLoader("chatbotDashboardWidget")
         var params = {
             appId : $scope.appId
@@ -476,6 +478,9 @@ chatBot.controller("dashboardController", function($scope,dashboardService) {
             chart: {
                 type: 'column',
                 marginTop: 50
+            },
+            credits: {
+                enabled: false
             },
             title: {
                 text: ''
