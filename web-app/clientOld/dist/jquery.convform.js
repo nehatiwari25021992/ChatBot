@@ -142,7 +142,7 @@ ConvState.prototype.printAnswers = function(answers, multiple){
 
 };
 ConvState.prototype.answerWith = function(answerText, answerObject) {
-    // console.log('previous answer: ', answerObject);
+   // console.log('previous answer: ', answerObject);
     //puts answer inside answers array to give questions access to previous answers
     if(this.current.input.hasOwnProperty('name')){
         if(typeof answerObject == 'string') {
@@ -258,7 +258,7 @@ ConvState.prototype.answerWith = function(answerText, answerObject) {
         //creates new single state with first input
         var singleState = new SingleConvState(inputs[0]);
         //creates new wrapper state with first singlestate as current and gives access to wrapper element
-        state = new ConvState(wrapper, singleState, form);
+        var state = new ConvState(wrapper, singleState, form);
         //creates all new single states with inputs in order
         for(var i in inputs) {
             if(i != 0 && inputs.hasOwnProperty(i)){
@@ -329,25 +329,6 @@ ConvState.prototype.answerWith = function(answerText, answerObject) {
                             // Get Query Response
                       
                             getResponseForQuery(input)
-                        }else if(callCenterFlow == true){
-                            console.log("inside call center flow")
-                            
-                            ___CuRrEnTMeSsAgE = input
-                            if(___isAgentOffline){
-                                ___warpclient.invokeZoneRPC("sendOfflineMessage",___CuRrEnTUserName,Base64.encode(input));
-                                $("#chatWidgetMsG").val(""); 
-                            }else if(___isAgentOfflineByRoom){
-                                ___warpclient.invokeZoneRPC("sendOfflineMessageToAgent",___CuRrEnTUserName,___adminUserName,Base64.encode(___CuRrEnTMeSsAgE));
-                            }else{
-                                var jsonObj = {
-                                    "to": ___adminUserName, 
-                                    "message": Base64.encode(input)
-                                }
-                                   
-                                ___warpclient.sendChat(jsonObj);
-                        
-                            }
-                          
                         }else{
                             $(this).parent('form').submit();
                         }
@@ -456,9 +437,9 @@ ConvState.prototype.answerWith = function(answerText, answerObject) {
 })( jQuery );
 
 // Constants
-var chatBotData = {},customQueryFlow = false,callCenterFlow = false,base_url = 'http://localhost:8080/App42ChatBot/chatBot', socket;
-var state;
-var ___warpclient, ___adminUserName = "", ___CuRrEnTUserName = "",___CuRrEnTMeSsAgE="",___isAgentOffline = false,___isAgentOfflineByRoom= false,___chatCounter = 0,___retryCounter=0,___roomID;
+var chatBotData = {},customQueryFlow = false,base_url = 'http://localhost:8080/App42ChatBot/chatBot';
+
+
 function validateEmail(email) {
     var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(email);
@@ -516,11 +497,7 @@ function registerUser(){
         chatBotData.cId = data.cId
         chatBotData.userId = data.userId
         chatBotData.appId = data.appId
-        chatBotData.name = usrDetailsObj.name
-        chatBotData.email = usrDetailsObj.email
-        chatBotData.phone = usrDetailsObj.phone
-       
-        $("#chatbotWidget").show()
+       $("#chatbotWidget").show()
         $("#registerWidget").hide()
         var convForm = $('.conv-form-wrapper').convform("Write here...");
     });
@@ -532,33 +509,8 @@ function registerUser(){
 function mockBackendService(inputData,fromBot){
   
     if(inputData === "Query" || inputData === "Custom"){
-        callCenterFlow = false
         customQueryFlow = true
     }
-    if(inputData === "I could not understand. Talk with support"){
-        callCenterFlow = true
-        customQueryFlow = false
-        
-        var messageObj1 = $('<div class="message to typing"><div class="typing_loader"></div></div>');
-        setTimeout(function(){
-            $('#messages').append(messageObj1);
-            state.scrollDown();
-        }.bind(this), 100);
-        setTimeout(function(){
-            messageObj1.html("Please wait while we are trying to connect you with our Agent");
-            messageObj1.removeClass('typing').addClass('ready');
-            state.scrollDown();
-            $('#userInput').val("");
-            $('#userInput').focus();
-        }.bind(this), 500); 
-        //        var fixedScroll = document.getElementById("messages");
-        //        fixedScroll.scrollTop = fixedScroll.scrollHeight;
-                            
-        startCustomerSupport()
-        
-        
-    }
-    console.log("callCenterFlow>>>"+callCenterFlow)
     $.ajax(base_url + '/tagEvent', {
         method: 'POST',
         data: {
@@ -569,351 +521,45 @@ function mockBackendService(inputData,fromBot){
             appId:chatBotData.appId
         }
     }).then(function(data) {
-        // console.log(data);
-        //console.log("---Event tagging Success---")
-        });
-}
-
-socket = io.connect('http://52.172.31.113:5000');
-socket.on('connect', function() {
-    socket.emit('my event', {
-        data: 'I\'m connected!'
+       // console.log(data);
+        console.log("---Event tagging Success---")
     });
-    
-});
-socket.on('learn_response', function(data) {
-    console.log("learn_response")
-    console.log(data.status)
-//$('#chat').append('<div style="margin: 10px; width: 350px;  font-family: roboto;font-size: 14px;"><strong>BOT Says:</strong><div style="border: 1px solid #ea242c; border-radius: 20px; padding: 10px; margin-top: 10px;">' + data.msg + '</div></div>');
-// $('#chat').scrollTop($('#chat')[0].scrollHeight);
-});
-socket.on('status', function(data) {
-    console.log(data.msg)
-//    socket.emit('learn', {
-//        m:""
-//    });
-//$('#chat').append('<div style="margin: 10px; width: 350px;  font-family: roboto;font-size: 14px;"><strong>BOT Says:</strong><div style="border: 1px solid #ea242c; border-radius: 20px; padding: 10px; margin-top: 10px;">' + data.msg + '</div></div>');
-// $('#chat').scrollTop($('#chat')[0].scrollHeight);
-});
-socket.on('chat_response', function (data) {
-    console.log(data);
-    var queryResObj = $('<div class="message to typing"><div class="typing_loader"></div></div>');
-    setTimeout(function(){
-        $(document).find('#messages').append(queryResObj);
-        state.scrollDown();
-    }.bind(this), 100);
-    setTimeout(function(){
-        queryResObj.removeClass('typing').addClass('ready');
-        queryResObj.html(data);
-        state.scrollDown();
-        mockBackendService(data,true)
-        $('#userInput').val("");
-        $('#userInput').focus();
-    }.bind(this), 500); 
-//    var fixedScroll = document.getElementById("messages");
-//    fixedScroll.scrollTop = fixedScroll.scrollHeight;
-    
-});
-
+}
 // Get Response for Query
 // This function fetches response for users query
+// Currently returning dummy response
 function getResponseForQuery(query){
     console.log("---Get Response For Query  "+query);
     //Event tagging the users query
     mockBackendService(query,false)
-    
-    socket.emit('chat', {
-        m:query
-    });
- 
-}
-function startCustomerSupport(){
-    console.log("---Initiate Customer Support  ");
-    
-    initializeAppWarpClient();
- 
-}
-
-function initializeAppWarpClient() {
-    console.log("initializeAppWarpClient")
-    var apiKey = "9db45014-2eda-420b-9"
-    var secreteKey = "34.214.34.133"
-    var obj = {
-        "appKey": apiKey, 
-        "host": secreteKey, 
-        "email": chatBotData.email
-    }
-    ___CuRrEnTUserName = obj.email;
- 
-    AppWarp.WarpClient.initialize(obj.appKey, obj.host);
-    ___warpclient = AppWarp.WarpClient.getInstance();
-    ___warpclient.setRecoveryAllowance(1000);
-    ___warpclient.setResponseListener(AppWarp.Events.onConnectDone, onConnectDone);
-    ___warpclient.setResponseListener(AppWarp.Events.onDisconnectDone, onDisconnectDone);
-    ___warpclient.setResponseListener(AppWarp.Events.onJoinRoomDone, onJoinRoomDone);
-    ___warpclient.setResponseListener(AppWarp.Events.onLeaveRoomDone, onLeaveRoomDone);
-    ___warpclient.setResponseListener(AppWarp.Events.onZoneRPCDone, onZoneRPCDone);
-    ___warpclient.setResponseListener(AppWarp.Events.onSendChatDone, onSendChatDone);
-    ___warpclient.setNotifyListener(AppWarp.Events.onChatReceived, onChatReceived);
-    ___warpclient.setNotifyListener(AppWarp.Events.onUserLeftRoom, onUserLeftRoom);
-    ___warpclient.connect(obj.email,chatBotData);
-}
-
-function onConnectDone(res) {
-    //  CONNECTION_ERROR_RECOVERABLE
-    console.log(res)
-    var msg = ''
-    if (res == AppWarp.ResultCode.Success) {
-        console.log("Client Connected");
-        console.log("Checking If Agent is Online!!!!");
-        //___warpclient.disconnect();
-        ___warpclient.invokeZoneRPC("getAvailableRoomId",___CuRrEnTUserName);
-    }else  if (res == AppWarp.ResultCode.AuthError) {
-        console.log("Client already Connected. Auth Error:::"+res);
-       
-    }else if(res == AppWarp.ResultCode.ConnectionErrorRecoverable){
-        //connection broken
-        console.log(" Connection Error:::Please wait while we try to establish connection>>>"+res);
-        msg = 'Chat disconnected.Please wait while we try to establish connection.'
-        $("#chatWidgetMsG").attr("disabled",true);
-        if( ___retryCounter == 0){
-            setSpecialMessage(msg); 
-        }
-            
-        if(___retryCounter <=9){
-            setTimeout(function(){
-                ___warpclient.recoverConnection();
-            }, 10000);
-            ___retryCounter = ___retryCounter+1
-        }
-            
-    }else if(res == AppWarp.ResultCode.SuccessRecovered){
-        //connection recovered
-        $("#chatWidgetMsG").attr("disabled",false);
-        ___retryCounter = 0
-        msg = 'Connection established successfully. Chat started.'
-        setSpecialMessage(msg);
-    }else {
-        console.log("Error in Connection");
-    }
-}
-function setSpecialMessage(msg){
-    var messageObj1 = $('<div class="message to typing"><div class="typing_loader"></div></div>');
+    var replies = new Array("Please type in your order number", "Please type in your order date", "Please type in your email", "Please wait while we check your query")
+    var randomReply = replies[Math.floor( Math.random() * replies.length )];
+    var root = 'https://jsonplaceholder.typicode.com';
+    var queryResObj = $('<div class="message to typing"><div class="typing_loader"></div></div>');
     setTimeout(function(){
-        $('#messages').append(messageObj1);
-        state.scrollDown();
+        $(document).find('#messages').append(queryResObj);
     }.bind(this), 100);
-    setTimeout(function(){
-        messageObj1.html(msg);
-        messageObj1.removeClass('typing').addClass('ready');
-        state.scrollDown();
-        $('#userInput').val("");
-        $('#userInput').focus();
-    }.bind(this), 500); 
-}
-function onDisconnectDone(res) {
-        
-    console.log("onDisconnectDone")
-    console.log(res)
-       
-    if (res == AppWarp.ResultCode.Success) {
-        console.log("Client DisConnected");
-          
-    }else {
-        console.log("Error in DisConnection");
-    }
-}
-function handleChatWindow(isConnected){
-   
-    var messageObj1 = $('<div class="message to typing"><div class="typing_loader"></div></div>');
-    setTimeout(function(){
-        $('#messages').append(messageObj1);
-        state.scrollDown();
-    }.bind(this), 100);
-   
-    var mmssg = "Agent "+___adminUserName+" is available now. Type in your Query to chat."
-    if(isConnected){
-        //start chatting
-      
+    //Event tagging the users query ends
+    //Fake Web service to get reponse for the query
+ 
+    $.ajax(root + '/posts', {
+        method: 'POST',
+        async: false,
+        data: {
+            query: query,
+            userId: chatBotData.userId,
+            cId:chatBotData.cId
+        }
+    }).then(function(data) {
+        //Event tagging the users query response 
         setTimeout(function(){
-            messageObj1.html(mmssg);
-            messageObj1.removeClass('typing').addClass('ready');
-            state.scrollDown();
+            queryResObj.removeClass('typing').addClass('ready');
+            queryResObj.html(randomReply);
+            mockBackendService(randomReply,true)
             $('#userInput').val("");
             $('#userInput').focus();
         }.bind(this), 500); 
-    // $("#eNdChAt").show();
-    }else{
-        // $("#ChAtBoXheAdTiTlE").html("Leave a message");
-        $("#ChAtBoXBodYwelComeNotE").html("We’re not around, but we’d love to chat another time");
-        
-    }
-//    var fixedScroll = document.getElementById("messages");
-//    fixedScroll.scrollTop = fixedScroll.scrollHeight;  
-}
-function onJoinRoomDone(response) {
-    //  CONNECTION_ERROR_RECOVERABLE
-    console.log("onJoinRoomDone:::"+response)
-    //console.log(response)
-    if (response.res == AppWarp.ResultCode.Success) {
-        handleChatWindow(true);
-    }else{
-        console.log("Error in joining room");
-        handleChatWindow(false);
-    }
-}
-function onLeaveRoomDone(response) {
-    //  CONNECTION_ERROR_RECOVERABLE
-    console.log("onLeaveRoomDone:::"+response)
-    //        console.log("onLeaveRoomDone:::"+response.res)
-    //console.log(response)
-    if (response.res == AppWarp.ResultCode.Success) {
-        ___warpclient.disconnect()
-    }else{
-        console.log("Error in leaving room");
-           
-    }
-}
-    
-function handleRPCCallForGetAvailableRoomId(response){
-    if(response.success){
-        ___adminUserName = response.name
-        ___warpclient.joinRoom(response.roomId);
-    }else{
-        // console.log(response.message) 
-        //Offline Agents case
-        ___isAgentOffline = true
-        handleChatWindow(false);
-    }
-}
-function handleRPCCallForSendOfflineMessage(response){
-    //console.log("handleRPCCallForSendOfflineMessage") 
-    console.log(response) 
-    if(response.success){
-        $("#ChAtBoXBodYwelComeNotE").html("We received your query. Our Agent will contact you shortly.");
-        $("#chatWidgetMsG").attr("disabled",true);
-        //$("#ChAtStatus").removeClass("active").addClass("inactive"); 
-        // $("#eNdChAt").hide();
-        $("#chatWidgetMsG").val(""); 
-        var msg =  'Message sent successfully. Our Agent will contact you shortly.'
-        setSpecialMessage(msg)
-    // ___warpclient.disconnect()
-    // $("#ChaTwidgeTseNdMsgBox").hide();
-    }else{
-        console.log(response.message) 
-    }
-}
-    
-function onZoneRPCDone(resCode,responseStr) {
-    console.log(responseStr)
-    var response = JSON.parse(responseStr["return"])
-    var funCtName = responseStr["function"]
-    // console.log("funCtName"+funCtName)
-    console.log("Getting Room Info after Connection");
+        //Event tagging the users query response ends
        
-    if (resCode == AppWarp.ResultCode.Success) {
-        if(funCtName == "getAvailableRoomId"){
-            ___roomID = response.roomId
-            handleRPCCallForGetAvailableRoomId(response)
-        }
-        if(funCtName == "sendOfflineMessage"){
-            handleRPCCallForSendOfflineMessage(response)  
-        }
-        if(funCtName == "sendOfflineMessageToAgent"){
-            handleRPCCallForSendOfflineMessage(response)  
-        }
-    }else {
-        console.log("Error in RPC Call");
-        handleChatWindow(false);
-    }
-}
-    
-function onSendChatDone(res) {
-    console.log("onSendChatDone");
-    console.log(res);
-    //var msg = "onSendChatDone : <strong>" + AppWarp.ResultCode[res] + "</strong>";
-    //  console.log(msg);
-    var msg = ''
-    if (AppWarp.ResultCode[res] == "Success") {
-        //Message Sent
-        setResponse(___CuRrEnTUserName, ___CuRrEnTMeSsAgE)
-       
-    }else if(AppWarp.ResultCode[res] == "ResourceNotFound"){
-        //Message Not Sent coz Agent is offline
-           
-        if(___chatCounter > 0){
-            msg =  '<div class="chatSpecilMsg">We could not establish the connection with the Agent. Sorry for the inconvienience caused.</div>'
-        //           SEND CHAT AS OFFLINE MSG
-        }else{
-            ___chatCounter = ___chatCounter + 1
-            msg = '<div class="chatSpecilMsg">Agent is offline.Please wait while we try to establish connection.</div>'
-            var jsonObj = {
-                "to": ___adminUserName, 
-                "message": ___CuRrEnTMeSsAgE
-            }
-            setTimeout(function () {
-                ___warpclient.sendChat(jsonObj);
-            }, 3000);
-        }
-        setSpecialMessage(msg);
-    } else {
-        
-    }
-}
-
-function onChatReceived(obj) {
-    console.log("onChatReceived")
-    //  console.log(obj.getChat())
-    var res = JSON.parse(obj.getChat())
-    //  console.log(res);
-    if(res.status == "chatEnded"){
-        var msg =  'Agent has ended the chat. Please refresh your browser to start the conversation again.'
-        setSpecialMessage(msg)
-        $("#chatWidgetMsG").attr("disabled",true);
-        $("#ChAtStatus").removeClass("active").addClass("inactive"); 
-        $("#eNdChAt").hide();
-        //  reSeTvIeWfOrChaT();
-        ___warpclient.disconnect();
-    //            ___warpclient.leaveRoom(___roomID);
-    }else{
-        //            console.log(res.message)
-        //            console.log(Base64.decode(res.message))
-        setResponse(res.from, Base64.decode(res.message))  
-    }
-   
-       
-}
-function onUserLeftRoom(roomObj,usr) {
-    console.log("onUserLeftRoom")
-    if(___adminUserName == usr){
-        // $("#ChAtStatus").removeClass("active").addClass("inactive"); 
-        var msg =  'Chat disconnected. We could not establish the connection with any Agent. Messages will be sent as an offline message to the agents. Sorry for the inconvienience caused.'
-        setSpecialMessage(msg);
-        ___isAgentOfflineByRoom = true
-    }
-}
-
-function setResponse(sender, chat) {
-    var messageObj = ""
-    if (sender === ___CuRrEnTUserName) {
-        messageObj = $('<div class="message from typing"><div class="typing_loader"></div></div>');
-    } else {
-        messageObj = $('<div class="message to typing"><div class="typing_loader"></div></div>');
-    }
-     
-    setTimeout(function(){
-        $('#messages').append(messageObj);
-        state.scrollDown();
-    
-    }.bind(this), 100);
-    setTimeout(function(){
-        messageObj.html(chat);
-        messageObj.removeClass('typing').addClass('ready');
-        state.scrollDown();
-       
-        $('#userInput').val("");
-        $('#userInput').focus();
-    }.bind(this), 500); 
-//    var fixedScroll = document.getElementById("messages");
-//    fixedScroll.scrollTop = fixedScroll.scrollHeight;
+    });
 }
