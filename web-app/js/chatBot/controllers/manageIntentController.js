@@ -18,7 +18,6 @@ chatBot.controller("manageIntentController", function($scope, $timeout,$location
     $scope.$on('reloadTemplate', function(event) {
         $scope.getAllIntent()
     });
-    $rootScope.saveSuccess = false
     socket = io.connect('http://52.172.31.113:5000');
     socket.on('connect', function() {
         socket.emit('my event', {
