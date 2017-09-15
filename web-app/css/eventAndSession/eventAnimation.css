@@ -1,0 +1,102 @@
+
+ .graph_refinement {
+	 transform: translate3d(0,0,0);
+	-webkit-transition: all .3s ease;
+	transition: all .3s ease;
+	width: 22%;
+	display: inline-block;
+	position: relative;
+	cursor: pointer;
+	border: 1px solid #b0b8bf;
+	background: #F9FCFF;
+	border-radius: 20px;
+	height: 32px;
+	line-height: 28px;
+	padding-right: 5px;
+	z-index: 10;
+	margin-right: 5px;
+	display: inline-block;
+}
+.graph_refinement .dropdown_remove {
+position: absolute;
+top: 0;
+right: 7px;
+font-size: 20px;
+line-height: 28px;
+color: #2B75AD !important;
+
+}
+.graph_add {
+-webkit-transition: all .3s ease;
+transition: all .3s ease;
+display: inline-block;
+cursor: pointer;
+width: 32px;
+height: 32px;
+border-radius: 16px;
+border: 1px solid #b0b8bf;
+text-align: center;
+font-size: 16px;
+vertical-align: top;
+}
+.graph_refinement .tab_label {
+font-weight: 500;
+font-size: 14px;
+padding-right: 10px;
+font-family: Verdana, Geneva, Tahoma, Arial, Helvetica, sans-serif;
+}
+
+.graph_add:before {
+font-family: 'parseregular';
+font-size: 1em;
+line-height: inherit;
+
+}
+
+.legend {
+display: inline-block;
+margin: 0 4px 0 10px;
+width: 10px;
+height: 10px;
+border-radius: 5px;
+display: inline-block;
+color: #1569EC;
+}
+.graph-refi-row{ float:left;width:100%}
+.graph-refi-row .colA{ float:left; margin:5px 1px 0 10px}
+.graph-refi-row .colB{float: left;margin: 3px 6px 0 0;font-size: 13px;color: rgba(105, 98, 98, 0.67);text-decoration: none;font-weight: bold;}
+.graph-refi-row .colC{ float:left; margin:3px 0 0 15px; font-size:13px;}
+
+.animate-enter, 
+.animate-leave { 
+    -webkit-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    -moz-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    -ms-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    -o-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    position: relative;
+    display: block;
+} 
+
+.animate-leave.animate-leave-active,
+.ng-enter-active {
+     -webkit-transform: rotateX(0deg) translatez(30px);
+    -moz-transform: rotateX(0deg) translatez(30px);
+    -ms-transform: rotateX(0deg) translatez(30px);
+    -o-transform: rotateX(0deg) translatez(30px);
+    transform: rotateX(0deg) translatez(30px);
+    opacity: 1;
+    height: 30px;
+}        
+
+.animate-enter.animate-enter-active,
+.ng-leave-active {
+    -webkit-transform: rotateX(0deg) translatez(30px);
+    -moz-transform: rotateX(0deg) translatez(30px);
+    -ms-transform: rotateX(0deg) translatez(30px);
+    -o-transform: rotateX(0deg) translatez(30px);
+    transform: rotateX(0deg) translatez(30px);
+    opacity: 0;
+    height: 30px;
+}
+

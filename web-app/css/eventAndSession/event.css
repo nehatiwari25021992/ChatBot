@@ -1,0 +1,517 @@
+@font-face { font-family: 'Roboto Condensed'; src: url(https://fonts.googleapis.com/css?family=Roboto:100,300,400,700|Roboto+Condensed:300,400,700); font-weight: 400; font-style: normal }
+@font-face { font-family: helvetica; src: url(../font/helvetica.ttf); font-family: helvetica; src: url('../font/helvetica bold.ttf'); font-weight: 400; font-style: normal }.left{ float:left;}
+.graphmainWrapper{background-color: #2c3e50!important;}
+
+.right{ float:right}
+.colL { float: left !important; margin: 0 5% 0 0 !important; width: 69% !important; position: relative }
+.colR_sessionTime{ position:absolute; top:0; right:0;}
+.colL .frmL { float: left; width: 100%; }
+.colLF{ width:100%!important; margin:0!important}
+.graphStrip select{ margin:0;}
+.colL .frmL .clsA { float: left; height: 20px; }
+.colL .frmL .clsB { float: left; margin: 0 20px 0 0; width: 170px; }
+.colL .frmL .clsC, .colL .frmL .clsE { font-size:12px!important; font-weight:bold; background-color: #eee; border: 1px solid #bcbec0; border-radius: 3px 0 0 3px; float: left; height: 22px; padding: 9px 9px 0; border-right: none; color: #343434; text-shadow: none!important; }
+.colL .frmL .clsD { float: left; }
+.colL .frmL .clsE { border: 1px solid #bcbec0 !important; border-radius: 3px !important; height: 19px !important; margin: 0 10px 0 0 !important; padding: 8px 9px 0 !important;}
+.colL .frmL .onOff { float: right; position: absolute; top: 7px; right: 0; }
+.colL .frmL .onOff font{ font-size:12px!important; font-weight:bold; background-color: #eee; border: 1px solid #bcbec0; border-radius: 3px 0 0 3px; float: left; height: 24px; padding: 6px 9px 0; border-right: none; color: #343434; text-shadow: none!important;}
+.colL .frmL .onOff .btn{padding: 5px 12px !important;}
+.colL .frmL .inputosaurus-container { min-height: 30px }
+.colL .frmL .selectBBox{ float:left; width:100%;}
+.sbC{ width:315px; float:left;}
+.colL .frmL .selectBBox select{ width:220px;}
+.graphBox{width: 94% !important;}
+.containerDiv{ float:left; width:100%; margin:10px 0 0 0}
+.containerDiv #chart{ margin:0; padding:0;}
+.graphBox{ height:auto!important;}
+.colL .frmL #properties{ float:left; width:100%;}
+.colL .frmL #properties .A{float:left; width:100%!important;}
+.colL .frmL #properties .A b{float:left; margin:4px 10px 0 0}
+.colL .frmL #properties .A select{float:left; margin:0 10px 0 0 !important}
+.colL .frmL #properties .A a{ margin:0 0 0 10px;}
+.colL .frmL #properties b{float:left; margin:4px 10px 0 0; width:62px;}
+.colL .frmL #properties select{float:left; margin:0 10px 0 0 !important}
+.colL .frmL #properties a{ margin:0 0 0 10px;}
+.colL .frmL .and {background-image: url("../../images/and-bg.png"); background-position: center center; background-repeat: no-repeat; float: left; height: 34px; margin: 15px 0; text-align: center; width: 100%;}
+.colL .frmL .inputosaurus-container li { color: #1e5e90 !important; font-size: 11px !important;white-space: nowrap;}
+.graphPanel li{border-bottom: 1px solid #d1d1d1;}
+.graphPanel a{border:none !important}
+.graphPanel span a{ margin:0 0 0 20px; padding:5px;}
+.graphPanel span a:before { color: #fff; content: "»"; left: -10px; position: relative; top: -2px;}
+.graphPanel a:hover{background-color: #99b8c8 !important;}
+#leftNavi { float: left; margin: 0; width: 100% ;background-color: #2c3e50;  font-family: "Roboto Condensed", "Helvetica Neue", Helvetica, Arial, sans-serif;}
+#leftNavi ul ul { float: left; width: 100% }
+#leftNavi ul ul li  { width: 100%;list-style: none outside none;clear: both; float: left;box-shadow: 0px 1px 0px 0px rgba(255, 255, 255, 0.1);border-bottom: 1px solid #1F262E;}
+#leftNavi ul ul a { padding: 10px 10px 7px 25px; display: block; color: #D5DDE5; font-size: 15px; font-weight: 400 }
+#leftNavi ul ul a:before  { /*content: '\00BB'; position: absolute; left: 10px; color: #ffff*/ content: "\00BB";font-family: FontAwesome;position: absolute;color: #F4DE4B;text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.2);font-size: 16px;left: 8px;}
+#leftNavi ul ul a:hover { color: #2d75a7 }
+#leftNavi .lastChild li a:before  { content: '\f111'; position: absolute; left: 30px; color: #D5DDE5;font-size: 6px;}
+#leftNavi .lastChild li:hover a:before  { content: '\f111'; position: absolute; left: 30px; color: #2d75a7;font-size: 6px;}
+#leftNavi .lastChild{ display:block!important; margin:0 0 0 7% !important;width:93%!important;}
+#leftNavi .lastChild li{border-bottom: none!important;box-shadow: none !important;}
+#leftNavi span:before { content: none; left: -10px; position: relative; top: -2px; color: #D80000 }
+#leftNavi .lastChild li a{padding:3px 10px 5px 25px; font-size: 15px;}
+#leftNavi ul ul a:hover{background-color: transparent !important; color: #8eb6cb !important}
+.graphPanel .active { background-color: transparent !important; color: #8eb6cb !important;}
+.graphPanel li {border-bottom: medium none;}
+/**************************************  **************************************/
+.my-legend { float:left; width:100%;}
+.my-legend  .legend-scale{ float:left; margin:20px 0 0 0;}
+.my-legend .legend-scale ul { margin: 0; padding: 0; float: left; list-style: none; }
+.my-legend .legend-scale ul li { display: block; float: left; white-space: -moz-pre-wrap !important;  /* Mozilla, since 1999 */ white-space: -pre-wrap;      /* Opera 4-6 */ white-space: -o-pre-wrap;    /* Opera 7 */ white-space: pre-wrap;       /* css-3 */ word-wrap: break-word;       /* Internet Explorer 5.5+ */ word-break: break-all; white-space: normal; width: 120px; margin: 0 10px 15px 0; text-align: center; font-size: 80%; list-style: none; }
+.my-legend ul.legend-labels li span { display: block; float: left; height: 10px; width: 100%; clear:both; }
+.my-legend a { color: #777; }
+.my-legend table {*border-collapse: collapse; /* IE7 and lower */ border-spacing: 0; width: 100%;}
+.zebra td, .zebra th { padding: 10px; border-bottom: 1px solid #f2f2f2; }
+.zebra tr td{font-family: 'Source Sans Pro',sans-serif; font-size: 12px; color: #6c6c6c; }
+.zebra tbody tr:nth-child(even) { background: #f6f6f6; }
+.zebra th { text-align: left; border-bottom: 1px solid #ccc; background-color: #eee; background-image: -webkit-gradient(linear, left top, left bottom, from(#f5f5f5), to(#eee)); background-image: -webkit-linear-gradient(top, #f5f5f5, #eee); background-image: -moz-linear-gradient(top, #f5f5f5, #eee); background-image: -ms-linear-gradient(top, #f5f5f5, #eee); background-image: -o-linear-gradient(top, #f5f5f5, #eee); background-image: linear-gradient(top, #f5f5f5, #eee); font-family: 'Source Sans Pro',sans-serif; font-size: 13px; color: #6c6c6c; font-weight:bold; }
+.zebra th:first-child { -moz-border-radius: 6px 0 0 0; -webkit-border-radius: 6px 0 0 0; border-radius: 6px 0 0 0; }
+.zebra th:last-child { -moz-border-radius: 0 6px 0 0; -webkit-border-radius: 0 6px 0 0; border-radius: 0 6px 0 0; }
+.zebra th:only-child { -moz-border-radius: 6px 6px 0 0; -webkit-border-radius: 6px 6px 0 0; border-radius: 6px 6px 0 0; }
+.zebra tfoot td { border-bottom: 0; border-top: 1px solid #fff; background-color: #f1f1f1; }
+.zebra tfoot td:first-child { -moz-border-radius: 0 0 0 6px; -webkit-border-radius: 0 0 0 6px; border-radius: 0 0 0 6px; }
+.zebra tfoot td:last-child { -moz-border-radius: 0 0 6px 0; -webkit-border-radius: 0 0 6px 0; border-radius: 0 0 6px 0; }
+.zebra tfoot td:only-child { -moz-border-radius: 0 0 6px 6px;
+-webkit-border-radius: 0 0 6px 6px; border-radius: 0 0 6px 6px }
+.containerDiv h1 { text-align: center; text-shadow: 0px 1px 1px #4d4d4d; color: #222; font: 80px 'LeagueGothicRegular'; }
+.graphBox { margin:0 0 55px 2%!important; }
+.alert-box { color: #555555; font-family: Tahoma,Geneva,Arial,sans-serif; font-size: 11px; padding: 6px 6px 6px 37px; width: 355px; float:right; border-radius:3px;  }
+.info { background: #bde5f8 url('../../images/info.png') no-repeat 10px 9px; color: #00529b; }
+.graph1 canvas{ border:none!important;}
+.frmLtbl table{ width: 100%; clear:both;}
+.frmLtbl table select{ margin:0 10px 0 0}
+.frmLtbl table div{ width: 555px; margin: 0 auto; text-align: center;}
+.frmLtbl table div button{ text-align: center; margin: 20px 0 0 200px}
+.colR div table{ width: 100%;}
+.showHidediv{ float: left; width:100%; margin:0 0 10px 0; border-bottom: 1px solid #bdbdbd; padding: 0 0 10px 0;}
+.showHidediv a{ text-decoration: none; color:#2c2c2c}
+.showHidediv a:hover{ text-decoration: none; color:#08c;cursor: pointer}
+.showHidediv .left{ float: left}
+.showHidediv .right{ float: right;}
+.retentionWrapper{float:left; margin: 15px 0 0 0; width: 94%;}
+.retentionWrapper .left{ float: left; margin: 0 10px 0 0;}
+.retentionWrapper .leftTitle{position: relative; float: left;margin: 0 10px 0 0;}
+.retentionWrapper .title{ position: absolute; margin: -20px 0 0 20px; font-weight: bold;color:#5b5b5b; font-size: 13px}
+.btnWrapperRetention{text-align: center; width: 92%; float: left;}
+.leftTitle .input-prepend{ margin-top:5px!important; }
+.left .inputBox1{ margin-top:5px!important;}
+.colLSeg{ float: left; width: 56%; margin:0 1% 0 0}
+.colBetSeg{float: left; width: 3%; margin:2% 1% 0 0}
+.colRSeg{ float: right; width: 39%}
+.daysWrapper{ background-color: #f8f8f8; border-bottom: 1px solid #e1e1e1; color: #5b5b5b; float: left; font-size: 13px; font-weight: bold; margin: 0 0 15px; padding: 10px 0; text-align: center;width: 100%;}
+.frmLtbl table .slectBox{width: 170px !important;}
+.cus{float: left;margin: 2% 1% 0px -51px;}
+.campForm{ float:left; width:100%; margin:0 0 15px 0;}
+.campForm label{float:left; width:23%; font-size:13px; font-weight:bold}
+.campForm .left{ float:left; width:33%; font-size:13px;}
+.campForm input{float:left; width:100%!important; margin:0!important;}
+.campForm textarea{float:left; width:100%!important; min-height:100px; margin:0!important; font-size:13px; color:#333}
+.campForm select{float:left; width:100%!important; margin:0!important; font-size:13px; color:#333}
+.campForm .error{float:left; color:#bc0404; font-size:13px; margin:5px 0 0 50px}
+.campForm .or{  float:left; clear:both; margin:10px 0 0 23%; width:27%; text-align:center; font-size:14px; font-weight:bold;}
+.campForm .btnWrapper{  float:left; margin:0 0 0 -24px;text-align:center;}
+.orBtnWrapper{float:left; margin:10px 0 0 23%;text-align:center; width:27%; clear:both}
+.campForm .btnWrapper .btn{ width:100%;}
+.campForm .uneditable-input{ width:95%!important}
+.campForm .textareaMT{ margin-top:10px!important;}
+.campForm2 input{float:left; width:92%!important; margin:0 2%!important;}
+.campForm2 select{float:left; width:97%!important; margin:0!important; font-size:13px; color:#333}
+.campForm .addFieldsbtn, .campForm2 .addFieldsbtn { float:left; margin:0 0 0 -24px;text-align:center;}
+.campForm .addFieldsbtn .btn, .campForm2 .addFieldsbtn .btn{ width:100%;}
+.campForm .addFields{clear: both; float: left; margin-left: 23%; margin-top: 20px; width: 44%; position:relative}
+.campForm .addFields input{ margin:0 15px 10px 0 !important; width:27%!important}
+.selectBox{width: 28.5%!important;}
+.campForm .remove_field, .campForm .remove_field1{width:108px;background-color: #f72a2a; border-radius: 3px; color: #fff !important; float: left; font-size: 14px; line-height: 31px; padding: 0 5px; text-align: center; margin-bottom:15px;}
+
+.campForm .remove_field:hover{background-color: #ed2020; color:#fff; text-decoration:none}
+.campForm .remove_field1:hover{background-color: #ed2020; color:#fff; text-decoration:none}
+
+.campForm .cError{margin-left: 100px !important;margin-top: 44px !important;}
+.campForm .cError2{margin-top: 44px !important;}
+.campForm .cError3{margin-left: 46px;margin-top: 26px !important;}
+.campForm .cError4{float: left;padding-left: 107px;color: #b94a48;font-size: 12px;margin: 3px 0 5px 0px !important;margin-top: -10px!important;}
+
+#bgFile{border: medium none; float: left; width: auto !important; font-size:14px; font-weight:bold; color:#04ad00}
+#imageDiv{ float:right; margin:0 240px 0 0;}
+
+.chooseeventBar{padding:4px;width: 90%;margin-left: 54px;background: #e6f5ff;border: 2px dotted #e5e5e5;border-radius: 5px;}
+.choosepropBar{padding: 4px;width:84%;margin-left: 115px;background: #e6f5ff;border: 2px dotted #e5e5e5;border-radius: 5px;}
+.andBoxA{font-size: 12px; font-weight: bold; margin: 0 0 0 30px; padding: 20px 0;}
+.andBoxB{font-size: 12px; font-weight: bold; margin: 0 0 0 93px; padding: 20px 0;}
+
+.frmlV2{ float:left; width:100%; padding:0 0 10px 0; float:left;}
+.fieldsetV2{ padding:0!important; margin:0!important; float:left; width:100%;}
+.taT{ float:right;}
+.taT .userIcon{ float:left;margin: 0 10px 11px;}
+.taT .userIcon img{ cursor:pointer;}
+.userIcon img{ cursor:pointer;}
+.taT .bckBtn{ float:left;margin: 5px 0 0;}
+.takeaT{ position: absolute; right:12px;right: 25px;}
+
+.colLSegV2{ float: left; width: 50%; margin:0 1% 0 0; border:1px solid #c2c2c2; border-radius: 5px 5px 0 0;}
+.colLSegV2 table{ float:left; width:100%;}
+.colLSegV2 table select{ width:100%!important; color:#3c3c3c; font-size:12px;}
+.colLSegV2 table .seLabel{ float:left; margin:4px 20px 0 0;}
+.colLSegV2 table .eventDD{ float:left; width:220px;}
+.colLSegV2 table .addBtn{ float:left; margin:0 0 0 20px;}
+.colLSegV2 table tr td{ text-align:left!important;}
+.colLSegV2 table tr td .btn{ float:right;}
+.colLSegV2 table .noEvnt, #noEventsTr{  background:#fff!important; background-color:#fff!important;color: #6c6c6c!important; font-size: 16px!important; font-weight: normal!important; padding: 50px 0!important; text-align: center!important;}
+.colLSegV2BTN{ float:left; width:50%; text-align:right;}
+.cusV2{float: left;margin: 1.5% 0 0 2.5%;}
+
+.colRSegV2{ float:right; width:40%; border:1px solid #c2c2c2; border-radius: 5px 5px 0 0;}
+.colRSegV2 table{width:100%!important}
+.colRSegV2 table select{ width:100%!important; color:#3c3c3c; font-size:12px;}
+.colRSegV2 table .noEvnt{ color: #6c6c6c!important; font-size: 16px!important; font-weight: normal!important; padding: 36px 0!important; text-align: center!important;}
+
+.calendarWrapper{ float:left; margin:0 30px 0 0}
+.EventsWrapper{float:left; margin:0 10px 0 0}
+.EventsWrapper2{float:left; margin:0 10px 0 0}
+.calendarWrapper input{ width:170px!important; margin:0!important}
+.calendarWrapper2 input{ width:170px!important; margin:0!important}
+.EventsWrapper .label, .EventsWrapper2 .label{font-size:12px!important; font-weight:bold; background-color: #eee; border: 1px solid #bcbec0; border-radius: 3px 0 0 3px; float: left; height: 22px; padding: 9px 9px 0; border-right: none; color: #343434; text-shadow: none!important;}
+
+
+
+
+.EventsWrapper ul li span{ font-size:11px!important;font-weight: bold;}
+.EventsWrapper ul{ width:400px;}
+.EventsWrapper2 ul li span{ font-size:11px!important;font-weight: bold;}
+.EventsWrapper2 ul{ width:245px!important;}
+.pushDetailsIdW{ float:left; margin:20px 0 50px 0;}
+.pushDetailsIdW label{ float:left; width:185px; margin:0 30px 0 0;}
+.averageTimeBtn{margin: 5px 0 0 212px!important;padding: 7px 0!important;width: 224px!important;}
+.onoffWrapper{ float:left; margin: -20px 0 0 !important;}
+.onoffWrapper .onOff{ top:1px!important}
+.colR2{ margin-top:50px;}
+.MT{ margin-top:30px;}
+.backBtnT{float: right; width: auto; margin: 0 62px 0;}
+.backBtnT2{float: right; width: auto; margin: -30px 62px 0;}
+.backBtnT3{float: left; width: auto; margin: 0;}
+#helpBtn{ cursor:pointer;}
+.aSegBtn2{padding: 5px !important;}
+/***************** Intro ****************/
+.introjs-tooltipbuttons {text-align: center !important;}
+.introjs-helperLayer{padding: 0 2px 0 0 !important;}
+.introjs-tooltip{ font-size:14px!important;}
+
+/*********************** Install ****************************/
+.installWrapper { float: left; max-width: 100%; width: 100%; }
+.installTr { float: left; max-width: 100%; width: 99%; }
+.install-colL { float: left; max-width: 100%; width: 65%; padding: 0 25px 0 0; border-right: 1px solid #ccc; }
+.addGraphBtn { float: left; width: 100%; text-align: left; margin: 15px 0 5px 0; }
+.addGraphBtn .graph_refinement { background-color: #eaedf0 !important; border-radius: 10px !important; width: 194px !important; }
+.addGraphBtn .graph-refi-row .colB { padding-left: 9px !important; }
+.addGraphBtn .graph_add { background-color: #eaedf0 !important; margin-left: 5px; }
+.downgrade { color: #fff; float: left; font-size: 15px; font-weight: bold; margin: -1px 4px 0 0; }
+.addGraphBtn .graph-refi-row .colC { margin: 1px 0 0 15px !important; }
+.install-colR { float: right; max-width: 100%; width: 30%; }
+.install-colR .infoBox { background-color: #e8e8e8 !important; border-radius: 4px; box-shadow: 2px 2px 5px #8f8f8f !important; color: #000; float: left; height: 80px !important; margin: 0 20px 30px 0 !important; width: 43% !important; }
+.install-colR .infoBoxT{ width: 92% !important;} 
+.install-colR .label-danger { background-color: #f56f6b; padding:4px; }
+.install-colR .label-success, .badge-success {background-color: #4d8f4e !important; padding: 4px;}
+.install-colR .quick-btn { box-shadow: none !important; color: #272727 !important; display: inline-block; font-size: 19px; height: 80px; margin: 0 !important; padding-top: 20px; position: relative; text-align: center; text-decoration: none; text-shadow: 0 0 0 rgba(255, 255, 255, 0.6) !important; width: 100% !important; }
+.install-colR .quick-btn .label{ top: -10px !important;}
+.addProperty { background-color: #e4e4e4; border-bottom: 1px solid #c1c1c1; float: left; margin: 0; padding: 12px 0 12px 12%;}
+.addProperty .add-property-name{ width:268px!important;  float:left;}
+.addProperty .btnWrapper{ float:left; margin-left:10px;}
+.addProperty .error{margin: 5px 0 0 4px !important;}
+.addFields .error2{bottom: -9px;  color: #bc0404;  font-size: 13px;  margin: 0 0 0 3px!important;  position: absolute;}
+.introjs-tooltip{ font-size:14px!important;}
+
+@media only screen and (min-width :861px) and (max-width :1024px) {
+.graphPanel{ width:15.9%}
+.graphWrapper{ width:84.1%}	
+#leftNavi ul ul a{ font-size:13px;}
+#leftNavi .lastChild li a{ font-size:12px!important;}
+#leftNavi .lastChild li a{ padding:2px 10px 2px 30px!important;}
+.colLSeg{ width:55.5%!important}
+.colRSeg{ width:37%;!important}
+.colLSeg select, .colRSeg select{ width:155px!important;}
+.colLSeg input, .colRSeg input{ width:155px!important; font-size:12px!important;}
+.zebra td, .zebra th{ padding:5px!important;}
+.btn-success{ padding:3px 5px!important;}
+.inputosaurus-container{ width:280px!important;}
+.retentionWrapper select, .retentionWrapper input { width:150px; font-size:13px!important}
+.retentionWrapper .title{ margin-left:0;}
+.funnelR{ float:right; width:25%; margin:25px 0 0 0 }
+.funnelR input{ width:90%;}
+.EventsWrapper2{ width:282px!important;}
+.EventsWrapper2 input{ padding:5.5px 5px!important}
+}
+
+.totalEvents-colR { float: left; max-width: 100%; width: 50%; margin-top:inherit;}
+.totalEvents-colR .totalEvents { background-color: #e8e8e8 !important; border-radius: 4px; box-shadow: 2px 2px 5px #8f8f8f !important; color: #000; float: left; height: 80px !important; margin: 0 20px 30px 0 !important; width: 43% !important; }
+.totalEvents-colR .totalEventsT{ width: 192% !important;} 
+.totalEvents-colR .quick-btn { box-shadow: none !important; color: #272727 !important; display: inline-block; font-size: 19px; height: 80px; margin: 0 !important; padding-top: 20px; position: relative; text-align: center; text-decoration: none; text-shadow: 0 0 0 rgba(255, 255, 255, 0.6) !important; width: 100% !important; }
+.totalEvents-colR .quick-btn .label{ top: -10px !important;}
+
+.card{
+  float: right;
+  border: 1px solid #287cc2;
+  width: 440px;
+  margin: -268px 75px;
+  box-shadow: 0px 0px 10px rgb(17, 17, 17);
+  margin-left: 441px;
+  margin-top: -163px;
+  position: absolute;
+  background-color:#006eaa;
+}
+
+.card img{
+  float: left;
+  padding: 30px 0;
+}
+
+.card h1{
+  font-size: 32px!important;
+  margin: 15px 15px 0px 15px!important;
+  font-family: 'Source Sans Pro',sans-serif;
+  color: #ffffff;
+  padding-bottom: 30px;
+  word-break: break-all!important;
+}
+
+.card h2{
+  font-size: 22px;
+  margin: 10px 0 0 0;
+}
+
+.card p{
+  font-size: 15px;
+  margin: 5px 0 0 0;
+}
+
+.social a:hover{
+  text-decoration: none;
+}
+
+.details{
+  width: 95%;
+}
+
+.social{
+  margin: 15px 0 0 0;
+  font-size:20px;
+}
+.posrel{
+  position: relative;
+}
+.survey_bg {
+  width: 300px;
+  height: 603px;
+  background-image: url("../../images/simulator_bg.png");
+  background-repeat: no-repeat;
+  float: right;  
+  z-index: 99;
+  position: absolute;
+  /*top: -170px;*/
+  right: 100px;
+}
+.survey_box{
+  background-color: #006eaa;
+  top: 105px;
+  position: absolute;
+  left: 19px;
+  width: 88%;
+  height: 68%;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.survey_cont{
+  top: -320px;
+  width: 100%;
+}
+
+.survey_bg h1{
+  font-size: 22px!important;
+  margin: 0px 10px 0px 10px!important;
+  font-family: 'Source Sans Pro',sans-serif;
+  color: #ffffff;
+  padding-bottom: 25px;
+  word-break: break-all!important;
+  width: 220px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.survey_input{
+  margin-left: -120px;
+  margin-top: -6px;
+}
+.survey_dd{
+  margin-left: -120px;
+  margin-top: -6px;  
+  width: 34.5%!important;
+}
+.survey_ans{
+  width: 72%;
+  font-size: 13px;
+  display: block!important;
+  /*margin-left: 105px;*/
+  margin-top: -6px;
+  float: left;
+}
+.ques_wrapper{
+  width: 84%;
+  margin: 0 auto;
+  background-color: #f9f6f6;
+  border-radius: 2px; 
+  margin-bottom: 50px;
+}
+.question{  
+  background-color: #f2f2f2 !important;
+  color: #3d3d3d;
+  font-size: 14px;
+  padding: 15px 10px 30px 10px;
+  background: url("../../images/question_bg.png") repeat-x;
+  background-position:bottom;
+  word-break: break-all;
+  font-weight: bold;
+  width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.answer{
+  word-wrap: break-word;
+  font-size: 14px;
+  color: #333333;
+  line-height: 20px;
+  padding: 0px 15px 10px 15px;
+  word-break: break-all;
+  width: 180px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.details { width: 88%!important;}
+.survey_ans .txt{float: left;width: 84%!important;  margin-bottom: 10px !important;}
+.survey_ans .txt:last-child{margin-bottom: 0px!important;}
+.survey_ans .rembtn{ 
+  float: left;
+  width: 20px!important;
+  margin: 8px 0px 0px 8px!important;
+  display: inline!important;
+  background: url("../../images/remove.png") no-repeat;
+  border: none!important;
+}
+.survey_form .error{
+  float: left;
+  color: #b94a48;
+  font-size: 12px;
+  margin: 3px 0 5px 0px !important;
+}
+#answer{width:50%!important;}
+#answer .tag{
+  font-size: 13px;
+  font-weight: bold;
+  display: inline-block;
+  position: absolute;
+}
+.clearfix{clear: both!important;}
+.ans_no{
+  width: 100%!important;
+  float: left;
+  margin-left: -8px;
+  margin-bottom: 8px;
+}
+.addans{
+  width: 50%;
+  margin-right: 20px;
+}
+.ans_msg{
+ min-width: 65%;
+ float: left;
+ display: block;
+ width: auto;
+ padding-top: 5px;
+ 
+}
+.ans_btn{
+ width: 30%;
+}
+
+/*.remove_ans{
+ background: url("../../images/remove.png") no-repeat;
+ width: 16px;
+ height: 16px;
+ border: none!important;
+ float:left;
+ display: inline;
+}*/
+input[type="radio"]{
+   background-image: url("../../images/radio_btn.png") no-repeat left;  
+}
+.detail_wrap{border-bottom: 4px #c9c9c9 solid !important;padding-bottom: 10px !important;}
+.btn_wrapper{
+  padding: 15px 0px;
+  margin: 0 auto;
+  text-align: center;
+  background-color: #fff!important;
+}
+.btn_wrapper a{text-decoration: none!important;}
+.btn_wrapper a:hover{color: #fff!important;}
+.btn_cancel{  
+  background: #cc0000;
+  color: #f3f3f3;
+  padding:10px 15px;
+  text-decoration: none;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  font-size: 14px!important;
+  display: inline-block!important;
+  margin-right: 20px;
+}
+.btn_submit{
+  background: #292929;
+  color: #f3f3f3;
+  padding:10px 15px;
+  text-decoration: none;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  font-size: 14px!important;
+  display: inline-block!important;
+}
+.btn_addans{
+   background: #2184be;
+  color: #fff;
+  display: block;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  border: none!important; 
+    
+}
+#event_push .install-colL{width:100%!important;}
+.nobrdr{border:none !important;}
+.campForm .tracking input{float: left; width: auto!important; margin-top: 3px!important;}
+.campForm .fencing input{float: left; width: auto!important; margin-top: 3px!important;}
+#step2Html .row{margin-left: 0 !important;}
+#step2Html .col-lg-6{ width: 50%; float: left;}
+#step2Html .campForm label {width: 40%;}
+#step2Html .campForm .left{width: 50%;}
+#step2Html .campForm .or{width: 85%;  margin: 10px 0 10px 23%;}
+#step2Html .campForm .orBtnWrapper{margin: 0;width: 100%; text-align: center;}
+.mapCanvas{ float: right; height: 320px !important; margin: 0 !important; width: 490px; }
+.mrlt0{margin-left: 0px !important;}
+.dashicon{color: #000000!important;font-size: 14px!important;}
+.wd100{width: 100%;}
+.usercount{margin-top: -14px;}
+
+
+@media only screen and (min-width :961px) and (max-width :1024px){
+.survey_bg{right: 10px!important;}   
+.survey_input{margin-left: -57px!important;}
+.survey_dd{ margin-left: -57px!important;}  
+.survey_ans .txt{width: 75%!important;}
+.ans_no{margin-left: 25px!important;}
+.wd80{ width: 80%!important;}
+.mapCanvas{height: 290px !important; width: 450px !important; }
+}

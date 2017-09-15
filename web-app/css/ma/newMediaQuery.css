@@ -1,0 +1,49 @@
+@media only screen and (min-width :961px) and (max-width :1024px) {
+.appbox-menu{min-width: 125px;}   
+#emailAnalyticsDateWrapper .input-daterangepicker{width: 180px}
+#newOmniChannel  .auRow .users_statitics .col{min-height: 100px;}
+.couponCampaignForm{width: 92%;}
+#saveProfileQueryWidget .segmentWrapper .segmentLCol .InBetween{ width: 14%; margin: 0 6px 0 0;}
+.alignCrossAtt{width: 83%;}
+.emailAttMarginbt{width: 70%;}
+.attachedFileList{width: 70%;}
+#Cross2 input, #Cross3 input, #Cross4 input, #Cross5 input{margin-bottom: 7px!important;}
+#file2 input, #file3 input, #file4 input, #file5 input{margin-bottom: 7px!important;}
+.campaignRow .colRight .campaignSummary .segmentSummaryCampiagn{padding: 0 10px 20px 20px;}
+.whenWrapper label{width: auto;}
+/*.timeWrapperPush*/ 
+.timeBoxPrj{width: 37% !important;}
+.mrrg5Prj{margin-right: 5px !important;}
+#createSegmentedWidget .whenWrapper label{margin-right: 5px !important;}
+#editEmailCampaignWidget .whenWrapper label{margin-right: 5px !important; width: 75px !important;}
+#targetUsers label{width: 35% !important; padding-right: 0;}
+.campaignRow .colLeft{width: 56%;}
+#createSegmentedWidget .btn-sm, .btn-xs{margin-bottom: 5px!important;}
+#createSegmentedWidget .geoFencingAT label{width: 18%;}
+#editPushCampaignWidget .geoFencingAT label{width: 18%;}
+#editSegmentedWidget .btn-sm, .btn-xs {margin-bottom: 5px!important;}
+#createSegmentedWidget .whatMsgSetting{right: -52px;}
+#createSegmentedWidget .campFrequeny .chosen-container-single{left: 70px !important; width: 120px !important;}
+.mrrg30prj{margin-right: 30px!important;}
+.pdrg0prj{padding-right: 0;}
+.timeBoxPrj{width: 37% !important;}
+.timeBoxReg{margin-top: 20px;}
+.mrtp20{margin-top: 20px!important;}
+.lh30prj{line-height: 30px;}
+.mrtp9prj{margin-top: 9px !important;}
+#editPushCampaignWidget .sendDur .chosen-container{width: 130px !important; margin-left: -25px;}
+#editPushCampaignWidget .sendDur .chosen-container{width: 130px !important; margin-left: -25px;}
+#editPushCampaignWidget .whenWrapper label{margin-right: 5px !important;}
+.btn_cont{height: 100px;}
+/********ChatBotCss Starts********/
+#chatbotDashboardWidget .eventCount{right: 0 !important;}
+#chatbotNav li a img {display: block !important;
+}
+
+/********ChatBotCss Ends********/
+}
+
+@media only screen and (min-width :1025px) and (max-width :1280px) {
+}
+@media(min-width:1480px){
+}

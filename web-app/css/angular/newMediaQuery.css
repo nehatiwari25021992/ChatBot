@@ -1,0 +1,39 @@
+@media only screen and (min-width :961px) and (max-width :1024px) {
+.appbox{height: 175px;}
+.appbox-menu{min-width: 125px;}   
+.appbox:hover .transbox {left: -7px; width: 138px !important;}
+.appbox-logo img{width: 75%;}  
+.appbox-menu .app-name{font-size: 12px !important; word-break: break-word;}
+#emailWidget .mrbt50{margin-bottom: 20px;}
+.wrdBrk{word-break: break-all;}
+.actionContainer{padding: 3% 0 0 6%;}
+#resetUserPasswordWidget .buttonStrip{margin: 20px 0 0 0!important;}
+#pushWidget .appbox-menu{min-width: 118px;}
+#composeWidget .formTr{width: 80%; float: none; margin: 0 auto;}
+#composeWidget ul.token-input-list-facebook{width: 100%;}
+#Cross2 input, #Cross3 input, #Cross4 input, #Cross5 input{margin-bottom: 7px!important;}
+#app42AppSettingsWidget .order-info-list span{word-break: break-word; width: 70%;}
+#app42AppSettingsWidget .btn_plus{margin: 0px 10px 0px 10px; vertical-align: top;}
+#app42AppSettingsWidget .nav-pills > li{font-size: 13px;}
+#app42AppSettingsWidget  .nav-pills > li > a{min-width: 60px !important; padding: 4px 7px;}
+#app42AppSettingsWidget  #app-config .widget-header{font-size: 13px !important;}
+#app42AppSettingsWidget .mrlt33{margin-left: 0px}
+#app42AppSettingsWidget .mrlt30{margin-left: 0px}
+#app42AppSettingsWidget .mrlt35{margin-left: 0px}
+.pdrg0prj{padding-right: 0 !important;}
+#appsWidget .appbox{height: 212px !important;}
+#appsWidget .appbox:hover .transbox{left: -2px; width: 153px !important;}
+#appsWidget .appstateWrapper .statebtn{width: 80px;}
+#appsWidget .bootstrap-switch .bootstrap-switch-label{font-size: 12px !important;}
+.appstateWrapper .title{margin: 3px 5px 0 5px; font-size: 13px !important; line-height: 25px;}
+.bootstrap-switch .bootstrap-switch-handle-on, .bootstrap-switch .bootstrap-switch-handle-off, .bootstrap-switch .bootstrap-switch-label{padding-left: 5px !important; padding-right: 5px !important;font-size: 13px !important;}
+#pushWidget .appbox{height: 175px; margin: 0 0 60px 0;}
+#pushWidget .appbox:hover .transbox{left: 1px; width: 138px !important;}
+.btn_cont{height: 100px;}
+.activityLogsAll{margin-left: 40px !important;}
+}
+
+@media only screen and (min-width :1025px) and (max-width :1280px) {
+}
+@media(min-width:1480px){
+}

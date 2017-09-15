@@ -1,0 +1,123 @@
+@media only screen and (min-width :961px) and (max-width :1024px) {
+/*** Projector responsiveness starts ***/
+.dbWrapper .auRow .usersMap .userData{width: 28%; padding: 12px 10px 2px 10px;}
+.dbWrapper .auRow .usersMap .userData .row{margin: 15px 0 20px 0;}
+.dbWrapper .auRow .usersMap .userData .row h1{font-size: 30px;}
+.dbWrapper .auRow .usersMap .userData .row span{margin: 15px 0 0 5px;}
+.dbWrapper .auRow .usersMap .userData .platforms span{font-size: 18px;}
+.dbWrapper .trendingEvents .tEventsRow .lPanel{width: 16%;}
+.dbWrapper .trendingEvents .tEventsRow .lPanel .time{text-align: right;}
+.eventCount{left: 0;}
+.segmentWrapper .segmentLCol .segAudienceWrapper .segTitleBar{border-top-left-radius: 5px; border-top-right-radius: 5px;}
+.segmentWrapper .segmentRCol .SummaryWrapper .sumfooter{border-bottom-left-radius: 5px; border-bottom-right-radius: 5px;}
+.profileRow{margin: 20px 0 0 0;}
+.profileRowBS{margin: 0 0 30px 0;}
+.profileTotalUser{margin: 20px 1% 20px 0; width: 20%;}
+.liveViewWrapper .UniqueWrapper{position: absolute; right: 0;}
+.chosenEventProj{margin: 10px 0 10px 0 !important;}
+.liveViewWrapper .daterangepicker.dropdown-menu{margin-left: 12px!important;}
+#maUserRangeWrapper .daterangepicker.dropdown-menu{margin-left: 25px!important; margin-top: 40px!important;}
+#maUserRangeWrapper .daterangepicker.dropdown-menu{margin-left: 25px!important; margin-top: 40px!important;}
+.calendarWrapper{margin: 0 !important; width:100% !important;}
+.colProj .chosen-container{min-width: 150px !important;}
+.pdrg0prj{padding-right: 0px !important;}
+.editGoal{width: 100%!important; /*** margin-top: -34px; ****/}
+.inActive{height: 210px!important;}
+.encWrapper .rowA .campIcon{left: 37%!important;}
+.pd0prj{padding: 0 !important;}
+.pdtp0prj{padding-top: 0 !important;}
+.pdlt0prj{padding-left: 0 !important;}
+.pdrg0prj{padding-right: 0 !important;}
+.VariantTab li a{font-size: 12px!important;}
+.pushUserPropBtn{right: -30px;}
+.scrollbar{width: 130px !important;}
+.boxwd100{width: 80px !important;}
+.whenWrapper label{width: auto !important;}
+.whenWrapper .inputBox{width: 60%!important;}
+.ondateBox{width: 23% !important; padding: 0;}
+.crtpushUserPropBtn{right: -30px!important;}
+.cTextarea{width: 79%!important;}
+#msgBlock .form-horizontal .form-group{margin-left: 0!important; margin-right: -15px!important;}
+#createSegmentedWidget .segmentDD .chosen-container{width: 250px!important;}
+#summaryUsersCount {font-size: 13px;}
+#summaryUsersCount span {font-size: 22px;}
+.pushDwellUserPropBtn{right: -36px}
+.removeCir{margin-top: 40px;}
+#editPushCampaignWidget .removeCir{margin-top: 10px;}
+.whenWrapper .wd100{width: 120% !important;}
+.mrlt40prj{margin-left: 40px;}
+.segmentDD .chosen-container{width: 250px!important;}
+.valueCE{width: 95px !important; margin: 5px 0 0 0;}
+.valueCE input{margin-left: 10px;}
+.decWrapper .decTab .colB{width: 45% !important;margin-right: 0px!important;}
+#app42EditInAppWidget .ciacWrapper{width: 56%!important;}
+.positionTab .positionBtn font{font-size: 12px !important;}
+.dbWrapper .auRow .users_statitics .col font{font-size: 20px!important;}
+.dbWrapper .auRow .users_statitics .col font span{margin: 0!important;font-size: 12px!important;display: block;font-weight: bold;}
+.inappEventN{width:36% !important;}
+.decWrapper .decTab .btn-default{margin: 0px 0 0 16px; width: 34%;}
+.mrlt0{margin-left: 0!important;}
+.eventInappCamp{width: 105px!important;}
+.eventInappCamp .form-control{padding: 8px 5px!important;}
+.advanceSearchRow{background: url(/images/ui-0.1/asTree.png) repeat-y scroll left 20px / 16px 80px rgba(0, 0, 0, 0)!important;}
+.removebtnwrapper{padding-left: 0 !important;margin: 10px 0!important;}
+.whenWrapper .fs{width: 32%!important;}
+.ondateBox label{width: 45%!important;}
+.monthlyBox .chosen-container{width: 68%!important;}
+.weeklyBox{ padding-right: 0px !important; margin-right: 0px !important;width: 20%!important;}
+.weeklyBox .chosen-container{width: 68%!important;}
+.timepicker .form-control{height: 34px!important; padding: 8px 5px;}
+.timepicker .input-group-addon {padding: 5px 10px!important;}
+.input-group-addon {padding: 8px 10px!important;}
+.createSurveyOnEvent .chosen-container{width: 101%!important;}
+.couponCampaignForm fieldset{padding: 25px !important;}
+.survayEventN{width:38%!important;}
+.couponCampaignForm .propKey{width: 150px !important; margin-bottom: 10px !important;}
+.couponCampaignForm .propVal {margin-left: -20px!important; width: 180px !important; margin-bottom: 10px;}
+.couponCampaignForm .propKey1{width: 150px !important; margin-bottom: 10px !important;}
+.couponCampaignForm .propVal1{margin-left: -5px!important; margin-top: -4px; width: 180px !important;}
+.createCC .chosen-container{width: 90%!important; margin-left: 8%;}
+.pushSettingsWraper {width: 98%; margin: 1%;}
+.pushSettingsWraper .iOSCol {width: 31% !important;}
+.pushSettingsWraper .iOSCol .tr .uploadBox button{ margin: 0 0 0 10px;}
+#appConfi h3{font-size: 22px !important;}
+.viralitysec .statebtn .bootstrap-switch{width: 112px !important;}
+.bootstrap-switch .bootstrap-switch-handle-on, .bootstrap-switch .bootstrap-switch-handle-off, .bootstrap-switch .bootstrap-switch-label{padding: 6px 5px!important; font-size: 12px!important; width: 55px!important;}
+.edit-virality1{right: 6%;}
+.trmBot input{width:79px!important; height: 34px!important;}
+.freqPills{margin-top: 15%; left: 5%;}
+#createViralityProgrammeWidget .input-group input{height: 34px!important;}
+#editViralityProgrammeWidget .input-group input{height: 34px!important;}
+.hg34{height: 34px!important;} 
+#eventAdvanceSegmentBox{margin: 10px 0!important;}
+#eventAdvanceSegmentBox col1{width:25%!important;}
+#eventAdvanceSegmentBox col2{width:65%!important;}
+#eventAdvanceSegmentBox col3{width:10%!important;}
+#churnsWidget h4{font-size: 28px!important;}
+#conversionListWidget h4{font-size: 28px!important;}
+.contSend{width: 94% !important; margin: 0!important;}
+#newOmniChannel .trendingEvents{width: 49% !important;}
+#newOmniChannel  .trendingEvents .tEventsWrapper{width: 325px!important;}
+#newOmniChannel  .trendingEvents .tEventsWrapper #chart{width:100%!important;}
+#newOmniChannel  .trendingEvents .tEventsWrapper .highcharts-container {width: 280px!important;}
+.trmBot .rewardWhom .chosen-container{width: 125px!important;}
+.trmBot .rewardWhom input{width: 100%!important;}
+.trmBot .onEvent .chosen-container{width: 135px!important;}
+.trmBot .onEvent  input{width: 100%!important;}
+.colB .chosen-container{width: 140px!important;}
+.colC .chosen-container{width: 100px!important;}
+.fwpWrapper .control-label{padding: 5px 0 0 0 !important;}
+.createFacebookRemarketing p{word-break: break-all!important;}
+.sendDur .chosen-container{width: 85px !important;}
+.effectiveComparison .col .titleA{width: 94%; font-size: 20px;}
+#installsDashboardDateWrapper .daterangepicker.dropdown-menu{top: 38px !important;left: -38px !important;}
+#uninstallDateWrapper .daterangepicker.dropdown-menu{top: 38px !important;left: -38px !important;}
+.liveViewGraphWrapper{width: 100%!important;}
+.pdtp10prj{padding-top: 10px!important;}
+.pdtp0prj{padding-top: 0px!important;}
+#editViralityProgrammeWidget .trmBot .chosen-container{width: 125px !important;}
+#editViralityProgrammeWidget .trmBot .chosen-container span{white-space: nowrap;width: 100px;overflow: hidden;text-overflow: ellipsis;}
+#editViralityProgrammeWidget .trmBot .chosen-search input{width: 115px!important;}
+.trmBot .rewardWhomEvent .chosen-container{width: 135px !important;}
+/*** Projector responsiveness ends ***/
+}

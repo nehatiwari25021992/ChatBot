@@ -1,0 +1,76 @@
+/*  File Name : login_style.css
+ *  Description : Style Sheet for Project Management
+ *  Author  : Rameshwar Sah  Date: 25th,Dec,2011  Creation
+ */
+
+body{ margin:0px; padding:0px; /*background-image: url(../images/log-in/page_bg.jpg); background-repeat: repeat-x;*/}
+.login_box{ width:430px; margin-left:auto; margin-right:auto; margin-top: 50px; min-height:375px; }
+.pm_logo{ width:152px; margin-left:auto; margin-right:auto; margin-top: 30px; margin-bottom: 70px;} 
+.login_box_header { background-image: url(../images/log-in/pm_top_h.png); background-repeat: repeat-x; height: 45px; width: 430px; float: left; text-align: center;}
+.login_box_inner{ float: left; width: 408px; padding: 10px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-right-color: #c4c4c4; border-bottom-color: #c4c4c4; border-left-color: #c4c4c4; border-top-color: #c4c4c4; background-color: #FFFFFF;}
+.reset_login_box_inner{ float: left; width: 408px; padding: 10px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-right-color: #c4c4c4; border-bottom-color: #c4c4c4; border-left-color: #c4c4c4;}
+.errer_bg{ width:385px; float: left; background-image: url(../images/log-in/pm_errer_bg.png); background-repeat: no-repeat; height: 23px; font-family: Tahoma; font-size: 14px; color: #c82820; padding-left: 25px; padding-top: 5px;}
+.errer_bg2{ width:385px; float: left; background-image: url(../images/log-in/pm_errer_bg.png); background-repeat: no-repeat; height: 23px; font-family: Tahoma; font-size: 14px; color: #c82820; padding-left: 25px; padding-top: 5px; margin-bottom:3px; }
+.informative{ width:385px; float: left; background-image: url(../images/log-in/informative.png); background-repeat: no-repeat; height: 23px; font-family: Tahoma; font-size: 14px; color: #0b465b; padding-left: 25px; padding-top: 5px;}
+.reset_heading{ width:410px; color: #626262; height: 23px; margin-bottom: 5px; padding-top: 5px; text-align: center; background-color: #f1f5f8; font-size: 12px; font-weight: bold; font-family: Tahoma;}
+.success_bg{ width:375px; float: left; background-image: url(../images/log-in/pm_success_bg.png); background-repeat: no-repeat; height: 23px; font-family: Tahoma; font-size: 14px; color: #2c9e2c; padding-left: 35px; padding-top: 5px;}
+
+.lb_body{ width:410px; float: left; margin-top: 10px; font-family: Tahoma; font-size: 12px; color: #5a595e;}
+.lb_body a{ color:#5a595e;}
+.lb_body a:hover{ color:#162f50; text-decoration:none}
+.lable_txt{ color:#626262; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px; font-weight: bold; height: 38px; padding-right: 1px; white-space: nowrap;}
+.input_box{ width:97%; border: 1px solid #b6b6b6; /*background-image: url(../images/pm_input_bg.jpg); background-repeat: repeat-x;*/ height: 24px; font-family: Verdana, Arial, Helvetica, sans-serif; color: #626262; font-size: 12px; font-weight: bold; padding-top: 4px; padding-left: 5px;}
+.btn1{ color:#5a595e; line-height: 22px; padding-left: 3px;}
+.btn1 a{ color:#444347; text-decoration:underline; font-size: 11px; }
+.btn1 a:hover{ color:#000; text-decoration:none; }
+/*Reset Password**/
+.reset_box{ width:430px; margin-left:auto; margin-right:auto; display: none;}
+/*Reset Password End**/
+
+/**Register Page**/
+.register_box_inner{ float: left; width: 408px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-right-color: #c4c4c4; border-bottom-color: #c4c4c4; border-left-color: #c4c4c4; padding: 10px; margin-bottom: 30px; background-color: #FFFFFF; border-top-color: #c4c4c4;}
+/**Register Page End**/
+.us1{width:300px; margin-left:auto; margin-right:auto; margin-top:10px; text-align:center; font-weight:bold; color:#193356; font-size:11px;}
+.us2{width:77px; margin-left:auto; margin-right:auto; margin-top:20px;}
+
+/*Comming Soon*/
+.cmg_logo{ width:152px; margin-left:auto; margin-right:auto; margin-top: 30px; margin-bottom: 50px;} 
+.clear{ clear:both;}
+.cmg_wrapper{ width:500px; margin-left:auto; margin-right:auto; color:#494949; font-family: Tahoma; }
+.cmg_head{ width:500px; float:left; text-align:center; font-size:26px; font-weight:bold; margin-bottom: 10px; }
+.cmg_title{ width:500px; float:left; text-align:center; font-size:12px;}
+.cmg_timer_wrapper{ width:500px; float:left; height:88px; margin-top:20px; background-image: url(../images/final/comming_soon_bg.png); background-repeat: no-repeat; color: #EDEDED; text-align:center; font: bold 50px/1em "Helvetica Neue",Helvetica,Arial,sans-serif; text-shadow: 0 0 5px #444444; padding-top: 30px;}
+.back_btn{ width:500px; text-align:center; padding-top: 20px; float: left; font-size: 14px; }
+.back_btn a{color:#494949; text-decoration:none;}
+.back_btn a:hover{color:#27537e; text-decoration:none;}
+.cmg_timer_box{ width:119px; height:118px; float:left; background-image: url(../images/final/timer_box.png); background-repeat: no-repeat; }
+.cmg_timer_sep{ width:8px; float:left; height:108px;}
+.cmg_time_1{ color: #EDEDED; font: bold 80px/1em "Helvetica Neue",Helvetica,Arial,sans-serif; margin-top: -5px; text-shadow: 0 0 5px #444444; width: 119px; text-align: center; float: left; margin-top: 3px; }
+.cmg_days{ color: #102132; font: 20px/1em 'Oswald',"Helvetica Neue",Helvetica,Arial,sans-serif; text-shadow: 0 1px 0 #306192; text-transform: uppercase; float: left; width: 119px; text-align: center; margin-top: 5px; }
+.cmg_notified_box{ width:500px; float:left; margin-top: 30px; padding-bottom: 15px; background-image: url(../images/final/noti_bg.jpg); background-repeat: repeat-y; }
+.noti_txt{ width:500px; float:left; text-align:center; font-weight: bold; font-size: 20px; padding-top: 10px; padding-bottom: 10px; color: #CCCCCC; }
+.notification_signup { width: 440px; margin-right: auto; margin-left: auto; background: url("../images/final/bg_input_form.png") repeat-x scroll left bottom transparent; padding-left: 5px; height: 44px; }
+.input_box_2{ float:left; width: 286px; height: 34px; padding-top: 13px;  }
+.notification_signup input { background-color: transparent; border: medium none; color: #777777; float: left; font-size: 18px; text-shadow: 0 1px 0 #FFFFFF; width: 264px; margin: 0; padding: 0; }
+.cmg_btn_box{ float:right; }
+.notification_signup button { background-color: #306192; background-image: url("../images/final/bg_signup_btn.png"); background-position: left bottom; background-repeat: repeat-x; border: medium none; color: #FFFFFF; cursor: pointer; font-family: Arvo,"Helvetica Neue",Helvetica,Arial,sans-serif; font-size: 16px; height: 44px; line-height: 1; margin: 0; text-align: center; text-shadow: 1px 0 3px #444444; padding-top: 0; padding-right: 10px; padding-bottom: 0; padding-left: 10px; }
+.notification_signup button:hover { background-color: #5E94CA; }
+.social{ width:500px; float:right; background-image: url(../images/final/noti_bg_2.jpg); background-repeat: repeat-y; height: 30px; padding-top: 10px; }
+.social td{ padding-left:5px; padding-right: 5px; }
+/*Comming Soon End*/
+.page_not_f{  width:800px;  height:183px;  margin-left:auto;  margin-right: auto;  background-image: url(../images/final/404.png);  background-repeat: no-repeat;  margin-top:60px;  color: #EDEDED;  text-align:center;  text-shadow: 0 0 5px #444444;  padding-top: 81px;  padding-right: 50px;  padding-left: 50px;  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;  font-size: 35px;  line-height: 1.2em;  font-weight: bold; }
+.page_not_f_500{  width:800px;  height:183px;  margin-left:auto;  margin-right: auto;  background-image: url(../images/final/500.png);  background-repeat: no-repeat;  margin-top:60px;  color: #EDEDED;  text-align:center;  text-shadow: 0 0 5px #444444;  padding-top: 81px;  padding-right: 50px;  padding-left: 50px;  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;  font-size: 35px;  line-height: 1.2em;  font-weight: bold; }
+.back_btn_2{  width:1024px;  text-align:center;  padding-top: 20px;  font-size: 14px;  margin-right: auto;  margin-left: auto; }
+.back_btn_2 a{color:#494949; text-decoration:none;}
+.back_btn_2 a:hover{color:#27537e; text-decoration:none;}
+/************************************Header************************************/
+.shephertz_app42_cloud_api_top_header_wrapper { background-image: url("../images/final/top_bg.gif"); background-repeat: repeat-x; float: left; height: 78px; width: 100%;}
+.shephertz_app42_cloud_api_top_header_box { margin-left: auto; margin-right: auto; width: 1100px;}
+.shephertz_app42_cloud_api_green_wrapper { background-image: url("../images/final/green-bg.gif"); background-repeat: repeat-x; float: left; height: 30px; width: 100%;}
+.shephertz_app42_cloud_api_logo { float: left; margin-left: 15px; margin-top: 1px;}
+/************************************Header End************************************/
+/************Footer**********/
+.shephertz_app42_cloud_api_footer_wrapper { background-image: url("../images/final/footer_bg.gif"); background-repeat: repeat-x; bottom: 0; color: #CECECE; float: left; font-family: Tahoma; font-size: 11px; height: 10px; margin-top: 50px; padding-bottom: 15px; padding-top: 15px;  text-align: center; width: 100%;}
+.shephertz_app42_cloud_api_footer_wrapper .right { float: right; margin-left: 15px; margin-right: 10px;}
+.shephertz_app42_cloud_api_footer_wrapper .right a { color: #969696; padding-left: 5px; padding-right: 5px; text-decoration: none;}
+.shephertz_app42_cloud_api_footer_wrapper .right a:hover { color: #FFFFFF;}

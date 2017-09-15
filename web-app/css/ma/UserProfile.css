@@ -1,0 +1,328 @@
+.userInfoRow{ float:left; width:100%; margin:30px 0 50px 0; }
+.userInfoRow .userInfoCol{ float:left; width:22%; margin:0 5% 0 0; font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;}
+.userInfoRow .userInfoCol:last-child { margin:0} 
+/*.userInfo {word-break: break-all; width: 75%;}*/
+.userInfo { overflow: hidden;white-space: nowrap;text-overflow: ellipsis; width: 75%;}
+.userInfoRow .userInfoCol .name{ word-break: break-all;float:left; width:100%; margin:0 0 10px 0; font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif; color: #000000; font-size: 16px; font-weight:bold }
+.userInfoRow .userInfoCol .logInfo{ float:left; width:100%; margin:0 0 10px 0; font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif; color: #666666; font-size: 12px;}
+.userInfoRow .userInfoCol .logInfo:last-child { margin:0}
+.userInfoRow .userInfoCol .contactInfo{float:left; width:100%; margin:0 0 20px 0; font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif; color: #000; font-size: 13px;}
+.userInfoRow .userInfoCol .contactInfo:last-child { margin:0}
+.userInfoRow .userInfoCol .contactInfo.disable{ color:#999999!important}
+.userInfoRow .userInfoCol.profilepic{ width:15%; position:relative; text-align:center}
+.userInfoRow .userInfoCol.profilepic img{ border-radius:50%;height: 125px; width: 125px;}
+.userInfoRow .userInfoCol .email, .userInfoRow .userInfoCol .gender, .userInfoRow .userInfoCol .phone, .userInfoRow .userInfoCol .date, .userInfoRow .userInfoCol .location, .userInfoRow .userInfoCol .latlong, .userInfoRow .userInfoCol .male, .userInfoRow .userInfoCol .female{ background-repeat: no-repeat; background-position:0 0; padding:0 0 0 25px;}
+.userInfoRow .userInfoCol .email{background-image:url(../../images/ma/user_profile/email.png);}
+.userInfoRow .userInfoCol .gender{ background-image:url(../../images/ma/user_profile/gender.png);}
+.userInfoRow .userInfoCol .phone{ background-image:url(../../images/ma/user_profile/phone.png);}
+.userInfoRow .userInfoCol .male{ background-image:url(../../images/ma/user_profile/UserProfile-Male-icon-01.png);}
+.userInfoRow .userInfoCol .female{ background-image:url(../../images/ma/user_profile/UserProfile-Female-icon-01-01.png);}
+.userInfoRow .userInfoCol .date{ background-image:url(../../images/ma/user_profile/date.png);}
+.userInfoRow .userInfoCol .location{ background-image:url(../../images/ma/user_profile/location.png);}
+.userInfoRow .userInfoCol .latlong{ background-image:url(../../images/ma/user_profile/latlong.png);}
+.backToProfile{ background-image:url(../../images/ma/user_profile/back.png); background-repeat: no-repeat; padding-left: 34px; color: #2c92d6; line-height: 14px; font-size: 13px; margin: 20px 10px 20px 0;}
+.userInfoRow .infoBox{ float:left; width:22%; height:210px; position:relative; margin:0 1% 0 0; background-color:#defcff; border:1px solid #2396e4; border-radius:5px; box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.08), 0 2px 8px 0 rgba(0, 0, 0, 0.12);}
+.userInfoRow .infoBox.fs{ width:54%!important;}
+.userInfoRow .infoBox:last-child { margin:0}
+.userInfoRow .infoBox .th{ float:left; width:100%; padding:15px 0; background-color:#2e93d7; font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif; color: #fff; font-size: 16px; font-weight: normal; text-align:center;}
+.userInfoRow .infoBox .trData{width:100%; position:absolute; bottom:23%; font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif; color: #333333; font-size: 23px; font-weight: normal; text-align:center; text-transform:uppercase}
+.userInfoRow .infoBox a{border-right:1px solid #d7d7d7;}
+.userInfoRow .infoBox a:last-child{ border:none;}
+.userInfoRow .infoBox a{ float:left; width:33.33%; height:155px; padding-top:75px; text-align:center; cursor:pointer; text-decoration:none}
+.userInfoRow .infoBox a:hover{ background-color:#9ed8ff; text-decoration:none}
+.userInfoRow .infoBox a font{ font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif; color: #999999; font-size: 14px;}
+.userInfoRow .infoBox a:hover font{ color:#333333;}
+.userInfoRow .infoBox .web_push, .userInfoRow .infoBox .mobile_push, .userInfoRow .infoBox .wall_push, .userInfoRow .infoBox .email_push, .userInfoRow .infoBox .email_push_active,.userInfoRow .infoBox .mobile_push_active,.userInfoRow .infoBox .wall_push_active ,.userInfoRow .infoBox .web_push_active{ background-repeat: no-repeat; background-position:center center;}
+.userInfoRow .infoBox .web_push{background-image:url(../../images/ma/user_profile/web_push.png);}
+.userInfoRow .infoBox .mobile_push{background-image:url(../../images/ma/user_profile/mobile_push.png);}
+.userInfoRow .infoBox .wall_push{background-image:url(../../images/ma/user_profile/wall_push.png);}
+.userInfoRow .infoBox .email_push{background-image:url(../../images/ma/user_profile/email_push.png);}
+.userInfoRow .infoBox .web_push:hover{background-image:url(../../images/ma/user_profile/web_push_hover.png);}
+.userInfoRow .infoBox .web_push_active{background-image:url(../../images/ma/user_profile/web_push_hover.png);}
+.userInfoRow .infoBox .mobile_push:hover{background-image:url(../../images/ma/user_profile/mobile_push_hover.png);}
+.userInfoRow .infoBox .mobile_push_active{background-image:url(../../images/ma/user_profile/mobile_push_hover.png);}
+.userInfoRow .infoBox .wall_push:hover{background-image:url(../../images/ma/user_profile/wall_push_hover.png);}
+.userInfoRow .infoBox .wall_push_active{background-image:url(../../images/ma/user_profile/wall_push_hover.png);}
+.userInfoRow .infoBox .email_push:hover{background-image:url(../../images/ma/user_profile/email_push_hover.png);}
+.userInfoRow .infoBox .email_push_active{background-image:url(../../images/ma/user_profile/email_push_hover.png);}
+.UserProfileRow{ float:left; width:100%; margin:0 0 50px 0; }
+.UserProfileRow .title{ float:left; /**** width:100%; ****/ margin:0 0 20px 0; font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif; color: #000000; font-size: 20px; font-weight: normal;}
+.UserProfileRow .dataTable{ float:left; width:100%; border:1px solid #2e94d7; border-top:2px solid #2e94d7; box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.08), 0 2px 8px 0 rgba(0, 0, 0, 0.12);}
+.UserProfileRow .dataTr{ float:left; width:100%; border-bottom:1px solid #999999; font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif; color: #333333; font-size: 14px; /**** overflow: hidden;***/}
+.UserProfileRow .dataTh{ float:left; border-bottom:1px solid #999999; border-right:1px solid #999999; padding:8px 15px; font-weight:600}
+.UserProfileRow .dataTd{ float:left; border-right:1px solid #999999; padding:15px; min-height:52px; height: auto !important;}
+.UserProfileRow .dataTd a{ color:#006bb1; text-decoration:underline; font-size:13px;}
+.UserProfileRow .dataTd a:hover{ color:#045386;}
+.UserProfileRow .dataTd:nth-last-child{border-right: none !important;}
+.UserProfileRow .colA{ width:10%}
+.UserProfileRow .colB{ width:50%}
+.UserProfileRow .colC{ width:17%}
+.UserProfileRow .colD{ width:23%}
+.UserProfileRow .colA, .UserProfileRow .colB, .UserProfileRow .colC, .UserProfileRow .colD{padding-bottom: 50em; margin-bottom: -50em;}
+.UserProfileRow .colC img{ margin:-4px 15px 0 0}
+.UserProfileRow .activityLocationsMap{ float:left; width:100%; border-radius:5px; box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2), 0 2px 10px 0 rgba(0, 0, 0, 0.2);}
+.UserProfileRow .activitiesTimeline{float:left; width:100%; border-radius:5px; border:1px solid #d7d7d7;}
+.UserProfileRow .activitiesTimeline .colLeft{ float:left; width:40%; padding:30px 50px;}
+.UserProfileRow .activitiesTimeline .colLeft .title{ float:left; width:100%; margin:0 0 10px 0; padding:0 0 10px 0; border-bottom:1px solid #d7d7d7; font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif; color: #253d51; font-size: 13px;}
+.UserProfileRow .activitiesTimeline .colLeft ul{ float:left; margin:0; padding:0;}
+.UserProfileRow .activitiesTimeline .colLeft li{list-style: none;}
+:root .activitiesTimelineCheckbox input[type="checkbox"] + span, :root .activitiesTimelineCheckbox input[type="checkbox"] + span::before { display: inline-block; vertical-align: middle; font-weight:normal; }
+:root .activitiesTimelineCheckbox { position: relative; }
+:root .activitiesTimelineCheckbox input[type="checkbox"] { opacity: 0; position: absolute; }
+:root .activitiesTimelineCheckbox input[type="checkbox"] + span::before { content: ""; width: 13px; height: 13px; margin: 0 10px 0 0; border: solid 1px #a6a6a6; line-height: 11px; text-align: center; -moz-border-radius: 100%; -webkit-border-radius: 100%; border-radius: 100%; background: #e5e5e5; background: -moz-radial-gradient(#e5e5e5, #dfdfdf); background: -webkit-radial-gradient(#e5e5e5, #dfdfdf); background: -ms-radial-gradient(#e5e5e5, #dfdfdf); background: -o-radial-gradient(#e5e5e5, #dfdfdf); background: radial-gradient(#e5e5e5, #dfdfdf); }
+:root .activitiesTimelineCheckbox input[type="checkbox"]:checked + span::before { color: #424242; }
+:root .activitiesTimelineCheckbox input[type="checkbox"] + span::before { -moz-border-radius: 2px; -webkit-border-radius: 2px; border-radius: 2px; }
+:root .css3-radios input[type="radio"]:checked + span::before { content: "\2022"; font-size: 24px; }
+:root .activitiesTimelineCheckbox input[type="checkbox"]:checked + span::before { content: "\2714"; font-size: 13px; margin:0 10px 0 0 }
+.UserProfileRow .activitiesTimeline .colLeft .timelineSearch{ float:left; width:100%;}
+.UserProfileRow .activitiesTimeline .colLeft .timelineSearch li{ margin:0 0 15px 0; color:#000}
+.UserProfileRow .activitiesTimeline .colLeft .timelineSearch font{ float:left; width:100%; margin:6px 0 0 24px;font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif; color: #999999; font-size: 12px; font-weight:normal }
+.UserProfileRow .activitiesTimeline .colRight{ float:right; width:75%; min-height:350px; padding:30px 0 30px 0;}
+.UserProfileRow .activitiesTimeline .colRight .title{ float:left; width:100%; margin:0 0 10px 0; font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif; color: #000; font-size: 15px;}
+.UserProfileRow .activitiesTimeline .colRight .title span{ float:left; margin:0 0 0 80px}
+.UserProfileRow .activitiesTimeline .colRight .title .deviceIcon{ float:left; width:12px; height:24px; margin:0 0 0 10px; background-image:url(../../images/ma/user_profile/deviceIcon.png); background-repeat:no-repeat;}
+.UserProfileRow .activitiesTimeline .colRight .historyWrapper{ float:left; width:100%; margin:0 0 10px 0; position:relative; /*background-image:url(../../images/ma/user_profile/historyBar.png); background-repeat:repeat-y; background-position:25% 0*/}
+.UserProfileRow .activitiesTimeline .colRight .historyRow{ float:left; min-width:520px; height:94px; position:relative; background-image:url(../../images/ma/user_profile/historyBar.png); background-repeat:no-repeat; background-position: 25% center; font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif; color: #000; font-size: 15px;}
+.UserProfileRow .activitiesTimeline .colRight .historyRow:first-child{background-image:url(../../images/ma/user_profile/historyBar_last.png);}
+.UserProfileRow .activitiesTimeline .colRight .historyRow .dateCol{ float:left; width:30%; position:absolute; left:0; bottom:5px}
+.UserProfileRow .activitiesTimeline .colRight .historyRow .historyCol{ float:left; min-width:70%; padding:0 0 0 8%; position:absolute; bottom:5px;margin-left: 36%;}
+.UserProfileRow .activitiesTimeline .colRight .historyRow .historyCol span{ float:left; width:100%; margin:10px 0 0 0; font-size:12px; color:#666666; }
+.UserProfileRow .activitiesTimeline .colRight .loadmore{ float: left; width: 100%; margin: 0 0 40px 0; position: relative;}
+.UserProfileRow .activitiesTimeline .colRight .loadmoreRow{ background-image: url(../../images/ma/user_profile/LoadMore.png); margin-top: -12px;float: left; min-width: 520px; height: 94px; position: relative; background-repeat: no-repeat; background-position: 25% center; font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif; color: #000; font-size: 15px;}
+.UserProfileRow .activitiesTimeline .colRight .loadmoreRow .loadCol{ float:left; min-width:70%; padding:0 0 0 8%; position:absolute; bottom:5px;margin-left: 13.7%;}
+
+/*************** User Profile Search Page *****************/
+
+
+.UserProfileSearchBox{ float:left; width:100%; margin:20px 0 30px 0; }
+
+.UserProfileSearchBox .nav-tabs > li > a {border: 1px solid #2d92d6; border-top-right-radius:5px; border-top-left-radius:5px; background-color: #fff !important; font-size: 14px; text-transform: capitalize;}
+.UserProfileSearchBox .tab-content {background-color: #f5f5f5; border: 1px solid #2d92d6; border-bottom: 1px solid #2d92d6;}
+.UserProfileSearchBox .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus{background-color: #f5f5f5 !important; border: 1px solid #2d92d6; border-bottom-color: #f5f5f5;}
+
+.UserProfileSearchBox .nav-tabs > li.active > a:hover{border: 1px solid #2d92d6 !important; border-bottom-color: #f5f5f5 !important;}
+
+.add-on .input-group-btn > .btn {
+    border-left-width:0;left:-2px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+.mrtp35{margin-top: 35px;}
+.pd0{padding: 0 !important;}
+.userProfileDevType{ background-color: #eaf7ff; border: 1px dashed #999999; padding: 5px; margin-top: 20px; border-radius: 5px; margin-bottom: 19px;}
+.userProfileDevType .title, .userProfileDesc .title{position: relative;}
+.userProfileDevType .title h3, .userProfileDesc .title h3{font-size: 14px; color: #000; text-align: center; position: absolute; top: -33px; left: 38%; padding: 0 6px; background-image:url(../../images/ma/user_profile/titleBg.png); background-repeat: repeat-x; font-weight: 500;}
+.userProfileDevType .radioWrapper{width: 100%; padding: 7% 0 8% 2%; margin: 0 auto;}
+.userProfileDevType .radio{float: left; width: 23%; margin-top: 0px!important; position: relative;}
+.userProfileDevType .radio:last-child{ width: 28%;  margin-left: 0;}
+.userProfileDevType .radio label{margin-top: 2px; position: absolute; margin-left: 5px; font-weight: bold;}
+.userProfileDevType .radioWrapperCont{width: 100% !important; padding: 7% 0 3.5% 10%; margin: 0 auto;}
+.userProfileDevType .radioCont{float: left; width: 16% !important; height: 50px; margin-top: 0px!important;}
+.userProfileDevType .radioCont:last-child{ width: 20% !important;  margin-left: 5%;}
+.userProfileDevType .radioCont label{margin-top: 2px; position: absolute; margin-left: 5px; font-weight: bold;}
+.userProfileDevType .radioSelectWrapper{width: 100%; padding: 1% 0 0 10%; margin: 0 auto;}
+.userCount{background-color: #eaf7ff; border-radius: 5px; border: 1px solid #44aaee; text-align: center; border-bottom: 0px; margin-top: 10px;}
+.total{font-size: 14px; color: #333; padding: 5px 0 7px 0; line-height: 20px; margin-top: 35px; font-weight: 500;}
+.count{font-size: 25px; color: #333; font-weight: bold; padding: 5px 0; line-height: 30px;  margin-bottom: 15px;}
+.userCount button{background-color: #2e93d7 !important; background-image: none !important; color: #fff !important; border: 0px; box-shadow: none !important; text-shadow: none !important; border-bottom-left-radius: 5px; outline: none; padding: 15px; margin-top: 18px; border-bottom-right-radius: 5px; font-size: 13px; width: 100% !important;}
+.userProfileDesc{ background-color: #eaf7ff; border: 1px dashed #999999; padding: 5px; margin-top: 20px; border-radius: 5px;}
+.userProfileDesc .selectWrapper{width: 100%; padding: 3% 0 5% 0; margin: 0 auto;}
+.userList{ width:100%; margin: 10px 0 30px 0; float: left;}
+.listCount{color: #666666; font-size: 13px; font-weight: 500;}
+.subtitle{font-size: 15px; font-weight: 500; color: #000;}
+.userList ul{ list-style: none; width: 100%; margin: 25px auto; padding: 0;}
+.userList ul li{width: 32%; float: left; padding: 18px 10px 19px 50px; border: 1px dotted #54a6de; border-radius: 5px; margin: 10px 18px 0 0; cursor: pointer; position: relative;}
+.userList ul li:before{content: url('../../images/ma/user_profile/userIcon.png'); height: 20px;width: 22px; margin-left: -35px; top: 17px; position: absolute;}
+.userList ul li:nth-child(3n){margin: 10px 0 0 0 !important;}
+.userList ul li:hover{ background-color: #d5eeff;}
+.userList .actDate{width: 20%; background-color: #e0e0de; color: #888888; position: absolute; right: 0; top: 0; text-align: center; padding: 5px; border-bottom-right-radius:5px; border-top-right-radius: 5px;}
+.userList .actDate .txt1{font-size: 11px; text-transform: uppercase;}
+.userList .actDate .txt2{font-size: 20px; font-weight: bold; line-height: 17px;}
+.userList ul li:hover .actDate{background-color: #2e93d7; color: #fff;}
+.loadBtn{background-color: #4385f5; border: medium none; border-radius: 5px; color: #fafafa; font-size: 15px; padding: 10px 15px; margin: 20px 0 0 0; width: 100%;}
+.UserProfileSearchBox .buttonStrip{margin: 0 0 0 0!important;}
+.queryBtn{background-color: #ffffff; border: medium none; border-radius: 5px; color: #333; font-size: 13px; padding: 8px 15px; margin: 15px 0 0 0; border: 1px solid #bfbfbf;}
+.queryBtn i{color: #2e93d7 !important; font-weight: bold;   margin-right: 5px;}
+.tab-pane{padding: 20px 20px 15px 20px;}
+.wb{word-break: break-all;}
+.pdbt20{padding-bottom: 20px!important;}
+.pdbt10{padding-bottom: 10px!important;}
+.pdlt10{padding-left: 10px!important;}
+.pdtp5{padding-top: 5px;}
+.pdlt0{padding-left: 0 !important;}
+.pdrg0{padding-right: 0 !important;}
+
+.contactInfo .scrollbar{padding-left: 10px;}
+.contactInfo .scrollbar ul{list-style: none;  margin: 0;padding:0; position: relative; width: 100%; min-height: 40px;}
+.contactInfo .scrollbar ul li{border-bottom: 1px solid #999999; color: #000; padding: 11px 15px; cursor:pointer;  text-overflow: ellipsis;  height: 38px; white-space: nowrap; overflow:hidden;}
+.contactInfo .scrollbar ul li:last-child{border-bottom: none;}
+.contactInfo .scrollbar ul li:hover{ border-bottom: 1px solid #2e94d7; background-color: transparent !important;}
+.contactInfo .scrollbar ul li a{color: #000;}
+.contactInfo .scrollbar ul li:hover a{ color: #000 !important; text-decoration:none !important;}
+.contactInfo .triangleBox{position: relative; display: block;}
+.contactInfo .triangle1{width:0; height: 0; position: absolute; top: -10px; left: 8px; border-left: 10px solid transparent;border-right: 10px solid transparent; border-bottom: 10px solid #2e94d7;}
+.contactInfo .triangle2{width:0; height: 0; position: absolute; top: -9px; left: 8px; border-left: 10px solid transparent;border-right: 10px solid transparent; border-bottom: 10px solid #2e94d7;}
+.contactInfo .mCS-dark-thick.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{ background-color: rgb(46, 147, 215) !important; -webkit-border-radius: 0px !important; -moz-border-radius: 0px !important; border-radius: 0px !important;}
+.contactInfo .mCS-dark-thick.mCSB_scrollTools .mCSB_draggerRail{ background-color: #93d4ff !important; -webkit-border-radius: 0px !important; -moz-border-radius: 0px !important; border-radius: 0px !important; width: 6px !important;}
+
+.viewDetails .scrollbar{padding-left: 10px;}
+.viewDetails .scrollbar ul{list-style: none;  margin: 0;padding:0; position: relative; width: 100%; min-height: 39px;}
+.viewDetails .scrollbar ul li{border-bottom: 1px solid #999999; color: #000; padding: 11px 15px; cursor:pointer;  text-overflow: ellipsis;  height: 42px; white-space: nowrap; overflow:hidden;}
+.viewDetails .scrollbar ul li:last-child{border-bottom: none;}
+.viewDetails .scrollbar ul li:hover{ border-bottom: 1px solid #2e94d7; background-color: transparent !important;}
+.viewDetails .scrollbar ul li a{color: #000;}
+.viewDetails .scrollbar ul li:hover a{ color: #000 !important; text-decoration:none !important;}
+.viewDetails .triangleBox{position: relative; display: block;}
+.viewDetails .triangle1{width:0; height: 0; position: absolute; top: -10px; left: 47%; border-left: 10px solid transparent;border-right: 10px solid transparent; border-bottom: 10px solid #2e94d7;}
+.viewDetails .triangle2{width:0; height: 0; position: absolute; top: -9px; left: 47%; border-left: 10px solid transparent;border-right: 10px solid transparent; border-bottom: 10px solid #2e94d7;}
+.viewDetails .mCS-dark-thick.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{ background-color: rgb(46, 147, 215) !important; -webkit-border-radius: 0px !important; -moz-border-radius: 0px !important; border-radius: 0px !important;}
+.viewDetails .mCS-dark-thick.mCSB_scrollTools .mCSB_draggerRail{ background-color: #93d4ff !important; -webkit-border-radius: 0px !important; -moz-border-radius: 0px !important; border-radius: 0px !important; width: 6px !important;}
+.ht40{height: 39px!important;}
+.ht80{height: 80px!important;}
+.ht120{height: 120px!important;}
+.ht40 .mCSB_container_wrapper.mCS_no_scrollbar_x.mCS_x_hidden+.mCSB_scrollTools.mCSB_scrollTools_vertical, .ht80 .mCSB_container_wrapper.mCS_no_scrollbar_x.mCS_x_hidden+.mCSB_scrollTools.mCSB_scrollTools_vertical, .ht120 .mCSB_container_wrapper.mCS_no_scrollbar_x.mCS_x_hidden+.mCSB_scrollTools.mCSB_scrollTools_vertical{visibility: hidden !important;}
+.viewDetails .scrollbar .ht40 li:hover{ border-bottom: none!important;}
+
+.dataTable .table-bordered > thead > tr > th{ padding: 8px 15px; font-weight: 600; font-size: 14px;}
+.dataTable .table tbody > tr > td { padding: 8px 15px !important; font-size: 14px;}
+.dataTable .table { margin-bottom: 0px !important;}
+.dataTable .table tbody > tr > td img{float: left; margin-right: 10px;}
+.noDevices{padding: 10px 20px; text-align: center; font-weight: 600;}
+.wd150{width: 150% !important;}
+#maUserRangeWrapper .daterangepicker.dropdown-menu{top: 38px !important;}
+#maUserRangeWrapperBasic .daterangepicker.dropdown-menu{top: 38px !important;}
+.mrtpneg35{margin-top: -35px;}
+.customdd .chosen-container-active.chosen-with-drop .chosen-single{ background: -webkit-linear-gradient(top, #ffffff 20%, #ffffff 50%, #ffffff 52%, #ffffff 100%) !important; box-shadow: none !important; border-radius: 0px !important;}
+.customdd .chosen-container-single .chosen-single{ padding: 25px 0 0 8px; height: 60px; background: -webkit-linear-gradient(top, #ffffff 20%, #ffffff 50%, #ffffff 52%, #ffffff 100%) !important; box-shadow: none !important; border-radius: 0px !important;}
+.customdd .chosen-container-single .chosen-single div{position: absolute; top: 28px; right: -1px;}
+
+/*
+.tabs-menu { height: 30px; float: left; clear: both; }
+.tabs-menu li { height: 30px; line-height: 30px; float: left; margin-right: 10px; background-color: #ccc; border-top: 1px solid #d4d4d1; border-right: 1px solid #d4d4d1; border-left: 1px solid #d4d4d1; }
+.tabs-menu li.current { position: relative; background-color: #fff; border-bottom: 1px solid #fff; z-index: 5; }
+.tabs-menu li a { padding: 10px; text-transform: uppercase; color: #fff; text-decoration: none; }
+.tabs-menu .current a { color: #2e7da3; }
+.tab { border: 1px solid #d4d4d1; background-color: #fff; float: left; margin-bottom: 20px; width: auto; }
+.tab-content { width: 660px; padding: 20px; display: none; }
+#tab-1 { display: block; }*/
+
+@media only screen and (max-width: 1024px) and (min-width: 961px){
+    .userProfileDevType{margin-bottom: 29px;}    
+    .userProfileDevType .radioWrapper{width: 100%; padding: 13% 0 16% 3%;}   
+    .pd5sels{padding-left: 5px!important; padding-right: 5px !important;} 
+    .userProfileDevType .title h3, .userProfileDesc .title h3{left: 30% !important;}
+    .userProfileDesc .selectWrapper{padding: 6% 0 14% 0 !important;}
+    .userList ul li{width: 31% !important;}
+    .userCount .btn-sm, .userCount .btn-xs{margin-bottom: 0px!important;}
+    .total{margin-top: 47px;}
+}
+.mgntp{margin: 5% 2% 15px 2%;}
+.noMoreResult {background-color: #4a8ada;border-radius: 5px; display: table;float: left;padding: 15px 5px 15px 40%;margin: 5% 0 15px 0;width: 100%;cursor: pointer;box-shadow: 3px 5px 5px #abb2c8;}
+.noMoreResult span {color: #fff;padding-left: 15px;}
+.summaryProfile{
+    background-color: #defff8;
+    width: 101%;
+    position: absolute;
+    margin-bottom: 30px;
+    float: left;
+    margin-left: -20px;
+    margin-top: -10px;
+}
+.summaryProfile .detail{color: #b5b4b4;}
+.summaryProfile .detail .bpf{font-weight: 500;}
+.mrlt20{margin-left: 20px;}
+.mrtp17{margin-top: 17px;}
+.mrtp70{margin-top: 70px !important;}
+.moreActivity {
+    background-color: #2a90d4;
+    border-radius: 50%;
+    display: table;
+    padding: 14px;
+    cursor: pointer;
+    position: absolute;
+    color:#fff;
+}
+.endActivity {
+    background-color: #2a90d4;
+    border-radius: 50%;
+    display: table;
+    padding: 15px;
+    cursor: pointer;
+    position: absolute;
+    color:#fff;
+    margin-left: -4px;
+}
+
+#hasActivity div.helpicon:hover span {
+    display: inline;
+    position: absolute;
+    color: #ffffff !important;
+    border: none !important;
+    background: #2a90d4 !important;
+    font-size: 12px;
+    line-height: 16px;
+    top: -50px;
+    left: -15%;
+}
+.zi100{z-index:100;}
+.zi120{z-index:120;}
+.widget.widget-loading:before{z-index:1000 !important;}
+
+.noDevicesDevUsed{position: relative; display: table-cell; vertical-align: middle; text-align: center; font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #4b5159; font-size: 14px; background-image: url(../../images/device-used.png); background-repeat: no-repeat; background-position: center center; font-weight: bold !important; width: 980px !important; height: 76px !important;}
+.noDataProfileDetails{text-align: center; font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #4b5159; font-size: 14px; background-image: url(../../images/no-profile-data.png); background-repeat: no-repeat; background-position: center center; font-weight: bold !important; width: 978px !important; height: 240px !important;}
+.noDevicesActivities{position: relative; display: table-cell; vertical-align: middle; text-align: center; font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #4b5159; font-size: 14px; background-image: url(../../images/activities-timeline.png); background-repeat: no-repeat; background-position: center center; font-weight: bold !important; width: 1120px !important; height: 470px !important;background-size: contain;}
+.noDataText{position:absolute; left: 0; top: 40%; font-size: 26px; padding: 10px; display: block; width: 100%;}
+.pd0{padding: 0px !important;}
+
+#app42MAProfileWidget .dbWrapper{margin-bottom:20px!important;}
+#app42MAProfileWidget .dbWrapper .auRow{ float:left; width:100%; margin:0; }
+#app42MAProfileWidget .dbWrapper .auRow .tr{ float:left; width:100%; margin:25px 0 0 0; position:relative;}
+#app42MAProfileWidget .dbWrapper .auRow .tr .title{ float:left; width:70%; padding:0 !important; text-align:left; font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif; color: #000; font-size: 20px; font-weight: normal; background-image: none !important;}
+#app42MAProfileWidget .dbWrapper .auRow .tr .cal{ float:right; width:64%; text-align:right; position:absolute; top:0; right:0;}
+#app42MAProfileWidget .dbWrapper .auRow .tr .calB{ width:115%; left:0%; z-index:99999999}
+#app42MAProfileWidget .dbWrapper .auRow .tr .calC{ width:158%}
+#app42MAProfileWidget .dbWrapper .auRow .tr .cal .daterangepicker{ right:0!important; top:40px!important}
+#app42MAProfileWidget .dbWrapper .auRow .tr .cal .daterangepicker.dropdown-menu{ margin-left:0!important}
+#app42MAProfileWidget .dbWrapper .auRow .tr .cal .daterangepicker .calendar{ display:block!important}
+#app42MAProfileWidget .dbWrapper .auRow .tr .cal .daterangepicker.opensright::before{ left:90%}
+#app42MAProfileWidget .dbWrapper .auRow .tr .cal .daterangepicker.opensright::after{ left:90%}
+#app42MAProfileWidget .dbWrapper .auRow .tr .calB .daterangepicker.opensright::before{ left:50%!important}
+#app42MAProfileWidget .dbWrapper .auRow .tr .calB .daterangepicker.opensright::after{ left:50%!important}
+#app42MAProfileWidget .dbWrapper .auRow .tr .cal .input-group-addon{ background-color:#fff!important; padding: 8px 10px !important;}
+#app42MAProfileWidget .dbWrapper .auRow .tr .cal .daterangepickerIcon{ float:left; width:13px; height:13px; background-image:url(../../images/ma/dashboard/daterangepickerIcon.png); background-repeat:no-repeat;}
+#app42MAProfileWidget .dbWrapper .auRow .tr .cal .input-group{ box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.08), 0 2px 10px 0 rgba(0, 0, 0, 0.12);}
+#app42MAProfileWidget .dbWrapper .auRow .tr .cal .form-control{ border-top:1px solid #c1bdb8}
+#app42MAProfileWidget .dbWrapper .auRow .tr .cal .dArrow{background-image:url(../../images/ma/dashboard/daterangepickerDD.png); background-repeat:no-repeat; background-position:95% center; border-left:none; box-shadow:none}
+#app42MAProfileWidget .dbWrapper .auRow .avgSession{background-image:url(../../images/ma/dashboard/session_time.png);}
+#app42MAProfileWidget .dbWrapper .auRow font{ float:left; width:100%; line-height:none; font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif; color: #2c3e50; font-size: 30px; font-weight: bold;}
+#app42MAProfileWidget .dbWrapper .auRow font span{ margin:20px 0 0 5px; font-size:12px; font-weight:normal;}
+#app42MAProfileWidget .dbWrapper .auRow p{ float:left; width:100%; margin:0; font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif; color: #2c3e50; font-size: 13px; font-weight: normal;}
+.avgVisitSession {
+    position: absolute;
+    right: 30px;
+    top: 20px;
+    background-image: url(../../images/ma/dashboard/session_time.png);
+    background-repeat: no-repeat;
+    border: 1px solid #cdcdcd;
+    width: 250px;
+    height: 90px;
+    background-position: 10px 22px;
+}
+.avsTime {
+    float: right;
+    width: 70%;
+    color: #2c3e50;
+    font-size: 25px;
+    font-weight: bold;
+    margin-top: 15px;
+}
+.activitiesTimeline .subTitle {
+    float: left;
+    margin: 0 0 20px 0;
+    font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #000000;
+    font-size: 17px;
+    font-weight: normal;
+    width: 70%;
+    float: right;
+}

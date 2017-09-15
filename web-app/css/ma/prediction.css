@@ -1,0 +1,94 @@
+/* 
+    Document   : prediction
+    Created on : May 31, 2016, 12:32:17 PM
+    Author     : jatin
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+
+/******************* Churn Style 28th May 2016 *****************************/
+.churnWrapper{border: 1px solid #ccc; float: left; margin: 0 0 30px; padding: 10px 20px 30px;width: 100%;}
+.churnWrapper.mTF{ margin-top:30px;}
+
+.churnWrapper .formTr { float: left; margin: 10px 40px; width: 80%;}
+.churnWrapper .trSep { float: left; margin-bottom: 15px; width: 100%;}
+.churnWrapper .trSep2{  float: left; margin-bottom: 2px; width: 100%;}
+.churnWrapper .formTr .infoLabel{ float:left; width:20%; margin:10px 0 0 0; padding:0}
+.churnWrapper .formTr .input{ float:left; width:100%; border:none; border-bottom:1px solid #d5d4d2; box-shadow:none; background-color:transparent; border-radius:0; color: #4b515c; padding: 8px 5px;}
+.churnWrapper .input::-moz-placeholder{color:#3d4337}
+.churnWrapper .formTr .titleRow{ float:left; width:100%; color:#484f59; font-size:18px; font-weight:bold; margin:0 0 20px 0}
+.churnWrapper .trSep2 .left{ float:left;}
+.churnWrapper .trSep2 .inputCol{ width:10%; float:left; margin:0 0 0 5px}
+.churnWrapper .trSep2 .inputCol .input{ height:auto; padding:0 0 5px 0; font-weight:bold; color: #4b515c;}
+.churnWrapper .trSep2 .inputCol .input::-moz-placeholder{ color:#4c5053; opacity:1}
+
+
+.PredictionWrapper{border: 1px solid #ccc; border-radius:5px; float: left; margin: 0 0 30px; padding: 0 20px 30px;width: 100%; background-color:#fff;}
+.PredictionWrapper.mTF{ margin-top:30px;}
+.PredictionWrapper .mbZ{ margin:0!important}
+.PredictionWrapper .titleRow{border-bottom: 1px solid #6cc4ea; color: #4e525d; float: left; font-size: 16px; margin: 0 0 20px; padding: 15px 0;width: 100%;}
+.PredictionWrapper .titleRow font{ float:left; padding:0px 0 0 25px; background-image:url(../../images/ma/prediction/predictionIcon.png); background-repeat:no-repeat; background-position: 0 3px; min-width:17px; min-height:17px;}
+.PredictionWrapper .titleRow .left{ float:left;}
+.PredictionWrapper .titleRow .right{ float:right;}
+.PredictionWrapper .titleRow .right .icon{ float:left; margin:2px 10px 0 0; background-image:url(../../images/ma/prediction/churnIcon.png); background-repeat:no-repeat; width:23px; height:14px;}
+.PredictionWrapper .titleRow .right .span{ float:left;}
+.PredictionWrapper p{ float:left; width:100%; font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif; color: #4f5356; font-size: 14px;}
+.PredictionWrapper p span{ font-weight:bold}
+.PredictionWrapper .titleRowB{border-bottom: 1px solid #d3d3d3;}
+.PredictionWrapper .rowB{ float:left; width:100%; margin:0 0 30px 0;}
+.PredictionWrapper .colL{ float:left; width:77% !important; margin: 0 !important;}
+.PredictionWrapper .colL .tr{ float:left; width:100%; font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif; color: #4f525b; font-size: 12px; font-weight:bold}
+.PredictionWrapper .colL .tr .left{ float:left;}
+.PredictionWrapper .colL .tr .right{ float:right;}
+.PredictionWrapper .colL .tr .progressBar{ float:left; width:100%; margin:10px 0 0 0; position:relative; background-color:#c5d7d7; height:25px;}
+.PredictionWrapper .colL .tr .progressBarInfo{position:absolute; top:0; left:0; height:100%; width:20%; color:#fff; text-align:center; font-size:12px; font-weight:normal; padding:3px 0 0  0}
+.PredictionWrapper .colL .tr .high{background-color:#d32f2f; width:35%}
+.PredictionWrapper .colL .tr .medium{background-color:#ff693a;}
+.PredictionWrapper .colL .tr .low{background-color:#4cb050; width:45%}
+.PredictionWrapper .colR{ float:right; width:20%; margin:20px 0 0 0; text-align:right}
+.PredictionWrapper .colR .btn{padding: 7px 10px !important;}
+.PredictionWrapper .colR .dropdown-menu > li > a{ text-align:left}
+.PredictionWrapper .table{ float:left; width:100%;}
+.PredictionWrapper .tableRow{ float:left; width:100%; padding:15px 10px; font-weight:normal}
+.PredictionWrapper .tableH{  background-color:#f7f7f7; border-bottom: 1px solid #6cc4ea; color: #4e525d; font-size: 15px; text-align:left; font-weight:bold; margin:0 0 20px 0;}
+.PredictionWrapper .td{ float:left; width:15%;}
+.PredictionWrapper .td.analytics{ width:50%}
+.PredictionWrapper .tableRow .td{ float:left; width:15%}
+.PredictionWrapper .tableRow .td.analytics{ width:50%}
+.PredictionWrapper .tableRow .td .type{ float:left; padding:3px 15px; border-radius:10px; background-color:#4cb050; text-align:center; color:#fff; font-size:12px;}
+.PredictionWrapper .tableRow .td .analytics{ float:left; margin:0 20px 0 0; min-width:120px; }
+.PredictionWrapper .tableRow .td .analytics .colLeft{ float:left; margin:0 10px 0 0}
+.PredictionWrapper .tableRow .td .analytics .colRight{ float:left;}
+.PredictionWrapper .tableRow .td .analytics .colRight font{float:left; width:100%; color:#909090;font-size:12px; }
+.PredictionWrapper .tableRow .td .analytics .colRight span{ float:left; width:100%; color:#4b4d59; font-weight:bold; font-size:13px;}
+.PredictionWrapper .tableRow .actionBtn{ float:right}
+.PredictionWrapper .tableRow .actionBtn button{ margin:0 0 0 10px;}
+.PredictionWrapper .graphWrapper{ float:left; width:100%; text-align:center}
+
+.churnWrapper .chosen-container-single .chosen-single{position: relative;display: block;overflow: hidden;padding: 0 0 0 8px;height: 34px;border-bottom: 1px solid #aaa !important;border-top: none !important;border-left: none !important;border-right: none !important;text-decoration: blink;white-space: nowrap;line-height: 33px;background: -webkit-linear-gradient(top, #fbfbfb 20%, #fbfbfb 50%, #fbfbfb 52%, #fbfbfb 100%) !important;background: rgba(0, 0, 0, 0) -moz-linear-gradient(center top , #fbfbfb 20%, #fbfbfb 50%, #fbfbfb 52%, #fbfbfb 100%) repeat scroll 0 0; border-radius: 0px !important;background-color: #fbfbfb !important;box-shadow: none;}
+.churnWrapper .chosen-container-active.chosen-with-drop .chosen-single div b{background-position: -16px 2px;}
+.churnWrapper .chosen-container .chosen-drop{border: 1px solid #EBEBEB !important; box-shadow: 0 0 3px white inset, 0 1px 1px rgba(0, 0, 0, 0.1) !important; margin-top: 5px !important;}
+.churnWrapper .formTr .eventSelect{background: url("/images/ui-0.1/eventsTree.png") repeat-y scroll;float: left; min-height: 70px; background-position: 0 13px;}
+.churnWrapper .VariantBtn{margin: -45px 10px 0 3px !important;}
+.wBox{width: 20px;height: 20px;position: absolute;background: #FFF;top: -5px;left: -17px;}
+.churnWrapper .help-block{width: 200px !important;}
+.fontB{font-weight:bold !important;}
+.videoText{margin: 15px 0 0 0px; font-weight: bold; width: 100%; text-align: center;}
+.accessBtn{float: right;padding: 10px 40px;background-color: #3398dc;font-family: "Roboto Condensed", "Helvetica Neue", Helvetica, Arial, sans-serif;font-size: 14px;color: #fff;text-decoration: none;cursor: pointer;margin-top: 23px;}
+.accessBtn:hover{text-decoration: none; color: #ffffff;}
+.radio1{display: block;margin-bottom: 15px;margin-top: 10px;min-height: 20px;padding-left: 0px;vertical-align: middle; font-weight: normal;}
+.radio1 label{font-weight: normal !important;}
+#dauDateWrapper{width: 250px !important;}
+#dauDateWrapper .daterangepicker.dropdown-menu{margin-left: 68px!important;margin-top: 35px!important;}
+.editGoal{width: 56%;}
+#mauDateWrapper{width: 250px !important;}
+#mauDateWrapper .daterangepicker.dropdown-menu{margin-left: 68px!important;margin-top: 35px!important;}
+#wauDateWrapper{width: 250px !important;}
+#wauDateWrapper .daterangepicker.dropdown-menu{margin-left: 68px!important;margin-top: 35px!important;}
+#predictCamp .encWrapper .total{ border-top: none!important;  border-bottom: none!important;}
+#predictCamp .encWrapper .total .col span{font-weight: bold!important;}
+#predictCamp .encWrapper .rowB{width: 95%!important; padding: 25px 2% 10px 2%!important;}
+#predictCamp .ribbon{background-image: url(../../images/iconNewUI/ribbon1.png)!important;width: 70px!important;height: 79px!important;}
+#predictCamp .ribbon-text{transform: rotate(-49deg)!important;-webkit-transform: rotate(-49deg)!important;-moz-transform: rotate(-49deg)!important;margin-left: -15px!important;margin-top: 19px!important;}
+#predictCamp .campName{width: 95px;}
