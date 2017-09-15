@@ -6,18 +6,22 @@
 
 
 chatBot.controller("userController", function($scope,dashboardService,$location) {
-//    console.log("***********userController**************")
+    //    console.log("***********userController**************")
     $scope.openSubSideBar("userSection")
-   // var intervalCurrentSession;
+    // var intervalCurrentSession;
     // Maximize | Minimize Apps Grid
     $scope.initializeGridMaximize()  // Initializes Grid Maximize option
     
-   
+    $scope.refreshUserWidget = function(){
+        $scope.init() 
+        $scope.getAllUsers()
+    }
     $scope.$on('reloadTemplate', function(event) {
-
-        });
+        $scope.init() 
+        $scope.getAllUsers()
+    });
     
-//    $('a[href="#/users/"]').parent().addClass("current");
+    //    $('a[href="#/users/"]').parent().addClass("current");
    
     $scope.init= function(){
         $scope.userList = []

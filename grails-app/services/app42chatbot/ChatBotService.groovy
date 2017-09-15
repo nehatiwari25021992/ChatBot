@@ -728,7 +728,7 @@ class ChatBotService {
                 
             }else{
                 //update steps counter in conversation
-                def counterQuery =  "UPDATE conversations SET no_of_steps = no_of_steps + 1, end_date=Now() WHERE id = ?"
+                def counterQuery =  "UPDATE conversations SET no_of_steps = no_of_steps + 1, end_time=Now() WHERE id = ?"
                 def response = db.executeUpdate(counterQuery, [conversationId])
             }
             result.message = "successful"

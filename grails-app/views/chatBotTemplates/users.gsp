@@ -11,7 +11,7 @@
          data-original-title="Exit Full Screen"><i class="fa fa-expand"></i></a>
       <a href="javascript:;" class="widget-control widget-control-refresh"
          data-toggle="tooltip" data-placement="top" title=""
-         ng-click="refreshFileStorageWidget()" data-original-title="Refresh"><i
+         ng-click="refreshUserWidget()" data-original-title="Refresh"><i
           class="fa fa-refresh"></i></a>
     </div>
     <h3>Users</h3>

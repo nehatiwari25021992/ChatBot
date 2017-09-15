@@ -437,7 +437,7 @@ ConvState.prototype.answerWith = function(answerText, answerObject) {
 })( jQuery );
 
 // Constants
-var chatBotData = {},customQueryFlow = false,base_url = 'http://localhost:8080/chatBot';
+var chatBotData = {},customQueryFlow = false,base_url = 'http://localhost:8080/App42ChatBot/chatBot';
 
 
 function validateEmail(email) {

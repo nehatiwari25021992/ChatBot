@@ -103,6 +103,7 @@ chatBot.controller("dashboardController", function($scope,dashboardService) {
                 $scope.total_received = payload.data.totalRecieved 
                 $scope.average_session_length  = payload.data.average_session
                 console.log("$scope.average_session_length  ",$scope.average_session_length )
+                $scope.getMostActiveHours()
             },
             function(errorPayload) {
                 $scope.toggleGridLoader("chatbotDashboardWidget")
@@ -525,7 +526,6 @@ chatBot.controller("dashboardController", function($scope,dashboardService) {
     $scope.init()
     $scope.getChatBotStatistics()
     $scope.getMostCommanPhrases()
-    $scope.getMostActiveHours()
     $scope.getMessage_in_vs_out()
     $scope.getCommentsLineChartInfo()
 })
