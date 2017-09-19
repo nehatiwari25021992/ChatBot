@@ -96,6 +96,7 @@
 <script src="${resource(dir:'js/chatBot/controllers',file:'addIntentController.js')}"></script>
 <script src="${resource(dir:'js/chatBot/controllers',file:'editIntentController.js')}"></script>
 <script src="${resource(dir:'js/chatBot/controllers',file:'settingsController.js')}"></script>
+<script src="${resource(dir:'js/chatBot/controllers',file:'dialog.js')}"></script>
 
 <!-- date range picker js-->
 <script src='${resource(dir:'js/angular/resources/plugins',file:'daterangepicker.js')}'></script>

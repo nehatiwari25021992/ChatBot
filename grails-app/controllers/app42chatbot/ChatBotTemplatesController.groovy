@@ -22,4 +22,6 @@ class ChatBotTemplatesController {
     
     def settings = {}
     
+    def dialog = {}
+    
 }

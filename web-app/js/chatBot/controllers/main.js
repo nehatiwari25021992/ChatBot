@@ -14,6 +14,7 @@ chatBot.controller("MainController", function($controller,$rootScope,$scope,$htt
     $scope.insightsSection = false
     $scope.intentSection = false
     $scope.settingsSection = false 
+    $scope.dialogSection = false 
     //Sub sidebar menus text
     $scope.sidebar = {}
     // Dashboard Section Sub Menus
@@ -24,6 +25,7 @@ chatBot.controller("MainController", function($controller,$rootScope,$scope,$htt
     $scope.sidebar.addIntent = "Add"
     $scope.sidebar.insights = "Activity"
     $scope.sidebar.unknownIntent = "UnKnown"
+    $scope.sidebar.dialogs = "Dialogs"
     $rootScope.saveSuccess = false
     $scope.openSubSideBar = function(module){
         if(module == "dashboardSection"){
@@ -32,30 +34,43 @@ chatBot.controller("MainController", function($controller,$rootScope,$scope,$htt
             $scope.insightsSection = false
             $scope.intentSection = false
             $scope.settingsSection = false  
+            $scope.dialogSection = false 
         }else if(module == "userSection"){
             $scope.dashboardSection = false
             $scope.userSection = true
             $scope.insightsSection = false
             $scope.intentSection = false
             $scope.settingsSection = false  
+            $scope.dialogSection = false 
         }else if(module == "insightsSection"){
             $scope.dashboardSection = false
             $scope.userSection = false
             $scope.insightsSection = true
             $scope.intentSection = false
             $scope.settingsSection = false  
+            $scope.dialogSection = false 
         }else if(module == "intentSection"){
             $scope.dashboardSection = false
             $scope.userSection = false
             $scope.insightsSection = false
             $scope.intentSection = true
             $scope.settingsSection = false 
+            $scope.dialogSection = false 
         }else if(module == "settingsSection"){
             $scope.dashboardSection = false
             $scope.userSection = false
             $scope.insightsSection = false
             $scope.intentSection = false
             $scope.settingsSection = true 
+            $scope.dialogSection = false 
+        $scope.dialogSection = false 
+        }else if(module == "dialogSection"){
+            $scope.dashboardSection = false
+            $scope.userSection = false
+            $scope.insightsSection = false
+            $scope.intentSection = false
+            $scope.settingsSection = false 
+            $scope.dialogSection = true 
         }
     }
     

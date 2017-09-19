@@ -22,6 +22,11 @@
           <img src="${resource(dir:'images/ma',file:'intent_icon.png')}" alt="">
         </a>
       </li>  
+      <li ng-class="{ active: isActive('/dialogs') }">
+        <a href="#/dialogs" ng-click="openSubSideBar('dialogSection')" data-toggle="tooltip" data-placement="right" title="" data-original-title="Train">
+          <img src="${resource(dir:'images/ma',file:'intent_icon.png')}" alt="">
+        </a>
+      </li>  
 
 <!--      <li ng-class="{ active: isActive('/settings') }">
         <a href="#/settings"  ng-click="openSubSideBar('settingsSection')" data-toggle="tooltip" data-placement="right" title="" data-original-title="Settings">
@@ -40,6 +45,9 @@
     </ul>
     <ul ng-show="insightsSection">
       <li ng-class="{ current: isActive('/insights')}"><a  href="#/insights" ng-bind="sidebar.insights"></a></li>
+    </ul>
+    <ul ng-show="dialogSection">
+      <li ng-class="{ current: isActive('/dialogs')}"><a  href="#/dialogs" ng-bind="sidebar.dialogs"></a></li>
     </ul>
 
     <ul ng-show="intentSection">
