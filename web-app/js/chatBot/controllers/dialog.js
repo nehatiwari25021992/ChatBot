@@ -33,6 +33,9 @@ chatBot.controller("dialogController", function($scope,$window,dashboardService)
                   
                     $scope.json = payload.data.rows.config
                     var iframe = document.getElementById("targetFrame");
+                    
+                    var check = document.getElementById("iframeid").contentWindow.a;
+                    
                     if (iframe) {
                         var iframeContent = (iframe.contentWindow || iframe.contentDocument);
               
