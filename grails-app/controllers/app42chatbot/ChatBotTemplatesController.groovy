@@ -18,7 +18,7 @@ class ChatBotTemplatesController {
     
     def editIntent = {}
       
-    def unknownIntent = {}
+    def unknown = {}
     
     def settings = {}
     

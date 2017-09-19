@@ -163,11 +163,11 @@ class ChatBotService {
         jsonMap.data = []
         def db = new Sql(dataSource)
         def appId = params.appId.toLong()
-        def sqlQuery  = "select phrase,count from phrases where app_id = ? order by count desc limit 5";
-        def rows = db.rows(sqlQuery,[appId])
+        def sqlQuery  = "select phrase,count from phrases where app_id = ? and resolved = ? order by count desc limit 5";
+        def rows = db.rows(sqlQuery,[appId,1])
         if(rows != null && rows.size()>0){
-            sqlQuery  = "select SUM(count) as phraseCount from phrases where app_id = ? order by count ";
-            def rows1 = db.firstRow(sqlQuery,[appId])
+            sqlQuery  = "select SUM(count) as phraseCount from phrases where app_id = ? and resolved = ?  order by count ";
+            def rows1 = db.firstRow(sqlQuery,[appId,1])
             def totalPhraseCount = rows1.phraseCount
             rows.each{r->
                 def resultMap = [:]
@@ -796,4 +796,24 @@ class ChatBotService {
         jsonMap
     }
     
+    def getUnknownIntent(params){
+        def jsonMap = [:]
+        def resultArr = []
+        jsonMap.data = []
+        def db = new Sql(dataSource)
+        def appId = params.appId.toLong()
+        def sqlQuery  = "select phrase,id from phrases where app_id = ? and resolved = ? order by count desc";
+        def rows = db.rows(sqlQuery,[appId,0])
+        if(rows != null && rows.size()>0){
+            rows.each{r->
+                def resultMap = [:]
+                resultMap.name = r.phrase
+                resultMap.id = r.id
+                resultArr.add(resultMap)
+            }
+            jsonMap.data = resultArr
+        }   
+        println "getUnknownIntent jsonMap ------  "+jsonMap
+        jsonMap
+    } 
 }
