@@ -48,7 +48,10 @@ chatBot.config(['$routeProvider','$httpProvider',
             templateUrl: '../chatBotTemplates/dialog',
             controller: 'dialogController'
         })
-        
+        .when('/unknown', {
+            templateUrl: '../chatBotTemplates/unknown',
+            controller: 'unknownController'
+        })
         .otherwise({
             redirectTo: '/dashboard'
         });

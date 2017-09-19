@@ -78,8 +78,8 @@ chatBot.controller("MainController", function($controller,$rootScope,$scope,$htt
     $scope.key = "8b97a5ad0072f2eac01928d8e9d8c813313d4b9e9fa4ebec080969281ec8cef0"
     $scope.apiKey = "3d4bb5e3c2edd13563155c3036ac47afed3298dc4e474f026cf147485dc5e881"
     $scope.secretKey = "8b97a5ad0072f2eac01928d8e9d8c813313d4b9e9fa4ebec080969281ec8cef0"
-    $scope.appId = 232323368
-    $rootScope.appId = 232323368
+    $scope.appId = 1
+    $rootScope.appId = 1
     // This for appName
     $scope.appName = $scope.app.name
     $rootScope.appName = $scope.app.name

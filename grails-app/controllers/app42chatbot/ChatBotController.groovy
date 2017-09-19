@@ -108,4 +108,9 @@ class ChatBotController {
         def result  = chatBotService.getDialog(params)
         render result as JSON
     }
+     
+    def getUnknownIntent = {
+        def result  = chatBotService.getUnknownIntent(params)
+        render result as JSON
+    }
 } 
