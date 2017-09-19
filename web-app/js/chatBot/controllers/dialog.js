@@ -6,7 +6,7 @@
  */
 
 
-chatBot.controller("dialogController", function($scope,$window) {
+chatBot.controller("dialogController", function($scope,$window,dashboardService) {
     console.log("***********dialogController**************")
     $scope.openSubSideBar("dialogSection")
 
@@ -22,8 +22,36 @@ chatBot.controller("dialogController", function($scope,$window) {
     }
     
     $scope.getDialog = function(){
-    
+        var params = {
+            appId : $scope.appId
+        }
+        var promise = dashboardService.getDialog(params)
+        promise.then(
+            function(payload){
+//                console.log("payload  ",payload)
+                if(payload.data.success){
+                  
+                    $scope.json = payload.data.rows.config
+                    var iframe = document.getElementById("targetFrame");
+                    if (iframe) {
+                        var iframeContent = (iframe.contentWindow || iframe.contentDocument);
+              
+//                        iframeContent.app.AppView.prototype.initializePaper();
+//                        iframeContent.app.AppView.prototype.initializeSelection();
+//                        iframeContent.app.AppView.prototype.initializeHalo();
+//                        iframeContent.app.AppView.prototype.initializeInlineTextEditor();
+//                        iframeContent.app.AppView.prototype.initializeTooltips();
+                        iframeContent.app.AppView.prototype.loadDialog($scope.json);
+                    }
+                }
+              
+
+            },
+            function(errorPayload) {
+            // $scope.toggleGridLoader("addIntentWidget")
+            }) 
     }
+    $scope.getDialog()
 
   
 })

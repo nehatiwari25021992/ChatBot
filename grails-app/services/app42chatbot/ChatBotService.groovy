@@ -760,12 +760,19 @@ class ChatBotService {
     def getDialog(params){
         println "getDialog params "+params
         def jsonMap = [:]
-        jsonMap.success  = true
+       
         def db = new Sql(dataSource)
         def appId = params.appId.toLong()
         def sqlQuery  = "select config from dialog where app_id = ? ";
         def rows = db.firstRow(sqlQuery,[appId])
         println "rows ------  "+rows
+        if(rows == null){
+             jsonMap.success  = false
+        }else{
+             jsonMap.success  = true
+              jsonMap.rows = rows
+        }
+      
         jsonMap
     }
 	

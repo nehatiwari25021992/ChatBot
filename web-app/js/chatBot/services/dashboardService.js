@@ -159,19 +159,29 @@ chatBot.factory('dashboardService', function($rootScope,$http) {
             return promise;
         },
         startTraining : function() {
-//            var promise = $http({
-//                method: 'POST', 
-//                url: 'url of learn'
-//            }).success(function(data, status, headers, config) {
-//                return data;
-//            })
-//            return promise;
+            //            var promise = $http({
+            //                method: 'POST', 
+            //                url: 'url of learn'
+            //            }).success(function(data, status, headers, config) {
+            //                return data;
+            //            })
+            //            return promise;
             return true;
         },
         getUnknownIntent: function(params) {
             var promise = $http({
                 method: 'POST', 
                 url: '../chatBot/getUnknownIntent',
+                params:params
+            }).success(function(data, status, headers, config) {
+                return data;
+            })
+            return promise;
+        },
+        getDialog : function(params) {
+            var promise = $http({
+                method: 'POST', 
+                url: '../chatBot/getDialog',
                 params:params
             }).success(function(data, status, headers, config) {
                 return data;

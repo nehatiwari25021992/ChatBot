@@ -22,6 +22,7 @@ app.AppView = joint.mvc.View.extend({
         'click #toolbar .preview-dialog': 'previewDialog',
         'click #toolbar .code-snippet': 'showCodeSnippet',
         'click #toolbar .load-example': 'loadExample',
+        'click #toolbar .load-dialog': 'loadDialog',
         'click #toolbar .clear': 'clear'
     },
 
@@ -35,8 +36,8 @@ app.AppView = joint.mvc.View.extend({
 
    
     },
-
-    initializeTooltips: function() {
+   
+ initializeTooltips: function() {
 
         new joint.ui.Tooltip({
             rootTarget: '#paper',
@@ -290,7 +291,13 @@ app.AppView = joint.mvc.View.extend({
     },
     loadDialog: function(json) {
 
-        this.graph.fromJSON({"cells":[json]});
+        console.log("-----------------------------");
+        console.log(json);
+       var cellsArr = []
+       cellsArr.push(json)
+       console.log("i m here",this)
+       console.log(this.graph)
+        this.graph.fromJSON({"cells":cellsArr});
     },
 
     clear: function() {
