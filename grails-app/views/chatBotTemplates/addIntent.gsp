@@ -43,6 +43,122 @@
          id="createSegmentError" style="display: none;"></div>
 
     <form role="form" class="">
+	
+	<div class="intentWrapper">
+	<div class="intentRow">
+	<div class="intlabel">Intent</div>
+	<textarea class="input" placeholder="hotel booking" type="text" rows="1" cols="30"></textarea>
+	</div>
+	<div class="intentRowB">
+	<div class="UXrowInput">
+	<textarea class="input" placeholder="Add user expression" type="text" rows="7" cols="30" ng-enter="addUserSays()" ng-model="userExp" maxlength="50"></textarea>
+	<div class="uxTitle">User Expressions</div>
+	</div>
+	<div class="UXrowData bgA">
+	<div class="UXrowInner" ng-repeat="say in userExpList">
+	<input type="text" class="input" readonly="" value="{{say}}">
+	<a href="javascript:;" ng-click="removeSay(say)" class="delBtn"><i class="fa fa-trash-o"></i></a>
+	</div>	
+	</div>
+	</div>
+	</div>
+	<div class="intentWrapper">
+	<div class="intentRow">
+	<div class="intlabel">Actions</div>
+	<textarea class="input" placeholder="CallAPI1" type="text" rows="1" cols="30"></textarea>
+	</div>
+	<div class="intentRowB">
+	<div class="UXrowInput">
+	<textarea class="input" placeholder="Add response" type="text" rows="7" cols="30"></textarea>
+	<div class="uxTitle">Response</div>
+	</div>
+	<div class="UXrowData bgB">
+	<div class="UXrowInner">
+	<input type="text" class="input" readonly="" value="Need rom">
+	<a href="#" class="delBtn"><i class="fa fa-trash-o"></i></a>
+	</div>
+	<div class="UXrowInner">
+	<input type="text" class="input" readonly="" value="Need rom">
+	<a href="#" class="delBtn"><i class="fa fa-trash-o"></i></a>
+	</div>
+	<div class="UXrowInner">
+	<input type="text" class="input" readonly="" value="Need rom">
+	<a href="#" class="delBtn"><i class="fa fa-trash-o"></i></a>
+	</div>
+	<div class="UXrowInner">
+	<input type="text" class="input" readonly="" value="Need rom">
+	<a href="#" class="delBtn"><i class="fa fa-trash-o"></i></a>
+	</div>	
+	</div>
+	</div>
+	</div>
+	
+	
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
       <div class="campaignRow">
         <h4 class="widget-header">Intent</h4>
         <div class="row">

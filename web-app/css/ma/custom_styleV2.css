@@ -797,3 +797,25 @@ div.toltipicon .toltipBox:before {border-right: 10px solid transparent; border-l
 #userDetailsWidget .lPanel .time .eventCount{font-size: 12px; line-height: 14px; font-weight: normal !important;}
 
 /********start**************Chatbot  css**********************/
+.testCSS{ float:left; width:100%; background-color:#000; color:#fff;}
+.intentWrapper{ float:left; width: 100%; margin: 30px 0 0 0; padding:0;}
+.intentWrapper .intentRow{ float: left; width: 100%; margin: 0 0 30px 0; display:table;}
+.intentWrapper .intentRow .intlabel{ width: 10%; display:table-cell; vertical-align:middle; padding:0; font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 17px; color: #4b5159; text-align:left; font-weight:normal;}
+.intentWrapper .intentRow .input { border: 1px solid #ccc;border-radius: 5px;float: left;padding: 2% 1.5% 0 1.5%;width: 100%;font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 14px; color: #4b5159;}
+
+
+.intentWrapper .intentRowB{ float: left; width: 100%; margin: 0; display:table;}
+.intentWrapper .intentRowB .UXrowInput{ float:left; width:100%; position:relative;}
+.intentWrapper .intentRowB .UXrowInput .input { border: 1px solid #ccc;border-radius: 5px 5px 0 0;float: right;padding: 4% 1.5% 0 1.5%;width: 90%;font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 14px; color: #4b5159; background: #f7f7f7 none repeat scroll 0 0;}
+.intentWrapper .intentRowB .UXrowInput .uxTitle{ position:absolute; top:10px; left:11.5%; font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 17px; color: #4b5159;}
+
+.intentWrapper .intentRowB .UXrowData{float: right;margin: 0 0 10px;padding: 0;width: 90%;}
+.intentWrapper .intentRowB .UXrowData.bgA{background-color: #f6f4da;} 
+.intentWrapper .intentRowB .UXrowData.bgB{background-color: #d2e9f9;}   
+.intentWrapper .intentRowB .UXrowData .UXrowInner{float:left; width:100%; margin:1.5% 0 0 0; padding:0 1.5%; position:relative;} 
+.intentWrapper .intentRowB .UXrowData .UXrowInner:last-child{ margin-bottom:1.5%;} 
+.intentWrapper .intentRowB .UXrowData .UXrowInner .input{border: 1px solid #ccc;border-radius: 5px;float: right;padding: 1%;width: 100%;font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 13px; color: #4b5159; background: #f9f9f9 none repeat scroll 0 0;
+box-shadow: 0 2px 2px 0 rgba(0,0,0,.08), 0 2px 8px 0 rgba(0,0,0,.12);
+}
+.intentWrapper .intentRowB .UXrowData .UXrowInner .delBtn{position:absolute; right:25px; top:10px;}
+.intentWrapper .intentRowB .UXrowData .UXrowInner .delBtn .fa-trash-o:before{color:#000}
