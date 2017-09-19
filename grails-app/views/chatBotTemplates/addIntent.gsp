@@ -70,7 +70,7 @@
       <div class="intentWrapper">
         <div class="intentRow">
           <div class="intlabel">Actions</div>
-          <textarea class="input form-control"  ng-enter="addAction()" placeholder="Action"  ng-model="action.name"  stype="text" rows="1" cols="30"></textarea>
+          <textarea class="input form-control"   placeholder="Action"  ng-model="action"  stype="text" rows="1" cols="30"></textarea>
         </div>
         <div class="intentRowB">
           <div class="UXrowInput"  ng-class="{'has-warning has-iconed' : isresposne != 'default'}" >

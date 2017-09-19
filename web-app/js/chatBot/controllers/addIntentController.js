@@ -87,6 +87,7 @@ chatBot.controller("addIntentController", function($scope,dashboardService,$loca
             actions : $scope.action,
             resposneList : $scope.resposneList 
         }
+        console.log("saveIntent params ",params)
         var promise = dashboardService.saveIntent(params)
         promise.then(
             function(payload){
