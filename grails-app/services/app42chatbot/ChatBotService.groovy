@@ -412,7 +412,7 @@ class ChatBotService {
         def db = new Sql(dataSource)
         def appId = params.appId.toLong()
         def appName = params.appName
-        try{
+      //  try{
             def sqlQuery  = "select id from intents where app_id = ? ";
             def rows= db.firstRow(sqlQuery,[appId])
             println "rows 111111111111  "+rows
@@ -423,17 +423,17 @@ class ChatBotService {
             }else{
                 println "appName "+appName
                 println "appId  "+appId
-                sqlQuery  = "INSERT INTO `intents` ( `name`, `description`, `app_id`)VALUES(?,?,?)";
-                def row1 = db.executeInsert(sqlQuery,[appName,appName,appId])
+                sqlQuery  = "INSERT INTO `intents` ( `name`, `description`, `app_id`,default_welcome, default_fall_back,bot_name)VALUES(?,?,?,?,?,?)";
+                def row1 = db.executeInsert(sqlQuery,[appName,appName,appId,"This is Alice, How can I help you ? ","I did'nt understand your question, can you please rephrase or type help to get assistance","Alice"])
                 println "row1 ::::::: "+row1
                 if(row1 != null){
                     saveTag(params,row1[0][0])
                 }
             }
-        }catch(Exception e){
-            println "Exception in add intent :: "+e
-            jsonMap.success = false
-        }
+//        }catch(Exception e){
+//            println "Exception in add intent :: "+e
+//            jsonMap.success = false
+//        }
         jsonMap 
     }
     
@@ -802,6 +802,20 @@ class ChatBotService {
         println "updateDialog rows ------  "+rows
         jsonMap
     }
+    
+       def updatePhrase(params){
+        println "updatePhrase params "+params
+        def jsonMap = [:]
+        jsonMap.success  = true
+        def db = new Sql(dataSource)
+        def appId = params.appId.toLong()
+        def config = params.config
+        def sqlQuery  = "update `chatbot`.`phrases` SET resolved = ? where app_id = ? ";
+        def rows = db.executeUpdate(sqlQuery,[1,appId])
+        println "updatePhrase rows ------  "+rows
+        jsonMap
+    }
+    
     
     def getUnknownIntent(params){
         def jsonMap = [:]

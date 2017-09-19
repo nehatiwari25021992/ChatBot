@@ -18,17 +18,18 @@
            var __userName = '${userId}'
       </script>
       <div class="main-content">
-        <ol id="breadcrumbId" class="breadcrumb">   
-          <g:if test="${userId == 'betaTest' || userId =='sachin25' || userId == 'sshukla480' || userId == 'ajaytest' || userId == 'neelam.singh@shephertz.com'}">
-            <g:if test="${!isDemoAppUser}">
-              <li class="pull-right" id="exploreDemoDataHandle">
-                Demo Mode   <toggle-switch ng-model="demoDataToggle" ng-click="changeDemoDataToggleState()"> </toggle-switch>
-              </li>
-            </g:if>
-          </g:if>
-
-
-
+        <ol id="breadcrumbId" class="breadcrumb"> 
+          <li>
+            <select  chosen
+                     class="form-control chosen-select" 
+                     style="width:250px"
+                     data-placeholder="Choose an app..."
+                     ng-model="app"
+                     ng-options="app.name for app in appList track by app.id"
+                     ng-change = "changeApp()"
+                     >
+            </select>
+          </li>
         </ol>
         <div ng-view></div>
 

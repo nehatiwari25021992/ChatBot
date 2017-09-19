@@ -6,12 +6,12 @@
  */
 
 
-chatBot.controller("dialogController", function($scope,$window,dashboardService) {
+chatBot.controller("dialogController", function($scope,$window,dashboardService,$rootScope) {
     console.log("***********dialogController**************")
     $scope.openSubSideBar("dialogSection")
 
     $scope.initializeGridMaximize()  // Initializes Grid Maximize option
-    
+  
     $scope.specsUrl = "http://localhost:8080/App42ChatBot/JointJS - JavaScript diagramming library - Demos._files/index.html"
     $scope.showSnippet = function() {
         var iframe = document.getElementById("targetFrame");
@@ -56,5 +56,7 @@ chatBot.controller("dialogController", function($scope,$window,dashboardService)
     }
     $scope.getDialog()
 
+    $rootScope.unknownName = ""
+    $rootScope.id = ""
   
 })

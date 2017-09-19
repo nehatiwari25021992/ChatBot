@@ -17,7 +17,8 @@ chatBot.controller("editIntentController", function($scope,dashboardService,$loc
     // Maximize | Minimize Apps Grid
     $scope.initializeGridMaximize()  // Initializes Grid Maximize option
     $rootScope.saveSuccess = false
-   
+    $rootScope.unknownName = ""
+    $rootScope.id = ""
     $scope.$on('reloadTemplate', function(event) {
         $scope.init()
     });

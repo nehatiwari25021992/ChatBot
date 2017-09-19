@@ -15,13 +15,19 @@ chatBot.controller("addIntentController", function($scope,dashboardService,$loca
     $scope.$on('reloadTemplate', function(event) {
 
         });
-    
-    //    $('a[href="#/manageIntent/"]').parent().addClass("current");
+    $scope.userExpList = []
+    console.log("$rootScope.unknownName ",$rootScope.unknownName)
+    console.log("$rootScope.id ",$rootScope.id)
+    if($rootScope.unknownName != "" && $rootScope.unknownName != undefined && $rootScope.unknownName != null){
+        if($rootScope.id != "" && $rootScope.id != undefined && $rootScope.id != null){
+            $scope.userExpList.push($rootScope.unknownName)
+        }
+    }
    
     $scope.init = function(){
         $scope.intentName = ""
         $scope.userExp = ""
-        $scope.userExpList = []
+       
         $scope.resposne = ""
         $scope.resposneList = []
         $scope.actions = []
@@ -102,6 +108,21 @@ chatBot.controller("addIntentController", function($scope,dashboardService,$loca
             function(payload){
                 $scope.toggleGridLoader("addIntentWidget")
                 console.log("payload  ",payload)
+                if($rootScope.unknownName != "" && $rootScope.unknownName != undefined && $rootScope.unknownName != null){
+                    if($rootScope.id != "" && $rootScope.id != undefined && $rootScope.id != null){
+                        var params = {
+                            appId : $scope.appId,
+                            id : $rootScope.id 
+                        }
+                        var promise = dashboardService.updatePhrase(params)
+                        promise.then(
+                            function(payload){
+                            },
+                            function(errorPayload) {
+                                $scope.toggleGridLoader("addIntentWidget")
+                            }) 
+                    }
+                }
                 $location.path("/manageIntent")
                 $rootScope.saveSuccess = true
 

@@ -5,7 +5,7 @@
 
 
 
-chatBot.controller("userController", function($scope,dashboardService,$location) {
+chatBot.controller("userController", function($scope,dashboardService,$location,$rootScope) {
     //    console.log("***********userController**************")
     $scope.openSubSideBar("userSection")
     // var intervalCurrentSession;

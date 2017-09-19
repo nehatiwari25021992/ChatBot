@@ -63,7 +63,7 @@ chatBot.controller("MainController", function($controller,$rootScope,$scope,$htt
             $scope.intentSection = false
             $scope.settingsSection = true 
             $scope.dialogSection = false 
-        $scope.dialogSection = false 
+            $scope.dialogSection = false 
         }else if(module == "dialogSection"){
             $scope.dashboardSection = false
             $scope.userSection = false
@@ -74,15 +74,14 @@ chatBot.controller("MainController", function($controller,$rootScope,$scope,$htt
         }
     }
     
-    $scope.app = "3d4bb5e3c2edd13563155c3036ac47afed3298dc4e474f026cf147485dc5e881"
-    $scope.key = "8b97a5ad0072f2eac01928d8e9d8c813313d4b9e9fa4ebec080969281ec8cef0"
-    $scope.apiKey = "3d4bb5e3c2edd13563155c3036ac47afed3298dc4e474f026cf147485dc5e881"
-    $scope.secretKey = "8b97a5ad0072f2eac01928d8e9d8c813313d4b9e9fa4ebec080969281ec8cef0"
-    $scope.appId = 1
-    $rootScope.appId = 1
+    //    $scope.app = "3d4bb5e3c2edd13563155c3036ac47afed3298dc4e474f026cf147485dc5e881"
+    //    $scope.key = "8b97a5ad0072f2eac01928d8e9d8c813313d4b9e9fa4ebec080969281ec8cef0"
+    //    $scope.apiKey = "3d4bb5e3c2edd13563155c3036ac47afed3298dc4e474f026cf147485dc5e881"
+    //    $scope.secretKey = "8b97a5ad0072f2eac01928d8e9d8c813313d4b9e9fa4ebec080969281ec8cef0"
+    //    $scope.appId = 1
+    //    $rootScope.appId = 1
     // This for appName
-    $scope.appName = $scope.app.name
-    $rootScope.appName = $scope.app.name
+  
     
     //    $('.chosen-select').chosen({
     //        disable_search_threshold: 10
@@ -94,33 +93,8 @@ chatBot.controller("MainController", function($controller,$rootScope,$scope,$htt
         $scope.apiKey = $scope.app.apiKey
         $scope.secretKey = $scope.app.secretKey
         $rootScope.appId = $scope.app.id
-        // This for appName
         $scope.appName = $scope.app.name
         $rootScope.appName = $scope.app.name
-        
-        //        if($scope.demoAppSettings.id == $scope.app.id){
-        //            $scope.demoDataToggle = true
-        //        }else{
-        var arr = []
-        $scope.appList.forEach(function(ap){
-            arr.push(ap)
-        })
-            
-        $scope.appList = arr
-        //            $scope.demoDataToggle = false
-        //        }
-       
-        
-        eventReq.id = $scope.app.id
-       
-        pushRequestModel.id = $scope.app.id
-        emailRequestModel.id = $scope.app.id
-        wallPostRequestModel.id = $scope.app.id
-        eventReqSegmentation.id = $scope.app.id 
-        // reqNewSegmentation.id = $scope.app.id
-        setAppCookie(__APP42_APP_KEY,$scope.app);
-        $scope.hasEventCall = true
-        $scope.getTotalAppEvents()
         $rootScope.$broadcast("reloadTemplate")
     }
     
@@ -183,6 +157,20 @@ chatBot.controller("MainController", function($controller,$rootScope,$scope,$htt
         return active;
     };
     
+    
+    $scope.getAppsForDropDown = function(appNameNew){
+        apps = dashboardService.getAppsForDropdown()
+        $scope.appList =  apps
+        $scope.app = apps[0]
+        $scope.key = apps[0]
+        $scope.apiKey = $scope.key.apiKey
+        $scope.secretKey = $scope.key.secretKey
+        $scope.appId = $scope.app.id
+        $rootScope.appId = $scope.app.id
+        $scope.appName = $scope.app.name
+        $rootScope.appName = $scope.app.name
+    }
+    $scope.getAppsForDropDown()
     $scope.getTotalAppEvents = function(){
         $("#createNotifyId").hide();
         //  $("#breadcrumbId").removeClass('breadcrumbMA');

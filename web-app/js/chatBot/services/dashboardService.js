@@ -178,6 +178,16 @@ chatBot.factory('dashboardService', function($rootScope,$http) {
             })
             return promise;
         },
+        updatePhrase: function(params) {
+            var promise = $http({
+                method: 'POST', 
+                url: '../chatBot/updatePhrase',
+                params:params
+            }).success(function(data, status, headers, config) {
+                return data;
+            })
+            return promise;
+        },
         getDialog : function(params) {
             var promise = $http({
                 method: 'POST', 

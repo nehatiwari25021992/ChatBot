@@ -4,7 +4,7 @@
  */
 
 
-chatBot.controller("unknownIntentController", function($scope) {
+chatBot.controller("unknownIntentController", function($scope,$rootScope) {
     console.log("***********unknownIntentController**************")
     $scope.openSubSideBar("intentSection")
 //    var intervalCurrentSession;

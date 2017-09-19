@@ -24,7 +24,7 @@
       </li>  
       <li ng-class="{ active: isActive('/dialogs') }">
         <a href="#/dialogs" ng-click="openSubSideBar('dialogSection')" data-toggle="tooltip" data-placement="right" title="" data-original-title="Train">
-          <img src="${resource(dir:'images/ma',file:'intent_icon.png')}" alt="">
+          <img src="${resource(dir:'images/ma',file:'Train-icon.png')}" alt="">
         </a>
       </li>  
 
