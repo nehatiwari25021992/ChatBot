@@ -17,26 +17,12 @@ chatBot.controller("dialogController", function($scope,$window) {
         var iframe = document.getElementById("targetFrame");
         if (iframe) {
             var iframeContent = (iframe.contentWindow || iframe.contentDocument);
-//            console.log(iframeContent.app)
-//            console.log(iframeContent.app.AppView)
-//            console.log(iframeContent.app.AppView.prototype)
-//            console.log(iframeContent.app.AppView.prototype.showCodeSnippet())
-           $scope.json = iframeContent.app.AppView.prototype.showCodeSnippet();
+            $scope.json = iframeContent.app.AppView.prototype.showCodeSnippet();
         }
-        
-     
-        
-        // var el = document.getElementById('targetFrame');
-        // $scope.json = $window.frames['targetFrame'].showCodeSnippet();
-       
-        //        var iframe = document.getElementById("targetFrame");
-        //        $scope.json =  iframe.contentWindow.showCodeSnippet();
-        
-        
-        // $scope.json = document.getElementById('targetFrame').contentWindow.showCodeSnippet();
-        console.log("$scope.json")
-        console.log($scope.json)
-      
+    }
+    
+    $scope.getDialog = function(){
+    
     }
 
   
