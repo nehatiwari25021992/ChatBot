@@ -87,6 +87,7 @@ chatBot.controller("editIntentController", function($scope,dashboardService,$loc
     }
     
     $scope.addResponse = function(){
+        console.log("addResponse :::")
         $scope.isresposne = "default"
         var item = $scope.resposne
         if(item == "" || item == null || item == undefined){
@@ -101,6 +102,7 @@ chatBot.controller("editIntentController", function($scope,dashboardService,$loc
             $scope.resposneList.push(map)
             $scope.resposne = ""
         }
+        console.log("$scope.resposneList :::",$scope.resposneList)
     }
    
    
@@ -113,6 +115,7 @@ chatBot.controller("editIntentController", function($scope,dashboardService,$loc
     }
     
     $scope.updateIntent = function(){
+        $scope.addAction()
         $scope.toggleGridLoader("editIntentWidget")
         var params = {
             appId : $scope.appId,
@@ -124,11 +127,12 @@ chatBot.controller("editIntentController", function($scope,dashboardService,$loc
             actions : $scope.actions,
             resposneList : $scope.resposneList 
         }
+        console.log("params :::::::::::::::::::::: ",params)
         var promise = dashboardService.updateIntent(params)
         promise.then(
             function(payload){
                 $scope.toggleGridLoader("editIntentWidget")
-                console.log("payload  ",payload)
+                console.log("updateIntent payload  ",payload)
                 $rootScope.saveSuccess = true
                 $location.path("/manageIntent")
 

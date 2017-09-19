@@ -6,7 +6,7 @@
 
 chatBot.controller("addIntentController", function($scope,dashboardService,$location, $rootScope) {
     console.log("***********addIntentController**************")
-    $scope.openSubSideBar("intentSection")
+   // $scope.openSubSideBar("intentSection")
     var intervalCurrentSession;
     // Maximize | Minimize Apps Grid
     $scope.initializeGridMaximize()  // Initializes Grid Maximize option

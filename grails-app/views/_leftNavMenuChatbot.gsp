@@ -16,8 +16,7 @@
           <img src="${resource(dir:'images/iconNewUI/maNewIcons',file:'insights.png')}" alt="">
         </a>
       </li>
-
-      <li ng-class="{ active: isActive('/manageIntent') }">
+      <li ng-class="{ active: (isActive('/manageIntent') || isActive('/addIntent') || isActive('/editIntent')) }">
         <a href="#/manageIntent" ng-click="openSubSideBar('intentSection')" data-toggle="tooltip" data-placement="right" title="" data-original-title="Intent">
           <img src="${resource(dir:'images/ma',file:'intent_icon.png')}" alt="">
         </a>

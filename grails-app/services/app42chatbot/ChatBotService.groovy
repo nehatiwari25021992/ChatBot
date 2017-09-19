@@ -605,12 +605,8 @@ class ChatBotService {
         def tagId = params.intentId
         def sqlQuery = ""
         //       try{
-        if(params.userExpList != null){
-            println "params.userExpList   "+params.userExpList
-            println "params.userExpList getClass  "+params.userExpList.getClass()
-                
+        if(params.userExpList != null){                
             if(params.userExpList instanceof String){
-                println "111111111111111111"
                 def u = JSON.parse(params.userExpList )
                 if(u.isPresent == true && u.isDelete == true){
                     def patternId = u.id
@@ -618,28 +614,21 @@ class ChatBotService {
                     def rows3 = db.execute(sqlQuery,[patternId])
                 }else{
                     if(u.isPresent == true && u.isDelete == true){
-                        println "222222222222222222222222"
                         sqlQuery  = "INSERT INTO patterns ( `name`, `description`, `tag_id`) VALUES (?,?,?);";
                         def rows3 = db.executeInsert(sqlQuery,[u.name,"-",tagId])
                     }
                 }
             }else{ 
                 params.userExpList.each{user->
-                    println "user _______________________ "+user
-                    println "&&&&&&  "+user.getClass()
                     def u = JSON.parse(user)
-                    println "&&&&&&  "+u.getClass()
                     if(u.isPresent == true && u.isDelete == true){
-                        println "33333333333333333333333333"
                         def patternId = u.id
                         sqlQuery  = "DELETE FROM patterns where id=?";
                         def rows3 = db.execute(sqlQuery,[patternId])
                     }else{
                         if(u.isPresent == false && u.isDelete == false){
-                            println "444444444444444444444"
                             sqlQuery  = "INSERT INTO patterns ( `name`, `description`, `tag_id`) VALUES (?,?,?);";
                             def rows3 = db.executeInsert(sqlQuery,[u.name,"-",tagId])
-                            println "rows3 444444444444  "+rows3
                         }
                     }
                 }   
@@ -647,6 +636,7 @@ class ChatBotService {
         }
         
         if(params.actions != null){
+            println "actions "+params.actions
             if(params.actions instanceof String){
                 def u = JSON.parse(params.actions )
                 if(u.isPresent == true && u.isDelete == true){
@@ -654,9 +644,11 @@ class ChatBotService {
                     sqlQuery  = "DELETE FROM actions where id=?";
                     def rows3 = db.execute(sqlQuery,[actionId])
                 }else{
-                    if(u.isPresent == true && u.isDelete == true){
+                    if(u.isPresent == false && u.isDelete == false){
+                        println "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
                         sqlQuery  = "INSERT INTO actions ( `name`, `description`, `tag_id`) VALUES (?,?,?);";
                         def rows4 = db.executeInsert(sqlQuery,[params.actions,"-",tagId])
+                        println "rows4 AAAAAAAAAAAAA"+rows4
                     }
                 }
             }else{ 
@@ -670,6 +662,7 @@ class ChatBotService {
                         if(u.isPresent == false && u.isDelete == false){
                             sqlQuery  = "INSERT INTO actions ( `name`, `description`, `tag_id`) VALUES (?,?,?);";
                             def rows4 = db.executeInsert(sqlQuery,[u.name,"-",tagId])
+                            println "rows4 33333333"+rows4
                         }
                     }
                 }   
@@ -677,6 +670,7 @@ class ChatBotService {
         }
               
         if(params.resposneList != null){
+            println "params.resposneList "+params.resposneList
             if(params.resposneList instanceof String){
                 def u = JSON.parse(params.resposneList )
                 if(u.isPresent == true && u.isDelete == true){
@@ -685,6 +679,7 @@ class ChatBotService {
                     def rows3 = db.execute(sqlQuery,[resposneId])
                 }else{
                     if(u.isPresent == false && u.isDelete == false){
+                        println "RRRRRRRRRRRRRRRRRRRRRRRRRRRRR1111"
                         sqlQuery  = "INSERT INTO responses ( `name`, `description`, `tag_id`) VALUES (?,?,?);";
                         def rows5 = db.executeInsert(sqlQuery,[params.resposneList,"-",tagId])
                     }
@@ -698,8 +693,10 @@ class ChatBotService {
                         def rows3 = db.execute(sqlQuery,[resposneId])
                     }else{
                         if(u.isPresent == false && u.isDelete == false){
+                            println "RRRRRRRRRr222222222"
                             sqlQuery  = "INSERT INTO responses ( `name`, `description`, `tag_id`) VALUES (?,?,?);";
                             def rows5 = db.executeInsert(sqlQuery,[u.name,"-",tagId])
+                            println 'rows5 '+rows5
                         }
                     }
                 }   
