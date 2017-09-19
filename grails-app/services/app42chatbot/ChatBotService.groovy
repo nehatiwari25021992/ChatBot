@@ -136,20 +136,24 @@ class ChatBotService {
            
 
             average_session_length =  millis.intValue()
-            if(average_session_length <= 60){            
-                long seconds = TimeUnit.MILLISECONDS.toSeconds(millis.intValue());           
-                println 'seconds ::::::::::::::: '+seconds
-                average_session_length = seconds + "sec"
-            }
-            if(average_session_length > 60 && average_session_length <= 3600){
-                long minutes = TimeUnit.MILLISECONDS.toMinutes(millis.intValue());
-                println 'minutes ::::::::::::::: '+minutes
-                average_session_length = minutes + "min"
-            }
-            if(average_session_length > 3600 ){
-                long hours = TimeUnit.MILLISECONDS.toHours(millis.intValue());
-                println 'hours ::::::::::::::: '+hours
-                average_session_length = hours + " hour"
+            if(average_session_length != 0 ){
+                if(average_session_length <= 60){            
+                    long seconds = TimeUnit.MILLISECONDS.toSeconds(millis.intValue());           
+                    println 'seconds ::::::::::::::: '+seconds
+                    average_session_length = seconds + "sec"
+                }
+                println "average_session_length :::::::::::::: "+average_session_length
+                println "average_session_length getClass :::::::::::::: "+average_session_length.getClass()
+                if(average_session_length > 60 && average_session_length <= 3600){
+                    long minutes = TimeUnit.MILLISECONDS.toMinutes(millis.intValue());
+                    println 'minutes ::::::::::::::: '+minutes
+                    average_session_length = minutes + "min"
+                }
+                if(average_session_length > 3600 ){
+                    long hours = TimeUnit.MILLISECONDS.toHours(millis.intValue());
+                    println 'hours ::::::::::::::: '+hours
+                    average_session_length = hours + " hour"
+                }
             }
             jsonMap.average_session = average_session_length
             println 'average_session_length ::::::::::::::: '+average_session_length
