@@ -11,6 +11,11 @@ chatBot.controller("dialogController", function($scope,$window,dashboardService,
     $scope.openSubSideBar("dialogSection")
 
     $scope.initializeGridMaximize()  // Initializes Grid Maximize option
+    
+    $scope.$on('reloadTemplate', function(event) {
+        $scope.getDialog()
+    });
+    
   
     $scope.specsUrl = "http://localhost:8080/App42ChatBot/JointJS - JavaScript diagramming library - Demos._files/index.html"
     $scope.showSnippet = function() {
@@ -28,7 +33,7 @@ chatBot.controller("dialogController", function($scope,$window,dashboardService,
         var promise = dashboardService.getDialog(params)
         promise.then(
             function(payload){
-//                console.log("payload  ",payload)
+                //                console.log("payload  ",payload)
                 if(payload.data.success){
                   
                     $scope.json = payload.data.rows.config
@@ -39,11 +44,11 @@ chatBot.controller("dialogController", function($scope,$window,dashboardService,
                     if (iframe) {
                         var iframeContent = (iframe.contentWindow || iframe.contentDocument);
               
-//                        iframeContent.app.AppView.prototype.initializePaper();
-//                        iframeContent.app.AppView.prototype.initializeSelection();
-//                        iframeContent.app.AppView.prototype.initializeHalo();
-//                        iframeContent.app.AppView.prototype.initializeInlineTextEditor();
-//                        iframeContent.app.AppView.prototype.initializeTooltips();
+                        //                        iframeContent.app.AppView.prototype.initializePaper();
+                        //                        iframeContent.app.AppView.prototype.initializeSelection();
+                        //                        iframeContent.app.AppView.prototype.initializeHalo();
+                        //                        iframeContent.app.AppView.prototype.initializeInlineTextEditor();
+                        //                        iframeContent.app.AppView.prototype.initializeTooltips();
                         iframeContent.app.AppView.prototype.loadDialog($scope.json);
                     }
                 }

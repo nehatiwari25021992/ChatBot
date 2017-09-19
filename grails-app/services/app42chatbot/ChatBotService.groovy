@@ -412,28 +412,28 @@ class ChatBotService {
         def db = new Sql(dataSource)
         def appId = params.appId.toLong()
         def appName = params.appName
-      //  try{
-            def sqlQuery  = "select id from intents where app_id = ? ";
-            def rows= db.firstRow(sqlQuery,[appId])
-            println "rows 111111111111  "+rows
-            if(rows != null){
-                println "22222222222222222222"
-                saveTag(params,rows.id)
+        //  try{
+        def sqlQuery  = "select id from intents where app_id = ? ";
+        def rows= db.firstRow(sqlQuery,[appId])
+        println "rows 111111111111  "+rows
+        if(rows != null){
+            println "22222222222222222222"
+            saveTag(params,rows.id)
             
-            }else{
-                println "appName "+appName
-                println "appId  "+appId
-                sqlQuery  = "INSERT INTO `intents` ( `name`, `description`, `app_id`,default_welcome, default_fall_back,bot_name)VALUES(?,?,?,?,?,?)";
-                def row1 = db.executeInsert(sqlQuery,[appName,appName,appId,"This is Alice, How can I help you ? ","I did'nt understand your question, can you please rephrase or type help to get assistance","Alice"])
-                println "row1 ::::::: "+row1
-                if(row1 != null){
-                    saveTag(params,row1[0][0])
-                }
+        }else{
+            println "appName "+appName
+            println "appId  "+appId
+            sqlQuery  = "INSERT INTO `intents` ( `name`, `description`, `app_id`,default_welcome, default_fall_back,bot_name)VALUES(?,?,?,?,?,?)";
+            def row1 = db.executeInsert(sqlQuery,[appName,appName,appId,"This is Alice, How can I help you ? ","I did'nt understand your question, can you please rephrase or type help to get assistance","Alice"])
+            println "row1 ::::::: "+row1
+            if(row1 != null){
+                saveTag(params,row1[0][0])
             }
-//        }catch(Exception e){
-//            println "Exception in add intent :: "+e
-//            jsonMap.success = false
-//        }
+        }
+        //        }catch(Exception e){
+        //            println "Exception in add intent :: "+e
+        //            jsonMap.success = false
+        //        }
         jsonMap 
     }
     
@@ -767,10 +767,10 @@ class ChatBotService {
         def rows = db.firstRow(sqlQuery,[appId])
         println "rows ------  "+rows
         if(rows == null){
-             jsonMap.success  = false
+            jsonMap.success  = false
         }else{
-             jsonMap.success  = true
-              jsonMap.rows = rows
+            jsonMap.success  = true
+            jsonMap.rows = rows
         }
       
         jsonMap
@@ -783,9 +783,14 @@ class ChatBotService {
         def db = new Sql(dataSource)
         def appId = params.appId.toLong()
         def config = params.config
-        def sqlQuery  = "INSERT INTO `chatbot`.`dialog` (`name`, `app_id`, `config`) VALUES (?,?,?); ";
-        def rows = db.executeInsert(sqlQuery,['Dialog',appId,config])
-        println "saveDialog rows ------  "+rows
+        def isdialogPresent = getDialog(params)
+        if(isdialogPresent.success){
+            updateDialog(params)
+        }else{
+            def sqlQuery  = "INSERT INTO `chatbot`.`dialog` (`name`, `app_id`, `config`) VALUES (?,?,?); ";
+            def rows = db.executeInsert(sqlQuery,['Dialog',appId,config])
+            println "saveDialog rows ------  "+rows
+        }
         jsonMap
     }
     
@@ -803,7 +808,7 @@ class ChatBotService {
         jsonMap
     }
     
-       def updatePhrase(params){
+    def updatePhrase(params){
         println "updatePhrase params "+params
         def jsonMap = [:]
         jsonMap.success  = true
@@ -834,7 +839,7 @@ class ChatBotService {
             }
             jsonMap.data = resultArr
         }   
-        println "getUnknownIntent jsonMap ------  "+jsonMap
+        println "getUnknownIntent jsonMap ------ :: "+jsonMap
         jsonMap
     } 
 }
