@@ -1,5 +1,9 @@
 <style>
-.swgFrame{background-color: #f9f9f9; margin: 2% 0 0 2%;border: 1px dashed #cfcfcf;}
+.swgFrame{
+  background-color: #f9f9f9;
+  margin: 2% 0 0 2%;
+  border: 1px dashed #cfcfcf;
+}
 </style>
 <div class="row dbWrapper">
   <div class="col-md-12">
@@ -21,9 +25,10 @@
       </div>
 
       <div class="widget-content left fs">
+      
         <div class="row" >
           <div class="col-lg-12 col-md-12 col-sm-12">
-            <iframe class="swgFrame" width="96%" height="490px" name="dialogFrame" ng-src="{{specsUrl}}" ></iframe>
+            <iframe id="targetFrame" class="swgFrame" width="96%" height="490px" name="targetFrame" ng-src="{{specsUrl}}" ></iframe>
           </div>
         </div>
       </div>

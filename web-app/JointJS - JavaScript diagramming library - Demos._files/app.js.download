@@ -33,7 +33,7 @@ app.AppView = joint.mvc.View.extend({
         this.initializeInlineTextEditor();
         this.initializeTooltips();
 
-        this.loadExample();
+   
     },
 
     initializeTooltips: function() {
@@ -298,9 +298,22 @@ app.AppView = joint.mvc.View.extend({
 
         var cell = this.selection.first();
         var dialogJSON = app.Factory.createDialogJSON(this.graph, cell);
-		console.log("---Get JSON Hook Will Go Here---")
-		console.log(dialogJSON)
-        var id = _.uniqueId('qad-dialog-');
+	console.log("---Get JSON Hook Will Go Here---")
+	console.log(JSON.stringify(dialogJSON))
+
+    $.ajax(base_url + '/saveDialog', {
+        method: 'POST',
+        data: {
+            dialogContent: JSON.stringify(dialogJSON),
+            userId: 1,
+            appId:1
+        }
+    }).then(function(data) {
+        // console.log(data);
+        //console.log("---Event tagging Success---")
+        });
+
+ var id = _.uniqueId('qad-dialog-');
 
         var snippet = '';
         snippet += '<div id="' + id + '"></div>';
@@ -320,6 +333,9 @@ app.AppView = joint.mvc.View.extend({
             content: content
         });
 
-        dialog.open();
+      
+
+        return JSON.stringify(dialogJSON);
+       
     }
 });
