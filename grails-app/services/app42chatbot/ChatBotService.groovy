@@ -462,17 +462,9 @@ class ChatBotService {
                 }   
             }
         }
-        if(params.actions != null){
-            if(params.actions instanceof String){
+        if(params.action != null){
                 sqlQuery  = "INSERT INTO actions ( `name`, `description`, `tag_id`) VALUES (?,?,?);";
-                def rows4 = db.executeInsert(sqlQuery,[params.actions,"-",tagId])
-            }else{
-           
-                params.actions.each{u->
-                    sqlQuery  = "INSERT INTO actions ( `name`, `description`, `tag_id`) VALUES (?,?,?);";
-                    def rows4 = db.executeInsert(sqlQuery,[u,"-",tagId])
-                }  
-            }    
+                def rows4 = db.executeInsert(sqlQuery,[params.actions,"-",tagId])  
         }
         
         if(params.resposneList != null){
@@ -565,20 +557,11 @@ class ChatBotService {
         }
         jsonMap.userExpList  = userExpList
         
-        sqlQuery  = "select `name`,id from actions where  tag_id = ?";
-        def rows4 = db.rows(sqlQuery,[intentId])
-        def actions = []
-        rows4.each{r->
-            def map = [:]
-            map.name = r.name
-            map.id = r.id
-            map.isDelete = false
-            map.isPresent = true 
-            actions.push(map)
-        }
-        jsonMap.actions  = actions 
+        sqlQuery  = "select `name` from actions where  tag_id = ?";
+        def rows4 = db.firstRow(sqlQuery,[intentId])
+        jsonMap.actions  = rows4.name 
         
-        sqlQuery  = "select `name`,id from actions where  tag_id = ?";
+        sqlQuery  = "select `name`,id from responses where  tag_id = ?";
         def rows5 = db.rows(sqlQuery,[intentId])
         def resposneList = []
         rows5.each{r->
@@ -637,36 +620,8 @@ class ChatBotService {
         
         if(params.actions != null){
             println "actions "+params.actions
-            if(params.actions instanceof String){
-                def u = JSON.parse(params.actions )
-                if(u.isPresent == true && u.isDelete == true){
-                    def actionId = u.id
-                    sqlQuery  = "DELETE FROM actions where id=?";
-                    def rows3 = db.execute(sqlQuery,[actionId])
-                }else{
-                    if(u.isPresent == false && u.isDelete == false){
-                        println "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
-                        sqlQuery  = "INSERT INTO actions ( `name`, `description`, `tag_id`) VALUES (?,?,?);";
-                        def rows4 = db.executeInsert(sqlQuery,[params.actions,"-",tagId])
-                        println "rows4 AAAAAAAAAAAAA"+rows4
-                    }
-                }
-            }else{ 
-                params.actions.each{act->
-                    def u = JSON.parse(act)
-                    if(u.isPresent == true && u.isDelete == true){
-                        def actionId = u.id
-                        sqlQuery  = "DELETE FROM actions where id=?";
-                        def rows3 = db.execute(sqlQuery,[actionId])
-                    }else{
-                        if(u.isPresent == false && u.isDelete == false){
-                            sqlQuery  = "INSERT INTO actions ( `name`, `description`, `tag_id`) VALUES (?,?,?);";
-                            def rows4 = db.executeInsert(sqlQuery,[u.name,"-",tagId])
-                            println "rows4 33333333"+rows4
-                        }
-                    }
-                }   
-            }
+            sqlQuery  = "update `chatbot`.`actions` SET name = ? where tag_id = ?";
+            def rows = db.executeUpdate(sqlQuery,[params.actions,tagId])
         }
               
         if(params.resposneList != null){

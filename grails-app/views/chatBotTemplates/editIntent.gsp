@@ -71,7 +71,7 @@
       <div class="intentWrapper">
         <div class="intentRow">
           <div class="intlabel">Actions</div>
-          <textarea class="input form-control" placeholder="Action"  ng-model="action.name"  stype="text" rows="1" cols="30"></textarea>
+          <textarea class="input form-control" placeholder="Action"  ng-model="action"  stype="text" rows="1" cols="30"></textarea>
         </div>
         <div class="intentRowB">
           <div class="UXrowInput"  ng-class="{'has-warning has-iconed' : isresposne != 'default'}" >
@@ -85,7 +85,7 @@
           </div>
           <div class="UXrowData bgB" >
             <div class="UXrowInner"  ng-repeat="r in resposneList">
-              <input type="text" class="input" readonly="" value="{{r}}">
+              <input type="text" class="input" readonly="" value="{{r.name}}">
               <a href="javascript:;" ng-click="removeResponse(r)" class="delBtn"><i class="fa fa-trash-o"></i></a>
             </div>	
           </div>
