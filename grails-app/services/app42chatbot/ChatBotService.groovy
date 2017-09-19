@@ -387,7 +387,7 @@ class ChatBotService {
         println "conversationId ::::::: "+conversationId
         def sqlQuery  = "select id,message_from,message,created_on  from messages where app_id = ? and user_id=?  and conversation_id = ? order by created_on desc ";
         def rows3= db.rows(sqlQuery,[appId,userId,conversationId])
-         println "rows3 ::::::: "+rows3
+        println "rows3 ::::::: "+rows3
         rows3.each{r->   
             def userMap = [:]
             if(r.message_from == "chatbot"){
@@ -739,20 +739,10 @@ class ChatBotService {
     
     def getServicesByLoginChatbot(params,String user){
         def loginEmail = null
-        //        def findEmailByUser = PaeUser.findByUsername(user)
-        //        if(!findEmailByUser){
-        //            def findByEmail = PaeUser.findByEmail(user)
-        //            if(findByEmail){
-        //                loginEmail = findByEmail.email
-        //            }
-        //        }else{
-        //            loginEmail = findEmailByUser.email
-        //        }
         def db = new Sql(dataSource)
         def response = db.rows("select  s.id,s.api_key,s.secret_key, s.tos,s.type,s.name, s.service_version, s.coverthumb ,s.description ,s.environment ,DATE(s.register_date) as registerDate,s.state FROM service s where s.login=${user}   group by s.id")
         def result = []
         response.each{data->
-            //   if(data.app_status_id ==null){
             def res = [:]
             res['id'] = data.id
             res['tos'] = data.tos
@@ -760,21 +750,50 @@ class ChatBotService {
             res['type'] = data.type
             res['service_version'] = data.service_version
             res['description'] = data.description
-            //  res['environment'] = data.environment
-            // res['acl'] = data.acl
             res['apiKey'] = data.api_key
             res['secretKey'] = data.secret_key
-            //res['adminKey'] = data.admin_key
-            //res['pushState'] = data.pushState
-            // res['analyticState'] = data.analyticState
-            // res['emailState'] = data.emailState
-            //  res['registerDate'] = data.registerDate
-            // res['offLineTrackingState'] = data.offLineTrackingState
             result.add(res);
-            // }
         }
-        println "result ::::::::::::: 00"+result
         return ([total: result.size(), rows: result] as JSON)
     }
+    
+    def getDialog(params){
+        println "getDialog params "+params
+        def jsonMap = [:]
+        jsonMap.success  = true
+        def db = new Sql(dataSource)
+        def appId = params.appId.toLong()
+        def sqlQuery  = "select config from dialog where app_id = ? ";
+        def rows = db.firstRow(sqlQuery,[appId])
+        println "rows ------  "+rows
+        jsonMap
+    }
 	
+    def saveDialog(params){
+        println "saveDialog params "+params
+        def jsonMap = [:]
+        jsonMap.success  = true
+        def db = new Sql(dataSource)
+        def appId = params.appId.toLong()
+        def config = params.config
+        def sqlQuery  = "INSERT INTO `chatbot`.`dialog` (`name`, `app_id`, `config`) VALUES (?,?,?); ";
+        def rows = db.executeInsert(sqlQuery,['Dialog',appId,config])
+        println "saveDialog rows ------  "+rows
+        jsonMap
+    }
+    
+    
+    def updateDialog(params){
+        println "updateDialog params "+params
+        def jsonMap = [:]
+        jsonMap.success  = true
+        def db = new Sql(dataSource)
+        def appId = params.appId.toLong()
+        def config = params.config
+        def sqlQuery  = "update `chatbot`.`dialog` SET config = ? where app_id = ? ";
+        def rows = db.executeUpdate(sqlQuery,[config,appId])
+        println "updateDialog rows ------  "+rows
+        jsonMap
+    }
+    
 }

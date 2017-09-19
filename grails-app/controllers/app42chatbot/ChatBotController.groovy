@@ -93,4 +93,19 @@ class ChatBotController {
         def result  = chatBotService.getIntentDetails(params)
         render result as JSON
     } 
+    
+    def saveDialog = {
+        def result  = chatBotService.saveDialog(params)
+        render result as JSON
+    } 
+    
+    def updateDialog = {
+        def result  = chatBotService.updateDialog(params)
+        render result as JSON
+    } 
+    
+    def getDialog = {
+        def result  = chatBotService.getDialog(params)
+        render result as JSON
+    }
 } 
