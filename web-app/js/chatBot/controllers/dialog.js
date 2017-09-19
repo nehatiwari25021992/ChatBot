@@ -6,15 +6,26 @@
  */
 
 
-chatBot.controller("dialogController", function($scope, $rootScope) {
-  console.log("***********dialogController**************")
- $scope.openSubSideBar("dialogSection")
+chatBot.controller("dialogController", function($scope, $rootScope,$window) {
+    console.log("***********dialogController**************")
+    $scope.openSubSideBar("dialogSection")
 
     $scope.initializeGridMaximize()  // Initializes Grid Maximize option
+  
+    $scope.specsUrl = "http://localhost:8080/App42ChatBot/JointJS - JavaScript diagramming library - Demos._files/index.html"
+    $scope.showSnippet = function() {
+        var iframe = document.getElementById("targetFrame");
+        if (iframe) {
+            var iframeContent = (iframe.contentWindow || iframe.contentDocument);
+            $scope.json = iframeContent.app.AppView.prototype.showCodeSnippet();
+        }
+    }
     
-   $scope.specsUrl = "http://localhost:8080/App42ChatBot/JointJS - JavaScript diagramming library - Demos._files/saved_resource(2).html"
+    $scope.getDialog = function(){
     
-   $rootScope.unknownName = ""
+    }
+
+    $rootScope.unknownName = ""
     $rootScope.id = ""
   
 })
