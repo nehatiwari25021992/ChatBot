@@ -10,9 +10,9 @@ environments {
             dbCreate = "update" // one of 'create', 'create-drop','update'
             pooled = true
             driverClassName = "com.mysql.jdbc.Driver"
-            username = "App42RootUser"
-            password = "App42Admin"
-            url = "jdbc:mysql://10.41.1.25/pae_web?autoReconnect=true&jdbcCompliantTruncation=false&zeroDateTimeBehavior=convertToNull"
+            username = "root"
+            password = "nJWYdBpv5J"
+            url = "jdbc:mysql://localhost/chatbot?autoReconnect=true&jdbcCompliantTruncation=false&zeroDateTimeBehavior=convertToNull"
             dialect = "org.hibernate.dialect.MySQL5InnoDBDialect"
             properties { 
                 maxActive = 50
@@ -56,8 +56,8 @@ environments {
             pooled = true
             driverClassName = "com.mysql.jdbc.Driver"
             username = "root"
-            password = ""
-            url = "jdbc:mysql://localhost/pae_web?autoReconnect=true&jdbcCompliantTruncation=false&zeroDateTimeBehavior=convertToNull"
+            password = "nJWYdBpv5J"
+            url = "jdbc:mysql://localhost/chatbot?autoReconnect=true&jdbcCompliantTruncation=false&zeroDateTimeBehavior=convertToNull"
             dialect = "org.hibernate.dialect.MySQL5InnoDBDialect"
             properties { 
                 maxActive = 50
