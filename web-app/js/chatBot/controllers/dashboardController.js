@@ -4,14 +4,15 @@
  */
 
 
-chatBot.controller("dashboardController", function($scope,dashboardService) {
+chatBot.controller("dashboardController", function($scope,dashboardService,$rootScope) {
     console.log("***********dashboardController**************")
     $scope.openSubSideBar("dashboardSection")
     //    var intervalCurrentSession;
     // Maximize | Minimize Apps Grid
     $scope.initializeGridMaximize()  // Initializes Grid Maximize option
     
-   
+    $rootScope.unknownName = ""
+    $rootScope.id = ""
     $scope.$on('reloadTemplate', function(event) {
         $scope.init()
         $scope.getChatBotStatistics()
@@ -533,5 +534,5 @@ chatBot.controller("dashboardController", function($scope,dashboardService) {
     $scope.getMostCommanPhrases()
     $scope.getMessage_in_vs_out()
     $scope.getCommentsLineChartInfo()
-     $scope.getMostActiveHours()
+    $scope.getMostActiveHours()
 })

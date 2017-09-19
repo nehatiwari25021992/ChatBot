@@ -6,7 +6,7 @@
 
 
 
-chatBot.controller("insightsController", function($scope) {
+chatBot.controller("insightsController", function($scope,$rootScope) {
     console.log("***********insightsController**************")
     $scope.openSubSideBar("insightsSection")
     var intervalCurrentSession;

@@ -11,7 +11,7 @@
 
 
 
-chatBot.controller("userDetailsController", function($scope,dashboardService,  $routeParams,$log) {
+chatBot.controller("userDetailsController", function($scope,dashboardService,  $routeParams,$log,$rootScope) {
     console.log("***********userDetailsController**************")
     $scope.openSubSideBar("userSection")
     //    var intervalCurrentSession;
