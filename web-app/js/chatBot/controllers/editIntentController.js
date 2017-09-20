@@ -23,7 +23,7 @@ chatBot.controller("editIntentController", function($scope,dashboardService,$loc
         $scope.init()
     });
     
-    //    $('a[href="#/manageIntent/"]').parent().addClass("current");
+   $('a[href="#/manageIntent/"]').parent().addClass("current");
    
     $scope.init = function(){
         $scope.intentName = ""
