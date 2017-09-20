@@ -462,9 +462,11 @@ class ChatBotService {
                 }   
             }
         }
-        if(params.action != null){
-                sqlQuery  = "INSERT INTO actions ( `name`, `description`, `tag_id`) VALUES (?,?,?);";
-                def rows4 = db.executeInsert(sqlQuery,[params.actions,"-",tagId])  
+        println "8888888888888888params.action ! "+params.actions
+        if(params.actions != null && params.actions  != ""){
+            println "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"
+            sqlQuery  = "INSERT INTO actions ( `name`, `description`, `tag_id`) VALUES (?,?,?);";
+            def rows4 = db.executeInsert(sqlQuery,[params.actions,"-",tagId])  
         }
         
         if(params.resposneList != null){
@@ -559,10 +561,14 @@ class ChatBotService {
         
         sqlQuery  = "select `name` from actions where  tag_id = ?";
         def rows4 = db.firstRow(sqlQuery,[intentId])
-        jsonMap.actions  = rows4.name 
+        if(rows4 != null){
+            jsonMap.actions  = rows4.name 
+        }
+        
         
         sqlQuery  = "select `name`,id from responses where  tag_id = ?";
         def rows5 = db.rows(sqlQuery,[intentId])
+        println 'rows5 '+rows5
         def resposneList = []
         rows5.each{r->
             def map = [:]
@@ -617,12 +623,22 @@ class ChatBotService {
                 }   
             }
         }
-        
-        if(params.actions != null){
-            println "actions "+params.actions
-            sqlQuery  = "update `chatbot`.`actions` SET name = ? where tag_id = ?";
-            def rows = db.executeUpdate(sqlQuery,[params.actions,tagId])
+        if(params.actions != null && params.actions  != ""){
+            sqlQuery  = "select * from actions where  tag_id = ?";
+            def act = db.rows(sqlQuery,[tagId])
+            println "%%%%%%%%%%%%%%act%%%%%%%%%%%%%%%"+act
+            if(act != null && act.size() > 0){
+                println "actions "+params.actions
+                sqlQuery  = "update `chatbot`.`actions` SET name = ? where tag_id = ?";
+                def rows = db.executeUpdate(sqlQuery,[params.actions,tagId])
+            }else{
+                println "Insert !!!"
+                sqlQuery  = "INSERT INTO actions ( `name`, `description`, `tag_id`) VALUES (?,?,?);";
+                def rows4 = db.executeInsert(sqlQuery,[params.actions,"-",tagId])  
+                println "rows4  "+rows4
+            }
         }
+
               
         if(params.resposneList != null){
             println "params.resposneList "+params.resposneList
