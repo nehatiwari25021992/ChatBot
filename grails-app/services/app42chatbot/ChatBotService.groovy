@@ -696,7 +696,7 @@ class ChatBotService {
     def getServicesByLoginChatbot(params,String user){
         def loginEmail = null
         def db = new Sql(dataSource)
-        def response = db.rows("select  s.id,s.api_key,s.secret_key, s.tos,s.type,s.name, s.service_version, s.coverthumb ,s.description ,s.environment ,DATE(s.register_date) as registerDate,s.state FROM service s where s.login=${user}   group by s.id")
+        def response = db.rows("select  s.id,s.api_key,s.secret_key, s.tos,s.type,s.name, s.service_version, s.coverthumb ,s.description ,s.environment ,DATE(s.register_date) as registerDate,s.state FROM service s group by s.id")
         def result = []
         response.each{data->
             def res = [:]
