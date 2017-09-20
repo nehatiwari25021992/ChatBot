@@ -22,8 +22,8 @@
 
       <div class="widget-content left fs">
         <div class="row" >
-          <div class="col-lg-12 col-md-12 col-sm-12">
-            <iframe class="swgFrame" width="96%" height="490px" name="dialogFrame" ng-src="{{specsUrl}}" ></iframe>
+          <div class="col-lg-12 col-md-12 col-sm-12" style="padding-left:0px;">
+            <iframe id="targetFrame" class="swgFrame" width="97%" height="500px" name="targetFrame" ng-src="{{specsUrl}}" ></iframe>
           </div>
         </div>
       </div>

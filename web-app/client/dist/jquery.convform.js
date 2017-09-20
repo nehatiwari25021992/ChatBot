@@ -589,12 +589,8 @@ socket.on('learn_response', function(data) {
 });
 socket.on('status', function(data) {
     console.log(data.msg)
-//    socket.emit('learn', {
-//        m:""
-//    });
-//$('#chat').append('<div style="margin: 10px; width: 350px;  font-family: roboto;font-size: 14px;"><strong>BOT Says:</strong><div style="border: 1px solid #ea242c; border-radius: 20px; padding: 10px; margin-top: 10px;">' + data.msg + '</div></div>');
-// $('#chat').scrollTop($('#chat')[0].scrollHeight);
 });
+
 socket.on('chat_response', function (data) {
     console.log(data);
     var queryResObj = $('<div class="message to typing"><div class="typing_loader"></div></div>');
@@ -609,10 +605,7 @@ socket.on('chat_response', function (data) {
         mockBackendService(data,true)
         $('#userInput').val("");
         $('#userInput').focus();
-    }.bind(this), 500); 
-//    var fixedScroll = document.getElementById("messages");
-//    fixedScroll.scrollTop = fixedScroll.scrollHeight;
-    
+    }.bind(this), 500);   
 });
 
 // Get Response for Query

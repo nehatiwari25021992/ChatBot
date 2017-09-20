@@ -15,6 +15,14 @@
     <link href="./snippet.css" rel="stylesheet">
     <link href="./dialog.css" rel="stylesheet">
     <link href="./index.css" rel="stylesheet">
+    <style>
+   #toolbar{position: fixed; width: 100%; top: 0; background: #fff; z-index: 1000;}
+   #toolbar .btn{padding: 10px 15px; color: #3f3833 ; border: 1px solid #ccc; min-width: 70px !important; text-align: center; border-radius: 20px; font-size: 14px; height: auto; font-family: "Roboto Condensed", "Helvetica Neue", Helvetica, Arial, sans-serif !important;}
+   #paper{margin: 110px auto 30px auto  !important;}
+   #toolbar .btn:hover{background-color: #2a86c4 !important; border: 1px solid #1d6aa8 !important; border-radius: 20px !important; color: #fff !important;}
+   #paper{border: none !important;}     
+   #app{height: 475px; overflow-y: scroll;} 
+    </style>
 
     <script>
        var base_url = "http://localhost:8080/App42ChatBot/chatBot"
@@ -25,7 +33,7 @@
     </script>
 
   </head>
-  <body>
+  <body  style="overflow: hidden;">
 
 <!--    <header id="header">
       <h1>QAD</h1>
