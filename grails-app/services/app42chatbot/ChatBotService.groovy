@@ -490,7 +490,7 @@ class ChatBotService {
         def db = new Sql(dataSource)
         def appId = params.appId.toLong()
         
-        def sqlQuery  = "select name,id,description from tags where app_id = ? ";
+        def sqlQuery  = "select name,id,description from tags where app_id = ? order by id desc ";
         def rows= db.rows(sqlQuery,[appId])
         rows.each{ r->
             def nt = [:]
@@ -626,16 +626,13 @@ class ChatBotService {
         if(params.actions != null && params.actions  != ""){
             sqlQuery  = "select * from actions where  tag_id = ?";
             def act = db.rows(sqlQuery,[tagId])
-            println "%%%%%%%%%%%%%%act%%%%%%%%%%%%%%%"+act
             if(act != null && act.size() > 0){
                 println "actions "+params.actions
                 sqlQuery  = "update `chatbot`.`actions` SET name = ? where tag_id = ?";
                 def rows = db.executeUpdate(sqlQuery,[params.actions,tagId])
             }else{
-                println "Insert !!!"
                 sqlQuery  = "INSERT INTO actions ( `name`, `description`, `tag_id`) VALUES (?,?,?);";
                 def rows4 = db.executeInsert(sqlQuery,[params.actions,"-",tagId])  
-                println "rows4  "+rows4
             }
         }
 
