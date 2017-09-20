@@ -24,7 +24,7 @@ chatBot.controller("MainController", function($controller,$rootScope,$scope,$htt
     $scope.sidebar.manageIntent = "Manage"
     $scope.sidebar.addIntent = "Add"
     $scope.sidebar.insights = "Activity"
-    $scope.sidebar.unknownIntent = "UnKnown"
+    $scope.sidebar.unknownIntent = "Unresolved"
     $scope.sidebar.dialogs = "Dialogs"
     $rootScope.saveSuccess = false
     $scope.openSubSideBar = function(module){
@@ -158,9 +158,6 @@ chatBot.controller("MainController", function($controller,$rootScope,$scope,$htt
     };
     
     $scope.checkIfIntent = function(loc){
-        console.log("***********window.location.href**",window.location.href)
-        console.log("loc :::::::: ",loc)
-        console.log("window.location.href.indexOf(loc)",window.location.href.indexOf(loc))
         if(window.location.href.indexOf('/manageIntent') > -1) {
             return true
         }else if(window.location.href.indexOf('/addIntent') > -1) {
