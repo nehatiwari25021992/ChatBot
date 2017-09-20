@@ -48,7 +48,7 @@
               <td valign="top" class="wbAll">{{user.name}}</td>
               <td valign="top" id="btn_plus" class="">          
                 <a  ng-click="gotoAddIntent(user)"
-                    class="btn btn-default btn btn-default-blue btn-sm"><i class="fa  fa-bar-chart-o"></i>&nbsp;Add</a>
+                    class="btn btn-default btn btn-default-blue btn-sm">&nbsp;Add</a>
               </td>
             </tr>
           </tbody>

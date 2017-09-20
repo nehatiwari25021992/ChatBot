@@ -6,7 +6,7 @@
 
 chatBot.controller("addIntentController", function($scope,dashboardService,$location, $rootScope) {
     console.log("***********addIntentController**************")
-    $scope.openSubSideBar("intentSection")
+   // $scope.openSubSideBar("intentSection")
     var intervalCurrentSession;
     // Maximize | Minimize Apps Grid
     $scope.initializeGridMaximize()  // Initializes Grid Maximize option
@@ -56,22 +56,6 @@ chatBot.controller("addIntentController", function($scope,dashboardService,$loca
         $scope.userExpList.splice($scope.userExpList.indexOf(item),1);
     }
    
-    $scope.addAction = function(){
-        $scope.isactions = "default"
-        var item = $scope.action
-        if(item == "" || item == null || item == undefined){
-            $scope.isactions = "blank"
-        }else{
-            $scope.actions = $scope.action
-            
-        }
-       
-        console.log( "$scope.actions  ", $scope.actions)
-    }
-   
-    $scope.removeAction = function (item) {
-        $scope.actions.splice($scope.actions.indexOf(item),1);
-    }
     
     $scope.addResponse = function(){
         $scope.isresposne = "default"
@@ -100,9 +84,10 @@ chatBot.controller("addIntentController", function($scope,dashboardService,$loca
             intentName : $scope.intentName,
             description : $scope.description,
             userExpList : $scope.userExpList,
-            actions : $scope.actions,
+            actions : $scope.action,
             resposneList : $scope.resposneList 
         }
+        console.log("saveIntent params ",params)
         var promise = dashboardService.saveIntent(params)
         promise.then(
             function(payload){

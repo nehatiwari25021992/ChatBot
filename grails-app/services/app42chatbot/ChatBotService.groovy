@@ -136,20 +136,24 @@ class ChatBotService {
            
 
             average_session_length =  millis.intValue()
-            if(average_session_length <= 60){            
-                long seconds = TimeUnit.MILLISECONDS.toSeconds(millis.intValue());           
-                println 'seconds ::::::::::::::: '+seconds
-                average_session_length = seconds + "sec"
-            }
-            if(average_session_length > 60 && average_session_length <= 3600){
-                long minutes = TimeUnit.MILLISECONDS.toMinutes(millis.intValue());
-                println 'minutes ::::::::::::::: '+minutes
-                average_session_length = minutes + "min"
-            }
-            if(average_session_length > 3600 ){
-                long hours = TimeUnit.MILLISECONDS.toHours(millis.intValue());
-                println 'hours ::::::::::::::: '+hours
-                average_session_length = hours + " hour"
+            if(average_session_length != 0 ){
+                if(average_session_length <= 60){            
+                    long seconds = TimeUnit.MILLISECONDS.toSeconds(millis.intValue());           
+                    println 'seconds ::::::::::::::: '+seconds
+                    average_session_length = seconds + "sec"
+                }
+                println "average_session_length :::::::::::::: "+average_session_length
+                println "average_session_length getClass :::::::::::::: "+average_session_length.getClass()
+                if(average_session_length > 60 && average_session_length <= 3600){
+                    long minutes = TimeUnit.MILLISECONDS.toMinutes(millis.intValue());
+                    println 'minutes ::::::::::::::: '+minutes
+                    average_session_length = minutes + "min"
+                }
+                if(average_session_length > 3600 ){
+                    long hours = TimeUnit.MILLISECONDS.toHours(millis.intValue());
+                    println 'hours ::::::::::::::: '+hours
+                    average_session_length = hours + " hour"
+                }
             }
             jsonMap.average_session = average_session_length
             println 'average_session_length ::::::::::::::: '+average_session_length
@@ -412,28 +416,28 @@ class ChatBotService {
         def db = new Sql(dataSource)
         def appId = params.appId.toLong()
         def appName = params.appName
-      //  try{
-            def sqlQuery  = "select id from intents where app_id = ? ";
-            def rows= db.firstRow(sqlQuery,[appId])
-            println "rows 111111111111  "+rows
-            if(rows != null){
-                println "22222222222222222222"
-                saveTag(params,rows.id)
+        //  try{
+        def sqlQuery  = "select id from intents where app_id = ? ";
+        def rows= db.firstRow(sqlQuery,[appId])
+        println "rows 111111111111  "+rows
+        if(rows != null){
+            println "22222222222222222222"
+            saveTag(params,rows.id)
             
-            }else{
-                println "appName "+appName
-                println "appId  "+appId
-                sqlQuery  = "INSERT INTO `intents` ( `name`, `description`, `app_id`,default_welcome, default_fall_back,bot_name)VALUES(?,?,?,?,?,?)";
-                def row1 = db.executeInsert(sqlQuery,[appName,appName,appId,"This is Alice, How can I help you ? ","I did'nt understand your question, can you please rephrase or type help to get assistance","Alice"])
-                println "row1 ::::::: "+row1
-                if(row1 != null){
-                    saveTag(params,row1[0][0])
-                }
+        }else{
+            println "appName "+appName
+            println "appId  "+appId
+            sqlQuery  = "INSERT INTO `intents` ( `name`, `description`, `app_id`,default_welcome, default_fall_back,bot_name)VALUES(?,?,?,?,?,?)";
+            def row1 = db.executeInsert(sqlQuery,[appName,appName,appId,"This is Alice, How can I help you ? ","I did'nt understand your question, can you please rephrase or type help to get assistance","Alice"])
+            println "row1 ::::::: "+row1
+            if(row1 != null){
+                saveTag(params,row1[0][0])
             }
-//        }catch(Exception e){
-//            println "Exception in add intent :: "+e
-//            jsonMap.success = false
-//        }
+        }
+        //        }catch(Exception e){
+        //            println "Exception in add intent :: "+e
+        //            jsonMap.success = false
+        //        }
         jsonMap 
     }
     
@@ -458,17 +462,9 @@ class ChatBotService {
                 }   
             }
         }
-        if(params.actions != null){
-            if(params.actions instanceof String){
+        if(params.action != null){
                 sqlQuery  = "INSERT INTO actions ( `name`, `description`, `tag_id`) VALUES (?,?,?);";
-                def rows4 = db.executeInsert(sqlQuery,[params.actions,"-",tagId])
-            }else{
-           
-                params.actions.each{u->
-                    sqlQuery  = "INSERT INTO actions ( `name`, `description`, `tag_id`) VALUES (?,?,?);";
-                    def rows4 = db.executeInsert(sqlQuery,[u,"-",tagId])
-                }  
-            }    
+                def rows4 = db.executeInsert(sqlQuery,[params.actions,"-",tagId])  
         }
         
         if(params.resposneList != null){
@@ -561,20 +557,11 @@ class ChatBotService {
         }
         jsonMap.userExpList  = userExpList
         
-        sqlQuery  = "select `name`,id from actions where  tag_id = ?";
-        def rows4 = db.rows(sqlQuery,[intentId])
-        def actions = []
-        rows4.each{r->
-            def map = [:]
-            map.name = r.name
-            map.id = r.id
-            map.isDelete = false
-            map.isPresent = true 
-            actions.push(map)
-        }
-        jsonMap.actions  = actions 
+        sqlQuery  = "select `name` from actions where  tag_id = ?";
+        def rows4 = db.firstRow(sqlQuery,[intentId])
+        jsonMap.actions  = rows4.name 
         
-        sqlQuery  = "select `name`,id from actions where  tag_id = ?";
+        sqlQuery  = "select `name`,id from responses where  tag_id = ?";
         def rows5 = db.rows(sqlQuery,[intentId])
         def resposneList = []
         rows5.each{r->
@@ -601,12 +588,8 @@ class ChatBotService {
         def tagId = params.intentId
         def sqlQuery = ""
         //       try{
-        if(params.userExpList != null){
-            println "params.userExpList   "+params.userExpList
-            println "params.userExpList getClass  "+params.userExpList.getClass()
-                
+        if(params.userExpList != null){                
             if(params.userExpList instanceof String){
-                println "111111111111111111"
                 def u = JSON.parse(params.userExpList )
                 if(u.isPresent == true && u.isDelete == true){
                     def patternId = u.id
@@ -614,28 +597,21 @@ class ChatBotService {
                     def rows3 = db.execute(sqlQuery,[patternId])
                 }else{
                     if(u.isPresent == true && u.isDelete == true){
-                        println "222222222222222222222222"
                         sqlQuery  = "INSERT INTO patterns ( `name`, `description`, `tag_id`) VALUES (?,?,?);";
                         def rows3 = db.executeInsert(sqlQuery,[u.name,"-",tagId])
                     }
                 }
             }else{ 
                 params.userExpList.each{user->
-                    println "user _______________________ "+user
-                    println "&&&&&&  "+user.getClass()
                     def u = JSON.parse(user)
-                    println "&&&&&&  "+u.getClass()
                     if(u.isPresent == true && u.isDelete == true){
-                        println "33333333333333333333333333"
                         def patternId = u.id
                         sqlQuery  = "DELETE FROM patterns where id=?";
                         def rows3 = db.execute(sqlQuery,[patternId])
                     }else{
                         if(u.isPresent == false && u.isDelete == false){
-                            println "444444444444444444444"
                             sqlQuery  = "INSERT INTO patterns ( `name`, `description`, `tag_id`) VALUES (?,?,?);";
                             def rows3 = db.executeInsert(sqlQuery,[u.name,"-",tagId])
-                            println "rows3 444444444444  "+rows3
                         }
                     }
                 }   
@@ -643,36 +619,13 @@ class ChatBotService {
         }
         
         if(params.actions != null){
-            if(params.actions instanceof String){
-                def u = JSON.parse(params.actions )
-                if(u.isPresent == true && u.isDelete == true){
-                    def actionId = u.id
-                    sqlQuery  = "DELETE FROM actions where id=?";
-                    def rows3 = db.execute(sqlQuery,[actionId])
-                }else{
-                    if(u.isPresent == true && u.isDelete == true){
-                        sqlQuery  = "INSERT INTO actions ( `name`, `description`, `tag_id`) VALUES (?,?,?);";
-                        def rows4 = db.executeInsert(sqlQuery,[params.actions,"-",tagId])
-                    }
-                }
-            }else{ 
-                params.actions.each{act->
-                    def u = JSON.parse(act)
-                    if(u.isPresent == true && u.isDelete == true){
-                        def actionId = u.id
-                        sqlQuery  = "DELETE FROM actions where id=?";
-                        def rows3 = db.execute(sqlQuery,[actionId])
-                    }else{
-                        if(u.isPresent == false && u.isDelete == false){
-                            sqlQuery  = "INSERT INTO actions ( `name`, `description`, `tag_id`) VALUES (?,?,?);";
-                            def rows4 = db.executeInsert(sqlQuery,[u.name,"-",tagId])
-                        }
-                    }
-                }   
-            }
+            println "actions "+params.actions
+            sqlQuery  = "update `chatbot`.`actions` SET name = ? where tag_id = ?";
+            def rows = db.executeUpdate(sqlQuery,[params.actions,tagId])
         }
               
         if(params.resposneList != null){
+            println "params.resposneList "+params.resposneList
             if(params.resposneList instanceof String){
                 def u = JSON.parse(params.resposneList )
                 if(u.isPresent == true && u.isDelete == true){
@@ -681,6 +634,7 @@ class ChatBotService {
                     def rows3 = db.execute(sqlQuery,[resposneId])
                 }else{
                     if(u.isPresent == false && u.isDelete == false){
+                        println "RRRRRRRRRRRRRRRRRRRRRRRRRRRRR1111"
                         sqlQuery  = "INSERT INTO responses ( `name`, `description`, `tag_id`) VALUES (?,?,?);";
                         def rows5 = db.executeInsert(sqlQuery,[params.resposneList,"-",tagId])
                     }
@@ -694,8 +648,10 @@ class ChatBotService {
                         def rows3 = db.execute(sqlQuery,[resposneId])
                     }else{
                         if(u.isPresent == false && u.isDelete == false){
+                            println "RRRRRRRRRr222222222"
                             sqlQuery  = "INSERT INTO responses ( `name`, `description`, `tag_id`) VALUES (?,?,?);";
                             def rows5 = db.executeInsert(sqlQuery,[u.name,"-",tagId])
+                            println 'rows5 '+rows5
                         }
                     }
                 }   
@@ -767,10 +723,10 @@ class ChatBotService {
         def rows = db.firstRow(sqlQuery,[appId])
         println "rows ------  "+rows
         if(rows == null){
-             jsonMap.success  = false
+            jsonMap.success  = false
         }else{
-             jsonMap.success  = true
-              jsonMap.rows = rows
+            jsonMap.success  = true
+            jsonMap.rows = rows
         }
       
         jsonMap
@@ -783,9 +739,14 @@ class ChatBotService {
         def db = new Sql(dataSource)
         def appId = params.appId.toLong()
         def config = params.config
-        def sqlQuery  = "INSERT INTO `chatbot`.`dialog` (`name`, `app_id`, `config`) VALUES (?,?,?); ";
-        def rows = db.executeInsert(sqlQuery,['Dialog',appId,config])
-        println "saveDialog rows ------  "+rows
+        def isdialogPresent = getDialog(params)
+        if(isdialogPresent.success){
+            updateDialog(params)
+        }else{
+            def sqlQuery  = "INSERT INTO `chatbot`.`dialog` (`name`, `app_id`, `config`) VALUES (?,?,?); ";
+            def rows = db.executeInsert(sqlQuery,['Dialog',appId,config])
+            println "saveDialog rows ------  "+rows
+        }
         jsonMap
     }
     
@@ -803,7 +764,7 @@ class ChatBotService {
         jsonMap
     }
     
-       def updatePhrase(params){
+    def updatePhrase(params){
         println "updatePhrase params "+params
         def jsonMap = [:]
         jsonMap.success  = true
@@ -834,7 +795,7 @@ class ChatBotService {
             }
             jsonMap.data = resultArr
         }   
-        println "getUnknownIntent jsonMap ------  "+jsonMap
+        println "getUnknownIntent jsonMap ------ :: "+jsonMap
         jsonMap
     } 
 }

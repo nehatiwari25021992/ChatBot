@@ -505,8 +505,8 @@ function registerUser(){
         "name":$.trim(name),
         "email":$.trim(email),
         "phone":$.trim(phone),
-        "apiKey":"3d4bb5e3c2edd13563155c3036ac47afed3298dc4e474f026cf147485dc5e881",
-        "secretKey":"8b97a5ad0072f2eac01928d8e9d8c813313d4b9e9fa4ebec080969281ec8cef0"
+        "apiKey":"fde1d1aebd3fbf2923c2acfb85128b70e893659d9da4ad2a847e6a5119f383be",    //Tata AIA 6306aad2d5cd417cdb8b7e52d65b32c9ec171b6c200cf7080576c58020026cd2
+        "secretKey":"212c589cd0ec5eae267504762b0665b9ff3b69684fbfcd6a72f81eaebca50020"   // Tata AIA f81ea95798ae3ef05d36439660aaeb25c71608f893482409332874e5164df73e
     }
     
     $.ajax(base_url + '/saveOrUpdateUser', {
@@ -519,7 +519,7 @@ function registerUser(){
         chatBotData.name = usrDetailsObj.name
         chatBotData.email = usrDetailsObj.email
         chatBotData.phone = usrDetailsObj.phone
-       
+        console.log(chatBotData)
         $("#chatbotWidget").show()
         $("#registerWidget").hide()
         var convForm = $('.conv-form-wrapper').convform("Write here...");
@@ -551,14 +551,9 @@ function mockBackendService(inputData,fromBot){
             $('#userInput').val("");
             $('#userInput').focus();
         }.bind(this), 500); 
-        //        var fixedScroll = document.getElementById("messages");
-        //        fixedScroll.scrollTop = fixedScroll.scrollHeight;
-                            
         startCustomerSupport()
-        
-        
     }
-    console.log("callCenterFlow>>>"+callCenterFlow)
+    console.log("chatBotData>>>",chatBotData)
     $.ajax(base_url + '/tagEvent', {
         method: 'POST',
         data: {
@@ -569,9 +564,9 @@ function mockBackendService(inputData,fromBot){
             appId:chatBotData.appId
         }
     }).then(function(data) {
-        // console.log(data);
-        //console.log("---Event tagging Success---")
-        });
+        console.log(data);
+        console.log("---Event tagging Success---")
+    });
 }
 
 socket = io.connect('http://52.172.31.113:5000');
@@ -611,7 +606,7 @@ socket.on('chat_response', function (data) {
 // Get Response for Query
 // This function fetches response for users query
 function getResponseForQuery(query){
-    console.log("---Get Response For Query  "+query);
+    //  console.log("---Get Response For Query  "+query);
     //Event tagging the users query
     mockBackendService(query,false)
     

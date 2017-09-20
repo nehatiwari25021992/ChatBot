@@ -63,30 +63,9 @@ chatBot.controller("editIntentController", function($scope,dashboardService,$loc
             $scope.userExpList.splice($scope.userExpList.indexOf(item),1);
         }
     }
-   
-    $scope.addAction = function(){
-        $scope.isactions = "default"
-        var item = $scope.action
-        if(item == "" || item == null || item == undefined){
-            $scope.isactions = "blank"
-        }else{
-            var map = {}
-            map.name = $scope.action
-            map.isDelete = false
-            map.isPresent = false 
-            $scope.actions = map
-        }
-    }
-   
-    $scope.removeAction = function (item) {
-        if(item.isPresent){
-            item.isDelete = true
-        }else{
-            $scope.actions.splice($scope.actions.indexOf(item),1);
-        }
-    }
     
     $scope.addResponse = function(){
+        console.log("addResponse :::")
         $scope.isresposne = "default"
         var item = $scope.resposne
         if(item == "" || item == null || item == undefined){
@@ -101,6 +80,7 @@ chatBot.controller("editIntentController", function($scope,dashboardService,$loc
             $scope.resposneList.push(map)
             $scope.resposne = ""
         }
+        console.log("$scope.resposneList :::",$scope.resposneList)
     }
    
    
@@ -121,14 +101,15 @@ chatBot.controller("editIntentController", function($scope,dashboardService,$loc
             intentName : $scope.intentName,
             description : $scope.description,
             userExpList : $scope.userExpList,
-            actions : $scope.actions,
+            actions : $scope.action,
             resposneList : $scope.resposneList 
         }
+        console.log("params :::::::::::::::::::::: ",params)
         var promise = dashboardService.updateIntent(params)
         promise.then(
             function(payload){
                 $scope.toggleGridLoader("editIntentWidget")
-                console.log("payload  ",payload)
+                console.log("updateIntent payload  ",payload)
                 $rootScope.saveSuccess = true
                 $location.path("/manageIntent")
 
@@ -153,7 +134,7 @@ chatBot.controller("editIntentController", function($scope,dashboardService,$loc
                 $scope.intentName = payload.data.name,
                 $scope.description = payload.data.description,
                 $scope.userExpList = payload.data.userExpList,
-                $scope.action = payload.data.actions[0],
+                $scope.action = payload.data.actions,
                 $scope.resposneList = payload.data.resposneList 
 
             },
