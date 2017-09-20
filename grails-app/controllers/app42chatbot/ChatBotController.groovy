@@ -19,6 +19,7 @@ class ChatBotController {
         }
 
         def response  = chatBotService.getServicesByLoginChatbot(params, user)
+        println "getServicesByLoginChatbot response "+response
         render response
     }
 
