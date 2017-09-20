@@ -157,6 +157,21 @@ chatBot.controller("MainController", function($controller,$rootScope,$scope,$htt
         return active;
     };
     
+    $scope.checkIfIntent = function(loc){
+        console.log("***********window.location.href**",window.location.href)
+        console.log("loc :::::::: ",loc)
+        console.log("window.location.href.indexOf(loc)",window.location.href.indexOf(loc))
+        if(window.location.href.indexOf('/manageIntent') > -1) {
+            return true
+        }else if(window.location.href.indexOf('/addIntent') > -1) {
+            return true
+        }else if(window.location.href.indexOf('/editIntent') > -1) {
+            return true
+        }
+        return false
+       
+    }
+    
     
     $scope.getAppsForDropDown = function(appNameNew){
         apps = dashboardService.getAppsForDropdown()

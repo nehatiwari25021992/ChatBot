@@ -16,7 +16,7 @@
           <img src="${resource(dir:'images/iconNewUI/maNewIcons',file:'insights.png')}" alt="">
         </a>
       </li>
-      <li ng-class="{ active: (isActive('/manageIntent') || isActive('/addIntent') || isActive('/editIntent')) }">
+      <li ng-class="{ active:  checkIfIntent('/addIntent') }">
         <a href="#/manageIntent" ng-click="openSubSideBar('intentSection')" data-toggle="tooltip" data-placement="right" title="" data-original-title="Intent">
           <img src="${resource(dir:'images/ma',file:'intent_icon.png')}" alt="">
         </a>
@@ -51,7 +51,7 @@
     </ul>
 
     <ul ng-show="intentSection">
-      <li ng-class="{ current: isActive('/manageIntent')}"><a  href="#/manageIntent" ng-bind="sidebar.manageIntent" ></a></li>
+      <li ng-class="{ current: checkIfIntent('/addIntent')}"><a  href="#/manageIntent" ng-bind="sidebar.manageIntent" ></a></li>
 <!--      <li ><a active-link="current" href="#/addIntent/" ng-bind="sidebar.addIntent" ></a></li>
       <li ><a active-link="current" href="#/unknownIntent/" ng-bind="sidebar.unknownIntent" ></a></li>-->
     </ul>
