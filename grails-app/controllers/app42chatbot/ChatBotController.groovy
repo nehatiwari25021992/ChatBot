@@ -5,7 +5,7 @@ class ChatBotController {
     def maService
     def chatBotService
     def index = { 
-        session["user"] = "neha.tiwari@shephertz.com"
+        session["user"] = "demo@shephertz.com"
         def user = session["user"]
         [userId:user]
     
