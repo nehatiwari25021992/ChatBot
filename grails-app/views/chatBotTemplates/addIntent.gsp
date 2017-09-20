@@ -47,7 +47,7 @@
       <div class="intentWrapper">
         <div class="intentRow">
           <div class="intlabel">Intent</div>
-          <textarea class="input form-control" placeholder="hotel booking"  ng-model="intentName" type="text" rows="1" cols="30"></textarea>
+          <textarea class="input form-control" placeholder="Enter Name"  ng-model="intentName" type="text" rows="1" cols="30"></textarea>
         </div>
         <div class="intentRowB">
           <div class="UXrowInput"   ng-class="{'has-warning has-iconed' : isuserExp != 'default'}" >
