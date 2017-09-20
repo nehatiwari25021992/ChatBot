@@ -53,13 +53,10 @@
           <div class="UXrowInput"   ng-class="{'has-warning has-iconed' : isuserExp != 'default'}" >
             <textarea class="input" placeholder="Add user expression" type="text" rows="7" cols="30" ng-enter="addUserSays()" ng-model="userExp" maxlength="50"></textarea>
             <div class="uxTitle">User Expressions</div>
-            <p class="help-block errorTxt"
-               ng-if="isuserExp == 'blank'">Expression
-              required.</p>
-            <p class="help-block errorTxt"
-               ng-if="isuserExp == 'invalid'">Expression with same name  already exists.</p>
           </div>
           <div class="UXrowData bgA">
+		  <p class="help-block errorTxt" ng-if="isuserExp == 'blank'">Expression required.</p>
+            <p class="help-block errorTxt" ng-if="isuserExp == 'invalid'">Expression with same name  already exists.</p>
             <div class="UXrowInner" ng-repeat="say in userExpList">
               <input type="text" class="input" readonly="" value="{{say}}">
               <a href="javascript:;" ng-click="removeSay(say)" class="delBtn"><i class="fa fa-trash-o"></i></a>
@@ -76,14 +73,11 @@
           <div class="UXrowInput"  ng-class="{'has-warning has-iconed' : isresposne != 'default'}" >
             <textarea class="input" placeholder="Add response" ng-enter="addResponse()" ng-model="resposne" type="text" rows="7" cols="30"></textarea>
             <div class="uxTitle">Response</div>
-            <p class="help-block errorTxt"
-               ng-if="isresposne == 'blank'">Response
-              required.</p>
-            <p class="help-block errorTxt"
-               ng-if="isresposne == 'invalid'">Response with same name already exists.</p>
           </div>
           <div class="UXrowData bgB" >
-            <div class="UXrowInner"  ng-repeat="r in resposneList">
+		  <p class="help-block errorTxt" ng-if="isresposne == 'blank'">Response required.</p>
+            <p class="help-block errorTxt" ng-if="isresposne == 'invalid'">Response with same name already exists.</p>
+            <div class="UXrowInner" ng-repeat="r in resposneList">
               <input type="text" class="input" readonly="" value="{{r}}">
               <a href="javascript:;" ng-click="removeResponse(r)" class="delBtn"><i class="fa fa-trash-o"></i></a>
             </div>	
