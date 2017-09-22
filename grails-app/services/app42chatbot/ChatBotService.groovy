@@ -137,19 +137,15 @@ class ChatBotService {
 
             average_session_length =  millis.intValue()
             if(average_session_length != 0 ){
-                if(average_session_length <= 60){            
+                if(average_session_length <= 60000){            
                     long seconds = TimeUnit.MILLISECONDS.toSeconds(millis.intValue());           
                     println 'seconds ::::::::::::::: '+seconds
-                    average_session_length = seconds + "sec"
-                }
-                println "average_session_length :::::::::::::: "+average_session_length
-                println "average_session_length getClass :::::::::::::: "+average_session_length.getClass()
-                if(average_session_length > 60 && average_session_length <= 3600){
+                    average_session_length = seconds + " sec"
+                }else if(average_session_length > 60000 && average_session_length <= 3600000){
                     long minutes = TimeUnit.MILLISECONDS.toMinutes(millis.intValue());
                     println 'minutes ::::::::::::::: '+minutes
-                    average_session_length = minutes + "min"
-                }
-                if(average_session_length > 3600 ){
+                    average_session_length = minutes + " min"
+                }else if(average_session_length > 3600000 ){
                     long hours = TimeUnit.MILLISECONDS.toHours(millis.intValue());
                     println 'hours ::::::::::::::: '+hours
                     average_session_length = hours + " hour"
@@ -219,7 +215,6 @@ class ChatBotService {
         dt = sdf.format(c.getTime());
         def sqlQuery  = "select  DATE_FORMAT( created_on,  '%Y-%m-%d' ) AS mDate, id from messages where app_id = ? and message_from = ? and created_on < ? and created_on >= ? ";
         def rowsSent = db.rows(sqlQuery,[appId,'chatbot',dt,params.start])
-        println appId+'chatbot'+dt+params.start
         rowsSent.each{row1->
             Date d = formatter.parse(row1.mDate)
             dateCountMap[d.getTime()] = dateCountMap[d.getTime()] + 1
@@ -419,9 +414,7 @@ class ChatBotService {
         //  try{
         def sqlQuery  = "select id from intents where app_id = ? ";
         def rows= db.firstRow(sqlQuery,[appId])
-        println "rows 111111111111  "+rows
         if(rows != null){
-            println "22222222222222222222"
             saveTag(params,rows.id)
             
         }else{
@@ -429,7 +422,6 @@ class ChatBotService {
             println "appId  "+appId
             sqlQuery  = "INSERT INTO `intents` ( `name`, `description`, `app_id`,default_welcome, default_fall_back,bot_name)VALUES(?,?,?,?,?,?)";
             def row1 = db.executeInsert(sqlQuery,[appName,appName,appId,"This is Alice, How can I help you ? ","I did'nt understand your question, can you please rephrase or type help to get assistance","Alice"])
-            println "row1 ::::::: "+row1
             if(row1 != null){
                 saveTag(params,row1[0][0])
             }
@@ -462,9 +454,7 @@ class ChatBotService {
                 }   
             }
         }
-        println "8888888888888888params.action ! "+params.actions
         if(params.actions != null && params.actions  != ""){
-            println "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"
             sqlQuery  = "INSERT INTO actions ( `name`, `description`, `tag_id`) VALUES (?,?,?);";
             def rows4 = db.executeInsert(sqlQuery,[params.actions,"-",tagId])  
         }
