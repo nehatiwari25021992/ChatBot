@@ -811,4 +811,13 @@ class ChatBotService {
         println "getUnknownIntent jsonMap ------ :: "+jsonMap
         jsonMap
     } 
+    
+    
+    def getAppOrgName(params){
+        def db = new Sql(dataSource)
+        def orgName = params.orgName
+        def sqlQuery  = "select api_key,secret_key,id from service where org_name = ?";
+        def rows = db.firstRow(sqlQuery,[orgName])
+        rowss
+    }
 }
