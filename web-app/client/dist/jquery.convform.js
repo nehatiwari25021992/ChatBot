@@ -456,7 +456,7 @@ ConvState.prototype.answerWith = function(answerText, answerObject) {
 })( jQuery );
 
 // Constants
-var chatBotData = {},customQueryFlow = false,callCenterFlow = false,base_url = 'http://localhost:8080/App42ChatBot/chatBot', socket;
+var chatBotData = {},customQueryFlow = false,callCenterFlow = false,base_url = 'http://52.172.31.113:8080/chatBot', socket;
 var state;
 var ___warpclient, ___adminUserName = "", ___CuRrEnTUserName = "",___CuRrEnTMeSsAgE="",___isAgentOffline = false,___isAgentOfflineByRoom= false,___chatCounter = 0,___retryCounter=0,___roomID;
 function validateEmail(email) {
@@ -505,8 +505,8 @@ function registerUser(){
         "name":$.trim(name),
         "email":$.trim(email),
         "phone":$.trim(phone),
-        "apiKey":"fde1d1aebd3fbf2923c2acfb85128b70e893659d9da4ad2a847e6a5119f383be",    //Tata AIA 6306aad2d5cd417cdb8b7e52d65b32c9ec171b6c200cf7080576c58020026cd2
-        "secretKey":"212c589cd0ec5eae267504762b0665b9ff3b69684fbfcd6a72f81eaebca50020"   // Tata AIA f81ea95798ae3ef05d36439660aaeb25c71608f893482409332874e5164df73e
+        "apiKey":"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",    //Tata AIA 6306aad2d5cd417cdb8b7e52d65b32c9ec171b6c200cf7080576c58020026cd2
+        "secretKey":"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"   // Tata AIA f81ea95798ae3ef05d36439660aaeb25c71608f893482409332874e5164df73e
     }
     
     $.ajax(base_url + '/saveOrUpdateUser', {
