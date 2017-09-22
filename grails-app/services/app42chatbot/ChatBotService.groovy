@@ -742,12 +742,13 @@ class ChatBotService {
         def db = new Sql(dataSource)
         def appId = params.appId.toLong()
         def config = params.config
+        def chatConfig = params.chat_config
         def isdialogPresent = getDialog(params)
         if(isdialogPresent.success){
             updateDialog(params)
         }else{
-            def sqlQuery  = "INSERT INTO `chatbot`.`dialog` (`name`, `app_id`, `config`) VALUES (?,?,?); ";
-            def rows = db.executeInsert(sqlQuery,['Dialog',appId,config])
+            def sqlQuery  = "INSERT INTO `chatbot`.`dialog` (`name`, `app_id`, `config`,`chat_config`) VALUES (?,?,?,?); ";
+            def rows = db.executeInsert(sqlQuery,['Dialog',appId,config,chatConfig])
             println "saveDialog rows ------  "+rows
         }
         jsonMap
@@ -761,8 +762,9 @@ class ChatBotService {
         def db = new Sql(dataSource)
         def appId = params.appId.toLong()
         def config = params.config
-        def sqlQuery  = "update `chatbot`.`dialog` SET config = ? where app_id = ? ";
-        def rows = db.executeUpdate(sqlQuery,[config,appId])
+        def chatConfig = params.chat_config
+        def sqlQuery  = "update `chatbot`.`dialog` SET config = ?, chat_config = ? where app_id = ? ";
+        def rows = db.executeUpdate(sqlQuery,[config,chatConfig,appId])
         println "updateDialog rows ------  "+rows
         jsonMap
     }
