@@ -9,6 +9,8 @@
 
 chatBot.controller("MainController", function($controller,$rootScope,$scope,$http,$log,$location,$route,$interval,$templateCache,dashboardService) {
     console.log("***********MainController**************")
+    $scope.baseURL = baseURL
+    
     $scope.dashboardSection = false
     $scope.userSection = false
     $scope.insightsSection = false

@@ -66,7 +66,9 @@ ConvState.prototype.printQuestion = function(){
         this.scrollDown();
     }.bind(this), 100);
     setTimeout(function(){
-        messageObj.html(question);
+        var abc ='<span class="boticon"><img src="images/bot_icon.png"></span>'+question
+        messageObj.html(abc);
+        speech_synth(question)
         // console.log('custom question text: ', question);  
         mockBackendService(question,true)
         messageObj.removeClass('typing').addClass('ready');
@@ -173,7 +175,7 @@ ConvState.prototype.answerWith = function(answerText, answerObject) {
     //prints answer within messages wrapper
     if(this.current.input.type == 'password')
         answerText = answerText.replace(/./g, '*');
-    var message = $('<div class="message from">'+answerText+'</div>');
+    var message = $('<div class="message from">'+answerText+'<span class="usericon"><img src="images/userIcon.png"></span></div>');
 
     //removes options before appending message so scroll animation runs without problems
     $(this.wrapper).find("div.options div.option").remove();
@@ -249,7 +251,7 @@ ConvState.prototype.answerWith = function(answerText, answerObject) {
 
         //var placeholder = 'Write here...';
         //create a new form for user input
-        var inputForm = $('<form id="convForm"><div class="options dragscroll"></div><textarea id="userInput" rows="1" placeholder="'+placeholder+'"></textarea><button type="submit" class="icon2-arrow submit">⯈</button><span class="clear"></span></form>');
+        var inputForm = $('<form id="convForm"><div class="options dragscroll"></div><textarea id="userInput" rows="1" placeholder="'+placeholder+'"></textarea><button type="submit" class="icon2-arrow submit">⯈</button><span class="clear"></span><div class="mic"><img id="start_img" src="images/mic.gif" onclick="startButton(event)"></div></form>');
 
         //appends messages wrapper and newly created form
         $(wrapper).append('<div class="wrapper-messages"><div id="messages"></div></div>');
@@ -314,7 +316,7 @@ ConvState.prototype.answerWith = function(answerText, answerObject) {
                     if(input.trim()!='' && !state.wrapper.find('#userInput').hasClass("error")) {
                         
                         if(customQueryFlow){
-                            var messageObj = $('<div class="message from typing">fhdjdf></div>');
+                            var messageObj = $('<div class="message from typing"></div>');
                             setTimeout(function(){
                                 $(state.wrapper).find('#messages').append(messageObj);
                                 state.scrollDown();
@@ -505,8 +507,8 @@ function registerUser(){
         "name":$.trim(name),
         "email":$.trim(email),
         "phone":$.trim(phone),
-        "apiKey":"fde1d1aebd3fbf2923c2acfb85128b70e893659d9da4ad2a847e6a5119f383be",    //Tata AIA 6306aad2d5cd417cdb8b7e52d65b32c9ec171b6c200cf7080576c58020026cd2
-        "secretKey":"212c589cd0ec5eae267504762b0665b9ff3b69684fbfcd6a72f81eaebca50020"   // Tata AIA f81ea95798ae3ef05d36439660aaeb25c71608f893482409332874e5164df73e
+        "apiKey":"6306aad2d5cd417cdb8b7e52d65b32c9ec171b6c200cf7080576c58020026cd2",    //Tata AIA 6306aad2d5cd417cdb8b7e52d65b32c9ec171b6c200cf7080576c58020026cd2
+        "secretKey":"f81ea95798ae3ef05d36439660aaeb25c71608f893482409332874e5164df73e"   // Tata AIA f81ea95798ae3ef05d36439660aaeb25c71608f893482409332874e5164df73e
     }
     
     $.ajax(base_url + '/saveOrUpdateUser', {
@@ -546,6 +548,7 @@ function mockBackendService(inputData,fromBot){
         }.bind(this), 100);
         setTimeout(function(){
             messageObj1.html("Please wait while we are trying to connect you with our Agent");
+            speech_synth("Please wait while we are trying to connect you with our Agent")
             messageObj1.removeClass('typing').addClass('ready');
             state.scrollDown();
             $('#userInput').val("");
@@ -553,7 +556,7 @@ function mockBackendService(inputData,fromBot){
         }.bind(this), 500); 
         startCustomerSupport()
     }
-    console.log("chatBotData>>>",chatBotData)
+   // console.log("chatBotData>>>",chatBotData)
     $.ajax(base_url + '/tagEvent', {
         method: 'POST',
         data: {
@@ -564,9 +567,9 @@ function mockBackendService(inputData,fromBot){
             appId:chatBotData.appId
         }
     }).then(function(data) {
-        console.log(data);
-        console.log("---Event tagging Success---")
-    });
+        //  console.log(data);
+        // console.log("---Event tagging Success---")
+        });
 }
 
 socket = io.connect('http://52.172.31.113:5000');
@@ -596,6 +599,7 @@ socket.on('chat_response', function (data) {
     setTimeout(function(){
         queryResObj.removeClass('typing').addClass('ready');
         queryResObj.html(data);
+        speech_synth(data)
         state.scrollDown();
         mockBackendService(data,true)
         $('#userInput').val("");
@@ -659,7 +663,7 @@ function onConnectDone(res) {
        
     }else if(res == AppWarp.ResultCode.ConnectionErrorRecoverable){
         //connection broken
-        console.log(" Connection Error:::Please wait while we try to establish connection>>>"+res);
+        //console.log(" Connection Error:::Please wait while we try to establish connection>>>"+res);
         msg = 'Chat disconnected.Please wait while we try to establish connection.'
         $("#chatWidgetMsG").attr("disabled",true);
         if( ___retryCounter == 0){
@@ -723,6 +727,7 @@ function handleChatWindow(isConnected){
       
         setTimeout(function(){
             messageObj1.html(mmssg);
+            speech_synth(mmssg)
             messageObj1.removeClass('typing').addClass('ready');
             state.scrollDown();
             $('#userInput').val("");
@@ -893,7 +898,9 @@ function setResponse(sender, chat) {
         messageObj.html(chat);
         messageObj.removeClass('typing').addClass('ready');
         state.scrollDown();
-       
+        if (sender != ___CuRrEnTUserName) {
+            speech_synth(chat)
+        }
         $('#userInput').val("");
         $('#userInput').focus();
     }.bind(this), 500); 
