@@ -314,7 +314,7 @@ ConvState.prototype.answerWith = function(answerText, answerObject) {
                     if(input.trim()!='' && !state.wrapper.find('#userInput').hasClass("error")) {
                         
                         if(customQueryFlow){
-                            var messageObj = $('<div class="message from typing">fhdjdf></div>');
+                            var messageObj = $('<div class="message from typing"><div class="typing_loader"></div></div>');
                             setTimeout(function(){
                                 $(state.wrapper).find('#messages').append(messageObj);
                                 state.scrollDown();
@@ -621,6 +621,7 @@ function startCustomerSupport(){
     initializeAppWarpClient();
  
 }
+
 function initializeAppWarpClient() {
     console.log("initializeAppWarpClient")
     var apiKey = "9db45014-2eda-420b-9"
@@ -645,6 +646,7 @@ function initializeAppWarpClient() {
     ___warpclient.setNotifyListener(AppWarp.Events.onUserLeftRoom, onUserLeftRoom);
     ___warpclient.connect(obj.email,chatBotData);
 }
+
 function onConnectDone(res) {
     //  CONNECTION_ERROR_RECOVERABLE
     console.log(res)
@@ -760,6 +762,7 @@ function onLeaveRoomDone(response) {
            
     }
 }
+    
 function handleRPCCallForGetAvailableRoomId(response){
     if(response.success){
         ___adminUserName = response.name
@@ -787,7 +790,8 @@ function handleRPCCallForSendOfflineMessage(response){
     }else{
         console.log(response.message) 
     }
-} 
+}
+    
 function onZoneRPCDone(resCode,responseStr) {
     console.log(responseStr)
     var response = JSON.parse(responseStr["return"])
@@ -810,7 +814,8 @@ function onZoneRPCDone(resCode,responseStr) {
         console.log("Error in RPC Call");
         handleChatWindow(false);
     }
-}  
+}
+    
 function onSendChatDone(res) {
     console.log("onSendChatDone");
     console.log(res);
@@ -844,7 +849,6 @@ function onSendChatDone(res) {
     }
 }
 
-
 function onChatReceived(obj) {
     console.log("onChatReceived")
     //  console.log(obj.getChat())
@@ -876,6 +880,7 @@ function onUserLeftRoom(roomObj,usr) {
         ___isAgentOfflineByRoom = true
     }
 }
+
 function setResponse(sender, chat) {
     var messageObj = ""
     if (sender === ___CuRrEnTUserName) {

@@ -17,14 +17,9 @@ chatBot.controller("dialogController", function($scope,$window,dashboardService,
     });
     
   
-    $scope.specsUrl = "http://localhost:8080/App42ChatBot/JointJS - JavaScript diagramming library - Demos._files/index.html"
-    $scope.showSnippet = function() {
-        var iframe = document.getElementById("targetFrame");
-        if (iframe) {
-            var iframeContent = (iframe.contentWindow || iframe.contentDocument);
-            $scope.json = iframeContent.app.AppView.prototype.showCodeSnippet();
-        }
-    }
+    $scope.specsUrl = $scope.baseURL+"chatBot/dialogFrame/"+$scope.appId
+   console.log($scope.specsUrl)
+ 
     
     $scope.getDialog = function(){
         var params = {
@@ -33,33 +28,13 @@ chatBot.controller("dialogController", function($scope,$window,dashboardService,
         var promise = dashboardService.getDialog(params)
         promise.then(
             function(payload){
-                //                console.log("payload  ",payload)
-                if(payload.data.success){
-                  
-                    $scope.json = payload.data.rows.config
-                    var iframe = document.getElementById("targetFrame");
-                    
-                    var check = document.getElementById("iframeid").contentWindow.a;
-                    
-                    if (iframe) {
-                        var iframeContent = (iframe.contentWindow || iframe.contentDocument);
-              
-                        //                        iframeContent.app.AppView.prototype.initializePaper();
-                        //                        iframeContent.app.AppView.prototype.initializeSelection();
-                        //                        iframeContent.app.AppView.prototype.initializeHalo();
-                        //                        iframeContent.app.AppView.prototype.initializeInlineTextEditor();
-                        //                        iframeContent.app.AppView.prototype.initializeTooltips();
-                        iframeContent.app.AppView.prototype.loadDialog($scope.json);
-                    }
-                }
-              
-
-            },
+//                console.log("payload  ",payload)
+           },
             function(errorPayload) {
             // $scope.toggleGridLoader("addIntentWidget")
             }) 
     }
-    $scope.getDialog()
+ 
 
     $rootScope.unknownName = ""
     $rootScope.id = ""
