@@ -45,7 +45,7 @@
      
         <button class="btn add-question">Add Question</button>
         <button class="btn add-answer">Add Answer</button>
-        <!--<button class="btn preview-dialog">Preview Dialog</button>-->
+        <button class="btn preview-dialog">Preview Dialog</button>
         <button  class="btn load-dialog">Load Dialog</button>
         <button class="btn clear">Clear </button>
         <button class="btn code-snippet" >Save Dialog</button>

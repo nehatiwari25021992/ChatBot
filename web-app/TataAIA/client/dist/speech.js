@@ -14,17 +14,17 @@ if (!('webkitSpeechRecognition' in window)) {
     recognition.onstart = function() {
         recognizing = true;
       //  showInfo('info_speak_now');
-        start_img.src = 'images/mic-animate.gif';
+        start_img.src = baseURL+'TataAIA/client/images/mic-animate.gif';
     };
 
     recognition.onerror = function(event) {
         if (event.error == 'no-speech') {
-            start_img.src = 'images/mic.gif';
+            start_img.src = baseURL+'TataAIA/client/images/mic.gif';
            // showInfo('info_no_speech');
             ignore_onend = true;
         }
         if (event.error == 'audio-capture') {
-            start_img.src = 'images/mic.gif';
+            start_img.src = baseURL+'TataAIA/client/images/mic.gif';
          //   showInfo('info_no_microphone');
             ignore_onend = true;
         }
@@ -43,7 +43,7 @@ if (!('webkitSpeechRecognition' in window)) {
         if (ignore_onend) {
             return;
         }
-        start_img.src = 'images/mic.gif';
+        start_img.src = baseURL+'TataAIA/client/images/mic.gif';
      //   document.getElementById("userInput").innerHTML = "";
         if (!final_transcript) {
             //showInfo('info_start');
@@ -69,8 +69,6 @@ if (!('webkitSpeechRecognition' in window)) {
                 interim_transcript += event.results[i][0].transcript;
             }
         }
-        console.log(final_transcript)
-        console.log(interim_transcript)
         final_transcript = capitalize(final_transcript);
         document.getElementById("userInput").innerHTML = "";
         userInput.innerHTML = linebreak(final_transcript);
@@ -105,7 +103,7 @@ function startButton(event) {
     ignore_onend = false;
     userInput.innerHTML = '';
   //  interim_span.innerHTML = '';
-    start_img.src = 'images/mic-slash.gif';
+    start_img.src = baseURL+'TataAIA/client/images/mic-slash.gif';
  //   showInfo('info_allow');
   //  showButtons('none');
     start_timestamp = event.timeStamp;
