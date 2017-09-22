@@ -54,7 +54,10 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-sanitize.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-animate.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-route.min.js"></script>
+<script>
+var baseURL = "${baseURL}"
 
+</script>
 
 <script src='${resource(dir:'js/angular/resources/plugins',file:'dropzone-amd-module.js')}'></script>
 <script src='${resource(dir:'js/angular/resources/bootstrap',file:'tab.js')}'></script>

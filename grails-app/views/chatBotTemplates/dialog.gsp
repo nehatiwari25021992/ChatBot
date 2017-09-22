@@ -4,7 +4,7 @@
 <div class="row dbWrapper">
   <div class="col-md-12">
 
-    <div class="widget widget-blue" id="activityWidget">
+    <div class="widget widget-blue" id="dialogWidget">
       <div class="widget-title">
         <div class="widget-controls">
           <a

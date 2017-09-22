@@ -13,25 +13,29 @@ chatBot.controller("dialogController", function($scope,$window,dashboardService,
     $scope.initializeGridMaximize()  // Initializes Grid Maximize option
     
     $scope.$on('reloadTemplate', function(event) {
+        $scope.specsUrl = $scope.baseURL+"chatBot/dialogFrame/"+$scope.appId
         $scope.getDialog()
     });
     
   
     $scope.specsUrl = $scope.baseURL+"chatBot/dialogFrame/"+$scope.appId
-   console.log($scope.specsUrl)
+    console.log($scope.specsUrl)
  
     
     $scope.getDialog = function(){
+          $scope.toggleGridLoader("dialogWidget")
         var params = {
             appId : $scope.appId
         }
         var promise = dashboardService.getDialog(params)
         promise.then(
             function(payload){
-//                console.log("payload  ",payload)
-           },
+            //                console.log("payload  ",payload)
+              $scope.toggleGridLoader("dialogWidget")
+            },
             function(errorPayload) {
             // $scope.toggleGridLoader("addIntentWidget")
+              $scope.toggleGridLoader("dialogWidget")
             }) 
     }
  
