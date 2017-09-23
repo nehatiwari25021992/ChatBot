@@ -48,7 +48,7 @@ chatBot.config(['$routeProvider','$httpProvider',
             templateUrl: '../chatBotTemplates/dialog',
             controller: 'dialogController'
         })
-        .when('/unknown', {
+        .when('/unResolved', {
             templateUrl: '../chatBotTemplates/unknown',
             controller: 'unknownController'
         })

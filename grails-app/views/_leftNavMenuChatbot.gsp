@@ -47,7 +47,7 @@
     </ul>
     <ul ng-show="dialogSection">
       <li ng-class="{ current: isActive('/dialogs')}"><a  href="#/dialogs" ng-bind="sidebar.dialogs"></a></li>
-      <li ng-class="{ current: isActive('/unknown')}"><a  href="#/unknown" ng-bind="sidebar.unknownIntent"></a></li>
+      <li ng-class="{ current: isActive('/unResolved')}"><a  href="#/unResolved" ng-bind="sidebar.unknownIntent"></a></li>
     </ul>
 
     <ul ng-show="intentSection">
