@@ -20,7 +20,7 @@ chatBot.controller("editIntentController", function($scope,dashboardService,$loc
     $rootScope.unknownName = ""
     $rootScope.id = ""
     $scope.$on('reloadTemplate', function(event) {
-        $scope.init()
+        $location.path("/manageIntent")
     });
     
     $scope.refreshEditWidget = function(){
