@@ -32,7 +32,7 @@
 
 <div class="widget widget-blue campaignPage" id="editIntentWidget">
   <div class="widget-title">
-    <div class="widget-controls"> <a href="javascript:;" class="widget-control widget-control-full-screen" data-toggle="tooltip" data-placement="top" title="" data-original-title="Full Screen"><i class="fa fa-expand"></i></a> <a href="javascript:;" class="widget-control widget-control-full-screen widget-control-show-when-full" data-toggle="tooltip" data-placement="left" title="" data-original-title="Exit Full Screen"><i class="fa fa-expand"></i></a> <a href="javascript:;" class="widget-control widget-control-refresh" data-toggle="tooltip" data-placement="top" title="" ng-click="refreshCreatePushCampaign()" data-original-title="Refresh"><i class="fa fa-refresh"></i></a> </div>
+    <div class="widget-controls"> <a href="javascript:;" class="widget-control widget-control-full-screen" data-toggle="tooltip" data-placement="top" title="" data-original-title="Full Screen"><i class="fa fa-expand"></i></a> <a href="javascript:;" class="widget-control widget-control-full-screen widget-control-show-when-full" data-toggle="tooltip" data-placement="left" title="" data-original-title="Exit Full Screen"><i class="fa fa-expand"></i></a> <a href="javascript:;" class="widget-control widget-control-refresh" data-toggle="tooltip" data-placement="top" title="" ng-click="refreshEditWidget()" data-original-title="Refresh"><i class="fa fa-refresh"></i></a> </div>
     <h3>Edit Intent</h3>
   </div>
   <div class="widget-content left fs wcmBot">
@@ -61,8 +61,8 @@
           </div>
           <div class="UXrowData bgA">
             <div class="UXrowInner" ng-repeat="say in userExpList">
-              <input type="text" class="input" readonly="" value="{{say.name}}">
-              <a href="javascript:;" ng-click="removeSay(say)" class="delBtn"><i class="fa fa-trash-o"></i></a>
+              <input  ng-show="!say.isDelete" type="text" class="input" readonly="" value="{{say.name}}">
+              <a   ng-show="!say.isDelete" href="javascript:;" ng-click="removeSay(say)" class="delBtn"><i class="fa fa-trash-o"></i></a>
             </div>	
           </div>
         </div>
@@ -85,8 +85,8 @@
           </div>
           <div class="UXrowData bgB" >
             <div class="UXrowInner"  ng-repeat="r in resposneList">
-              <input type="text" class="input" readonly="" value="{{r.name}}">
-              <a href="javascript:;" ng-click="removeResponse(r)" class="delBtn"><i class="fa fa-trash-o"></i></a>
+              <input ng-show="!r.isDelete" type="text" class="input" readonly="" value="{{r.name}}">
+              <a ng-show="!r.isDelete" href="javascript:;" ng-click="removeResponse(r)" class="delBtn"><i class="fa fa-trash-o"></i></a>
             </div>	
           </div>
         </div>

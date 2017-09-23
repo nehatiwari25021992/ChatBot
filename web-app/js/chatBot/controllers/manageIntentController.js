@@ -15,7 +15,22 @@ chatBot.controller("manageIntentController", function($scope, $timeout,$location
     $scope.intentList = []
     $scope.limit = 10;
     $scope.hasMoreData = false
+    
+    $scope.refreshManageWidget = function(){
+        $scope.intentList = []
+        $scope.limit = 10;
+        $scope.hasMoreData = false
+        $rootScope.unknownName = ""
+        $rootScope.id = ""
+        $scope.getAllIntent()
+    }
+    
     $scope.$on('reloadTemplate', function(event) {
+        $scope.intentList = []
+        $scope.limit = 10;
+        $scope.hasMoreData = false
+        $rootScope.unknownName = ""
+        $rootScope.id = ""
         $scope.getAllIntent()
     });
     $rootScope.unknownName = ""

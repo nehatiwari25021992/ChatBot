@@ -7,15 +7,19 @@
 chatBot.controller("addIntentController", function($scope,dashboardService,$location, $rootScope) {
     console.log("***********addIntentController**************")
     $scope.openSubSideBar("intentSection")
-     $('a[href="#/manageIntent/"]').parent().addClass("current");
+    $('a[href="#/manageIntent/"]').parent().addClass("current");
     var intervalCurrentSession;
     // Maximize | Minimize Apps Grid
     $scope.initializeGridMaximize()  // Initializes Grid Maximize option
     $rootScope.saveSuccess = false
    
+    $scope.refreshAddWidget = function(){
+        $scope.init()
+    }
+   
     $scope.$on('reloadTemplate', function(event) {
-
-        });
+        $scope.init()
+    });
     $scope.userExpList = []
     console.log("$rootScope.unknownName ",$rootScope.unknownName)
     console.log("$rootScope.id ",$rootScope.id)
