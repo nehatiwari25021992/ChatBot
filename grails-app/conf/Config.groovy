@@ -62,7 +62,7 @@ grails.hibernate.cache.queries = false
 environments {
     development {
         grails.logging.jul.usebridge = true
-        app.baseURL = "http://localhost:8080/App42ChatBot/"
+        app.baseURL = "http://52.172.31.113:8080/"
         app.socketURL = "http://52.172.31.113:5000"
     }
     production {
