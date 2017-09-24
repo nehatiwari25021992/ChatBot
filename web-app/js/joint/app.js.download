@@ -325,13 +325,14 @@ app.AppView = joint.mvc.View.extend({
         method: 'POST',
         data: {
             config: JSON.stringify(dialogJSON),
+            chat_config:JSON.stringify(dialogJSON1),
             appId:appID
         }
     }).then(function(data) {
          console.log(data);
         console.log("---Dialog Save Success---")
         });
-   return JSON.stringify(dialogJSON);
+         return JSON.stringify(dialogJSON);
        
     }
 });

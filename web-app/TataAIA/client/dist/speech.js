@@ -14,6 +14,7 @@ if (!('webkitSpeechRecognition' in window)) {
     recognition.onstart = function() {
         recognizing = true;
       //  showInfo('info_speak_now');
+      console.log(baseURL+'TataAIA/client/images/mic-animate.gif')
         start_img.src = baseURL+'TataAIA/client/images/mic-animate.gif';
     };
 

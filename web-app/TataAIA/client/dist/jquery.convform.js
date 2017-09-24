@@ -1,3 +1,6 @@
+
+var imageUrl = baseURL + "TataAIA/client/images/"
+
 function SingleConvState(input){
     this.input = input;
     this.next = false;
@@ -66,7 +69,7 @@ ConvState.prototype.printQuestion = function(){
         this.scrollDown();
     }.bind(this), 100);
     setTimeout(function(){
-        var abc ='<span class="boticon"><img src="images/bot_icon.png"></span>'+question
+        var abc ='<span class="boticon"><img src="'+imageUrl+'bot_icon.png"></span>'+question
         messageObj.html(abc);
         speech_synth(question)
         // console.log('custom question text: ', question);  
@@ -175,7 +178,7 @@ ConvState.prototype.answerWith = function(answerText, answerObject) {
     //prints answer within messages wrapper
     if(this.current.input.type == 'password')
         answerText = answerText.replace(/./g, '*');
-    var message = $('<div class="message from">'+answerText+'<span class="usericon"><img src="images/userIcon.png"></span></div>');
+    var message = $('<div class="message from">'+answerText+'<span class="usericon"><img src="'+imageUrl+'userIcon.png"></span></div>');
 
     //removes options before appending message so scroll animation runs without problems
     $(this.wrapper).find("div.options div.option").remove();
@@ -251,7 +254,7 @@ ConvState.prototype.answerWith = function(answerText, answerObject) {
 
         //var placeholder = 'Write here...';
         //create a new form for user input
-        var inputForm = $('<form id="convForm"><div class="options dragscroll"></div><textarea id="userInput" rows="1" placeholder="'+placeholder+'"></textarea><button type="submit" class="icon2-arrow submit">⯈</button><span class="clear"></span><div class="mic"><img id="start_img" src="images/mic.gif" onclick="startButton(event)"></div></form>');
+        var inputForm = $('<form id="convForm"><div class="options dragscroll"></div><textarea id="userInput" rows="1" placeholder="'+placeholder+'"></textarea><button type="submit" class="icon2-arrow submit">⯈</button><span class="clear"></span><div class="mic"><img id="start_img" src="'+imageUrl+'mic.gif" onclick="startButton(event)"></div></form>');
 
         //appends messages wrapper and newly created form
         $(wrapper).append('<div class="wrapper-messages"><div id="messages"></div></div>');
