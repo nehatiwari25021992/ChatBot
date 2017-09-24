@@ -20,10 +20,15 @@ chatBot.controller("editIntentController", function($scope,dashboardService,$loc
     $rootScope.unknownName = ""
     $rootScope.id = ""
     $scope.$on('reloadTemplate', function(event) {
-        $scope.init()
+        $location.path("/manageIntent")
     });
     
-   $('a[href="#/manageIntent/"]').parent().addClass("current");
+    $scope.refreshEditWidget = function(){
+        $scope.init()
+        $scope.getIntentDetails()
+    }
+    
+    $('a[href="#/manageIntent/"]').parent().addClass("current");
    
     $scope.init = function(){
         $scope.intentName = ""
@@ -85,6 +90,7 @@ chatBot.controller("editIntentController", function($scope,dashboardService,$loc
    
    
     $scope.removeResponse = function (item) {
+        console.log("removeResponse ")
         if(item.isPresent){
             item.isDelete = true
         }else{
