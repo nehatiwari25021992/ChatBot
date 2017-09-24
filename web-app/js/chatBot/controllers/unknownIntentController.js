@@ -20,5 +20,7 @@ chatBot.controller("unknownIntentController", function($scope,$rootScope) {
     
 //    $('a[href="#/unknownIntent/"]').parent().addClass("current");
    
+     
+
   
 })

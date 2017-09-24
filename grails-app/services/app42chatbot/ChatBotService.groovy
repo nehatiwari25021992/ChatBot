@@ -775,9 +775,10 @@ class ChatBotService {
         jsonMap.success  = true
         def db = new Sql(dataSource)
         def appId = params.appId.toLong()
+        def id =  params.id.toLong()
         def config = params.config
-        def sqlQuery  = "update `chatbot`.`phrases` SET resolved = ? where app_id = ? ";
-        def rows = db.executeUpdate(sqlQuery,[1,appId])
+        def sqlQuery  = "update `chatbot`.`phrases` SET resolved = ? where app_id = ? and id = ? ";
+        def rows = db.executeUpdate(sqlQuery,[1,appId,id])
         println "updatePhrase rows ------  "+rows
         jsonMap
     }
@@ -811,5 +812,15 @@ class ChatBotService {
         def sqlQuery  = "select api_key,secret_key,id from service where org_name = ?";
         def rows = db.firstRow(sqlQuery,[orgName])
         rowss
+    }
+    
+    def matchItToIntent(params){
+        println "matchItToIntent :::::::: "+params
+        updatePhrase(params)
+        def db = new Sql(dataSource)
+        def sqlQuery  = "INSERT INTO patterns ( `name`, `description`, `tag_id`) VALUES (?,?,?);";
+        def rows3 = db.executeInsert(sqlQuery,[params.userSay,"-",params.tagId])
+        println "ROW3 ::::::::: "+rows3
+       
     }
 }

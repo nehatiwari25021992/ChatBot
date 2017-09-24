@@ -135,4 +135,9 @@ class ChatBotController {
         def result  = chatBotService.updatePhrase(params)
         render result as JSON
     }
+    
+    def matchItToIntent = {
+        def result  = chatBotService.matchItToIntent(params)
+        render result as JSON 
+    }
 } 
