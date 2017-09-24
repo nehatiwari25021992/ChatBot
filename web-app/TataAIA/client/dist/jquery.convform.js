@@ -1,6 +1,5 @@
 
 var imageUrl = baseURL + "TataAIA/client/images/"
-
 function SingleConvState(input){
     this.input = input;
     this.next = false;
@@ -535,28 +534,28 @@ function registerUser(){
 }
 // This function will tag each event in the DB
 function mockBackendService(inputData,fromBot){
-  
-    if(inputData === "Query" || inputData === "Custom"){
+  //console.log("input",inputData)
+    if(inputData === "Query" || inputData === "Custom" || inputData === "Custom2" || inputData === "Custom8" || inputData ==="Bot"){
         callCenterFlow = false
         customQueryFlow = true
     }
-    if(inputData === "I could not understand. Talk with support"){
+    if(inputData === "any time" || inputData === "Live Chat"){
         callCenterFlow = true
         customQueryFlow = false
         
-        var messageObj1 = $('<div class="message to typing"><div class="typing_loader"></div></div>');
-        setTimeout(function(){
-            $('#messages').append(messageObj1);
-            state.scrollDown();
-        }.bind(this), 100);
-        setTimeout(function(){
-            messageObj1.html("Please wait while we are trying to connect you with our Agent");
-            speech_synth("Please wait while we are trying to connect you with our Agent")
-            messageObj1.removeClass('typing').addClass('ready');
-            state.scrollDown();
-            $('#userInput').val("");
-            $('#userInput').focus();
-        }.bind(this), 500); 
+//        var messageObj1 = $('<div class="message to typing"><div class="typing_loader"></div></div>');
+//        setTimeout(function(){
+//            $('#messages').append(messageObj1);
+//            state.scrollDown();
+//        }.bind(this), 100);
+//        setTimeout(function(){
+//            messageObj1.html("Please wait");
+//            speech_synth("Please wait")
+//            messageObj1.removeClass('typing').addClass('ready');
+//            state.scrollDown();
+//            $('#userInput').val("");
+//            $('#userInput').focus();
+//        }.bind(this), 500); 
         startCustomerSupport()
     }
    // console.log("chatBotData>>>",chatBotData)

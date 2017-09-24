@@ -1,7 +1,8 @@
-var qad = window.qad || {};
-var parent_container = $("#dynaForm")
+var qad = window.qad || {},parent_container = $("#dynaForm");
+ 
 qad.renderDialog = function(dialog, node) {
     console.log("dialog",dialog)
+    console.log("node",node)
  
     this.dialog = dialog;
 
@@ -22,15 +23,8 @@ qad.renderDialog = function(dialog, node) {
         throw new Error('It is not clear where to go next.');
     }
 
-    if (!this.el) {
-        this.el = this.createElement('div', 'qad-dialog');
-    }
-
-    // Empty previously rendered dialog.
-    this.el.textContent = '';
 
     switch (node.type) {
-
         case 'qad.Question':
             this.renderQuestion(node);
             break;
@@ -46,59 +40,72 @@ qad.renderDialog = function(dialog, node) {
 
 qad.createElement = function(tagName, content) {
     var el = document.createElement(tagName);
-    el.setAttribute('conv-question', content);
+   
     if(tagName === "input"){
+        el.setAttribute('conv-question', content);
         el.setAttribute('type', "text");
+        el.setAttribute('no-answer', "true");
+    }else if(tagName === "select"){
+        el.setAttribute('conv-question', content);
+    }else{
+        el.textContent = content.text;
+        el.setAttribute('data-option-id', content.id);
     }
     return el;
 };
 
-qad.renderOption = function(tag,option) {
-    tag.appendChild()
-    this.createElement('option', option.text);
-//    var elOption = this.createElement('option', option.text);
-//  elOption.textContent = option.text;
-// elOption.setAttribute('data-option-id', option.id);
+qad.renderOption = function(tag,option,currentNode) {
+    var elOption =  this.createElement('option', option)
+    tag.appendChild(elOption)
+  
+    var optionId = elOption.getAttribute('data-option-id');
 
-//    var self = this;
-//    elOption.addEventListener('click', function(evt) {
-//
-//        self.onOptionClick(evt);
-//
-//    }, false);
-//
-//    return elOption;
+    var outboundLink;
+    for (var i = 0; i < this.dialog.links.length; i++) {
+
+        var link = this.dialog.links[i];
+        if (link.source.id === currentNode.id && link.source.port === optionId) {
+
+            outboundLink = link;
+            break;
+        }
+    }
+
+    if (outboundLink) {
+
+        var nextNode;
+        for (var j = 0; j < this.dialog.nodes.length; j++) {
+
+            var node = this.dialog.nodes[j];
+            if (node.id === outboundLink.target.id) {
+
+                nextNode = node;
+                break;
+            }
+        }
+
+        if (nextNode) {
+
+            this.renderDialog(this.dialog, nextNode);
+        }
+    }
+   
 };
 
 qad.renderQuestion = function(node) {
 
     var elContent = this.createElement('select', node.question);
-    // var elOptions = this.createElement('option', 'qad-options');
-
+   
     for (var i = 0; i < node.options.length; i++) {
-
-        elContent.appendChild(this.renderOption(elContent,node.options[i]));
+        elContent.append(this.renderOption(elContent,node.options[i],node));
     }
-    
     parent_container.append(elContent)
 
-//    var elQuestion = this.createElement('h3', 'qad-question-header');
-//    elQuestion.innerHTML = node.question;
-//
-//    elContent.appendChild(elQuestion);
-//    elContent.appendChild(elOptions);
-//
-//    this.el.appendChild(elContent);
 };
 
 qad.renderAnswer = function(node) {
-
-    var elContent = this.createElement('div', 'qad-content');
-    var elAnswer = this.createElement('h3', 'qad-answer-header');
-    elAnswer.innerHTML = node.answer;
-
-    elContent.appendChild(elAnswer);
-    this.el.appendChild(elContent);
+    var elContent = this.createElement('input', node.answer);
+    parent_container.append(elContent)
 };
 
 qad.onOptionClick = function(evt) {
