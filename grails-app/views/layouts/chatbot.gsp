@@ -74,13 +74,15 @@ var baseURL = "${baseURL}"
 <!--ToolTip Information -->
 <script src="${resource(dir:'js/angular/directives',file:'angular-tooltips.js')}"></script>
 <link rel='stylesheet' href='${resource(dir:'css/angular',file:'angular-tooltips.css')}'>
+<script src='${resource(dir:'js/angular/resources/plugins/chosen',file:'chosen.jquery.min.js')}'></script>
+<script src='${resource(dir:'js/angular/resources/plugins/chosen',file:'chosen.order.jquery.min.js')}'></script>
 <!--feedBack form css-->
 <script src='${resource(dir:'js/angular/resources/plugins',file:'jquery.feedback_me.js')}'></script>
 <script src='${resource(dir:'js/angular/resources/plugins',file:'jquery.timepicker.min.js')}'></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 <script src='${resource(dir:'js/angular/resources/plugins',file:'moment.min.js')}'></script>
 <script src='${resource(dir:'js/angular/resources',file:'timezones.full.js')}'></script>
-
+<script src='${resource(dir:'js/angular/resources/bootstrap',file:'modal.js')}'></script>
 <!--Route Manager-->
 <script src="${resource(dir:'js/chatBot/routes',file:'routeManager.js')}"></script>
 <!--Services -->

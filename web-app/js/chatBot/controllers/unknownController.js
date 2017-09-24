@@ -1,6 +1,6 @@
 
 
-chatBot.controller("unknownController", function($scope,dashboardService,$location, $rootScope) {
+chatBot.controller("unknownController", function($scope,dashboardService,$location, $rootScope,notificationService) {
     $scope.openSubSideBar("dialogSection")
     // var intervalCurrentSession;
     // Maximize | Minimize Apps Grid
@@ -49,6 +49,53 @@ chatBot.controller("unknownController", function($scope,dashboardService,$locati
         $rootScope.id = obj.id
         $location.path("/addIntent")
     }  
+    
+    $scope.matchToExciting = function(u){
+        $scope.selectedIntent = u
+        $scope.getAllIntent()
+        $("#matchIntentForm").modal("show");
+    }
+    
+    $scope.matchItToIntent = function(){
+        var params = {
+            id : $scope.selectedIntent.id,
+            userSay : $scope.selectedIntent.name,
+            tagId : $scope.matchedIntent.id,
+            appId : $scope.appId
+        }
+        var promise = dashboardService.matchItToIntent(params)
+        promise.then(
+            function(payload){
+                // $scope.toggleGridLoader("unknownWidget")
+                $("#matchIntentForm").modal("hide");
+                socket.emit('learn', {});
+                notificationService.info('Training Started.');
+            },
+            function(errorPayload) {
+                $("#matchIntentForm").modal("hide");
+            //  $scope.toggleGridLoader("unknownWidget")
+            })
+    }
+    
+    $scope.getAllIntent = function(){
+        $scope.toggleGridLoader("manageIntentWidget")
+        var params = {
+            appId : $scope.appId,
+            offset : 0,
+            limit : 10
+        }
+        var promise = dashboardService.getAllIntent(params)
+        promise.then(
+            function(payload){
+                $scope.toggleGridLoader("manageIntentWidget")
+                $scope.intentList = payload.data
+                $scope.matchedIntent =  $scope.intentList[0]
+            },
+            function(errorPayload) {
+                $scope.toggleGridLoader("manageIntentWidget")
+            })
+    }
+    
     
     $scope.init() 
     $scope.getUnknownIntent()

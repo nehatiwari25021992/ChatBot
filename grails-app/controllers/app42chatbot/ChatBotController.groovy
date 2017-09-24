@@ -126,6 +126,11 @@ class ChatBotController {
         render result as JSON
     }
      
+    def getChatDialog = {
+        def result  = chatBotService.getChatDialog(params)
+        render result as JSON
+    }
+    
     def getUnknownIntent = {
         def result  = chatBotService.getUnknownIntent(params)
         render result as JSON
@@ -134,5 +139,10 @@ class ChatBotController {
     def updatePhrase = {
         def result  = chatBotService.updatePhrase(params)
         render result as JSON
+    }
+    
+    def matchItToIntent = {
+        def result  = chatBotService.matchItToIntent(params)
+        render result as JSON 
     }
 } 

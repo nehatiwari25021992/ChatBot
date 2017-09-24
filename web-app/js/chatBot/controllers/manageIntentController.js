@@ -35,24 +35,13 @@ chatBot.controller("manageIntentController", function($scope, $timeout,$location
     });
     $rootScope.unknownName = ""
     $rootScope.id = ""
-    socket = io.connect('http://52.172.31.113:5000');
-    socket.on('connect', function() {
-        socket.emit('my event', {
-            data: 'I\'m connected!'
-        });
-    });
-    console.log("socket :: ",socket)
-    socket.on('learn_response', function (data) {
-        console.log("*********************data************",data)       
-    });
+
         
     if($rootScope.saveSuccess){
         console.log("*********************************")
         socket.emit('learn', {});
         notificationService.info('Training Started.');
-        $timeout(function(){
-            notificationService.success('Training Completed.');
-        },15000)
+       
     }
 
     $scope.goToAddIntent = function(){
