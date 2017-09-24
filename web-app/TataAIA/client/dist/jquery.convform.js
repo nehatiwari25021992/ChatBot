@@ -539,7 +539,7 @@ function mockBackendService(inputData,fromBot){
         callCenterFlow = false
         customQueryFlow = true
     }
-    if(inputData === "any time" || inputData === "Live Chat"){
+    if(inputData === "help" || inputData === "Live Chat"){
         callCenterFlow = true
         customQueryFlow = false
         
@@ -589,6 +589,7 @@ socket.on('learn_response', function(data) {
 });
 socket.on('status', function(data) {
     console.log(data.msg)
+    // socket.emit('learn', { });
 });
 
 socket.on('chat_response', function (data) {

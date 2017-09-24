@@ -88,55 +88,71 @@
                                 <option value="Travel" callback="outerFunction">Travel</option>
                                 <option value="Home" callback="outerFunction">Home</option>
                               </select>
-                              <select conv-question="Click on any of the below option to know more" >
+
+
+                              <select name="typeOfPlans" conv-question="Click on any of the below option to know more" >
                                 <option value="Health Insurance" callback="outerFunction">Health Insurance</option>
                                 <option value="Arogya Plus" callback="outerFunction">Arogya Plus</option>
                               </select>
-                              <select name="typeOfAction" conv-question="With SBI General’s Health Insurance Policy – Retail, you can be in control by making medical treatment expenses more manageable. Thus ensuring quality health & happiness of your family. Please choose an option below:" >
-                                <option value="Get Quote" callback="outerFunction">Get Quote</option>
-                                <option value="Key Feature" callback="outerFunction">Key Feature</option>
-                              </select>
-                              <div conv-fork="typeOfAction">
-                                <div conv-case="Get Quote">
-                                  <select name="typeOfProduct" conv-question="Please help us answer a few questions before we calculate your premium. What type of Product would you like to buy?" >
-                                    <option value="Family Floater" callback="outerFunction">Family Floater</option>
-                                    <option value="Individual" callback="outerFunction">Individual</option>
+                              <div conv-fork="typeOfPlans">
+                                <div conv-case="Health Insurance">
+                                  <select name="typeOfAction" conv-question="With SBI General’s Health Insurance Policy – Retail, you can be in control by making medical treatment expenses more manageable. Thus ensuring quality health & happiness of your family. Please choose an option below:" >
+                                    <option value="Get Quote" callback="outerFunction">Get Quote</option>
+                                    <option value="Key Feature" callback="outerFunction">Key Feature</option>
                                   </select>
-                                  <div conv-fork="typeOfProduct">
-                                    <div conv-case="Family Floater">
-                                      <input conv-question="What is your family size?"  id="familySize" type="text" name="familySize" required placeholder="Enter Family Size" >
-                                      <input conv-question="What would be the start date of your policy?"  id="policyStartDate" type="text" name="policyStartDate" required placeholder="Start Date" >
-                                      <input conv-question="What is Primary Insured’s name? (First Name & Last Name)"  id="primaryName" type="text" name="primaryName" required placeholder="Name" >
-                                      <input conv-question="What is your Date of Birth?"  id="dob" type="text" name="dob" required placeholder="Date Of Birth" >
-                                      <input conv-question="What is name of Insured Member 2 & Relationship? (First Name & Last Name)"  id="secondaryName" type="text" name="secondaryName" required placeholder="Name" >
-                                      <input conv-question="What is Date of Birth of Insured Member 2?"  id="dob2" type="text" name="dob2" required placeholder="Date Of Birth" >
-                                      <input conv-question="What is your desired coverage amount (in Rupees)?"  id="coverAmt" type="text" name="coverAmt" required placeholder="CoverAmt" >
-                                      <input conv-question="What is your preferred location of Treatment?"  id="coverAmt" type="text" name="coverAmt" required placeholder="CoverAmt" >
-                                      <input conv-question="The Basic Premium for your plan is Rs 6645/-."  id="quoteResult" type="text" name="quoteResult"  no-answer="true" >
-                                      <select  conv-question="Would you like to make payment?">
-                                        <option value="Yes" callback="outerFunction">Yes</option>
-                                        <option value="No" callback="outerFunction">No</option>
+                                  <div conv-fork="typeOfAction">
+                                    <div conv-case="Get Quote">
+                                      <select name="typeOfProduct" conv-question="Please help us answer a few questions before we calculate your premium. What type of Product would you like to buy?" >
+                                        <option value="Family Floater" callback="outerFunction">Family Floater</option>
+                                        <option value="Individual" callback="outerFunction">Individual</option>
                                       </select>
-                                      <input type="text" conv-question="Cool, Payment link will come here." no-answer="true">
+                                      <div conv-fork="typeOfProduct">
+                                        <div conv-case="Family Floater">
+                                          <input conv-question="What is your family size?"  id="familySize" type="text" name="familySize" required placeholder="Enter Family Size" >
+                                          <input conv-question="What would be the start date of your policy?"  id="policyStartDate" type="text" name="policyStartDate" required placeholder="Start Date" >
+                                          <input conv-question="What is Primary Insured’s name? (First Name & Last Name)"  id="primaryName" type="text" name="primaryName" required placeholder="Name" >
+                                          <input conv-question="What is your Date of Birth?"  id="dob" type="text" name="dob" required placeholder="Date Of Birth" >
+                                          <input conv-question="What is name of Insured Member 2 & Relationship? (First Name & Last Name)"  id="secondaryName" type="text" name="secondaryName" required placeholder="Name" >
+                                          <input conv-question="What is Date of Birth of Insured Member 2?"  id="dob2" type="text" name="dob2" required placeholder="Date Of Birth" >
+                                          <input conv-question="What is your desired coverage amount (in Rupees)?"  id="coverAmt" type="text" name="coverAmt" required placeholder="CoverAmt" >
+                                          <input conv-question="What is your preferred location of Treatment?"  id="coverAmt" type="text" name="coverAmt" required placeholder="CoverAmt" >
+                                          <input conv-question="The Basic Premium for your plan is Rs 6645/-."  id="quoteResult" type="text" name="quoteResult"  no-answer="true" >
+                                          <select  conv-question="Would you like to make payment?">
+                                            <option value="Yes" callback="outerFunction">Yes</option>
+                                            <option value="No" callback="outerFunction">No</option>
+                                          </select>
+                                          <input type="text" conv-question="Payment link will come here." no-answer="true">
+                                        </div>
+                                        <div conv-case="Individual">
+                                          <input type="text" conv-question="This case is not covered in the demo." no-answer="true">
+                                        </div>
+                                      </div>
                                     </div>
-                                    <div conv-case="Individual">
-                                      <input type="text" conv-question="This case is not covered in the demo." no-answer="true">
+                                    <div conv-case="Key Feature">
+                                      <input type="text" conv-question="Wide Coverage – From Rs. 50,000 up to Rs. 500,000" no-answer="true">
+                                      <input type="text" conv-question="No medical test up to the age of 45 for people with no medical history" no-answer="true">
+                                      <input type="text" conv-question="Family Floater benefit giving comprehensive protection to your family members under one single Policy" no-answer="true">
+                                      <input type="text" conv-question="Flexible Plan Options–Metro Plan, Semi Metro Plan & Rest of India" no-answer="true">
+                                      <input type="text" conv-question="Assured renewal" no-answer="true">
+                                      <input type="text" conv-question="You can now renew your current Health Insurance Policy (any Insurer) with us" no-answer="true">
+                                      <input type="text" conv-question="The premium paid is exempt from Income Tax under Sec 80 D of Income Tax Act (Tax Benefits are subject to change in tax laws)" no-answer="true">
+                                      <input type="text" conv-question="Coverage of Pre-and Post Hospitalisation Expenses - 30 days before and 60 days after the hospitalisation" no-answer="true">
+                                      <input type="text" conv-question="Free Medical check-up for every 4 claim free years up to a maximum limit of Rs.2,500" no-answer="true">
+                                      <input type="text" conv-question="Add-on Covers available including removal of sub-limits on Room & ICU rent, Operation and Consultancy charges' after Flexible Plan options'... point" no-answer="true">
                                     </div>
                                   </div>
+
+
                                 </div>
-                                <div conv-case="Key Feature">
-                                  <input type="text" conv-question="Wide Coverage – From Rs. 50,000 up to Rs. 500,000" no-answer="true">
-                                  <input type="text" conv-question="No medical test up to the age of 45 for people with no medical history" no-answer="true">
-                                  <input type="text" conv-question="Family Floater benefit giving comprehensive protection to your family members under one single Policy" no-answer="true">
-                                  <input type="text" conv-question="Flexible Plan Options–Metro Plan, Semi Metro Plan & Rest of India" no-answer="true">
-                                  <input type="text" conv-question="Assured renewal" no-answer="true">
-                                  <input type="text" conv-question="You can now renew your current Health Insurance Policy (any Insurer) with us" no-answer="true">
-                                  <input type="text" conv-question="The premium paid is exempt from Income Tax under Sec 80 D of Income Tax Act (Tax Benefits are subject to change in tax laws)" no-answer="true">
-                                  <input type="text" conv-question="Coverage of Pre-and Post Hospitalisation Expenses - 30 days before and 60 days after the hospitalisation" no-answer="true">
-                                  <input type="text" conv-question="Free Medical check-up for every 4 claim free years up to a maximum limit of Rs.2,500" no-answer="true">
-                                  <input type="text" conv-question="Add-on Covers available including removal of sub-limits on Room & ICU rent, Operation and Consultancy charges' after Flexible Plan options'... point" no-answer="true">
+                                <div conv-case="Arogya Plus">
+
+                                  <input type="text" conv-question="This action is not implemented for this demo." no-answer="true">
+
                                 </div>
                               </div>
+
+
+
 
                             </div>
                             <!-- New User Case End-->   
@@ -167,12 +183,32 @@
 
                                       <div conv-fork="nested">
                                         <div conv-case="Query1"> 
-                                          <select  conv-question="Please select either of the options below">
+                                          <select name="nested2" conv-question="Please select either of the options below">
                                             <option value="Cancellation Process" callback="outerFunction">Cancellation Process</option>
                                             <option value="Claims status" callback="outerFunction">Claims status</option>
                                           </select>
-                                          <input type="text" conv-question="Policy can be cancelled and unused premium can be refunded on short period basis provided alternate insurance proof is provided and there is no claim in the policy. In case of claim in the policy no refund shall be there." no-answer="true">
+                                          <div conv-fork="nested2">
+                                            <div conv-case="Cancellation Process"> 
+                                              <input type="text" conv-question="Policy can be cancelled and unused premium can be refunded on short period basis provided alternate insurance proof is provided and there is no claim in the policy. In case of claim in the policy no refund shall be there." no-answer="true">
+
+                                            </div>
+                                            <div conv-case="Claims status">
+                                              <input type="text" conv-question="This action is not implemented for this demo." no-answer="true">
+
+                                            </div>
+                                          </div>
+
+
                                         </div> 
+
+                                        <div conv-case="Grievance1">
+                                          <input type="text" conv-question="This action is not implemented for this demo." no-answer="true">
+
+                                        </div>
+                                        <div conv-case="Service Request1">
+                                          <input type="text" conv-question="This action is not implemented for this demo." no-answer="true">  
+
+                                        </div>
 
                                       </div>
                                     </div>
@@ -192,14 +228,12 @@
                                 </div>
                                 <div conv-case="Query">
                                   <select name="typeOfQueryExistingBot" conv-question="Please choose type of query?">
-                                    <option value="Policy related9" callback="outerFunction">Policy related</option>
+
                                     <option value="Custom8" callback="outerFunction">Custom</option>
                                   </select>
                                   <div conv-fork="typeOfQueryExistingBot">
 
-                                    <div conv-case="Policy related9">
-                                      <input conv-question="Type in your Policy number below"  id="on11" type="text" name="on11" required placeholder="Policy number" >
-                                    </div>
+
                                     <div conv-case="Custom8">
                                       <input conv-question="Type in your query below?"  id="q8" type="text" name="q8" required placeholder="Type your Query" >
                                     </div>
@@ -217,14 +251,10 @@
                         <!--Bot Flow-->
                         <div conv-case="Bot">
                           <select name="typeOfQueryBot" conv-question="Please choose type of query?">
-                            <option value="Policy related7" callback="outerFunction">Policy related</option>
+
                             <option value="Custom2" callback="outerFunction">Custom</option>
                           </select>
                           <div conv-fork="typeOfQueryBot">
-
-                            <div conv-case="Order related1">
-                              <input conv-question="Type in your Policy number below"  id="on1" type="text" name="on1" required placeholder="Policy number" >
-                            </div>
                             <div conv-case="Custom2">
                               <input conv-question="Type in your query below?"  id="q31" type="text" name="q31" required placeholder="Type your Query" >
                             </div>
@@ -242,14 +272,10 @@
                       <input type="text" conv-question="Cool. This flow is completed." no-answer="true">
                       <input type="text" conv-question="Query flow will begin now." no-answer="true">
                       <select name="typeOfQuery1" conv-question="Please choose type of query?">
-                        <option value="Policy related1" callback="outerFunction">Policy related</option>
                         <option value="Custom1" callback="outerFunction">Custom</option>
                       </select>
                       <div conv-fork="typeOfQuery1">
 
-                        <div conv-case="Order related1">
-                          <input conv-question="Type in your Policy number below"  id="on1" type="text" name="on1" required placeholder="Policy number" >
-                        </div>
                         <div conv-case="Custom1">
 
                           <input conv-question="Type in your query below?"  id="q1" type="text" name="q1" required placeholder="Type your Query" >
