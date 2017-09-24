@@ -59,6 +59,49 @@ app.Factory = {
          ]
       }
     */
+createDialogJSON: function(graph, rootCell) {
+
+        var dialog = {
+            root: undefined,
+            nodes: [],
+            links: []
+        };
+
+        _.each(graph.getCells(), function(cell) {
+
+            var o = {
+                id: cell.id,
+                type: cell.get('type')
+            };
+
+            switch (cell.get('type')) {
+                case 'qad.Question':
+                    o.question = cell.get('question');
+                    o.options = cell.get('options');
+                    dialog.nodes.push(o);
+                    break;
+                case 'qad.Answer':
+                    o.answer = cell.get('answer');
+                    dialog.nodes.push(o);
+                    break;
+                default: // qad.Link
+                    o.source = cell.get('source');
+                    o.target = cell.get('target');
+                    dialog.links.push(o);
+                    break;
+            }
+
+            if (!cell.isLink() && !graph.getConnectedLinks(cell, { inbound: true }).length) {
+                dialog.root = cell.id;
+            }
+        });
+
+        if (rootCell) {
+            dialog.root = rootCell.id;
+        }
+
+        return dialog;
+    },
     createDialogJSON: function(graph, rootCell) {
 
         var dialog = {

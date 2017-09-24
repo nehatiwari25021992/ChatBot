@@ -316,21 +316,23 @@ app.AppView = joint.mvc.View.extend({
     showCodeSnippet: function() {
 
         var cell = this.selection.first();
-        var dialogJSON = app.Factory.createDialogJSON(this.graph, cell);
+        var dialogJSON = app.Factory.createDialogJSONNew(this.graph, cell);
+        var dialogJSON1 = app.Factory.createDialogJSON(this.graph, cell);
 	console.log("---Get JSON Hook Will Go Here---")
-        console.log(JSON.stringify(dialogJSON))
+        console.log(JSON.stringify(dialogJSON1))
 
     $.ajax(base_url + 'chatBot/saveDialog', {
         method: 'POST',
         data: {
             config: JSON.stringify(dialogJSON),
+            chat_config:JSON.stringify(dialogJSON1),
             appId:appID
         }
     }).then(function(data) {
          console.log(data);
         console.log("---Dialog Save Success---")
         });
-   return JSON.stringify(dialogJSON);
+         return JSON.stringify(dialogJSON);
        
     }
 });

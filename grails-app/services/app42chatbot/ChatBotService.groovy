@@ -734,6 +734,24 @@ class ChatBotService {
       
         jsonMap
     }
+    def getChatDialog(params){
+        println "getDialog params "+params
+        def jsonMap = [:]
+       
+        def db = new Sql(dataSource)
+        def appId = params.appId.toLong()
+        def sqlQuery  = "select chat_config as chatConfig from dialog where app_id = ? ";
+        def rows = db.firstRow(sqlQuery,[appId])
+        println "rows ------  "+rows
+        if(rows == null){
+            jsonMap.success  = false
+        }else{
+            jsonMap.success  = true
+            jsonMap.rows = rows
+        }
+      
+        jsonMap
+    }
 	
     def saveDialog(params){
         println "saveDialog params "+params
@@ -806,12 +824,12 @@ class ChatBotService {
     } 
     
     
-    def getAppOrgName(params){
+    def getAppOrgName(name){
         def db = new Sql(dataSource)
-        def orgName = params.orgName
-        def sqlQuery  = "select api_key,secret_key,id from service where org_name = ?";
+        def orgName = name
+        def sqlQuery  = "select api_key,secret_key,id,name from service where org_name = ?";
         def rows = db.firstRow(sqlQuery,[orgName])
-        rowss
+        rows
     }
     
     def matchItToIntent(params){

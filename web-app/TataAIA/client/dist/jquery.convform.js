@@ -1,3 +1,6 @@
+
+var imageUrl = baseURL + "TataAIA/client/images/"
+
 function SingleConvState(input){
     this.input = input;
     this.next = false;
@@ -66,7 +69,7 @@ ConvState.prototype.printQuestion = function(){
         this.scrollDown();
     }.bind(this), 100);
     setTimeout(function(){
-        var abc ='<span class="boticon"><img src="images/bot_icon.png"></span>'+question
+        var abc ='<span class="boticon"><img src="'+imageUrl+'bot_icon.png"></span>'+question
         messageObj.html(abc);
         speech_synth(question)
         // console.log('custom question text: ', question);  
@@ -175,7 +178,7 @@ ConvState.prototype.answerWith = function(answerText, answerObject) {
     //prints answer within messages wrapper
     if(this.current.input.type == 'password')
         answerText = answerText.replace(/./g, '*');
-    var message = $('<div class="message from">'+answerText+'<span class="usericon"><img src="images/userIcon.png"></span></div>');
+    var message = $('<div class="message from">'+answerText+'<span class="usericon"><img src="'+imageUrl+'userIcon.png"></span></div>');
 
     //removes options before appending message so scroll animation runs without problems
     $(this.wrapper).find("div.options div.option").remove();
@@ -251,7 +254,7 @@ ConvState.prototype.answerWith = function(answerText, answerObject) {
 
         //var placeholder = 'Write here...';
         //create a new form for user input
-        var inputForm = $('<form id="convForm"><div class="options dragscroll"></div><textarea id="userInput" rows="1" placeholder="'+placeholder+'"></textarea><button type="submit" class="icon2-arrow submit">⯈</button><span class="clear"></span><div class="mic"><img id="start_img" src="images/mic.gif" onclick="startButton(event)"></div></form>');
+        var inputForm = $('<form id="convForm"><div class="options dragscroll"></div><textarea id="userInput" rows="1" placeholder="'+placeholder+'"></textarea><button type="submit" class="icon2-arrow submit">⯈</button><span class="clear"></span><div class="mic"><img id="start_img" src="'+imageUrl+'mic.gif" onclick="startButton(event)"></div></form>');
 
         //appends messages wrapper and newly created form
         $(wrapper).append('<div class="wrapper-messages"><div id="messages"></div></div>');
@@ -458,7 +461,7 @@ ConvState.prototype.answerWith = function(answerText, answerObject) {
 })( jQuery );
 
 // Constants
-var chatBotData = {},customQueryFlow = false,callCenterFlow = false,base_url = 'http://localhost:8080/App42ChatBot/chatBot', socket;
+var chatBotData = {},customQueryFlow = false,callCenterFlow = false,base_url = baseURL+'chatBot', socket;
 var state;
 var ___warpclient, ___adminUserName = "", ___CuRrEnTUserName = "",___CuRrEnTMeSsAgE="",___isAgentOffline = false,___isAgentOfflineByRoom= false,___chatCounter = 0,___retryCounter=0,___roomID;
 function validateEmail(email) {
@@ -507,8 +510,8 @@ function registerUser(){
         "name":$.trim(name),
         "email":$.trim(email),
         "phone":$.trim(phone),
-        "apiKey":"6306aad2d5cd417cdb8b7e52d65b32c9ec171b6c200cf7080576c58020026cd2",    //Tata AIA 6306aad2d5cd417cdb8b7e52d65b32c9ec171b6c200cf7080576c58020026cd2
-        "secretKey":"f81ea95798ae3ef05d36439660aaeb25c71608f893482409332874e5164df73e"   // Tata AIA f81ea95798ae3ef05d36439660aaeb25c71608f893482409332874e5164df73e
+        "apiKey":apiKey,    //Tata AIA 6306aad2d5cd417cdb8b7e52d65b32c9ec171b6c200cf7080576c58020026cd2
+        "secretKey":secretKey   // Tata AIA f81ea95798ae3ef05d36439660aaeb25c71608f893482409332874e5164df73e
     }
     
     $.ajax(base_url + '/saveOrUpdateUser', {
@@ -572,7 +575,7 @@ function mockBackendService(inputData,fromBot){
         });
 }
 
-socket = io.connect('http://52.172.31.113:5000');
+socket = io.connect(socketURL);
 socket.on('connect', function() {
     socket.emit('my event', {
         data: 'I\'m connected!'
