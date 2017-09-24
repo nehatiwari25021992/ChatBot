@@ -1,6 +1,6 @@
 
 
-chatBot.controller("unknownController", function($scope,dashboardService,$location, $rootScope) {
+chatBot.controller("unknownController", function($scope,dashboardService,$location, $rootScope,notificationService) {
     $scope.openSubSideBar("dialogSection")
     // var intervalCurrentSession;
     // Maximize | Minimize Apps Grid
@@ -66,12 +66,14 @@ chatBot.controller("unknownController", function($scope,dashboardService,$locati
         var promise = dashboardService.matchItToIntent(params)
         promise.then(
             function(payload){
-               // $scope.toggleGridLoader("unknownWidget")
+                // $scope.toggleGridLoader("unknownWidget")
                 $("#matchIntentForm").modal("hide");
+                socket.emit('learn', {});
+                notificationService.info('Training Started.');
             },
             function(errorPayload) {
                 $("#matchIntentForm").modal("hide");
-              //  $scope.toggleGridLoader("unknownWidget")
+            //  $scope.toggleGridLoader("unknownWidget")
             })
     }
     

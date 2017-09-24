@@ -14,7 +14,7 @@
          ng-click="refreshUnknowWidget()" data-original-title="Refresh"><i
           class="fa fa-refresh"></i></a>
     </div>
-    <h3>Unknown</h3>
+    <h3>UnResolved Intent</h3>
   </div>
   <div class="widget-content">
     <div class="alert alert-info alert-dismissable"
@@ -50,7 +50,7 @@
                 <a  ng-click="gotoAddIntent(user)"
                     class="btn btn-default btn btn-default-blue btn-sm">&nbsp;New</a>
                 <a  ng-click="matchToExciting(user)"
-                    class="btn btn-default btn btn-default-blue btn-sm">&nbsp;Exciting</a>
+                    class="btn btn-default btn btn-default-blue btn-sm">&nbsp;Existing</a>
               </td>
             </tr>
           </tbody>

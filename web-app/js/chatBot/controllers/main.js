@@ -7,7 +7,7 @@
 
 // Main controller section
 
-chatBot.controller("MainController", function($controller,$rootScope,$scope,$http,$log,$location,$route,$interval,$templateCache,dashboardService) {
+chatBot.controller("MainController", function($controller,$rootScope,$scope,$http,$log,$location,$route,$interval,$templateCache,dashboardService,notificationService) {
     console.log("***********MainController**************")
     $scope.baseURL = baseURL
     
@@ -211,6 +211,20 @@ chatBot.controller("MainController", function($controller,$rootScope,$scope,$htt
                 $log.error('failure getting queries', errorPayload);
             });
     }
+    
+    socket = io.connect('http://52.172.31.113:5000');
+    socket.on('connect', function() {
+        socket.emit('my event', {
+            data: 'I\'m connected!'
+        });
+    });
+    console.log("socket :: ",socket)
+    socket.on('learn_response', function (data) {
+        console.log("*********************data************",data)  
+        //$timeout(function(){
+            notificationService.success('Training Completed.');
+       // },1000)
+    });
 });
 
 // coming soon
