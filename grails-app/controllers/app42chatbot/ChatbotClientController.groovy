@@ -7,16 +7,26 @@ class ChatbotClientController {
     def socketURL = confHolder.config.app.socketURL
     
     def index() { 
-        println params
         def app = null
         if(params.name){
             app = chatBotService.getAppOrgName(params.name)
         }else{
             app = chatBotService.getAppOrgName("test") 
         }
-        println app
+       
         def chatScript = getChatScript(app)
       
+        [baseURL:baseURL,socketURL:socketURL,app:app,chatScript:chatScript]
+    }
+    def dialog() { 
+        def app = null
+        if(params.name){
+            app = chatBotService.getAppOrgName(params.name)
+        }else{
+            app = chatBotService.getAppOrgName("test") 
+        }
+      
+        def chatScript = getChatScript(app)
         println chatScript
         [baseURL:baseURL,socketURL:socketURL,app:app,chatScript:chatScript]
     }
