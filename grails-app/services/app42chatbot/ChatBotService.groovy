@@ -121,29 +121,29 @@ class ChatBotService {
         
         sqlQuery  = "select end_time as end_date,start_time as start_date , id from conversations where app_id = ?";
         def rowsDiff = db.rows(sqlQuery,[appId])
-        println "rowsDiff ::::::::::::::::  "+rowsDiff
+        //println "rowsDiff ::::::::::::::::  "+rowsDiff
         if(rowsDiff != null && rowsDiff.size() != 0){
             def  diff = 0
             def rowsize = rowsDiff.size()
             rowsDiff.each{ r ->              
                 def diffInMillies = r.end_date.getTime() - r.start_date.getTime();
-                println 'diffInMillies ::::::::::::::: '+diffInMillies 
+               // println 'diffInMillies ::::::::::::::: '+diffInMillies 
                 diff = diff+diffInMillies           
             }
             def millis =  diff/ rowsize
             def average_session_length = 0
-            println 'millis.intValue() ::::::::::::::: '+millis.intValue() 
+           // println 'millis.intValue() ::::::::::::::: '+millis.intValue() 
            
 
             average_session_length =  millis.intValue()
             if(average_session_length != 0 ){
                 if(average_session_length <= 60000){            
                     long seconds = TimeUnit.MILLISECONDS.toSeconds(millis.intValue());           
-                    println 'seconds ::::::::::::::: '+seconds
+                   // println 'seconds ::::::::::::::: '+seconds
                     average_session_length = seconds + " sec"
                 }else if(average_session_length > 60000 && average_session_length <= 3600000){
                     long minutes = TimeUnit.MILLISECONDS.toMinutes(millis.intValue());
-                    println 'minutes ::::::::::::::: '+minutes
+                  //  println 'minutes ::::::::::::::: '+minutes
                     average_session_length = minutes + " min"
                 }else if(average_session_length > 3600000 ){
                     long hours = TimeUnit.MILLISECONDS.toHours(millis.intValue());
@@ -152,7 +152,7 @@ class ChatBotService {
                 }
             }
             jsonMap.average_session = average_session_length
-            println 'average_session_length ::::::::::::::: '+average_session_length
+          //  println 'average_session_length ::::::::::::::: '+average_session_length
         }    
         jsonMap
     }
@@ -460,6 +460,8 @@ class ChatBotService {
         }
         
         if(params.resposneList != null){
+            println "params.resposneList "+params.resposneList
+            println "params.resposneList "+params.resposneList.getClass()
             if(params.resposneList instanceof String){
                 sqlQuery  = "INSERT INTO responses ( `name`, `description`, `tag_id`) VALUES (?,?,?);";
                 def rows5 = db.executeInsert(sqlQuery,[params.resposneList,"-",tagId])
@@ -836,5 +838,46 @@ class ChatBotService {
         def rows3 = db.executeInsert(sqlQuery,[params.userSay,"-",params.tagId])
         println "ROW3 ::::::::: "+rows3
        
+    }
+  
+    def getSentiments(params){
+        def jsonMap = [:]
+        def resultArr = []
+        jsonMap.message_in = []
+        def db = new Sql(dataSource)
+        def appId = params.appId.toLong()
+        
+        def dates = getDatesFromRange(params.start,params.end)
+        def dateCountMap = [:]
+        def dateCountMap1 = [:]
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        for (int i = 0; i < dates.size(); i++) {
+            Date d = formatter.parse(dates[i].replaceAll("'", ""))
+            dateCountMap.put(d.getTime(), 0);
+            dateCountMap1.put(d.getTime(), 0);
+        }
+        String dt = params.end;  // Start date
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Calendar c = Calendar.getInstance();
+        c.setTime(sdf.parse(dt));
+        c.add(Calendar.DATE, 1);  // number of days to add
+        dt = sdf.format(c.getTime());
+        def sqlQuery  = "select  DATE_FORMAT( sentiment_date,  '%Y-%m-%d' ) AS mDate, pos,neg from sentiments where app_id = ? and sentiment_date < ? and sentiment_date >= ? order by sentiment_date";
+        def rowsSent = db.rows(sqlQuery,[appId,dt,params.start])
+        def positiveArr = []
+        def negativeArr = []
+        def datesArr = []
+        rowsSent.each{row1->
+            Date d = formatter.parse(row1.mDate)
+            positiveArr.push(row1.pos)
+            negativeArr.push(row1.neg)
+            datesArr.push(row1.mDate)
+        }
+        def inMap = [:]
+        inMap.positiveArr = positiveArr
+        inMap.negativeArr = negativeArr
+        inMap.datesArr = datesArr
+        println "inMap ::::::::::::::; "+inMap
+        inMap
     }
 }

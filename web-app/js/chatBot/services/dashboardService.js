@@ -207,6 +207,16 @@ chatBot.factory('dashboardService', function($rootScope,$http) {
                 return data;
             })
             return promise;
+        },
+        getSentiments : function(params) {
+            var promise = $http({
+                method: 'POST', 
+                url: '../chatBot/getSentiments',
+                params:params
+            }).success(function(data, status, headers, config) {
+                return data;
+            })
+            return promise;
         }
     }
     return service

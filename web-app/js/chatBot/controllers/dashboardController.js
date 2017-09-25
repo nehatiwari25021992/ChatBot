@@ -19,6 +19,7 @@ chatBot.controller("dashboardController", function($scope,dashboardService,$root
         $scope.getMostCommanPhrases()
         $scope.getMostActiveHours()
         $scope.getMessage_in_vs_out()
+        $scope.getCommentsLineChartInfo()
         console.log("-----------------------reloadTemplate----------------------")
     });
     
@@ -29,6 +30,7 @@ chatBot.controller("dashboardController", function($scope,dashboardService,$root
         $scope.getMostCommanPhrases()
         $scope.getMostActiveHours()
         $scope.getMessage_in_vs_out()
+        $scope.getCommentsLineChartInfo()
     }
     
     //    $('a[href="#/dashboard/"]').parent().addClass("current");
@@ -84,6 +86,7 @@ chatBot.controller("dashboardController", function($scope,dashboardService,$root
             $scope.startDateUser = startD
             $scope.endDateUser = endD 
             $scope.getMessage_in_vs_out()
+            $scope.getCommentsLineChartInfo()
         });
     }
     
@@ -426,44 +429,61 @@ chatBot.controller("dashboardController", function($scope,dashboardService,$root
     
     $scope.getCommentsLineChartInfo = function(){
         var resultMapArr =[]
-         
-        var map1 ={
-            name: '+ve',
-            yAxis : 0,
-            stacking: 'normal',
-            data: [29.9, 71.5, 89.4, 23.2, 89.0, 89.0, 13.6, 57.5, 68.4, 87.1, 95.6, 54.4],
-            color:'#56cb81'
+        
+        var params = {
+            appId : $scope.appId,
+            start : $scope.startDateUser,
+            end : $scope.endDateUser
         }
-        var map2 ={
-            name: '-ve',
-            yAxis : 0,
-            stacking: 'normal',
-            data: [23.0, 67.0, 87.6, 56.5, 16.4, 78.1, 95.6, 54.4, 29.9, 71.5, 23.4, 45.2],
-            color:'#eb575c'
-        }
-
-        var map3 ={
-            name: 'neutral',
-            yAxis : 0,
-            stacking: 'normal',
-            data: [13.0, 56.0, 98.6, 17.5, 98.4, 74.1, 95.6, 54.4, 29.9, 71.5, 76.4, 34.2],
-            color:'#e8ad33'
-        }
-
-        var map4 ={
-            name: 'Sentiment score',
-            yAxis : 1,
-            type : 'spline',
-            data: [24.3, 12, 41.2, 12.1, 4, 45, 31, 21.5, 9.3, 7.7, 13, 22]
-        }
-
-        resultMapArr.push(map1)  
-        resultMapArr.push(map3)
-        resultMapArr.push(map2)
+        $scope.toggleGridLoader("chatbotDashboardWidget")
+        console.log("params getSentiments ",params)
+        var promise = dashboardService.getSentiments(params)
+        promise.then(
+            function(payload){
+                console.log("payload.data getSentiments",payload.data)
+                var map1 ={
+                    name: '+ve',
+                    yAxis : 0,
+                    stacking: 'normal',
+                    data: payload.data.positiveArr,
+                    color:'#56cb81'
+                }
+                var map2 ={
+                    name: '-ve',
+                    yAxis : 0,
+                    stacking: 'normal',
+                    data: payload.data.negativeArr,
+                    color:'#eb575c'
+                }
+                resultMapArr.push(map1)  
+                resultMapArr.push(map2)
       
-        resultMapArr.push(map4)
-        var   categories = ['2 Sept', '3 Sept', '4 Sept', '5 Sept', '6 Sept', '7 Sept', '8 Sept', '9 Sept', '10 Sept', '11 Sept', '12 Sept', '13 Sept'] 
-        $scope.loadCommentsHighChart(resultMapArr,categories)
+                var   categories = payload.data.datesArr
+                $scope.loadCommentsHighChart(resultMapArr,categories)
+                $scope.toggleGridLoader("chatbotDashboardWidget")
+            },
+            function(errorPayload) {
+                         
+                var map1 ={
+                    name: '+ve',
+                    yAxis : 0,
+                    stacking: 'normal',
+                    data: [29.9, 71.5, 89.4, 23.2, 89.0, 89.0, 13.6, 57.5, 68.4, 87.1, 95.6, 54.4],
+                    color:'#56cb81'
+                }
+                var map2 ={
+                    name: '-ve',
+                    yAxis : 0,
+                    stacking: 'normal',
+                    data: [23.0, 67.0, 87.6, 56.5, 16.4, 78.1, 95.6, 54.4, 29.9, 71.5, 23.4, 45.2],
+                    color:'#eb575c'
+                }
+                var   categories = ['2 Sept', '3 Sept', '4 Sept', '5 Sept', '6 Sept', '7 Sept', '8 Sept', '9 Sept', '10 Sept', '11 Sept', '12 Sept', '13 Sept'] 
+                $scope.loadCommentsHighChart(resultMapArr,categories)
+    
+                $scope.toggleGridLoader("chatbotDashboardWidget")
+            })
+     
     }
 
     // draw multi axis line chart which shows comments data
@@ -497,14 +517,7 @@ chatBot.controller("dashboardController", function($scope,dashboardService,$root
                 title: {
                     text: 'Chats'
                 }
-            }, { // Secondary yAxis
-                min: -40,
-                max: 100,
-                tickInterval: 20,
-                opposite : true,
-                title: {
-                    text: 'Avg. Sentiment Score'
-                }
+            
             }],        
             tooltip: {
                 formatter: function () {

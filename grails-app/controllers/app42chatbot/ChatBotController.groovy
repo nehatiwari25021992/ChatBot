@@ -55,6 +55,11 @@ class ChatBotController {
         render result as JSON
     }
     
+    def getSentiments = {
+        def result  = chatBotService.getSentiments(params)
+        render result as JSON
+    }
+    
     def getMostActiveHours = {
         def result  = chatBotService.getMostActiveHours(params)
         render result as JSON
