@@ -100,7 +100,7 @@ function startButton(event) {
         return;
     }
     
-    muteAudio = false
+    muteAudio = !muteAudio
     final_transcript = '';
 //    recognition.lang = 6;
 //    recognition.start();

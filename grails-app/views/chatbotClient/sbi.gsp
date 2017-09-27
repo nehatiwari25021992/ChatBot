@@ -59,7 +59,7 @@
 
 
 
-                      <input type="text" conv-question="Hello! Welcome to TATA AIA Life Insurance." no-answer="true">
+                      <input type="text" conv-question="Hello! Welcome to SBI General Life Insurance." no-answer="true">
 
                       <select name="flow" conv-question="To assist you further, please choose an option given below.">
                         <option value="Dialog" callback="outerFunction">Dialog</option>
@@ -83,49 +83,50 @@
                                 <option value="Query" callback="outerFunction">Query</option>
                               </select>
                               <select conv-question="Please select either of the options below." >
-                                <option value="Protection" callback="outerFunction">Protection</option>
-                                <option value="Wealth" callback="outerFunction">Wealth</option>
-                                <option value="Child" callback="outerFunction">Child</option>
-
+                                <option value="Health" callback="outerFunction">Health</option>
+                                <option value="Motor" callback="outerFunction">Motor</option>
+                                <option value="Travel" callback="outerFunction">Travel</option>
+                                <option value="Home" callback="outerFunction">Home</option>
                               </select>
 
 
                               <select name="typeOfPlans" conv-question="Click on any of the below option to know more" >
-                                <option value="Sampoorna Raksha" callback="outerFunction">Sampoorna Raksha</option>
-                                <option value="iRaksha TROP" callback="outerFunction">iRaksha TROP</option>
+                                <option value="Health Insurance" callback="outerFunction">Health Insurance</option>
+                                <option value="Arogya Plus" callback="outerFunction">Arogya Plus</option>
                               </select>
                               <div conv-fork="typeOfPlans">
-                                <div conv-case="Sampoorna Raksha">
-                                  <select name="typeOfAction" conv-question="Great Option! Tata AIA Life Insurance Sampoorna Raksha Plan, a pure term insurance plan that provides financial protection to your family and offers you the flexibility to choose the plan that suits your need. You may opt to receive either a Lump Sum benefit on Death or Lump Sum benefit on Death and Monthly Income for next 10 years while also enjoying the flexibility to enhance your life cover. Please choose an option below:" >
-                                    <option value="Premium Calculator" callback="outerFunction">Premium Calculator</option>
+                                <div conv-case="Health Insurance">
+                                  <select name="typeOfAction" conv-question="With SBI General’s Health Insurance Policy – Retail, you can be in control by making medical treatment expenses more manageable. Thus ensuring quality health & happiness of your family. Please choose an option below:" >
+                                    <option value="Get Quote" callback="outerFunction">Get Quote</option>
                                     <option value="Key Feature" callback="outerFunction">Key Feature</option>
                                   </select>
                                   <div conv-fork="typeOfAction">
-                                    <div conv-case="Premium Calculator">
-                                      <select  conv-question="Please help us answer a few questions before we calculate your premium. What is your Gender?" >
-                                        <option value="Male" callback="outerFunction">Male</option>
-                                        <option value="Female" callback="outerFunction">Female</option>
+                                    <div conv-case="Get Quote">
+                                      <select name="typeOfProduct" conv-question="Please help us answer a few questions before we calculate your premium. What type of Product would you like to buy?" >
+                                        <option value="Family Floater" callback="outerFunction">Family Floater</option>
+                                        <option value="Individual" callback="outerFunction">Individual</option>
                                       </select>
-                                      <select  conv-question="Are you a Smoker?" >
-                                        <option value="Yes" callback="outerFunction">Yes</option>
-                                        <option value="No" callback="outerFunction">No</option>
-                                      </select>
-                                      <select  conv-question="What would be your Mode of Payment?" >
-                                        <option value="Male" callback="outerFunction">Annualy</option>
-                                        <option value="Female" callback="outerFunction">Quarterly</option>
-                                        <option value="Female" callback="outerFunction">Monthly</option>
-                                      </select>
-
-                                      <input type="text" conv-question="What is your desired coverage amount (in Rupees)? Enter the amount in multiples of 1,00,000. Minimum coverage is 50,00,000." >
-                                      <input type="text" conv-question="Please enter the Policy Term (between 10 and 40 years)." >
-                                      <input type="text" conv-question="Please enter Premium paying term (between 5 and 40 years)." >
-                                      <select  conv-question="Congratulations! Here is your final quote.
-                                               Your annual premium payable is Rs. 15,700/- for a Sum Assured of Rs.50,00,000/-.
-                                               Please select an action below to complete this purchase." >
-                                        <option value="Buy Now" callback="outerFunction">Buy Now</option>
-                                        <option value="Add Rider" callback="outerFunction">Add Rider</option>
-                                      </select>
-                                      <input type="text" conv-question="Cool. Payment link will come here." no-answer="true">
+                                      <div conv-fork="typeOfProduct">
+                                        <div conv-case="Family Floater">
+                                          <input conv-question="What is your family size?"  id="familySize" type="text" name="familySize" required placeholder="Enter Family Size" >
+                                          <input conv-question="What would be the start date of your policy?"  id="policyStartDate" type="text" name="policyStartDate" required placeholder="Start Date" >
+                                          <input conv-question="What is Primary Insured’s name? (First Name & Last Name)"  id="primaryName" type="text" name="primaryName" required placeholder="Name" >
+                                          <input conv-question="What is your Date of Birth?"  id="dob" type="text" name="dob" required placeholder="Date Of Birth" >
+                                          <input conv-question="What is name of Insured Member 2 & Relationship? (First Name & Last Name)"  id="secondaryName" type="text" name="secondaryName" required placeholder="Name" >
+                                          <input conv-question="What is Date of Birth of Insured Member 2?"  id="dob2" type="text" name="dob2" required placeholder="Date Of Birth" >
+                                          <input conv-question="What is your desired coverage amount (in Rupees)?"  id="coverAmt" type="text" name="coverAmt" required placeholder="CoverAmt" >
+                                          <input conv-question="What is your preferred location of Treatment?"  id="coverAmt" type="text" name="coverAmt" required placeholder="CoverAmt" >
+                                          <input conv-question="The Basic Premium for your plan is Rs 6645/-."  id="quoteResult" type="text" name="quoteResult"  no-answer="true" >
+                                          <select  conv-question="Would you like to make payment?">
+                                            <option value="Yes" callback="outerFunction">Yes</option>
+                                            <option value="No" callback="outerFunction">No</option>
+                                          </select>
+                                          <input type="text" conv-question="Payment link will come here." no-answer="true">
+                                        </div>
+                                        <div conv-case="Individual">
+                                          <input type="text" conv-question="This case is not covered in the demo." no-answer="true">
+                                        </div>
+                                      </div>
                                     </div>
                                     <div conv-case="Key Feature">
                                       <input type="text" conv-question="Wide Coverage – From Rs. 50,000 up to Rs. 500,000" no-answer="true">
@@ -143,7 +144,7 @@
 
 
                                 </div>
-                                <div conv-case="iRaksha TROP">
+                                <div conv-case="Arogya Plus">
 
                                   <input type="text" conv-question="This action is not implemented for this demo." no-answer="true">
 
