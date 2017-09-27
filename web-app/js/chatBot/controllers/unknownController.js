@@ -70,6 +70,7 @@ chatBot.controller("unknownController", function($scope,dashboardService,$locati
                 $("#matchIntentForm").modal("hide");
                 socket.emit('learn', {});
                 notificationService.info('Training Started.');
+                $scope.getAllIntent()
             },
             function(errorPayload) {
                 $("#matchIntentForm").modal("hide");

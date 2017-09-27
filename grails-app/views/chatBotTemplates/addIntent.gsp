@@ -45,9 +45,10 @@
     <form role="form" class="">
 
       <div class="intentWrapper">
-        <div class="intentRow">
+        <div class="intentRow"    ng-class="{'has-warning has-iconed' : isIntent != 'default'}" >
           <div class="intlabel">Intent</div>
           <textarea class="input form-control" placeholder="Enter Name"  ng-model="intentName" type="text" rows="1" cols="30"></textarea>
+          <p class="help-block errorTxt" ng-if="isIntent == 'blank'">Intent name required.</p>
         </div>
         <div class="intentRowB">
           <div class="UXrowInput"   ng-class="{'has-warning has-iconed' : isuserExp != 'default'}" >
@@ -55,7 +56,7 @@
             <div class="uxTitle">User Expressions</div>
           </div>
           <div class="UXrowData bgA">
-		  <p class="help-block errorTxt" ng-if="isuserExp == 'blank'">Expression required.</p>
+            <p class="help-block errorTxt" ng-if="isuserExp == 'blank'">Expression required.</p>
             <p class="help-block errorTxt" ng-if="isuserExp == 'invalid'">Expression with same name  already exists.</p>
             <div class="UXrowInner" ng-repeat="say in userExpList">
               <input type="text" class="input" readonly="" value="{{say}}">
@@ -75,7 +76,7 @@
             <div class="uxTitle">Response</div>
           </div>
           <div class="UXrowData bgB" >
-		  <p class="help-block errorTxt" ng-if="isresposne == 'blank'">Response required.</p>
+            <p class="help-block errorTxt" ng-if="isresposne == 'blank'">Response required.</p>
             <p class="help-block errorTxt" ng-if="isresposne == 'invalid'">Response with same name already exists.</p>
             <div class="UXrowInner" ng-repeat="r in resposneList">
               <input type="text" class="input" readonly="" value="{{r}}">

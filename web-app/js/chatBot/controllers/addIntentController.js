@@ -41,6 +41,7 @@ chatBot.controller("addIntentController", function($scope,dashboardService,$loca
         $scope.isuserExp = "default"
         $scope.isactions = "default"
         $scope.isresposne = "default"
+        $scope.isIntent = "default"
     }
    
     $scope.addUserSays = function(){
@@ -82,6 +83,25 @@ chatBot.controller("addIntentController", function($scope,dashboardService,$loca
     }
     
     $scope.saveIntent = function(){
+        var error = false
+        $scope.isresposne = "default"
+        $scope.isuserExp = "default"
+        $scope.isIntent = "default"
+        if($scope.resposneList == null || $scope.resposneList.length == 0 || $scope.resposneList == undefined){
+            error = true
+            $scope.isresposne = "blank"
+        }
+        if($scope.userExpList == null || $scope.userExpList.length == 0 || $scope.userExpList == undefined){
+            error = true
+            $scope.isuserExp = "blank"
+        }
+        if($scope.intentName == null || $scope.intentName == "" || $scope.intentName == undefined){
+            error = true
+            $scope.isIntent = "blank"
+        }
+        if(error){
+            return
+        }
         $scope.toggleGridLoader("addIntentWidget")
         var params = {
             appId : $scope.appId,

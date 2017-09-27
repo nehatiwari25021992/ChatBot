@@ -46,6 +46,7 @@ chatBot.controller("settingsController", function($scope,$rootScope,dashboardSer
             function(payload){
                 console.log("getAllAlgorithms payload ",payload)
                 $scope.algoList = payload.data
+                $scope.selectedAlgoritm = $scope.algoList[0]
                 $scope.toggleGridLoader("app42AppSettingsWidget")
             },
             function(errorPayload) {
@@ -63,6 +64,7 @@ chatBot.controller("settingsController", function($scope,$rootScope,dashboardSer
             function(payload){
                 console.log("getAllLanguagesSupported payload ",payload)
                 $scope.langList = payload.data
+                $scope.selectedLanguage = $scope.langList[0]
                 $scope.toggleGridLoader("app42AppSettingsWidget")          
             },
             function(errorPayload) {
@@ -80,6 +82,7 @@ chatBot.controller("settingsController", function($scope,$rootScope,dashboardSer
             function(payload){
                 console.log("getAllThresholds payload ",payload)
                 $scope.thresholdList = payload.data
+                $scope.selectedThreshold  = $scope.thresholdList[0]
                 $scope.toggleGridLoader("app42AppSettingsWidget")
             },
             function(errorPayload) {
