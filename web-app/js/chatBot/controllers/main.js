@@ -212,19 +212,19 @@ chatBot.controller("MainController", function($controller,$rootScope,$scope,$htt
             });
     }
     
-    socket = io.connect('http://52.172.31.113:5000');
-    socket.on('connect', function() {
-        socket.emit('my event', {
-            data: 'I\'m connected!'
-        });
-    });
-    console.log("socket :: ",socket)
-    socket.on('learn_response', function (data) {
-        console.log("*********************data************",data)  
-        //$timeout(function(){
-            notificationService.success('Training Completed.');
-       // },1000)
-    });
+//    socket = io.connect('http://52.172.31.113:5000');
+//    socket.on('connect', function() {
+//        socket.emit('my event', {
+//            data: 'I\'m connected!'
+//        });
+//    });
+//    console.log("socket :: ",socket)
+//    socket.on('learn_response', function (data) {
+//        console.log("*********************data************",data)  
+//        //$timeout(function(){
+//            notificationService.success('Training Completed.');
+//       // },1000)
+//    });
 });
 
 // coming soon

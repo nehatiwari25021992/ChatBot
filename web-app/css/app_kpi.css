@@ -1,0 +1,304 @@
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro);
+body { background-color: #e4e4e8; padding: 0px; margin: 0px }
+img { border: 0; }
+a { border: 0; text-decoration: none }
+a:hover, selected, visited { border: 0 }
+a, input:focus, textarea, textarea:focus { outline: 0 }
+textarea { resize: none; overflow: hidden }
+.left { float: left; }
+.right { float: right !important; }
+.floatN{ float:none!important;}
+#mainWrapper { width: 100%; float: left; }
+.headerwrap { height: 71px; background-color: #444444; }
+.header { width: 1003px; margin: 0px auto; }
+.logo, .navigation, .loginWrap { float: left }
+.logo { width: 126px; height: 40px; margin-top: 15px }
+.navigation { width: 693px; }
+.header:after { content: ""; display: table; clear: both }
+.appdetails_wrap:after { content: ""; display: table; clear: both }
+.navigation ul { margin: 0px; padding: 0px; display: block; float: right; margin-right: 20px; }
+.navigation ul li { display: inline-block; height: 71px; padding: 0px 25px; line-height: 71px; }
+.loginWrap { width: 184px; background-image: url(../../images/appHype/headSep.jpg); background-repeat: no-repeat; background-position: left top; height: 71px; background-color: #4c4c4c; }
+.navigation ul li a { text-decoration: none; color: #fff; font-family: "Open Sans", Helvetica, Arial, sans-serif; font-size: 14px; }
+.loginWrap a { float: left; padding: 8px 0; width: 80px; background-color: #4ba8d4; margin: 15px 0 0 8px; color: #fff; font-size: 15px; font-family: 'Source Sans Pro', sans-serif; font-weight: 400; text-align: center; border-bottom: 1px solid #154e6d; text-decoration: none; }
+.container { width: 1003px !important; margin: 30px auto 20px auto; background-color: #fff; box-shadow: 0 0 10px #c3c3c3; float: left; clear: both; }
+.containerDiv { width: 800px; float: left; padding: 0 0 40px 0; }
+#userSettings ul { text-align: center; display: inline; margin: 0; padding: 15px 4px 17px 0; list-style: none; }
+#userSettings ul li { font: bold 12px/18px sans-serif; display: inline-block; margin-right: -4px; position: relative; padding: 15px 15px; cursor: pointer; -webkit-transition: all 0.2s; -moz-transition: all 0.2s; -ms-transition: all 0.2s; -o-transition: all 0.2s; transition: all 0.2s; color: #d9d9d9; background-color: #555555; }
+#userSettings ul li:hover { background: #555; color: #fff; }
+#userSettings ul li ul { padding: 0; position: absolute; top: 70px; left: 0; width: 186px; display: none; opacity: 0; visibility: hidden; -webkit-transiton: opacity 0.2s; -moz-transition: opacity 0.2s; -ms-transition: opacity 0.2s; -o-transition: opacity 0.2s; -transition: opacity 0.2s; }
+#userSettings ul li ul li { background: #555; display: block; color: #fff; text-shadow: 0 -1px 0 #000; text-align: left }
+@media only screen and (min-width :768px) and (max-width :1024px) {
+#userSettings ul li ul { padding: 0; position: absolute; top: 70px; left: -37px; width: 170px; } }
+#userSettings ul li ul li:hover { background: #666; }
+#userSettings ul li:hover ul { display: block; opacity: 1; visibility: visible; }
+.pdding { padding-top: 26px!important; padding-bottom: 26px!important; text-overflow: ellipsis; }
+.account_setting { max-width: 178px; text-overflow: ellipsis; float: right; }
+.arrowdown { float: left; display: block; margin: 7px 0px 0px 7px }
+.userName { float: left; text-overflow: ellipsis; width: 126px; display: block; overflow: hidden }
+.rowDiv { border-bottom: 1px solid #E6EFF3; float: left; padding: 5px 0; width: 100%; }
+.rowDivhd { width: 100% }
+.appname { width: 430px; padding-left: 15px; float: left; }
+.appname2 { width: 400px; padding-left: 15px; float: left; }
+.campname { width: 180px; float: left; }
+.appplatform { width: 110px; float: left; }
+.appstatus { width: 125px; float: left; }
+.appEdit { width: 81px; float: left; }
+.appDetail { width: 83px; float: left; }
+.deleteApp { width: 73px; float: left; }
+.appkey { display: table-cell; width: 62px; }
+.hdrow { background-color: #DEE9EF; border-bottom: 1px solid #BFD4DE; border-top: 1px solid #BFD4DE; clear: both; color: #1F1F1F; float: left; font-family: "Myriad Pro", Helvetica, Arial, sans-serif; font-size: 16px; padding: 10px 0; width: 100%; }
+a.android { background-image: url(../../images/appHype/sprite.png); background-repeat: no-repeat; background-position: -6px -65px; width: 23px; height: 27px; display: block; margin: 5px 0 0 0; }
+a.edit { background-image: url(../../images/appHype/sprite.png); background-repeat: no-repeat; background-position: -7px -40px;  /*-5px -10px;*/ width: 22px; height: 22px; display: block; margin: 7px 0 0 0; }
+a.detail { background-image: url(../../images/appHype/sprite.png); background-repeat: no-repeat; background-position: -44px -40px; width: 22px; height: 22px; display: block; margin: 7px 0 0 0; }
+a.deleteApp { background-image: url(../../images/appHype/sprite.png); background-repeat: no-repeat; width: 22px; height: 26px; display: block; background-position: -107px -38px; margin-bottom: -7px; }
+.appkeyicon { background-image: url(../../images/appHype/sprite.png); background-repeat: no-repeat; background-position: -75px -39px; width: 24px; height: 22px; display: block; margin-bottom: -3px; }
+.appname a { font-family: "Open Sans", Helvetica, Arial, sans-serif; font-size: 14px; text-decoration: none; color: #0077c1; margin: 7px 0 0 0; float: left; }
+.appname a:hover, .appname2 a:hover, .campname a:hover { color: #707070; text-decoration: none; }
+.altBg { background-color: #f7fafc; }
+.rowDiv>div { float: left; padding: 5px 0; width: 100%; }
+.appIcon { border-radius: 5px; box-shadow: 0 0 5px #D8D8D8; float: left; margin-right: 8px; width: 30px; }
+.appIcon img { border-radius: 5px 5px 5px 5px; }
+.footer { background-color: #5d5d5d; width: 100%; float: left; clear: both; padding: 10px 0; }
+.footerInn { width: 1003px; margin: 0px auto; }
+.copyright, .footerMenu { float: left; font-family: "Open Sans", Helvetica, Arial, sans-serif; font-size: 12px; color: #d0cece; }
+.footerMenu { margin-left: 100px; }
+.footerMenu ul { margin: 0px; padding: 0px; }
+.footerMenu ul li { display: inline-block; margin: 0px 12px; }
+.footerMenu ul li a { color: #d0cece; text-decoration: none; }
+.ah_menu_main { width: 100%; background-image: url(../../images/appHype/ah-menu-main-bg.png); background-repeat: repeat-x; background-position: left top; background-position: left top; margin-top: -6px; float: left; clear: both; }
+.ah_menu_main ul { padding: 0px; margin: 0px; list-style: none; }
+.ah_menu_main li { display: inline-block; background-image: url(../../images/appHype/menusep.png); background-repeat: no-repeat; background-position: right top; }
+.ah_menu_main li a { display: block; padding-left: 25px; padding-right: 25px; height: 61px; line-height: 64px; color: #343434; text-decoration: none; font-family: "Open Sans", Helvetica, Arial, sans-serif; font-size: 16px; }
+a.onMenu { background-image: url(../../images/appHype/ah-menu-on.jpg)!important; background-repeat: repeat-x; background-position: right top; color: #343434!important; }
+.submenu_wrap { background-image: url("../../images/appHype/submenu-wrap.jpg") !important; background-position: right top; background-repeat: repeat-x; border-bottom: 1px solid #CCCCCC; clear: both; color: #343434 !important; float: left; margin-bottom: 10px; padding: 11px 0; width: 100%; }
+.containHd { float: left; padding-left: 16px; color: #616161; font-family: "Open Sans", Helvetica, Arial, sans-serif; }
+.btnAction { float: left; margin: 0 0 0 20px; }
+.mainhd { text-transform: uppercase; font-size: 25px; color: #6f6f6f; font-family: "Open Sans", Helvetica, Arial, sans-serif; float: left; }
+.btnWrap { float: right }
+.container_main { width: 1003px; margin: 31px auto 0px auto; min-height: 470px; }
+.tpsecWrap { margin: 10px 0 0 0; float: left; width: 100%; clear: both; }
+.clear { display: table; content: ""; clear: both; }
+.noappsWrap { clear: both; color: #9A9A9A; float: left; font-family: "Open Sans", Helvetica, Arial, sans-serif; font-size: 25px; line-height: 45px; margin-top: 40px; min-height: 228px; text-align: center; width: 100%; }
+.noappsWrap>span { color: #6d6a6a; margin-bottom: 10px; display: block; text-align: center }
+.serchappInfo { color: #707070; float: left; font-size: 14px; margin: 10px auto; padding: 1%; text-align: center; width: 98%; }
+.serchbox:after { display: table; content: ""; clear: both; }
+/* Search app */
+.serchappInfo { width: 95%; margin: 10px auto 10px auto; font-size: 14px; color: #707070 }
+.serchbox { background-color: #F2F2F2; float: left; padding: 2%; width: 96%; }
+.selct_platform { height: 57px; float: left; }
+.sel_android, .sel_amazone, .sel_apple { float: left }
+.sel_android { width: 69px; height: 56px; background-image: url(../../images/appHype/choose-platform.png); background-position: 0px 0px }
+.sel_amazone { width: 68px; height: 56px; background-image: url(../../images/appHype/choose-platform.png); background-position: -69px 0px; }
+.sel_apple { width: 68px; height: 56px; background-image: url(../../images/appHype/choose-platform.png); background-position: -137px 0px; }
+a.sel_android:hover { background-image: url(../../images/appHype/choose-platform.png); background-position: -1px -59px; }
+a.sel_amazone:hover { background-image: url(../../images/appHype/choose-platform.png); background-position: -69px -59px; }
+a.sel_apple:hover { background-image: url(../../images/appHype/choose-platform.png); background-position: -137px -59px; }
+/* Class to choose platform */
+.sel_android_on { width: 69px; height: 56px; background-image: url(../../images/appHype/choose-platform.png); background-position: -1px -59px; }
+.sel_amazone_on { width: 68px; height: 56px; background-image: url(../../images/appHype/choose-platform.png); background-position: -69px -59px; }
+.sel_apple_on { width: 68px; height: 56px; background-image: url(../../images/appHype/choose-platform.png); background-position: -137px -59px; }
+.inptboxShadow { box-shadow: inset 0 0 5px 0 black; }
+.serchBox_main { float: left; margin-top: 2px; }
+.serchInput { height: 46px; line-height: 51px; width: 450px; margin-left: 40px; border-radius: 2px; border: 1px solid #aaaaaa; -webkit-box-shadow: inset 0px 3px 6px 0px #aaaaaa; box-shadow: inset 0px 3px 6px 0px #aaaaaa; padding-left: 5px; font-family: "Open Sans", Helvetica, Arial, sans-serif; }
+.searchBtn { float: left; margin: 3px 0px 0px 10px; }
+.form-ul { padding: 0px!important; margin: 0 auto; width: 880px; }
+.form-ul li { float: left; List-style: none outside none; margin: 0; padding: 0; }
+.label { font-family: "Source Sans Pro", Helvetica, Arial, sans-serif!important; float: left; width: 145px; font-size: 16px; color: #4a4a4a; text-align: right; padding-right: 10px; padding-top: 7px; }
+ @media screen and (-webkit-min-device-pixel-ratio: 0) {
+#form-container .field { float: left; width: 410px; margin-left: 10px; } }
+.field { float: left; width: 430px; }
+.textAria { border-radius: 2px; border: 2px solid #d4d4d4; width: 370px; font-family: "Open Sans", Helvetica, Arial, sans-serif; font-size: 12px; line-height: 22px; float: left; }
+.inputBox { height: 34px; border-radius: 2px; border: 2px solid #d4d4d4; width: 370px; float: left; padding-left: 2px; font-family: "Open Sans", Helvetica, Arial, sans-serif; font-size: 12px; }
+.required { color: #F00; font-size: 15px; margin-left: 1px; }
+.container:after { display: table; clear: both; content: "" }
+.containerDiv:after { display: table; clear: both; content: "" }
+.searchFormWrap:after { display: table; clear: both; content: "" }
+.fieldstatus { width: 107px; float: left; min-height: 40px; }
+.label5 { font-family: "Source Sans Pro", Helvetica, Arial, sans-serif!important; float: left; font-size: 16px; color: #4a4a4a; text-align: right; padding: 7px 10px 0px 20px; }
+.helpIcon1 { float: left; margin: 2px 0px 0px 10px; }
+.helpIcon2 { float: left; margin: 10px 0px 0px 10px; }
+.wdthPlatform { width: 43%; }
+.submitBtnWrap { float: left; margin: 25px 0px 50px 315px !important; }
+.submitBtnWrap2 { float: left; margin: 25px 0px 5px 385px !important; }
+.submitBtnWrap3 { float: left; margin: 25px 0px 5px 333px !important; }
+a.submitBtn { background-color: #5291f0; color: #fff; font-family: "Source Sans Pro", Helvetica, Arial, sans-serif!important; text-decoration: none; padding: 12px 30px; border-radius: 3px; font-size: 16px; }
+a.submitBtn:hover { background-color: #3979da }
+a.cancelBtn { background-color: #eaeaea; color: #292929; font-family: "Source Sans Pro", Helvetica, Arial, sans-serif!important; text-decoration: none; padding: 10px 25px; border-radius: 3px; font-size: 16px; border: 2px solid #bdbdbd; margin: 0px 0px 0px 10px; float: left; }
+a.cancelBtn:hover { background-color: #d7d7d7; text-decoration: none; }
+.statistics { float: left; }
+a.createBtn { background-color: #80b819; color: #fff; font-family: "Source Sans Pro", Helvetica, Arial, sans-serif!important; text-decoration: none; padding: 10px 15px 10px 35px; border-radius: 3px; font-size: 16px; border: 2px solid #80b819; margin: 0px 0px 0px 20px; float: left; background-image: url(../../images/appHype/create.png); background-repeat: no-repeat; background-position: 10px; line-height:20px!important }
+a.createBtn:hover { background-color: #8cc91d; color: #fff; text-decoration: none }
+a.statisticsBtn { background-color: #f47f20; color: #fff; font-family: "Source Sans Pro", Helvetica, Arial, sans-serif!important; text-decoration: none; padding: 10px 25px; border-radius: 3px; font-size: 16px; border: 2px solid #f47f20; margin: 0px 0px 0px 10px; float: left; }
+a.statisticsBtn:hover { background-color: #FF9536; color: #fff; text-decoration: none }
+.payBtn { background-color: #0077C1; border: 2px solid #2B72BC; border-radius: 3px; color: #FFFFFF; float: left; font-family: "Source Sans Pro", Helvetica, Arial, sans-serif !important; font-size: 16px; margin: 3px 0 0 10px; padding: 8px 25px; text-decoration: none; }
+.payBtn:hover { background-color: #108dda; color: #fff; text-decoration: none }
+.fltNone { float: none!important; }
+.selctUrApp { float: right; margin: 0px 20px 0px 0px }
+a.deleteBtn { background-color: #f26c4f; color: #fff; font-family: "Source Sans Pro", Helvetica, Arial, sans-serif!important; text-decoration: none; padding: 10px 25px; border-radius: 3px; font-size: 16px; border: 2px solid #f26c4f; margin: 0px 0px 0px 10px; float: left; }
+a.deleteBtn:hover { background-color: #f87e63; color: #fff; text-decoration: none }
+.editdetail { float: left }
+.alert-box { border-radius: 5px; color: #555555; float: left; font-family: Tahoma, Geneva, Arial, sans-serif; font-size: 11px; margin: 0.5% 1% 1%; padding: 10px 1% 10px 3.5%; width: 93.3%; }
+.alert-box li { line-height: 18px; }
+.alert-box span { font-weight: bold; text-transform: uppercase; }
+.error { background: #ffecec url('../../images/appHype/error.png') no-repeat 10px 13px; border: 1px solid #f5aca6; color:#853c36 }
+.error li { background: none; border: none; }
+.success { background: #e9ffd9 url('../../images/appHype/success.png') no-repeat 10px 13px; border: 1px solid #a6ca8a; color:#365a1a}
+.warning { background: #fff8c4 url('../../images/appHype/warning.png') no-repeat 10px 13px; border: 1px solid #f2c779; color:#926719; }
+.notice { background: #e3f7fc url('../../images/appHype/notice.png') no-repeat 10px 13px; border: 1px solid #8ed9f6; color:#2c7794 }
+.info { background: #bde5f8 url('../../images/appHype/info.png') no-repeat 10px 13px; border: 1px solid #00529b; color:#00529b; }
+
+.appdetails_wrap { background-color: #F5F5F5; margin-top: -10px; float: left; padding: 2%; width: 96%; }
+.appIconDetail { min-width: 70px; height: 70px; display: block; margin-top: 7px; float: left; border-radius: 5px 5px 5px 5px; box-shadow: 0 0 5px #D8D8D8; margin-right: 8px; }
+.appIconDetail img { border-radius: 5px 5px 5px 5px; }
+.showAppHd { background-color: #e8e8e8; height: 35px }
+.ah_menu_main li a.onMenu .ah_menu_main li { background-image: none!important; }
+.appdetail_div { float: left; }
+.appdetail_div h2 { color: #0077c1; font-family: "Myriad Pro", Helvetica, Arial, sans-serif; font-size: 19px; margin: 0px 0px 10px 15px; border-bottom: 1px solid #e9e9e9; width: 425px; display: block; padding: 0 }
+.appdetail_div h3 { color: #0077c1; font-family: "Myriad Pro", Helvetica, Arial, sans-serif; font-size: 16px; margin: 0px 0px 10px 15px; border-bottom: 1px solid #e9e9e9; width: 425px; display: block; padding: 0 }
+.slctdPlatfm { width: 50%; float: left; margin: 0px 0px 10px 0px; font-family: "Myriad Pro", Helvetica, Arial, sans-serif; font-size: 14px; }
+.slctdstus { width: 40%; float: left; font-family: "Source Sans Pro", Helvetica, Arial, sans-serif!important; font-size: 14px; }
+.lableN { float: left; height: 26px; line-height: 26px; font-family: "Source Sans Pro", Helvetica, Arial, sans-serif!important; font-size: 14px; }
+.appdetail_div img { float: left; margin-left: 10px; }
+.appstatus_btn { float: left; margin-left: 20px }
+.appdetail_div_inn:after { display: table; clear: both; content: "" }
+.pakageNameWrap { margin: 10px 0px 0px 0px; }
+.appdetail_div_inn { margin: 0 0 0 20px; }
+.pkgNameBg { background-color: #dde7ec; font-family: "Source Sans Pro", Helvetica, Arial, sans-serif!important; font-size: 15px; padding: 10px; color: #515151 }
+.pakageName { font-family: "Source Sans Pro", Helvetica, Arial, sans-serif!important; font-size: 14px; margin: 10px 0px 0px 20px; }
+.appdesction:before { display: table; clear: both; content: "" }
+.appdesction { background-color: #F8F8F8; border-top: 1px solid #E8E8E8; color: #4A4747; float: left; font-family: "Open Sans", Helvetica, Arial, sans-serif; font-size: 12px; line-height: 22px; margin: 1px auto; padding: 2%; width: 96%; }
+.clear { clear: both }
+.appdesction h3 { color: #0077c1; font-family: "Myriad Pro", Helvetica, Arial, sans-serif; font-size: 16px; }
+.desction { height: 80px; overflow: hidden; }
+.desction:hover { overflow-y: auto; }
+/* Change Classes */
+
+.appdetail_div:after { display: table; content: ""; clear: both; }
+.appdetailwrapMain:after { display: table; content: ""; clear: both; }
+.pakageName { font-family: "Source Sans Pro", Helvetica, Arial, sans-serif!important; font-size: 16px; margin: 20px 0px 10px 0px; color: #313131 }
+.appdetailwrapMain { background-color: #fff; padding: 15px; margin: 0px auto 30px auto; border-radius: 3px; -moz-box-shadow: inset 0 0 7px #acacac; -webkit-box-shadow: inset 0 0 7px #acacac; box-shadow: inset 0 0 7px #acacac; }
+.appdetail_div_inn { margin: 6px 0px 4px 20px; }
+.pkgNameBg { background-color: #dde7ec; font-family: "Source Sans Pro", Helvetica, Arial, sans-serif!important; font-size: 15px; padding: 10px; color: #515151; box-shadow: inset 0 0 1px #acacac; -moz-box-shadow: inset 0 0 1px #acacac; -webkit-box-shadow: inset 0 0 1px #acacac; }
+.appIconDetail { min-width: 70px; height: 70px; display: block; margin-top: 7px; float: left; border-radius: 5px 5px 5px 5px; box-shadow: 0 0 5px #D8D8D8; -moz-box-shadow: inset 0 0 5px #D8D8D8; -webkit-box-shadow: inset 0 0 5px #D8D8D8; margin-left: 8px; }
+.submitBtnWrap { float: left; margin: 25px 0px 4px 0px; }
+a.copyClipboard { float: right; width: 16px; height: 16px; background-image: url(../../images/appHype/copy.png); background-repeat: no-repeat; }
+/* User Settings */
+
+#userSettings ul { text-align: center; display: inline; margin: 0; padding: 15px 4px 17px 0; list-style: none; }
+#userSettings ul li { font: bold 12px/18px sans-serif; display: inline-block; margin-right: -4px; position: relative; padding: 15px 15px; cursor: pointer; -webkit-transition: all 0.2s; -moz-transition: all 0.2s; -ms-transition: all 0.2s; -o-transition: all 0.2s; transition: all 0.2s; color: #d9d9d9; background-color: #555555; }
+#userSettings ul li:hover { background: #555; color: #fff; }
+#userSettings ul li ul { padding: 0; position: absolute; top: 70px; left: 0; width: 186px; display: none; opacity: 0; visibility: hidden; -webkit-transiton: opacity 0.2s; -moz-transition: opacity 0.2s; -ms-transition: opacity 0.2s; -o-transition: opacity 0.2s; -transition: opacity 0.2s; }
+#userSettings ul li ul li { background: #555; display: block; color: #fff; text-shadow: 0 -1px 0 #000; text-align: left }
+@media only screen and (min-width :768px) and (max-width :1024px) {
+#userSettings ul li ul { padding: 0; position: absolute; top: 70px; left: -37px; width: 170px; } }
+#userSettings ul li ul li:hover { background: #666; }
+#userSettings ul li:hover ul { display: block; opacity: 1; visibility: visible; }
+.pdding { padding-top: 26px!important; padding-bottom: 26px!important; text-overflow: ellipsis; }
+.account_setting { max-width: 178px; text-overflow: ellipsis; float: right; }
+.arrowdown { float: left; display: block; margin: 7px 0px 0px 7px }
+.userName { float: left; text-overflow: ellipsis; width: 126px; display: block; overflow: hidden }
+.inputBox1 { margin-left: 5px; float: left; border-radius: 2px; border: 2px solid #d4d4d4; margin-top: 0px!important; padding: 3px; }
+.appCategory { float: left; }
+#appSaveBtn { float: left }
+.btnMrgLft { margin-left: 268px; }
+.inptWidth { width: 42% }
+.appNameWdth { width: 540px; }
+.diabledInput { background-color: #f4f4f4 }
+#userSettings ul li ul li a { text-decoration: none; color: #fff; }
+#userSettings ul li ul li a:visited { color: #fff; }
+#userSettings ul li ul li a:hover { color: #fff; }
+#label { float: left!important; font-family: "Myriad Pro", Helvetica, Arial, sans-serif!important; font-size: 16px!important; margin: 6px; }
+#label label { }
+.fieldinput { float: left; }
+.camName_mL { width: 564px!important; float: left; }
+.selct_timeDate { padding: 2%; width: 96%; float: left; background-color: #F5F5F5; }
+.anlytic_wrap { border-top: 1px solid #d6d6d6; border-bottom: 1px solid #d6d6d6; float: left; width: 100%; }
+.anlytic_wrap:after { display: table; clear: both; content: ""; }
+.widthfull { width: 100% }
+.anlytics_graph { float: left; width: 699px; text-align: left; }
+.anlytics_action { float: right; width: 303px; border-left: 1px solid #d6d6d6; }
+.graph_inn { margin-top: 20px; border: 1px solid #f2f2f2; margin-bottom: 20px; float: left; }
+.anlytics_action ul { margin: 0px; padding: 0px; list-style: none; }
+.anlytics_action li { background: rgb(247,247,247); /* Old browsers */ background: -moz-linear-gradient(top, rgba(247,247,247,1) 1%, rgba(254,254,254,1) 49%, rgba(246,246,246,1) 99%); /* FF3.6+ */ background: -webkit-gradient(linear, left top, left bottom, color-stop(1%, rgba(247,247,247,1)), color-stop(49%, rgba(254,254,254,1)), color-stop(99%, rgba(246,246,246,1))); /* Chrome,Safari4+ */ background: -webkit-linear-gradient(top, rgba(247,247,247,1) 1%, rgba(254,254,254,1) 49%, rgba(246,246,246,1) 99%); /* Chrome10+,Safari5.1+ */ background: -o-linear-gradient(top, rgba(247,247,247,1) 1%, rgba(254,254,254,1) 49%, rgba(246,246,246,1) 99%); /* Opera 11.10+ */ background: -ms-linear-gradient(top, rgba(247,247,247,1) 1%, rgba(254,254,254,1) 49%, rgba(246,246,246,1) 99%); /* IE10+ */ background: linear-gradient(to bottom, rgba(247,247,247,1) 1%, rgba(254,254,254,1) 49%, rgba(246,246,246,1) 99%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7f7f7', endColorstr='#f6f6f6', GradientType=0 ); /* IE6-9 */ display: block; height: 69px; margin: 1px; border-bottom: 1px solid #d6d6d6; }
+.anlytics_action a { text-decoration: none; }
+.anlytics_action li:last-child { border-bottom: none }
+a.dayEarning { background-image: url('../../images/appHype/earn-today.jpg'); background-repeat: no-repeat; background-position: 12px 12px; display: block; width: 100%; height: 68px; }
+a.dayEarning:hover { text-decoration: none; }
+.anlytics_action span { display: block; width: 72%; margin-left: 75px; text-decoration: none; }
+.value { padding-top: 15px; font-size: 24px; color: #373737; font-family: "Myriad Pro", Helvetica, Arial, sans-serif; }
+.value:hover { color: #c30000; }
+.anlytics_txt { color: #909090; font-size: 14px; font-family: "Open Sans", Helvetica, Arial, sans-serif; margin-top: 3px; }
+a.revenue { background-image: url('../../images/appHype/ecpm.jpg'); background-repeat: no-repeat; background-position: 12px 12px; display: block; width: 100%; height: 68px; }
+a.revenue:hover { text-decoration: none; }
+a.epcm { background-image: url('../../images/appHype/impression-today.jpg'); background-repeat: no-repeat; background-position: 12px 12px; display: block; width: 100%; height: 68px; }
+a.todayImpress { background-image: url('../../images/appHype/revenue-30-days.jpg'); background-repeat: no-repeat; background-position: 12px 12px; display: block; width: 100%; height: 68px; }
+a.todayImpress:hover { text-decoration: none; }
+a.click { background-image: url('../../images/appHype/today-click.jpg'); background-repeat: no-repeat; background-position: 12px 12px; display: block; width: 100%; height: 68px; }
+a.click:hover { text-decoration: none; }
+.divTable { display: table; width: 100%;/*border-spacing:5px;cellspacing:poor IE support for  this*/
+/* border-collapse:separate;*/    }
+.divRow { width: 100%; float: left; border-bottom: 1px solid #e6eff3; padding: 10px 0; }
+.headRow { font-family: "Myriad Pro", Helvetica, Arial, sans-serif; font-size: 16px; color: #1f1f1f; border-top: solid #bfd4de 1px; border-bottom: solid #bfd4de 1px; background-color: #dee9ef; padding: 10px 0px!important; float: left; width: 100%; clear: both; }
+.totalRow { font-family: "Myriad Pro", Helvetica, Arial, sans-serif; font-size: 16px; color: #1f1f1f; font-weight: bold; border-top: solid #bfd4de 1px; border-bottom: solid #bfd4de 1px; background-color: #F4F4F4; padding: 12px 0px!important; float: left; width: 100%; }
+.divCell { float: left;/*fix for  buggy browsers*/ display: table-column; width: 14.285%; padding: 0 6px; box-sizing: border-box; font-family: "Open Sans", Helvetica, Arial, sans-serif; font-size: 14px; }
+.headRow .divCell { font-family: "Myriad Pro", Helvetica, Arial, sans-serif; font-weight: normal; font-size: 16px; }
+.paddingLft { padding-left: 20px; }
+.alttr { background-color: #f7fafc; border-bottom: 1px solid #e6eff3; }
+.nopadding { padding: 0px!important; }
+.listWrap { margin: 40px auto 20px auto; width: 100%; float: left; }
+.view-animate-container { float: left; width: 100%; clear: both; }
+.pageLoader { margin: 110px auto; width: 225px; }
+.searchFormWrap { clear: both; float: left; margin: 0 2%; width: 96%; }
+.filterApps { float: left; width: 96%; clear: both; margin: 10px 2% 0 2%; }
+.containerDiv .colL { float: left; padding: 0 20px 0 0; width: 250px; }
+.containerDiv .colR { float: left; width: 440px; }
+.containerDiv .colL label { cursor: default; background-color: transparent!important; text-shadow: transparent!important; color: #4A4A4A !important; font-family: "Source Sans Pro", Helvetica, Arial, sans-serif !important; font-size: 16px !important; text-align: right; }
+.buttonWrapper { float: left; }
+.selcetApp { float: left; margin: 5px 0 0 0; }
+#appListRow { float: left; width: 100%; }
+.userBalance { float: right; font-weight: bold; margin: 12px 15px 0 0; }
+.payFund { float: left; margin: 0 !important; padding: 12px !important; width: 300px; }
+.defalt_Icon { float: left; margin: 0 15px 0 0; height: 70px; width: 70px; overflow: hidden;}
+.uploadImage { float: left; margin: 8px 10px 0 0; }
+.option { color: #5C5C5C; float: left; font-size: 11px; margin: 11px 0 0; }
+.marginT { margin-top: 10px!important; }
+.marginB { margin-bottom: 10px!important; }
+.marginTB { margin: 10px 0!important; }
+.form-horizontal { float: left; width: 100%; margin: 0; padding: 0; }
+.form-horizontal .input-prepend, .form-horizontal .many-to-one { float: left; margin: 0 20px 0 0; }
+.radioBox { border-top: 1px solid #C8C8C8; color: #5E5E5E; float: left; font-family: "Open Sans", Helvetica, Arial, sans-serif; font-size: 12px; font-weight: bold; margin: 15px 0 0; padding: 10px 0 0; width: 100%; }
+.radioBox input { margin: -2px 3px 0 10px !important; }
+.radioBox input:first-child { margin-left: 0px!important; }
+.divCell img { margin: 0 10px 0 0; vertical-align: top!important; }
+.frequencyBox { float: left; margin: 3px 12px 0 0; }
+.frequencyBox input { float: left; margin: 3px 10px 0 0!important }
+.frequencyBox span { float: left; font-size: 12px; font-weight: bold; }
+
+
+.cad_wrapper{ float:left; width:96%; padding:0 2%;}
+.cad_wrapper .rowA{ float:left; width:94%; margin:0 0 30px 0; padding:3%; background-color:#f9f9f9;}
+.cad_wrapper .rowA .tr{ float:left; width:100%; margin:0 0 15px 0}
+.cad_wrapper .rowA .tr:last-child{ margin-bottom:0!important}
+.cad_wrapper .rowA .tr .c1{ float:left; width:20%; margin:0 3% 0 0; color: #171717; font-family: "Myriad Pro", Helvetica, Arial, sans-serif; font-size: 15px; font-weight: bold; text-align:right;}
+.cad_wrapper .rowA .tr .c2{ float:left; width:30%; color: #8d8d8d; font-family: "Myriad Pro", Helvetica, Arial, sans-serif; font-size: 14px; text-align:left;}
+.cad_wrapper .rowA .tr .c2 span{color: #0077c1;}
+
+.cad_wrapper .rowB{ float:left; width:100%; margin:0 0 30px 0; }
+.cad_wrapper .rowB .box{ float:left; width:26%; padding:2%; background-color:#f9f9f9; margin:0 5% 0 0; border-radius:5px; -webkit-box-shadow: 0px 13px 21px -10px rgba(217,217,217,1);
+-moz-box-shadow: 0px 13px 21px -10px rgba(217,217,217,1);
+box-shadow: 0px 13px 21px -10px rgba(217,217,217,1);}
+
+.cad_wrapper .rowB .imgBox{ float:left; width:47%; margin:0 5% 0 0;border: 1px solid #CCCCCC; border-radius: 5px; }
+.cad_wrapper .rowB .imgBox:last-child{ margin-right:0!important;}
+
+.cad_wrapper .rowB .box:last-child{ margin-right:0!important;}
+.cad_wrapper .rowB .box .daily-budget{width: 51px; height: 51px; float:left; margin:0 20px 0 0; background-image: url(../../images/appHype/daily-budget.jpg);}
+.cad_wrapper .rowB .box .total-budget{width: 51px; height: 51px; float:left; margin:0 20px 0 0; background-image: url(../../images/appHype/total-budget.jpg);}
+.cad_wrapper .rowB .box .cpi{width: 51px; height: 51px; float:left; margin:0 20px 0 0; background-image: url(../../images/appHype/cpi.jpg);}
+.cad_wrapper .rowB .box span{color: #858585; font-family: "Myriad Pro", Helvetica, Arial, sans-serif; font-size: 14px; text-align:left; float:left; width:70%;}
+.cad_wrapper .rowB .box span:last-child{color: #373737; font-weight:bold; margin-top: 12px}
+.cad_wrapper .rowB .title{color: #555555; font-family: "Myriad Pro", Helvetica, Arial, sans-serif; font-size: 15px; float:left; width:100%; margin:0 0 15px 0;}
+.noAppbtn{ width:100%; float:left; text-align:center; clear:both;}
+#videoImage{float: left; margin: 0 0 0 10px;}

@@ -37,12 +37,12 @@ chatBot.controller("manageIntentController", function($scope, $timeout,$location
     $rootScope.id = ""
 
         
-    if($rootScope.saveSuccess){
-        console.log("*********************************")
-        socket.emit('learn', {});
-        notificationService.info('Training Started.');
-       
-    }
+//    if($rootScope.saveSuccess){
+//        console.log("*********************************")
+//        socket.emit('learn', {});
+//        notificationService.info('Training Started.');
+//       
+//    }
 
     $scope.goToAddIntent = function(){
         $location.path("/addIntent")

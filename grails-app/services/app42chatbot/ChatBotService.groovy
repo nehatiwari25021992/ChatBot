@@ -127,23 +127,23 @@ class ChatBotService {
             def rowsize = rowsDiff.size()
             rowsDiff.each{ r ->              
                 def diffInMillies = r.end_date.getTime() - r.start_date.getTime();
-               // println 'diffInMillies ::::::::::::::: '+diffInMillies 
+                // println 'diffInMillies ::::::::::::::: '+diffInMillies 
                 diff = diff+diffInMillies           
             }
             def millis =  diff/ rowsize
             def average_session_length = 0
-           // println 'millis.intValue() ::::::::::::::: '+millis.intValue() 
+            // println 'millis.intValue() ::::::::::::::: '+millis.intValue() 
            
 
             average_session_length =  millis.intValue()
             if(average_session_length != 0 ){
                 if(average_session_length <= 60000){            
                     long seconds = TimeUnit.MILLISECONDS.toSeconds(millis.intValue());           
-                   // println 'seconds ::::::::::::::: '+seconds
+                    // println 'seconds ::::::::::::::: '+seconds
                     average_session_length = seconds + " sec"
                 }else if(average_session_length > 60000 && average_session_length <= 3600000){
                     long minutes = TimeUnit.MILLISECONDS.toMinutes(millis.intValue());
-                  //  println 'minutes ::::::::::::::: '+minutes
+                    //  println 'minutes ::::::::::::::: '+minutes
                     average_session_length = minutes + " min"
                 }else if(average_session_length > 3600000 ){
                     long hours = TimeUnit.MILLISECONDS.toHours(millis.intValue());
@@ -152,7 +152,7 @@ class ChatBotService {
                 }
             }
             jsonMap.average_session = average_session_length
-          //  println 'average_session_length ::::::::::::::: '+average_session_length
+            //  println 'average_session_length ::::::::::::::: '+average_session_length
         }    
         jsonMap
     }
@@ -879,5 +879,44 @@ class ChatBotService {
         inMap.datesArr = datesArr
         println "inMap ::::::::::::::; "+inMap
         inMap
+    }
+    
+    def getAllAlgorithms(params){
+        println "getAllAlgorithms params "+params
+        def alogList = []
+        def db = new Sql(dataSource)
+        def sqlQuery  = "select * from machine_learnings ";
+        def rows = db.rows(sqlQuery)
+        if(rows != null && rows.size()>0){
+            alogList = rows
+        }
+        println "alogList "+alogList
+        alogList
+    }
+    
+    def getAllLanguagesSupported(params){
+        println "getAllLanguagesSupported params "+params
+        def langList = []
+        def db = new Sql(dataSource)
+        def sqlQuery  = "select * from language_supported  ";
+        def rows = db.rows(sqlQuery)
+        if(rows != null && rows.size()>0){
+            langList = rows
+        }
+        println "langList "+langList
+        langList
+    }
+    
+    def getAllThresholds(params){
+        println "getAllThresholds params "+params
+        def thresholdList = []
+        def db = new Sql(dataSource)
+        def sqlQuery  = "select * from classification_thresholds  ";
+        def rows = db.rows(sqlQuery)
+        if(rows != null && rows.size()>0){
+            thresholdList = rows
+        }
+        println "thresholdList "+thresholdList
+        thresholdList
     }
 }
