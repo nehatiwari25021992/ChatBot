@@ -515,7 +515,7 @@ chatBot.controller("dashboardController", function($scope,dashboardService,$root
                 max: 400,
                 tickInterval:50,
                 title: {
-                    text: 'Chats'
+                    text: 'Sentiment Score'
                 }
             
             }],        

@@ -6,7 +6,7 @@
  */
 
 // AngularJs Module and Configurations
-var chatBot = angular.module('chatBot', ['ngRoute','jlareau.pnotify']);
+var chatBot = angular.module('chatBot', ['ngRoute','jlareau.pnotify', 'localytics.directives']);
 
 // Routes configurations
 chatBot.config(['$routeProvider','$httpProvider',

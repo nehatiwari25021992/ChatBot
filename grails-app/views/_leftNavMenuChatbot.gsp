@@ -27,11 +27,11 @@
         </a>
       </li>  
 
-<!--      <li ng-class="{ active: isActive('/settings') }">
+      <li ng-class="{ active: isActive('/settings') }">
         <a href="#/settings"  ng-click="openSubSideBar('settingsSection')" data-toggle="tooltip" data-placement="right" title="" data-original-title="Settings">
-          <img src="${resource(dir:'images/ma',file:'entities-icon.png')}" alt="">
+         <img src="${resource(dir:'images/iconNewUI/maNewIcons',file:'settings.png')}" alt="">
         </a>
-      </li>-->
+      </li>
     </ul>
   </div>
 

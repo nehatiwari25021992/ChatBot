@@ -217,6 +217,38 @@ chatBot.factory('dashboardService', function($rootScope,$http) {
                 return data;
             })
             return promise;
+        },
+        getAllAlgorithms : function(params) {
+            var promise = $http({
+                method: 'POST', 
+                url: '../chatBot/getAllAlgorithms',
+                params:params
+            }).success(function(data, status, headers, config) {
+                return data;
+            })
+            return promise;
+        }
+        ,
+        getAllLanguagesSupported : function(params) {
+            var promise = $http({
+                method: 'POST', 
+                url: '../chatBot/getAllLanguagesSupported',
+                params:params
+            }).success(function(data, status, headers, config) {
+                return data;
+            })
+            return promise;
+        }
+        ,
+        getAllThresholds : function(params) {
+            var promise = $http({
+                method: 'POST', 
+                url: '../chatBot/getAllThresholds',
+                params:params
+            }).success(function(data, status, headers, config) {
+                return data;
+            })
+            return promise;
         }
     }
     return service
