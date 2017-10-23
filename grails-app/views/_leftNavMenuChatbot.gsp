@@ -17,10 +17,17 @@
         </a>
       </li>
       <li ng-class="{ active:  checkIfIntent('/addIntent') }">
-        <a href="#/manageIntent" ng-click="openSubSideBar('intentSection')" data-toggle="tooltip" data-placement="right" title="" data-original-title="Intent">
+        <a href="#/manageIntent" ng-click="openSubSideBar('intentSection')" data-toggle="tooltip" data-placement="right" title="" data-original-title="Intents">
           <img src="${resource(dir:'images/ma',file:'intent_icon.png')}" alt="">
         </a>
       </li>  
+
+      <li ng-class="{ active:  isActive('/manageEntities') }">
+        <a href="#/manageEntities" ng-click="openSubSideBar('entitiesSection')" data-toggle="tooltip" data-placement="right" title="" data-original-title="Entities">
+          <img src="${resource(dir:'images/ma',file:'entities-icon.png')}" alt="">
+        </a>
+      </li> 
+
       <li ng-class="{ active: isActive('/dialogs') }">
         <a href="#/dialogs" ng-click="openSubSideBar('dialogSection')" data-toggle="tooltip" data-placement="right" title="" data-original-title="Train">
           <img src="${resource(dir:'images/ma',file:'Train-icon.png')}" alt="">
@@ -29,7 +36,7 @@
 
       <li ng-class="{ active: isActive('/settings') }">
         <a href="#/settings"  ng-click="openSubSideBar('settingsSection')" data-toggle="tooltip" data-placement="right" title="" data-original-title="Settings">
-         <img src="${resource(dir:'images/iconNewUI/maNewIcons',file:'settings.png')}" alt="">
+          <img src="${resource(dir:'images/iconNewUI/maNewIcons',file:'settings.png')}" alt="">
         </a>
       </li>
     </ul>
@@ -58,6 +65,10 @@
 
     <ul ng-show="settingsSection">
       <li ng-class="{ current: isActive('/settings')}"><a  href="#/settings" ng-bind="sidebar.settings" ></a></li>
+    </ul>
+
+    <ul ng-show="entitiesSection">
+      <li ng-class="{ current: isActive('/manageEntities')}"><a  href="#/manageEntities" ng-bind="sidebar.manageEntities" ></a></li>
     </ul>
   </div>
 </div>

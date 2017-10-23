@@ -24,4 +24,7 @@ class ChatBotTemplatesController {
     
     def dialog = {}
     
+    def manageEntities = {}
+    
+    def addEntity = {}
 }

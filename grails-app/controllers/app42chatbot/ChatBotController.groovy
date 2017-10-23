@@ -167,4 +167,10 @@ class ChatBotController {
         def result  = chatBotService.getAllThresholds(params)
         render result as JSON 
     }
+    
+     
+    def getAllEntities = {
+        def result  = chatBotService.getAllEntities(params)
+        render result as JSON 
+    }
 } 

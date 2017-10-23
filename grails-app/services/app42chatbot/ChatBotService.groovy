@@ -919,4 +919,23 @@ class ChatBotService {
         println "thresholdList "+thresholdList
         thresholdList
     }
+    
+    def getAllEntities(params){
+        println "*"
+       def jsonMap = [:]
+        jsonMap.data  = []
+        def entityList = []
+        def db = new Sql(dataSource)
+        def appId = params.appId.toLong()
+        
+        def sqlQuery  = "select name,id from entities where app_id = ? order by id desc ";
+        def rows= db.rows(sqlQuery,[appId])
+        rows.each{ r->
+            def nt = [:]
+            nt.name = r.name
+            nt.id = r.id
+            entityList.add(nt)
+        }
+        entityList 
+    }
 }

@@ -28,6 +28,7 @@ chatBot.controller("MainController", function($controller,$rootScope,$scope,$htt
     $scope.sidebar.insights = "Activity"
     $scope.sidebar.unknownIntent = "Unresolved"
     $scope.sidebar.dialogs = "Dialogs"
+    $scope.sidebar.manageEntities = "Manage"
     $rootScope.saveSuccess = false
     $scope.openSubSideBar = function(module){
         if(module == "dashboardSection"){
@@ -37,6 +38,7 @@ chatBot.controller("MainController", function($controller,$rootScope,$scope,$htt
             $scope.intentSection = false
             $scope.settingsSection = false  
             $scope.dialogSection = false 
+            $scope.entitiesSection = false 
         }else if(module == "userSection"){
             $scope.dashboardSection = false
             $scope.userSection = true
@@ -44,6 +46,7 @@ chatBot.controller("MainController", function($controller,$rootScope,$scope,$htt
             $scope.intentSection = false
             $scope.settingsSection = false  
             $scope.dialogSection = false 
+            $scope.entitiesSection = false 
         }else if(module == "insightsSection"){
             $scope.dashboardSection = false
             $scope.userSection = false
@@ -51,6 +54,7 @@ chatBot.controller("MainController", function($controller,$rootScope,$scope,$htt
             $scope.intentSection = false
             $scope.settingsSection = false  
             $scope.dialogSection = false 
+            $scope.entitiesSection = false 
         }else if(module == "intentSection"){
             $scope.dashboardSection = false
             $scope.userSection = false
@@ -58,6 +62,7 @@ chatBot.controller("MainController", function($controller,$rootScope,$scope,$htt
             $scope.intentSection = true
             $scope.settingsSection = false 
             $scope.dialogSection = false 
+            $scope.entitiesSection = false 
         }else if(module == "settingsSection"){
             $scope.dashboardSection = false
             $scope.userSection = false
@@ -66,6 +71,7 @@ chatBot.controller("MainController", function($controller,$rootScope,$scope,$htt
             $scope.settingsSection = true 
             $scope.dialogSection = false 
             $scope.dialogSection = false 
+            $scope.entitiesSection = false 
         }else if(module == "dialogSection"){
             $scope.dashboardSection = false
             $scope.userSection = false
@@ -73,6 +79,15 @@ chatBot.controller("MainController", function($controller,$rootScope,$scope,$htt
             $scope.intentSection = false
             $scope.settingsSection = false 
             $scope.dialogSection = true 
+            $scope.entitiesSection = false 
+        }else if(module == "entitiesSection"){
+            $scope.dashboardSection = false
+            $scope.userSection = false
+            $scope.insightsSection = false
+            $scope.intentSection = false
+            $scope.settingsSection = false 
+            $scope.dialogSection = false 
+            $scope.entitiesSection = true 
         }
     }
     
@@ -213,17 +228,17 @@ chatBot.controller("MainController", function($controller,$rootScope,$scope,$htt
     }
     
     socket = io.connect('http://52.172.31.113:5000');
-    socket.on('connect', function() {
-        socket.emit('my event', {
-            data: 'I\'m connected!'
-        });
-    });
+    //socket.on('connect', function() {
+    //    socket.emit('my event', {
+    //        data: 'I\'m connected!'
+    //    });
+   // });
     console.log("socket :: ",socket)
     socket.on('learn_response', function (data) {
         console.log("*********************data************",data)  
         //$timeout(function(){
-            notificationService.success('Training Completed.');
-       // },1000)
+        notificationService.success('Training Completed.');
+    // },1000)
     });
 });
 

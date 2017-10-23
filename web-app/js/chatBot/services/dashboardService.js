@@ -128,6 +128,16 @@ chatBot.factory('dashboardService', function($rootScope,$http) {
             })
             return promise;
         },
+        getAllEntities : function(params) {
+            var promise = $http({
+                method: 'POST', 
+                url: '../chatBot/getAllEntities',
+                params:params
+            }).success(function(data, status, headers, config) {
+                return data;
+            })
+            return promise;
+        },
         updateIntent : function(params) {
             var promise = $http({
                 method: 'POST', 

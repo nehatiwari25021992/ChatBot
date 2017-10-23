@@ -32,6 +32,14 @@ chatBot.config(['$routeProvider','$httpProvider',
             templateUrl: '../chatBotTemplates/manageIntent',
             controller: 'manageIntentController'
         })
+        .when('/manageEntities', {
+            templateUrl: '../chatBotTemplates/manageEntities',
+            controller: 'manageEntitiesController'
+        })
+        .when('/addEntity', {
+            templateUrl: '../chatBotTemplates/addEntity',
+            controller: 'addEntityController'
+        })
         .when('/addIntent', {
             templateUrl: '../chatBotTemplates/addIntent',
             controller: 'addIntentController'
