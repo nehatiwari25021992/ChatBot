@@ -136,10 +136,7 @@ chatBot.controller("settingsController", function($scope,$rootScope,dashboardSer
         var promise = dashboardService.updateAppSetings(params)
         promise.then(
             function(payload){
-                console.log("getAllThresholds payload ",payload)
-                $scope.thresholdList = payload.data
-                $scope.welcomeMessage =  payload.data.welcomeMessage
-                $scope.defaultMessage =  payload.data.defaultMessage
+                console.log("updateAppSetings payload ",payload)
                 $scope.toggleGridLoader("app42AppSettingsWidget")
             },
             function(errorPayload) {

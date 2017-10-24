@@ -299,6 +299,16 @@ chatBot.factory('dashboardService', function($rootScope,$http) {
                 return data;
             })
             return promise;
+        },
+        updateAppSetings : function(params) {
+            var promise = $http({
+                method: 'POST', 
+                url: '../chatBot/updateAppSetings',
+                params:params
+            }).success(function(data, status, headers, config) {
+                return data;
+            })
+            return promise;
         }
     }
     return service

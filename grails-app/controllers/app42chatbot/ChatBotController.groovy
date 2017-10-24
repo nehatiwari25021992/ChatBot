@@ -194,4 +194,9 @@ class ChatBotController {
         def result  = chatBotService.getMessages(params)
         render result as JSON 
     }
+    
+    def updateAppSetings = {
+        def result  = chatBotService.updateAppSetings(params)
+        render result as JSON 
+    }
 } 

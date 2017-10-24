@@ -585,7 +585,6 @@ class ChatBotService {
         def appName = params.appName
         def tagId = params.intentId
         def sqlQuery = ""
-        //       try{
         if(params.userExpList != null){                
             if(params.userExpList instanceof String){
                 def u = JSON.parse(params.userExpList )
@@ -639,7 +638,6 @@ class ChatBotService {
                     def rows3 = db.execute(sqlQuery,[resposneId])
                 }else{
                     if(u.isPresent == false && u.isDelete == false){
-                        println "RRRRRRRRRRRRRRRRRRRRRRRRRRRRR1111"
                         sqlQuery  = "INSERT INTO responses ( `name`, `description`, `tag_id`) VALUES (?,?,?);";
                         def rows5 = db.executeInsert(sqlQuery,[params.resposneList,"-",tagId])
                     }
@@ -653,18 +651,13 @@ class ChatBotService {
                         def rows3 = db.execute(sqlQuery,[resposneId])
                     }else{
                         if(u.isPresent == false && u.isDelete == false){
-                            println "RRRRRRRRRr222222222"
                             sqlQuery  = "INSERT INTO responses ( `name`, `description`, `tag_id`) VALUES (?,?,?);";
                             def rows5 = db.executeInsert(sqlQuery,[u.name,"-",tagId])
-                            println 'rows5 '+rows5
                         }
                     }
                 }   
             }
         }
-        //        }catch(Exception e){
-        //            println " e -------------------------- "+e
-        //        }
         jsonMap
     }
     
@@ -684,11 +677,9 @@ class ChatBotService {
         }else{
             def query = "insert into messages (conversation_id,user_id,app_id,message,message_from,created_on) values (?,?,?,?,?,Now())"
             def res = db.executeInsert(query, [conversationId, userId, appId,event,msgFrom])
-            // println "event tagging successful"+res
             if(res == null){
                 
             }else{
-                //update steps counter in conversation
                 def counterQuery =  "UPDATE conversations SET no_of_steps = no_of_steps + 1, end_time=Now() WHERE id = ?"
                 def response = db.executeUpdate(counterQuery, [conversationId])
             }
@@ -740,7 +731,6 @@ class ChatBotService {
         def appId = params.appId.toLong()
         def sqlQuery  = "select chat_config as chatConfig from dialog where app_id = ? ";
         def rows = db.firstRow(sqlQuery,[appId])
-        println "rows ------  "+rows
         if(rows == null){
             jsonMap.success  = false
         }else{
@@ -763,7 +753,7 @@ class ChatBotService {
         if(isdialogPresent.success){
             updateDialog(params)
         }else{
-            def sqlQuery  = "INSERT INTO `chatbot`.`dialog` (`name`, `app_id`, `config`,`chat_config`) VALUES (?,?,?,?); ";
+            def sqlQuery  = "INSERT INTO dialog (`name`, `app_id`, `config`,`chat_config`) VALUES (?,?,?,?); ";
             def rows = db.executeInsert(sqlQuery,['Dialog',appId,config,chatConfig])
             println "saveDialog rows ------  "+rows
         }
@@ -779,7 +769,7 @@ class ChatBotService {
         def appId = params.appId.toLong()
         def config = params.config
         def chatConfig = params.chat_config
-        def sqlQuery  = "update `chatbot`.`dialog` SET config = ?, chat_config = ? where app_id = ? ";
+        def sqlQuery  = "update dialog SET config = ?, chat_config = ? where app_id = ? ";
         def rows = db.executeUpdate(sqlQuery,[config,chatConfig,appId])
         println "updateDialog rows ------  "+rows
         jsonMap
@@ -793,7 +783,7 @@ class ChatBotService {
         def appId = params.appId.toLong()
         def id =  params.id.toLong()
         def config = params.config
-        def sqlQuery  = "update `chatbot`.`phrases` SET resolved = ? where app_id = ? and id = ? ";
+        def sqlQuery  = "update phrases SET resolved = ? where app_id = ? and id = ? ";
         def rows = db.executeUpdate(sqlQuery,[1,appId,id])
         println "updatePhrase rows ------  "+rows
         jsonMap
@@ -1053,5 +1043,18 @@ class ChatBotService {
         }
         println "jsonMap :::  "+jsonMap
         jsonMap 
+    }
+    
+    def updateAppSetings(params){
+        println "updateAppSetings params ::::: "+params
+        def jsonMap = [:]
+        jsonMap.success  = true
+        def db = new Sql(dataSource)
+        def appId = params.appId.toLong()
+        def sqlQuery = "update intents SET default_welcome = '"+params.welcomeMessage+"' ,default_fall_back = '"+params.defaultMessage+"' where app_id = "+appId+""
+        println "sqlQuery ::::::::: "+sqlQuery
+        def rows = db.executeUpdate(sqlQuery)
+        println "rows ::: "+rows
+        jsonMap
     }
 }
