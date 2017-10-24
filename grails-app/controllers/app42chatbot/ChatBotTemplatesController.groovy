@@ -27,4 +27,6 @@ class ChatBotTemplatesController {
     def manageEntities = {}
     
     def addEntity = {}
+    
+    def editEntity = {}
 }

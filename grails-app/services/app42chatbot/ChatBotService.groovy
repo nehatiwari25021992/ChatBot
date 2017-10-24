@@ -922,7 +922,7 @@ class ChatBotService {
     
     def getAllEntities(params){
         println "*"
-       def jsonMap = [:]
+        def jsonMap = [:]
         jsonMap.data  = []
         def entityList = []
         def db = new Sql(dataSource)
@@ -937,5 +937,104 @@ class ChatBotService {
             entityList.add(nt)
         }
         entityList 
+    }
+    
+    def saveEntity(params){
+        println "saveEntity params "+params
+        def jsonMap = [:]
+        jsonMap.data  = []
+        def db = new Sql(dataSource)
+        def appId = params.appId.toLong()
+        def appName = params.appName
+        def sqlQuery  = "INSERT INTO entities ( `name`, `type`, `app_id`) VALUES (?,?,?);";
+        def rows2 = db.executeInsert(sqlQuery,[params.entityName,"custom",appId])
+        def entityId = rows2[0][0]
+        if(params.synonymsList != null){
+            if(params.synonymsList instanceof String){
+                sqlQuery  = "INSERT INTO synonyms ( `name`, `entity_id`) VALUES (?,?);";
+                def rows3 = db.executeInsert(sqlQuery,[params.synonymsList,entityId])
+            }else{
+                params.synonymsList.each{u->
+                    sqlQuery  = "INSERT INTO synonyms ( `name`, `entity_id`) VALUES (?,?);";
+                    def rows3 = db.executeInsert(sqlQuery,[u,entityId])
+                }   
+            }
+        }
+    }
+     
+    def getEntityDetails(params){
+        println "getEntityDetails params "+params
+        def jsonMap = [:]
+        jsonMap.name  = ""
+        def db = new Sql(dataSource)
+        def appId = params.appId.toLong()
+        def entityId = params.entityId
+        def sqlQuery  = "select name from entities where app_id = ? and id = ?"
+        def rows2 = db.firstRow(sqlQuery,[appId,entityId])
+        jsonMap.name  = rows2.name
+        
+        sqlQuery  = "select `name`,id from synonyms where  entity_id = ?";
+        def rows3 = db.rows(sqlQuery,[entityId])
+        def synonymsList = []
+        rows3.each{r->
+            def map = [:]
+            map.name = r.name
+            map.id = r.id
+            map.isDelete = false
+            map.isPresent = true 
+            synonymsList.push(map)
+        }
+        jsonMap.synonymsList  = synonymsList
+
+
+        println "jsonMap getEntityDetails ------------------- "+jsonMap
+        jsonMap
+    }
+    
+    def updateEntity(params){
+        println "updateEntity params ::::: "+params
+        def jsonMap = [:]
+        jsonMap.success  = true
+        def db = new Sql(dataSource)
+        println "Db :: "+db
+        def appId = params.appId.toLong()
+        def appName = params.appName
+        def entityId = params.entityId
+        def sqlQuery = ""
+        
+        try{
+            if(params.synonymsList != null){                
+                if(params.synonymsList instanceof String){
+                    def u = JSON.parse(params.synonymsList )
+                    if(u.isPresent == true && u.isDelete == true){
+                        def synonymId = u.id
+                        sqlQuery  = "DELETE FROM synonyms where id=?";
+                        def rows3 = db.execute(sqlQuery,[synonymId])
+                    }else{
+                        if(u.isPresent == true && u.isDelete == true){
+                            sqlQuery  = "INSERT INTO synonyms ( `name`, `entity_id`) VALUES (?,?);";
+                            def rows3 = db.executeInsert(sqlQuery,[u.name,entityId])
+                        }
+                    }
+                }else{ 
+                    params.synonymsList.each{user->
+                        def u = JSON.parse(user)
+                        if(u.isPresent == true && u.isDelete == true){
+                            def synonymId = u.id
+                            sqlQuery  = "DELETE FROM synonyms where id=?";
+                            def rows3 = db.execute(sqlQuery,[synonymId])
+                        }else{
+                            if(u.isPresent == false && u.isDelete == false){
+                                sqlQuery  = "INSERT INTO synonyms ( `name`,  `entity_id`) VALUES (?,?);";
+                                def rows3 = db.executeInsert(sqlQuery,[u.name,entityId])
+                            }
+                        }
+                    }   
+                }
+            }
+        }catch(Exception ex){
+            println "********* Exception :: "+ex
+        }
+        jsonMap
     }
 }

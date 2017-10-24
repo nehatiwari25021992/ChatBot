@@ -31,9 +31,7 @@ chatBot.controller("manageEntitiesController", function($scope, $timeout,$locati
 
         
     if($rootScope.saveSuccess){
-        console.log("*********************************")
-        socket.emit('learn', {});
-        notificationService.info('Training Started.');
+        notificationService.info('Entity created successfully.');
        
     }
 
@@ -77,8 +75,8 @@ chatBot.controller("manageEntitiesController", function($scope, $timeout,$locati
         console.log("$scope.hasMoreData ",$scope.hasMoreData)
     }
     
-    $scope.editIntent = function(intent){
-        $location.path("/editIntent/"+intent.id)
+    $scope.editEntity = function(entity){
+        $location.path("/editEntity/"+entity.id)
     }
   
     $scope.getAllEntities()

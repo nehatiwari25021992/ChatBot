@@ -173,4 +173,20 @@ class ChatBotController {
         def result  = chatBotService.getAllEntities(params)
         render result as JSON 
     }
+    
+         
+    def saveEntity = {
+        def result  = chatBotService.saveEntity(params)
+        render result as JSON 
+    }
+    
+    def getEntityDetails= {
+        def result  = chatBotService.getEntityDetails(params)
+        render result as JSON 
+    }
+    
+    def updateEntity = {
+        def result  = chatBotService.updateEntity(params)
+        render result as JSON 
+    }
 } 

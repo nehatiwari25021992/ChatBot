@@ -186,6 +186,18 @@ chatBot.controller("MainController", function($controller,$rootScope,$scope,$htt
        
     }
     
+      $scope.checkIfEntity = function(loc){
+        if(window.location.href.indexOf('/manageEntities') > -1) {
+            return true
+        }else if(window.location.href.indexOf('/addEntity') > -1) {
+            return true
+        }else if(window.location.href.indexOf('/editEntity') > -1) {
+            return true
+        }
+        return false
+       
+    }
+    
     
     $scope.getAppsForDropDown = function(appNameNew){
         apps = dashboardService.getAppsForDropdown()
@@ -228,11 +240,11 @@ chatBot.controller("MainController", function($controller,$rootScope,$scope,$htt
     }
     
     socket = io.connect('http://52.172.31.113:5000');
-    //socket.on('connect', function() {
-    //    socket.emit('my event', {
-    //        data: 'I\'m connected!'
-    //    });
-   // });
+    socket.on('connect', function() {
+        socket.emit('my event', {
+            data: 'I\'m connected!'
+        });
+    });
     console.log("socket :: ",socket)
     socket.on('learn_response', function (data) {
         console.log("*********************data************",data)  

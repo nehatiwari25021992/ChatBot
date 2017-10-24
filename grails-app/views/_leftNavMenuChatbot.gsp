@@ -22,7 +22,7 @@
         </a>
       </li>  
 
-      <li ng-class="{ active:  isActive('/manageEntities') }">
+      <li ng-class="{ active:  checkIfEntity('/manageEntities')}">
         <a href="#/manageEntities" ng-click="openSubSideBar('entitiesSection')" data-toggle="tooltip" data-placement="right" title="" data-original-title="Entities">
           <img src="${resource(dir:'images/ma',file:'entities-icon.png')}" alt="">
         </a>
@@ -68,7 +68,7 @@
     </ul>
 
     <ul ng-show="entitiesSection">
-      <li ng-class="{ current: isActive('/manageEntities')}"><a  href="#/manageEntities" ng-bind="sidebar.manageEntities" ></a></li>
+      <li ng-class="{ current: checkIfEntity('/manageEntities')}"><a  href="#/manageEntities" ng-bind="sidebar.manageEntities" ></a></li>
     </ul>
   </div>
 </div>

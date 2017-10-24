@@ -105,6 +105,7 @@ var baseURL = "${baseURL}"
 <script src="${resource(dir:'js/chatBot/controllers',file:'unknownController.js')}"></script>
 <script src="${resource(dir:'js/chatBot/controllers',file:'manageEntitiesController.js')}"></script>
 <script src="${resource(dir:'js/chatBot/controllers',file:'addEntityController.js')}"></script>
+<script src="${resource(dir:'js/chatBot/controllers',file:'editEntityController.js')}"></script>
 <!-- date range picker js-->
 <script src='${resource(dir:'js/angular/resources/plugins',file:'daterangepicker.js')}'></script>
 <script src='${resource(dir:'js/angular/resources/plugins',file:'moment.min.js')}'></script>

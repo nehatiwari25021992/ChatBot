@@ -30,10 +30,10 @@
 
 
 
-<div class="widget widget-blue campaignPage" id="addEntityWidget">
+<div class="widget widget-blue campaignPage" id="editEntityWidget">
   <div class="widget-title">
     <div class="widget-controls"> <a href="javascript:;" class="widget-control widget-control-full-screen" data-toggle="tooltip" data-placement="top" title="" data-original-title="Full Screen"><i class="fa fa-expand"></i></a> <a href="javascript:;" class="widget-control widget-control-full-screen widget-control-show-when-full" data-toggle="tooltip" data-placement="left" title="" data-original-title="Exit Full Screen"><i class="fa fa-expand"></i></a> <a href="javascript:;" class="widget-control widget-control-refresh" data-toggle="tooltip" data-placement="top" title="" ng-click="refreshAddWidget()" data-original-title="Refresh"><i class="fa fa-refresh"></i></a> </div>
-    <h3>Add Entity</h3>
+    <h3>Edit Entity</h3>
   </div>
   <div class="widget-content left fs wcmBot">
     <div class="clearfix"></div>
@@ -59,16 +59,18 @@
           <div class="UXrowData bgA">
             <p class="help-block errorTxt" ng-if="isSynonymValid == 'blank'">Synonym required.</p>
             <p class="help-block errorTxt" ng-if="isSynonymValid == 'invalid'">Synonym with same name  already exists.</p>
-            <div class="UXrowInner" ng-repeat="say in synonymsList">
-              <input type="text" class="input" readonly="" value="{{say}}">
-              <a href="javascript:;" ng-click="removeSynonym(say)" class="delBtn"><i class="fa fa-trash-o"></i></a>
-            </div>	
+
+            <div class="UXrowInner"  ng-repeat="r in synonymsList">
+              <input ng-show="!r.isDelete" type="text" class="input" readonly="" value="{{r.name}}">
+              <a ng-show="!r.isDelete" href="javascript:;" ng-click="removeSynonym(r)" class="delBtn"><i class="fa fa-trash-o"></i></a>
+            </div>
+
           </div>
         </div>
       </div>
     </form>
     <div class="buttonStrip">
-      <button class="btn btn-default" type="button" ng-click="saveEntity()">Save</button>
+      <button class="btn btn-default" type="button" ng-click="updateEntity()">Save</button>
 
     </div>
   </div>

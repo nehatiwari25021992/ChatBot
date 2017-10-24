@@ -118,6 +118,16 @@ chatBot.factory('dashboardService', function($rootScope,$http) {
             })
             return promise;
         },
+        saveEntity : function(params) {
+            var promise = $http({
+                method: 'POST', 
+                url: '../chatBot/saveEntity',
+                params:params
+            }).success(function(data, status, headers, config) {
+                return data;
+            })
+            return promise;
+        },
         getAllIntent : function(params) {
             var promise = $http({
                 method: 'POST', 
@@ -152,6 +162,26 @@ chatBot.factory('dashboardService', function($rootScope,$http) {
             var promise = $http({
                 method: 'POST', 
                 url: '../chatBot/getIntentDetails',
+                params:params
+            }).success(function(data, status, headers, config) {
+                return data;
+            })
+            return promise;
+        },
+        updateEntity : function(params) {
+            var promise = $http({
+                method: 'POST', 
+                url: '../chatBot/updateEntity',
+                params:params
+            }).success(function(data, status, headers, config) {
+                return data;
+            })
+            return promise;
+        },
+        getEntityDetails : function(params) {
+            var promise = $http({
+                method: 'POST', 
+                url: '../chatBot/getEntityDetails',
                 params:params
             }).success(function(data, status, headers, config) {
                 return data;
