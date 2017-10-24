@@ -19,12 +19,14 @@ chatBot.controller("settingsController", function($scope,$rootScope,dashboardSer
         $scope.getAllAlgorithms()
         $scope.getAllThresholds()
         $scope.getAllLanguagesSupported()
+        $scope.getMessages()
     }
    
     $scope.$on('reloadTemplate', function(event) {
         $scope.init()
         $scope.getAllAlgorithms()
         $scope.getAllThresholds()
+        $scope.getMessages()
         $scope.getAllLanguagesSupported()
     });
     
@@ -34,6 +36,21 @@ chatBot.controller("settingsController", function($scope,$rootScope,dashboardSer
         $scope.algoList = []
         $scope.thresholdList = []
         $scope.langList = []
+            
+        $scope.slider = {
+            value: 0.5,
+            options: {
+                floor: 0,
+                ceil: 1,
+                step: 0.1,
+                precision: 1
+            }
+        };
+        $scope.getAllAlgorithms()
+        $scope.getAllThresholds()
+        $scope.getAllLanguagesSupported()
+        $scope.getMessages()
+  
     }
     
     $scope.getAllAlgorithms = function(){
@@ -82,6 +99,7 @@ chatBot.controller("settingsController", function($scope,$rootScope,dashboardSer
             function(payload){
                 console.log("getAllThresholds payload ",payload)
                 $scope.thresholdList = payload.data
+                $scope.slider.value = 0.6//$scope.thresholdList[0]
                 $scope.selectedThreshold  = $scope.thresholdList[0]
                 $scope.toggleGridLoader("app42AppSettingsWidget")
             },
@@ -90,9 +108,25 @@ chatBot.controller("settingsController", function($scope,$rootScope,dashboardSer
             })  
     }
     
+    $scope.getMessages = function(){
+        var params = {
+            appId : $scope.appId
+        }
+        $scope.toggleGridLoader("app42AppSettingsWidget")
+        var promise = dashboardService.getMessages(params)
+        promise.then(
+            function(payload){
+                console.log("getAllThresholds payload ",payload)
+                $scope.thresholdList = payload.data
+                $scope.welcomeMessage =  payload.data.welcomeMessage
+                $scope.defaultMessage =  payload.data.defaultMessage
+                $scope.toggleGridLoader("app42AppSettingsWidget")
+            },
+            function(errorPayload) {
+                $scope.toggleGridLoader("app42AppSettingsWidget")
+            })  
+    }
+
     $scope.init()
-    $scope.getAllAlgorithms()
-    $scope.getAllThresholds()
-    $scope.getAllLanguagesSupported()
-  
+
 })
