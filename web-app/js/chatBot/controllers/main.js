@@ -239,7 +239,7 @@ chatBot.controller("MainController", function($controller,$rootScope,$scope,$htt
             });
     }
     
-    socket = io.connect('http://52.172.31.113:5000');
+    socket = io.connect('http://localhost:5000');
     socket.on('connect', function() {
         socket.emit('my event', {
             data: 'I\'m connected!'

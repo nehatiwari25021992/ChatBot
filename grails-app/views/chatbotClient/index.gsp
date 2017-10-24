@@ -59,7 +59,7 @@
 
 
 
-                      <input type="text" conv-question="Hello! Welcome to TATA AIA Life Insurance." no-answer="true">
+                      <input type="text" conv-question="Hello! Welcome to Bank of India." no-answer="true">
 
                       <select name="flow" conv-question="To assist you further, please choose an option given below.">
                         <option value="Dialog" callback="outerFunction">Dialog</option>
@@ -70,179 +70,148 @@
                         <!--Dialog Flow-->
                         <div conv-case="Dialog">
 
-                          <select name="typeOfUser" conv-question="Please select type of user.">
-                            <option value="New" callback="outerFunction">New</option>
-                            <option value="Existing" callback="outerFunction">Existing </option>
+                          <select name="typeOfUser" conv-question="Please select from either of the options below to assist you further.">
+                            <option value="CreditCard" callback="outerFunction">Credit Card</option>
+                            <option value="DebitCard" callback="outerFunction">Debit Card </option>
+                            <option value="InterestRates" callback="outerFunction">Interest Rates</option>
+                            <option value="Loan" callback="outerFunction">Apply/Track Loan </option>
                           </select>
                           <div conv-fork="typeOfUser">
 
                             <!--    New User Case-->
-                            <div conv-case="New">
-                              <select conv-question="Thank you for the details. Please select from the options below –" >
-                                <option value="Buy a Policy" callback="outerFunction">Buy a Policy</option>
-                                <option value="Query" callback="outerFunction">Query</option>
+                            <div conv-case="CreditCard">
+                              <select conv-question="Which of the following would you like to Apply for?" >
+                                <option value="Master" callback="outerFunction">Master</option>
+                                <option value="VISA" callback="outerFunction">VISA</option>
                               </select>
-                              <select conv-question="Please select either of the options below." >
-                                <option value="Protection" callback="outerFunction">Protection</option>
-                                <option value="Wealth" callback="outerFunction">Wealth</option>
-                                <option value="Child" callback="outerFunction">Child</option>
-
-                              </select>
-
-
-                              <select name="typeOfPlans" conv-question="Click on any of the below option to know more" >
-                                <option value="Sampoorna Raksha" callback="outerFunction">Sampoorna Raksha</option>
-                                <option value="iRaksha TROP" callback="outerFunction">iRaksha TROP</option>
+                              <select name="typeOfPlans" conv-question="We provide the following Master Credit Cards. Click on the one you would like to know more about" >
+                                <option value="Key Feature" callback="outerFunction">Master EMV Card</option>
+                                <option value="Wealth" callback="outerFunction">Master Platinum EMV Card</option>
                               </select>
                               <div conv-fork="typeOfPlans">
-                                <div conv-case="Sampoorna Raksha">
-                                  <select name="typeOfAction" conv-question="Great Option! Tata AIA Life Insurance Sampoorna Raksha Plan, a pure term insurance plan that provides financial protection to your family and offers you the flexibility to choose the plan that suits your need. You may opt to receive either a Lump Sum benefit on Death or Lump Sum benefit on Death and Monthly Income for next 10 years while also enjoying the flexibility to enhance your life cover. Please choose an option below:" >
-                                    <option value="Premium Calculator" callback="outerFunction">Premium Calculator</option>
-                                    <option value="Key Feature" callback="outerFunction">Key Feature</option>
+                                <div conv-case="Key Feature">
+                                  <input type="text" conv-question="Wide Coverage – From Rs. 50,000 up to Rs. 500,000" no-answer="true">
+                                  <input type="text" conv-question="No medical test up to the age of 45 for people with no medical history" no-answer="true">
+                                  <input type="text" conv-question="Family Floater benefit giving comprehensive protection to your family members under one single Policy" no-answer="true">
+                                  <input type="text" conv-question="Flexible Plan Options–Metro Plan, Semi Metro Plan & Rest of India" no-answer="true">
+                                  <input type="text" conv-question="Assured renewal" no-answer="true">
+                                  <input type="text" conv-question="You can now renew your current Health Insurance Policy (any Insurer) with us" no-answer="true">
+                                  <input type="text" conv-question="The premium paid is exempt from Income Tax under Sec 80 D of Income Tax Act (Tax Benefits are subject to change in tax laws)" no-answer="true">
+                                  <input type="text" conv-question="Coverage of Pre-and Post Hospitalisation Expenses - 30 days before and 60 days after the hospitalisation" no-answer="true">
+                                  <input type="text" conv-question="Free Medical check-up for every 4 claim free years up to a maximum limit of Rs.2,500" no-answer="true">
+                                  <select name="yesorno" conv-question="Would you like Bank of India Customer team to contact you for the same?" >
+                                    <option value="YES" callback="outerFunction">Yes</option>
+                                    <option value="NO" callback="outerFunction">No</option>
                                   </select>
-                                  <div conv-fork="typeOfAction">
-                                    <div conv-case="Premium Calculator">
-                                      <select  conv-question="Please help us answer a few questions before we calculate your premium. What is your Gender?" >
-                                        <option value="Male" callback="outerFunction">Male</option>
-                                        <option value="Female" callback="outerFunction">Female</option>
-                                      </select>
-                                      <select  conv-question="Are you a Smoker?" >
-                                        <option value="Yes" callback="outerFunction">Yes</option>
-                                        <option value="No" callback="outerFunction">No</option>
-                                      </select>
-                                      <select  conv-question="What would be your Mode of Payment?" >
-                                        <option value="Male" callback="outerFunction">Annualy</option>
-                                        <option value="Female" callback="outerFunction">Quarterly</option>
-                                        <option value="Female" callback="outerFunction">Monthly</option>
-                                      </select>
-
-                                      <input type="text" conv-question="What is your desired coverage amount (in Rupees)? Enter the amount in multiples of 1,00,000. Minimum coverage is 50,00,000." >
-                                      <input type="text" conv-question="Please enter the Policy Term (between 10 and 40 years)." >
-                                      <input type="text" conv-question="Please enter Premium paying term (between 5 and 40 years)." >
-                                      <select  conv-question="Congratulations! Here is your final quote.
-                                               Your annual premium payable is Rs. 15,700/- for a Sum Assured of Rs.50,00,000/-.
-                                               Please select an action below to complete this purchase." >
-                                        <option value="Buy Now" callback="outerFunction">Buy Now</option>
-                                        <option value="Add Rider" callback="outerFunction">Add Rider</option>
-                                      </select>
-                                      <input type="text" conv-question="Cool. Payment link will come here." no-answer="true">
-                                    </div>
-                                    <div conv-case="Key Feature">
-                                      <input type="text" conv-question="Wide Coverage – From Rs. 50,000 up to Rs. 500,000" no-answer="true">
-                                      <input type="text" conv-question="No medical test up to the age of 45 for people with no medical history" no-answer="true">
-                                      <input type="text" conv-question="Family Floater benefit giving comprehensive protection to your family members under one single Policy" no-answer="true">
-                                      <input type="text" conv-question="Flexible Plan Options–Metro Plan, Semi Metro Plan & Rest of India" no-answer="true">
-                                      <input type="text" conv-question="Assured renewal" no-answer="true">
-                                      <input type="text" conv-question="You can now renew your current Health Insurance Policy (any Insurer) with us" no-answer="true">
-                                      <input type="text" conv-question="The premium paid is exempt from Income Tax under Sec 80 D of Income Tax Act (Tax Benefits are subject to change in tax laws)" no-answer="true">
-                                      <input type="text" conv-question="Coverage of Pre-and Post Hospitalisation Expenses - 30 days before and 60 days after the hospitalisation" no-answer="true">
-                                      <input type="text" conv-question="Free Medical check-up for every 4 claim free years up to a maximum limit of Rs.2,500" no-answer="true">
-                                      <input type="text" conv-question="Add-on Covers available including removal of sub-limits on Room & ICU rent, Operation and Consultancy charges' after Flexible Plan options'... point" no-answer="true">
+                                  <div conv-fork="yesorno">
+                                    <div conv-case="YES">
+                                      <input type="text" conv-question="Great. Kindly let us know the following details" no-answer="true">
+                                      <input type="text" conv-question="Full Name, Contact Number with code, Email ID">
+                                      <input type="text" conv-question="Thank you for the information. One of our Customer care executives would contact you
+                                             shortly." >
                                     </div>
                                   </div>
-
-
-                                </div>
-                                <div conv-case="iRaksha TROP">
-
-                                  <input type="text" conv-question="This action is not implemented for this demo." no-answer="true">
-
                                 </div>
                               </div>
 
 
+                            </div>
+                            <div conv-case="Wealth">
 
+                              <input type="text" conv-question="This action is not implemented for this demo." no-answer="true">
 
                             </div>
-                            <!-- New User Case End-->   
-                            <!-- Existing User Case -->   
-                            <div conv-case="Existing">
-                              <input type="text" conv-question="Please enter your 16-digit policy number" id="policyNumber" name="policyNumber" required placeholder="Enter Policy Number" >
-                              <input type="text" conv-question="Please enter your DOB in DD/MM/YYY format" id="existingDob" name="existingDob" required placeholder="Date Of Birth" >
-                              <select  name="existingCustomerChoices" conv-question="Thanks for providing the information. Below are the services I can help you with:">
-                                <option value="Service Request" callback="outerFunction">Service Request</option>
-                                <option value="Grievance" callback="outerFunction">Grievance</option>
-                                <option value="Query" callback="outerFunction">Query</option>
+                          </div>
+
+
+
+
+                        </div>
+                        <!-- New User Case End-->   
+                        <!-- Existing User Case -->   
+                        <div conv-case="Existing">
+                          <input type="text" conv-question="Please enter your 16-digit policy number" id="policyNumber" name="policyNumber" required placeholder="Enter Policy Number" >
+                          <input type="text" conv-question="Please enter your DOB in DD/MM/YYY format" id="existingDob" name="existingDob" required placeholder="Date Of Birth" >
+                          <select  name="existingCustomerChoices" conv-question="Thanks for providing the information. Below are the services I can help you with:">
+                            <option value="Service Request" callback="outerFunction">Service Request</option>
+                            <option value="Grievance" callback="outerFunction">Grievance</option>
+                            <option value="Query" callback="outerFunction">Query</option>
+                          </select>
+                          <div conv-fork="existingCustomerChoices">
+                            <div conv-case="Service Request">
+                              <select name="policyDeliveryErr" conv-question="Please select either of the options below">
+                                <option value="Policy not received" callback="outerFunction">Policy not received</option>
+                                <option value="Other" callback="outerFunction">Other</option>
                               </select>
-                              <div conv-fork="existingCustomerChoices">
-                                <div conv-case="Service Request">
-                                  <select name="policyDeliveryErr" conv-question="Please select either of the options below">
-                                    <option value="Policy not received" callback="outerFunction">Policy not received</option>
-                                    <option value="Other" callback="outerFunction">Other</option>
+                              <div conv-fork="policyDeliveryErr">
+                                <div conv-case="Policy not received"> 
+                                  <input type="text" conv-question="Sorry for the inconvenience! Please let me check the status." no-answer="true">
+                                  <select name="nested" conv-question="Your Policy No – 0000000000000970 is out for Delivery and would reach you by 26-09-2017. Is there anything else I can help you with?">
+                                    <option value="Query1" callback="outerFunction">Query</option>
+                                    <option value="Grievance1" callback="outerFunction">Grievance</option>
+                                    <option value="Service Request1" callback="outerFunction">Service Request</option>
+
                                   </select>
-                                  <div conv-fork="policyDeliveryErr">
-                                    <div conv-case="Policy not received"> 
-                                      <input type="text" conv-question="Sorry for the inconvenience! Please let me check the status." no-answer="true">
-                                      <select name="nested" conv-question="Your Policy No – 0000000000000970 is out for Delivery and would reach you by 26-09-2017. Is there anything else I can help you with?">
-                                        <option value="Query1" callback="outerFunction">Query</option>
-                                        <option value="Grievance1" callback="outerFunction">Grievance</option>
-                                        <option value="Service Request1" callback="outerFunction">Service Request</option>
 
+                                  <div conv-fork="nested">
+                                    <div conv-case="Query1"> 
+                                      <select name="nested2" conv-question="Please select either of the options below">
+                                        <option value="Cancellation Process" callback="outerFunction">Cancellation Process</option>
+                                        <option value="Claims status" callback="outerFunction">Claims status</option>
                                       </select>
+                                      <div conv-fork="nested2">
+                                        <div conv-case="Cancellation Process"> 
+                                          <input type="text" conv-question="Policy can be cancelled and unused premium can be refunded on short period basis provided alternate insurance proof is provided and there is no claim in the policy. In case of claim in the policy no refund shall be there." no-answer="true">
 
-                                      <div conv-fork="nested">
-                                        <div conv-case="Query1"> 
-                                          <select name="nested2" conv-question="Please select either of the options below">
-                                            <option value="Cancellation Process" callback="outerFunction">Cancellation Process</option>
-                                            <option value="Claims status" callback="outerFunction">Claims status</option>
-                                          </select>
-                                          <div conv-fork="nested2">
-                                            <div conv-case="Cancellation Process"> 
-                                              <input type="text" conv-question="Policy can be cancelled and unused premium can be refunded on short period basis provided alternate insurance proof is provided and there is no claim in the policy. In case of claim in the policy no refund shall be there." no-answer="true">
-
-                                            </div>
-                                            <div conv-case="Claims status">
-                                              <input type="text" conv-question="This action is not implemented for this demo." no-answer="true">
-
-                                            </div>
-                                          </div>
-
-
-                                        </div> 
-
-                                        <div conv-case="Grievance1">
+                                        </div>
+                                        <div conv-case="Claims status">
                                           <input type="text" conv-question="This action is not implemented for this demo." no-answer="true">
 
                                         </div>
-                                        <div conv-case="Service Request1">
-                                          <input type="text" conv-question="This action is not implemented for this demo." no-answer="true">  
-
-                                        </div>
-
                                       </div>
-                                    </div>
-                                    <div conv-case="Other"> 
 
+
+                                    </div> 
+
+                                    <div conv-case="Grievance1">
                                       <input type="text" conv-question="This action is not implemented for this demo." no-answer="true">
-                                    </div>
 
+                                    </div>
+                                    <div conv-case="Service Request1">
+                                      <input type="text" conv-question="This action is not implemented for this demo." no-answer="true">  
+
+                                    </div>
 
                                   </div>
-
-
-
                                 </div>
-                                <div conv-case="Grievance">
+                                <div conv-case="Other"> 
+
                                   <input type="text" conv-question="This action is not implemented for this demo." no-answer="true">
                                 </div>
-                                <div conv-case="Query">
-                                  <select name="typeOfQueryExistingBot" conv-question="Please choose type of query?">
 
-                                    <option value="Custom8" callback="outerFunction">Custom</option>
-                                  </select>
-                                  <div conv-fork="typeOfQueryExistingBot">
-
-
-                                    <div conv-case="Custom8">
-                                      <input conv-question="Type in your query below?"  id="q8" type="text" name="q8" required placeholder="Type your Query" >
-                                    </div>
-                                  </div>
-                                </div>
 
                               </div>
 
+
+
                             </div>
-                            <!-- Existing User Case End-->   
+                            <div conv-case="Grievance">
+                              <input type="text" conv-question="This action is not implemented for this demo." no-answer="true">
+                            </div>
+                            <div conv-case="Query">
+                              <select name="typeOfQueryExistingBot" conv-question="Please choose type of query?">
+
+                                <option value="Custom8" callback="outerFunction">Custom</option>
+                              </select>
+                              <div conv-fork="typeOfQueryExistingBot">
+
+
+                                <div conv-case="Custom8">
+                                  <input conv-question="Type in your query below?"  id="q8" type="text" name="q8" required placeholder="Type your Query" >
+                                </div>
+                              </div>
+                            </div>
+
                           </div>
 
                         </div>
@@ -267,20 +236,6 @@
                         </div>
                         <!--Query Flow End-->
                       </div>
-
-                      <input type="text" conv-question="Cool. This flow is completed." no-answer="true">
-                      <input type="text" conv-question="Query flow will begin now." no-answer="true">
-                      <select name="typeOfQuery1" conv-question="Please choose type of query?">
-                        <option value="Custom1" callback="outerFunction">Custom</option>
-                      </select>
-                      <div conv-fork="typeOfQuery1">
-
-                        <div conv-case="Custom1">
-
-                          <input conv-question="Type in your query below?"  id="q1" type="text" name="q1" required placeholder="Type your Query" >
-
-                        </div>
-                      </div>
                     </form>
                   </div>
                 </div>
@@ -294,7 +249,7 @@
     <script src="${resource(dir:'TataAIA/client/dist',file:'util.js')}"></script>
     <script src="${resource(dir:'TataAIA/client/dist',file:'speech.js')}"></script>
     <script src="${resource(dir:'TataAIA/client/dist',file:'autosize.min.js')}"></script>
-<!--    <script src="${resource(dir:'TataAIA/client/js',file:'main.js')}"></script>-->
+    <!--    <script src="${resource(dir:'TataAIA/client/js',file:'main.js')}"></script>-->
 
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
     <script src="${resource(dir:'TataAIA/client/dist',file:'appwarp.min.js')}"></script>
@@ -310,7 +265,7 @@
             } );
             
          
-//              qad.renderDialog(JSON.parse('${chatScript}'));
+    //              qad.renderDialog(JSON.parse('${chatScript}'));
         } );
         function outerFunction(){
             // console.log("outer function called"+value);
