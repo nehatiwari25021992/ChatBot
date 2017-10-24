@@ -26,64 +26,64 @@
                  id="appKeysErrorNotifications" style="display: none;"></div>
             <form class="form-horizontal ng-pristine ng-valid" role="form" action="">
 
-              <div class="row">
-                <div class="col-sm-12">
-                  <div class="form-group trSep" >
-                    <label class="col-md-6 control-label" style="text-align:right">Algorithm :</label>
-                    <div class="col-md-6">
-                      <select chosen
-                              ng-model="selectedAlgoritm" data-placeholder="Select Algorithm"
-                              ng-options="algo.name for algo in algoList track by algo.name" 
-                              aria-controls="DataTables_Table_0"
-                              class="form-control chosen-select" style="width: 250px;">
-                        <option value=""></option>
-                      </select>                  
-                    </div>
-                  </div>
+              <div class="row mrbt20">
+                <label class="col-md-3 control-label">Algorithm :</label>
+                <div class="col-md-6">
+                  <select chosen
+                          ng-model="selectedAlgoritm" data-placeholder="Select Algorithm"
+                          ng-options="algo.name for algo in algoList track by algo.name" 
+                          aria-controls="DataTables_Table_0"
+                          class="form-control chosen-select" style="width: 250px;">
+                    <option value=""></option>
+                  </select>                  
+                </div>
+              </div>
+              <div class="row mrbt20">
+                <label class="col-md-3 control-label"> Threshold :</label>
+                <div class="col-md-6">
+                  <rzslider rz-slider-model="slider.value"
+                            rz-slider-options="slider.options"></rzslider>
+                </div>  
+              </div> 
+              <div class="row mrbt20">
+                <label class="col-md-3 control-label" >Language :</label>
+                <div class="col-md-6">
+                  <select chosen
+                          ng-model="selectedLanguage" data-placeholder="Select Language"
+                          ng-options="algo.name for algo in langList track by algo.name" 
+                          aria-controls="DataTables_Table_0"
+                          class="form-control chosen-select" style="width: 250px;">
+                    <option value=""></option>
+                  </select>                  
+                </div>
+              </div> 
+              <div class="row mrbt20">
+                <label class="col-md-3 control-label" >Welcome Message :</label>
+                <div class="col-md-6">
+                  <textarea class="input form-control" placeholder="Enter Welcome Message"  ng-model="welcomeMessage" type="text" rows="1" cols="300"></textarea>
+                </div>
+              </div> 
+              <div class="row mrbt20">
+                <label class="col-md-3 control-label" >Default Message :</label>
+                <div class="col-md-6">
+                  <textarea class="input form-control" placeholder="Enter Default Message"  ng-model="defaultMessage" type="text" rows="2" cols="300"></textarea>
 
                 </div>
-
-                <div class="col-sm-12">
-                  <div class="form-group trSep" >
-                    <label class="col-md-6 control-label" style="text-align:right"> Threshold :</label>
-                    <div class="col-md-6">
-                      <select chosen
-                              ng-model="selectedThreshold" data-placeholder="Select Threshold"
-                              ng-options="algo.threshold for algo in thresholdList track by algo.threshold" 
-                              aria-controls="DataTables_Table_0"
-                              class="form-control chosen-select" style="width: 250px;">
-                        <option value=""></option>
-                      </select>                  
-                    </div>
-                  </div>
-
-                </div>
-                <div class="col-sm-12">
-                  <div class="form-group trSep" >
-                    <label class="col-md-6 control-label" style="text-align:right">Language :</label>
-                    <div class="col-md-6">
-                      <select chosen
-                              ng-model="selectedLanguage" data-placeholder="Select Language"
-                              ng-options="algo.name for algo in langList track by algo.name" 
-                              aria-controls="DataTables_Table_0"
-                              class="form-control chosen-select" style="width: 250px;">
-                        <option value=""></option>
-                      </select>                  
-                    </div>
-                  </div>
-                </div>
+              </div>
+              <div class="row mrbt20">
                 <div class="actionBtnWrapper">
                   <div class="col-sm-2 actionBtn"> 
                     <a href="javascript:;" id="reset1" ng-click="updateAppSetings()"
                        class="btn btn-default  btn-sm">Update</a> </div>
                 </div>
               </div>
-            </form>
           </div>
+          </form>
         </div>
       </div>
-
     </div>
+
   </div>
+</div>
 </div>
 

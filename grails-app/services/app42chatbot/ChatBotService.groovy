@@ -1037,4 +1037,21 @@ class ChatBotService {
         }
         jsonMap
     }
+    
+    def getMessages(params){
+        def jsonMap = [:]
+        jsonMap.welcomeMessage  = ""
+        jsonMap.defaultMessage  = ""
+        def db = new Sql(dataSource)
+        def appId = params.appId.toLong()
+        
+        def sqlQuery  = "select * from intents where app_id = ?";
+        def rows= db.firstRow(sqlQuery,[appId])
+        if(rows != null){
+            jsonMap.welcomeMessage  = rows.default_welcome
+            jsonMap.defaultMessage  = rows.default_fall_back    
+        }
+        println "jsonMap :::  "+jsonMap
+        jsonMap 
+    }
 }
