@@ -1055,6 +1055,12 @@ class ChatBotService {
         println "sqlQuery ::::::::: "+sqlQuery
         def rows = db.executeUpdate(sqlQuery)
         println "rows ::: "+rows
+        
+//        sqlQuery = "update intents SET default_welcome = '"+params.welcomeMessage+"' ,default_fall_back = '"+params.defaultMessage+"' where app_id = "+appId+""
+//        println "sqlQuery ::::::::: "+sqlQuery
+//        rows = db.executeUpdate(sqlQuery)
+//        println "rows ::: "+rows
+        
         jsonMap
     }
 }

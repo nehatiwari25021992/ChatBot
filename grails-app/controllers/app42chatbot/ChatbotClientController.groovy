@@ -31,6 +31,19 @@ class ChatbotClientController {
         [baseURL:baseURL,socketURL:socketURL,app:app,chatScript:chatScript]
     }
     
+       def sbi() { 
+        def app = null
+        if(params.name){
+            app = chatBotService.getAppOrgName(params.name)
+        }else{
+            app = chatBotService.getAppOrgName("test") 
+        }
+      
+        def chatScript = getChatScript(app)
+        println chatScript
+        [baseURL:baseURL,socketURL:socketURL,app:app,chatScript:chatScript]
+    }
+    
     def getChatScript(app){
         def map = [:]
         map.appId = app.id

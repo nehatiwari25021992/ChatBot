@@ -90,15 +90,18 @@
                               </select>
                               <div conv-fork="typeOfPlans">
                                 <div conv-case="Key Feature">
-                                  <input type="text" conv-question="Wide Coverage – From Rs. 50,000 up to Rs. 500,000" no-answer="true">
-                                  <input type="text" conv-question="No medical test up to the age of 45 for people with no medical history" no-answer="true">
-                                  <input type="text" conv-question="Family Floater benefit giving comprehensive protection to your family members under one single Policy" no-answer="true">
-                                  <input type="text" conv-question="Flexible Plan Options–Metro Plan, Semi Metro Plan & Rest of India" no-answer="true">
-                                  <input type="text" conv-question="Assured renewal" no-answer="true">
-                                  <input type="text" conv-question="You can now renew your current Health Insurance Policy (any Insurer) with us" no-answer="true">
-                                  <input type="text" conv-question="The premium paid is exempt from Income Tax under Sec 80 D of Income Tax Act (Tax Benefits are subject to change in tax laws)" no-answer="true">
-                                  <input type="text" conv-question="Coverage of Pre-and Post Hospitalisation Expenses - 30 days before and 60 days after the hospitalisation" no-answer="true">
-                                  <input type="text" conv-question="Free Medical check-up for every 4 claim free years up to a maximum limit of Rs.2,500" no-answer="true">
+                                  <input type="text" conv-question="Classic card" no-answer="true">
+                                  <input type="text" conv-question="Card valid in India and Nepal only." no-answer="true">
+                                  <input type="text" conv-question="Billing cycle is from 16th of current month to 15th of next month." no-answer="true">
+                                  <input type="text" conv-question="And payment is to be made on or before 5th of succeeding month which mostly suits the
+                                         requirement of salaried class." no-answer="true">
+                                  <input type="text" conv-question="Eligibility: Gross annual income of Rs.0.75 lacs&amp; above" no-answer="true">
+                                  <input type="text" conv-question="Pin-enabled photo card." no-answer="true">
+                                  <input type="text" conv-question="Secure usage at over 2,50,000 merchants establishments and round the clock cash advance at
+                                         over 9000 ATMs." no-answer="true">
+                                  <input type="text" conv-question="Interest free credit for upto 51 days and revolving credit at preferential rate."  no-answer="true">
+                                  <input type="text" conv-question="Flexible credit limits for add-on cards." no-answer="true">
+                                  <input type="text" conv-question="Reward programme on card usage." no-answer="true">
                                   <select name="yesorno" conv-question="Would you like Bank of India Customer team to contact you for the same?" >
                                     <option value="YES" callback="outerFunction">Yes</option>
                                     <option value="NO" callback="outerFunction">No</option>
@@ -108,133 +111,42 @@
                                       <input type="text" conv-question="Great. Kindly let us know the following details" no-answer="true">
                                       <input type="text" conv-question="Full Name, Contact Number with code, Email ID">
                                       <input type="text" conv-question="Thank you for the information. One of our Customer care executives would contact you
-                                             shortly." >
+                                             shortly." no-answer="true">
+                                      
                                     </div>
                                   </div>
                                 </div>
                               </div>
-
-
                             </div>
-                            <div conv-case="Wealth">
+                          </div>
+                          <input type="text" conv-question="Cool. This flow is completed." no-answer="true">
+                          <input type="text" conv-question="Query flow will begin now." no-answer="true">
+                          <select name="typeOfQuery1" conv-question="Please choose type of query?">
+                            <option value="Custom1" callback="outerFunction">Custom</option>
+                          </select>
+                          <div conv-fork="typeOfQuery1">
 
-                              <input type="text" conv-question="This action is not implemented for this demo." no-answer="true">
+                            <div conv-case="Custom1">
+
+                              <input conv-question="Type in your query below?"  id="q1" type="text" name="q1" required placeholder="Type your Query" >
 
                             </div>
                           </div>
-
-
-
-
                         </div>
                         <!-- New User Case End-->   
-                        <!-- Existing User Case -->   
-                        <div conv-case="Existing">
-                          <input type="text" conv-question="Please enter your 16-digit policy number" id="policyNumber" name="policyNumber" required placeholder="Enter Policy Number" >
-                          <input type="text" conv-question="Please enter your DOB in DD/MM/YYY format" id="existingDob" name="existingDob" required placeholder="Date Of Birth" >
-                          <select  name="existingCustomerChoices" conv-question="Thanks for providing the information. Below are the services I can help you with:">
-                            <option value="Service Request" callback="outerFunction">Service Request</option>
-                            <option value="Grievance" callback="outerFunction">Grievance</option>
-                            <option value="Query" callback="outerFunction">Query</option>
-                          </select>
-                          <div conv-fork="existingCustomerChoices">
-                            <div conv-case="Service Request">
-                              <select name="policyDeliveryErr" conv-question="Please select either of the options below">
-                                <option value="Policy not received" callback="outerFunction">Policy not received</option>
-                                <option value="Other" callback="outerFunction">Other</option>
-                              </select>
-                              <div conv-fork="policyDeliveryErr">
-                                <div conv-case="Policy not received"> 
-                                  <input type="text" conv-question="Sorry for the inconvenience! Please let me check the status." no-answer="true">
-                                  <select name="nested" conv-question="Your Policy No – 0000000000000970 is out for Delivery and would reach you by 26-09-2017. Is there anything else I can help you with?">
-                                    <option value="Query1" callback="outerFunction">Query</option>
-                                    <option value="Grievance1" callback="outerFunction">Grievance</option>
-                                    <option value="Service Request1" callback="outerFunction">Service Request</option>
+                      </div>
+                      <input type="text" conv-question="Cool. This flow is completed." no-answer="true">
+                      <input type="text" conv-question="Query flow will begin now." no-answer="true">
+                      <select name="typeOfQuery1" conv-question="Please choose type of query?">
+                        <option value="Custom1" callback="outerFunction">Custom</option>
+                      </select>
+                      <div conv-fork="typeOfQuery1">
 
-                                  </select>
+                        <div conv-case="Custom1">
 
-                                  <div conv-fork="nested">
-                                    <div conv-case="Query1"> 
-                                      <select name="nested2" conv-question="Please select either of the options below">
-                                        <option value="Cancellation Process" callback="outerFunction">Cancellation Process</option>
-                                        <option value="Claims status" callback="outerFunction">Claims status</option>
-                                      </select>
-                                      <div conv-fork="nested2">
-                                        <div conv-case="Cancellation Process"> 
-                                          <input type="text" conv-question="Policy can be cancelled and unused premium can be refunded on short period basis provided alternate insurance proof is provided and there is no claim in the policy. In case of claim in the policy no refund shall be there." no-answer="true">
-
-                                        </div>
-                                        <div conv-case="Claims status">
-                                          <input type="text" conv-question="This action is not implemented for this demo." no-answer="true">
-
-                                        </div>
-                                      </div>
-
-
-                                    </div> 
-
-                                    <div conv-case="Grievance1">
-                                      <input type="text" conv-question="This action is not implemented for this demo." no-answer="true">
-
-                                    </div>
-                                    <div conv-case="Service Request1">
-                                      <input type="text" conv-question="This action is not implemented for this demo." no-answer="true">  
-
-                                    </div>
-
-                                  </div>
-                                </div>
-                                <div conv-case="Other"> 
-
-                                  <input type="text" conv-question="This action is not implemented for this demo." no-answer="true">
-                                </div>
-
-
-                              </div>
-
-
-
-                            </div>
-                            <div conv-case="Grievance">
-                              <input type="text" conv-question="This action is not implemented for this demo." no-answer="true">
-                            </div>
-                            <div conv-case="Query">
-                              <select name="typeOfQueryExistingBot" conv-question="Please choose type of query?">
-
-                                <option value="Custom8" callback="outerFunction">Custom</option>
-                              </select>
-                              <div conv-fork="typeOfQueryExistingBot">
-
-
-                                <div conv-case="Custom8">
-                                  <input conv-question="Type in your query below?"  id="q8" type="text" name="q8" required placeholder="Type your Query" >
-                                </div>
-                              </div>
-                            </div>
-
-                          </div>
+                          <input conv-question="Type in your query below?"  id="q1" type="text" name="q1" required placeholder="Type your Query" >
 
                         </div>
-                        <!--Dialog Flow End-->
-                        <!--Bot Flow-->
-                        <div conv-case="Bot">
-                          <select name="typeOfQueryBot" conv-question="Please choose type of query?">
-
-                            <option value="Custom2" callback="outerFunction">Custom</option>
-                          </select>
-                          <div conv-fork="typeOfQueryBot">
-                            <div conv-case="Custom2">
-                              <input conv-question="Type in your query below?"  id="q31" type="text" name="q31" required placeholder="Type your Query" >
-                            </div>
-                          </div>
-
-                        </div>
-                        <!--Bot Flow End-->
-                        <!--Query Flow-->
-                        <div conv-case="LiveChat">
-                          <input type="text" conv-question="Please wait while we find an Agent for you." >
-                        </div>
-                        <!--Query Flow End-->
                       </div>
                     </form>
                   </div>

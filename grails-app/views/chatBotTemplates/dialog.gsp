@@ -1,5 +1,9 @@
 <style>
 .swgFrame{background-color: #f9f9f9; margin: 2% 0 0 2%;border: 1px dashed #cfcfcf;}
+
+#paper svg {
+  height:"1000px";
+}
 </style>
 <div class="row dbWrapper">
   <div class="col-md-12">
