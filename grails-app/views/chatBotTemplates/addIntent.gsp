@@ -67,8 +67,43 @@
             <p class="help-block errorTxt" ng-if="isuserExp == 'blank'">Expression required.</p>
             <p class="help-block errorTxt" ng-if="isuserExp == 'invalid'">Expression with same name  already exists.</p>
             <div class="UXrowInner" ng-repeat="say in userExpList">
-              <input type="text" class="input" readonly="" value="{{say}}">
+              <input type="text" class="input" readonly="" value="{{say.name}}">
               <a href="javascript:;" ng-click="removeSay(say)" class="delBtn"><i class="fa fa-trash-o"></i></a>
+              <table ng-show="say.entity.length > 0" style="width: 100%;" >
+                <thead>
+                  <tr>
+                    <th>Parameter name</th>
+                    <th>Entity</th>
+                    <th >Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr  ng-repeat="param in say.entity track by $index">
+                    <td>
+                      <span>{{param.parameter}}</span>
+                    </td>
+                    <td >
+
+                      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+                        <ul class="nav navbar-nav navbar-left">
+                          <li class="dropdown">
+                            <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">{{param.parameter}}</a>
+                            <ul class="dropdown-menu">
+                              <li ng-repeat="en in entityList">
+                                <a href="javascript:;">{{en.name}}</a>
+                              </li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </div>
+                    </td>
+                    <td>
+                      <span><i class="fa fa-trash-o"></i></span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
             </div>	
           </div>
         </div>

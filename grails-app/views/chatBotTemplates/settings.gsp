@@ -28,8 +28,8 @@
 
               <div class="row mrbt20">
                 <label class="col-md-3 control-label">Algorithm :</label>
-                <div class="col-md-6">
-                  <select chosen
+                <div class="col-md-6" >
+                  <select chosen id="algo"
                           ng-model="selectedAlgoritm" data-placeholder="Select Algorithm"
                           ng-options="algo.name for algo in algoList track by algo.name" 
                           aria-controls="DataTables_Table_0"
@@ -40,15 +40,15 @@
               </div>
               <div class="row mrbt20">
                 <label class="col-md-3 control-label"> Threshold :</label>
-                <div class="col-md-6">
-                  <rzslider rz-slider-model="slider.value"
+                <div class="col-md-6" ng-disabled="true">
+                  <rzslider   rz-slider-model="slider.value"
                             rz-slider-options="slider.options"></rzslider>
                 </div>  
               </div> 
               <div class="row mrbt20">
                 <label class="col-md-3 control-label" >Language :</label>
-                <div class="col-md-6">
-                  <select chosen
+                <div class="col-md-6"  ng-disabled="true">
+                  <select chosen id="lang"
                           ng-model="selectedLanguage" data-placeholder="Select Language"
                           ng-options="algo.name for algo in langList track by algo.name" 
                           aria-controls="DataTables_Table_0"

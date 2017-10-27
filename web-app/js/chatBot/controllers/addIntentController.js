@@ -52,11 +52,32 @@ chatBot.controller("addIntentController", function($scope,dashboardService,$loca
         }else if($scope.userExpList.indexOf(item) > -1){
             $scope.isuserExp = "invalid"
         }else{
-            $scope.userExpList.push( $scope.userExp)
+            var map = {}
+            map.name = $scope.userExp
+            map.entity = $scope.getEntityForUserExpression($scope.userExp)
+            $scope.userExpList.push( map)
             $scope.userExp = ""
         }
         console.log( "$scope.userExpList  ", $scope.userExpList)
     }
+   
+    $scope.getEntityForUserExpression = function (exp) {
+        //ajax call to get entity 
+        var entities = [];
+        var entityMap = {}
+        entityMap.id = 1
+        entityMap.parameter = "room"
+        entityMap.entityName = "room"
+        entities.push(entityMap)
+        entityMap = {}
+        entityMap.id = 2
+        entityMap.parameter = "hotel"
+        entityMap.entityName = "hotel"
+        entities.push(entityMap)    
+        console.log("entities :: ",entities)
+        return entities;
+    }
+   
    
     $scope.removeSay = function (item) {
         $scope.userExpList.splice($scope.userExpList.indexOf(item),1);
@@ -142,5 +163,25 @@ chatBot.controller("addIntentController", function($scope,dashboardService,$loca
             }) 
     }
     
+     $scope.getAllEntities = function(){
+        $scope.toggleGridLoader("manageEntityWidget")
+        var params = {
+            appId : $scope.appId,
+            offset : 0,
+            limit : 10
+        }
+        var promise = dashboardService.getAllEntities(params)
+        promise.then(
+            function(payload){
+                $scope.toggleGridLoader("manageEntityWidget")
+                $scope.entityList = payload.data
+                
+            },
+            function(errorPayload) {
+                $scope.toggleGridLoader("manageEntityWidget")
+            })
+    }
+    
     $scope.init()
+     $scope.getAllEntities()
 })

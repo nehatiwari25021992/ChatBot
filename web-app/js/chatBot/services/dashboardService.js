@@ -58,6 +58,16 @@ chatBot.factory('dashboardService', function($rootScope,$http) {
             })
             return promise;
         },
+        getMostActiveHours: function(params) {
+            var promise = $http({
+                method: 'POST', 
+                url: '../chatBot/getMostActiveHours',
+                params:params
+            }).success(function(data, status, headers, config) {
+                return data;
+            })
+            return promise;
+        },
         getMessage_in_vs_out : function(params) {
             var promise = $http({
                 method: 'POST', 

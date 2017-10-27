@@ -71,6 +71,35 @@
             <div class="UXrowInner" ng-repeat="say in userExpList">
               <input  ng-show="!say.isDelete" type="text" class="input" readonly="" value="{{say.name}}">
               <a   ng-show="!say.isDelete" href="javascript:;" ng-click="removeSay(say)" class="delBtn"><i class="fa fa-trash-o"></i></a>
+<table class="content-table intent-parameters-table">
+                <thead>
+                  <tr>
+                    <th>Parameter name</th>
+                    <th>Entity</th>
+                    <th>Resolved value</th>
+                    <th class="param-actions"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- ngRepeat: param in vm.autoParams track by $index --><tr class="autoparams template-editor-params-tr ng-scope" ng-repeat="param in vm.autoParams track by $index">
+                    <td>
+                      <input class="user-says-alias-editor template-editor-param-alias-editor ng-pristine ng-valid ng-not-empty ng-valid-maxlength ng-touched" ng-model="param.alias" ng-change="vm.changeParamAlias(param, 'hotel', $event)" tabindex="-1" ng-keydown="vm.paramKeyDownCb($event)" maxlength="30" ng-disabled="vm.isAgentReadOnly" aria-invalid="false" style="">
+                    </td>
+                    <td class="template-editor-param-meta-holder-wrapper">
+                      <span style="background-color: #fffda6" class="meta-holder template-editor-param-meta-holder ng-binding" ng-bind="param.meta" ng-click="vm.startSelectParameter(param, $event)" tabindex="-1" role="button">@hotel</span>
+                    </td>
+                    <td class="template-editor-param-resolved-value">
+                      <span tabindex="-1" class="ng-binding">rooms</span>
+                    </td>
+                    <td class="param-actions">
+                      <button class="btn-icon" ng-click="vm.removeParam(param, $index)" type="button" tabindex="-1" ng-disabled="vm.isAgentReadOnly">
+                        <span class="flaticon stroke x-1"></span>
+                      </button>
+                    </td>
+                  </tr><!-- end ngRepeat: param in vm.autoParams track by $index -->
+                </tbody>
+              </table>
+
             </div>	
           </div>
         </div>

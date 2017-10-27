@@ -179,20 +179,10 @@
               <div class="tr">
                 <div class="titleChat">Most Active Hours</div>
               </div>
+              <div class="activeSession" >
+                <div id="activeHours" style="height: 333px; display:none"></div>
+                <div class="graphBox" id="noActiveHours"><span id="noDataText">No Data</span> </div>
 
-              <div class="tEventsWrapper">
-                <div class="tEventsRow" ng-if="activeHours.length != 0" ng-repeat="activeHour in activeHours">
-                  <div class="lPanel">
-                    <div class="time">{{activeHour.total_conversation}}
-                      <span class="eventCount">Chats</span>
-                    </div>
-
-                  </div>
-                  <div class="rPanel"><font style="text-transform: capitalize;">{{activeHour.start}}-{{activeHour.end}}</font> 
-
-                  </div>
-                </div>
-                <div class="notEvents" ng-if="trends.length == 0"> No Active Hour  </div>
               </div>
             </div>
           </div>

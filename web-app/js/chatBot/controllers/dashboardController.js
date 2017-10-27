@@ -20,7 +20,6 @@ chatBot.controller("dashboardController", function($scope,dashboardService,$root
         $scope.getMostActiveHours()
         $scope.getMessage_in_vs_out()
         $scope.getCommentsLineChartInfo()
-        console.log("-----------------------reloadTemplate----------------------")
     });
     
     $scope.refreshDashboard =  function() {
@@ -33,7 +32,7 @@ chatBot.controller("dashboardController", function($scope,dashboardService,$root
         $scope.getCommentsLineChartInfo()
     }
     
-    //    $('a[href="#/dashboard/"]').parent().addClass("current");
+    $('a[href="#/dashboard/"]').parent().addClass("current");
    
     $scope.total_messages = 0 
     $scope.total_conversation= 0 
@@ -107,9 +106,7 @@ chatBot.controller("dashboardController", function($scope,dashboardService,$root
                 $scope.total_user =payload.data.totalUser
                 $scope.total_sent = payload.data.totalSent
                 $scope.total_received = payload.data.totalRecieved 
-                $scope.average_session_length  = payload.data.average_session
-                console.log("$scope.average_session_length  ",$scope.average_session_length )
-               
+                $scope.average_session_length  = payload.data.average_session               
             },
             function(errorPayload) {
                 $scope.toggleGridLoader("chatbotDashboardWidget")
@@ -156,9 +153,108 @@ chatBot.controller("dashboardController", function($scope,dashboardService,$root
             "end": "3:15", 
             "total_conversation": "40" 
         }  
-
-
         ] 
+        
+        
+        var params = {
+            appId : $scope.appId
+        }
+        $scope.toggleGridLoader("chatbotDashboardWidget")
+        console.log("params getMostActiveHours ",params)
+        var promise = dashboardService.getMostActiveHours(params)
+        promise.then(
+            function(payload){
+                console.log("getMostActiveHours payload.data ",payload.data)
+                $scope.toggleGridLoader("chatbotDashboardWidget")
+                $scope.loadActiveHoursChart(payload.data)
+            },
+            function(errorPayload) {
+                $scope.toggleGridLoader("chatbotDashboardWidget")
+            }) 
+    }
+    
+    $scope.loadActiveHoursChart =  function(data){  
+        $("#noActiveHours").hide();
+        $("#activeHours").show()
+        Highcharts.setOptions({
+            global: {
+                useUTC: false
+            }
+        });
+        $('#activeHours').highcharts({
+            charts : {
+              height : 333,
+              width:400
+              
+            },
+            title: {
+                text: '',
+                x: -20 //center
+            },
+            credits: {
+                enabled: false
+            },
+            subtitle: {
+                text: '',
+                x: -20
+            },
+            tooltip: {
+                formatter: function () {
+                    return '<span style="font-size:11px">' + this.series.name.replace("-START","") + '</span><br>' +
+                    Highcharts.dateFormat('%e %b %H:%M', this.point.x) + ': '+
+                    '<b>' + this.y + '</b>';
+            
+                }
+            },
+            xAxis: {
+                type: 'datetime',
+                dateTimeLabelFormats: { // don't display the dummy year
+                    millisecond: '%H:%M:%S.%L',
+                    second: '%H:%M:%S',
+                    minute: '%H:%M',
+                    hour: '%H:%M'
+                },
+                minTickInterval: 60 * 1000,
+                title: {
+                    text: 'Most Active Hours'
+                }
+         
+            },
+            legend: {
+                enabled: true,
+                labelFormatter: function () {
+                    return  this.name
+                }
+            },
+            yAxis: {
+                floor: 0,
+                allowDecimals:false,
+                title: {
+                    text: 'no. of conversations '
+                },
+                plotLines: [{
+                    value: 0,
+                    width: 2,
+                    color: '#808080'
+                }]
+            },
+            plotOptions: {
+                line: {
+                    dataLabels: {
+                        enabled: false
+                    },
+                    enableMouseTracking: true
+                }
+            },
+            series: data,
+            navigation: {
+                buttonOptions: {
+                    verticalAlign: 'bottom',
+                    y: -20
+                }
+            }
+        });
+   
     }
     
     $scope.getMessage_in_vs_out = function(){
@@ -170,11 +266,11 @@ chatBot.controller("dashboardController", function($scope,dashboardService,$root
             end : $scope.endDateUser
         }
         $scope.toggleGridLoader("chatbotDashboardWidget")
-        console.log("params getMessage_in_vs_out ",params)
+        //console.log("params getMessage_in_vs_out ",params)
         var promise = dashboardService.getMessage_in_vs_out(params)
         promise.then(
             function(payload){
-                console.log("payload.data ",payload.data)
+                // console.log("payload.data ",payload.data)
                 $scope.toggleGridLoader("chatbotDashboardWidget")
                 $scope.loadLiveDataChart(payload.data)
             },

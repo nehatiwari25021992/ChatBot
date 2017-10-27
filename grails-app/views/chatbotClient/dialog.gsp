@@ -56,23 +56,45 @@
                 <div class="dhlFormWrapper" id="chatbotWidget" style="display:none;">
                   <div id="chat" class="conv-form-wrapper">
                     <form action="" method="GET" class="hidden" id="dynaForm">
-                      <g:each in="${chatScript.nodes}" var="c" status="i">
-                        <g:if test="${c.type == 'qad.Question'}">
+                      <input type="text" conv-question="Hello! Welcome to Bank of India." no-answer="true">
 
-                          <select  conv-question="${c.question}">
-                            <g:each in="${c.options}" var="o" status="j">
-                              <option value="${o.text}" id="${o.id}" callback="outerFunction">${o.text}</option>
-                            </g:each>
-                          </select>
+                      <select name="flow" conv-question="To assist you further, please choose an option given below.">
+                        <option value="Dialog" callback="outerFunction">Dialog</option>
+                        <option value="Bot" callback="outerFunction">Bot</option>
+                        <option value="LiveChat" callback="outerFunction">Live Chat</option>
+                      </select>
+                      <div conv-fork="flow">
+                        <!--Dialog Flow-->
+                        <div conv-case="Dialog">
+                          <g:each in="${chatScript.nodes}" var="c" status="i">
+                            <g:if test="${c.type == 'qad.Question'}">
 
-                        </g:if>
-                        <g:elseif test="${c.type == 'qad.Answer'}">
-                          <input type="text" conv-question="${c.answer}" >
-                        </g:elseif>
+                              <select  conv-question="${c.question}">
+                                <g:each in="${c.options}" var="o" status="j">
+                                  <option value="${o.text}" id="${o.id}" callback="outerFunction">${o.text}</option>
+                                </g:each>
+                              </select>
 
-                      </g:each>
+                            </g:if>
+                            <g:elseif test="${c.type == 'qad.Answer'}">
+                              <input type="text" conv-question="${c.answer}" >
+                            </g:elseif>
+                          </g:each>
+                        </div>
+                      </div>
+                      <input type="text" conv-question="Cool. This flow is completed." no-answer="true">
+                      <input type="text" conv-question="Query flow will begin now." no-answer="true">
+                      <select name="typeOfQuery1" conv-question="Please choose type of query?">
+                        <option value="Custom1" callback="outerFunction">Custom</option>
+                      </select>
+                      <div conv-fork="typeOfQuery1">
 
+                        <div conv-case="Custom1">
 
+                          <input conv-question="Type in your query below?"  id="q1" type="text" name="q1" required placeholder="Type your Query" >
+
+                        </div>
+                      </div>
                     </form>
                   </div>
                 </div>

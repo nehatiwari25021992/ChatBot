@@ -183,12 +183,48 @@ class ChatBotService {
     def getMostActiveHours(params){
         def jsonMap = [:]
         def resultArr = []
-        jsonMap.data = []
+        jsonMap.data = [:]
+        def dataMap = [:]
         def db = new Sql(dataSource)
         def appId = params.appId.toLong()
-        def sqlQuery  = "SELECT DATE_FORMAT( end_time,  '%H:%i' ) AS END , DATE_FORMAT( start_time,  '%H:%i' ) AS START FROM conversations ORDER BY END DESC ";
-        def rows = db.rows(sqlQuery,[appId])
-        jsonMap
+        Date myDate = new Date();
+        SimpleDateFormat sm = new SimpleDateFormat("MM-dd-yyyy");
+        String strDate = sm.format(myDate);
+        Date dt = sm.parse(strDate);
+        
+        def startTime = dt.getTime()
+        def endTime = dt.getTime()+86400000
+        
+        for(def i = startTime ; i < endTime ; i = i+3600000){
+            dataMap[i] = 0
+            Date currentStartTime =new Date(i);
+            Date currentEndTime =new Date(i+3600000);
+            SimpleDateFormat dbsm = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss ");
+            String currentStartDate = dbsm.format(currentStartTime);
+            String currentEndDate = dbsm.format(currentEndTime);
+            def sqlQuery  = "SELECT count(*) as total FROM messages where created_on >= '"+currentStartDate+"' and created_on < '"+currentEndDate+"' and app_id = ? ORDER BY created_on DESC ";
+            def rows = db.rows(sqlQuery,[appId])
+            if(rows != null){
+                dataMap[i] = rows[0].total
+            }
+        }
+           
+        def dataArr = []
+        def keys = dataMap.keySet()
+        keys.each{kv->
+            def resultMap = []
+            resultMap.add(kv)
+            resultMap.add(dataMap[kv])
+            dataArr.add(resultMap) 
+        }
+        def outMap = [:]
+        outMap.name = "No. of conversation"
+        outMap.data = dataArr
+        resultArr.add(outMap)
+       
+        jsonMap.data = resultArr
+        println "resultArr : "+resultArr
+        resultArr
     }
     
     def getMessage_in_vs_out(params){
@@ -444,13 +480,15 @@ class ChatBotService {
         def rows2 = db.executeInsert(sqlQuery,[params.intentName,params.description,appId,intent_id])
         def tagId = rows2[0][0]
         if(params.userExpList != null){
+            println "params.userExpList  "+params.userExpList
+            println "params.userExpList  "+params.userExpList.getClass()
             if(params.userExpList instanceof String){
                 sqlQuery  = "INSERT INTO patterns ( `name`, `description`, `tag_id`) VALUES (?,?,?);";
                 def rows3 = db.executeInsert(sqlQuery,[params.userExpList,"-",tagId])
             }else{
                 params.userExpList.each{u->
                     sqlQuery  = "INSERT INTO patterns ( `name`, `description`, `tag_id`) VALUES (?,?,?);";
-                    def rows3 = db.executeInsert(sqlQuery,[u,"-",tagId])
+                    def rows3 = db.executeInsert(sqlQuery,[u.name,"-",tagId])
                 }   
             }
         }
@@ -867,7 +905,7 @@ class ChatBotService {
         inMap.positiveArr = positiveArr
         inMap.negativeArr = negativeArr
         inMap.datesArr = datesArr
-        println "inMap ::::::::::::::; "+inMap
+        // println "inMap ::::::::::::::; "+inMap
         inMap
     }
     
@@ -1056,10 +1094,10 @@ class ChatBotService {
         def rows = db.executeUpdate(sqlQuery)
         println "rows ::: "+rows
         
-//        sqlQuery = "update intents SET default_welcome = '"+params.welcomeMessage+"' ,default_fall_back = '"+params.defaultMessage+"' where app_id = "+appId+""
-//        println "sqlQuery ::::::::: "+sqlQuery
-//        rows = db.executeUpdate(sqlQuery)
-//        println "rows ::: "+rows
+        //        sqlQuery = "update intents SET default_welcome = '"+params.welcomeMessage+"' ,default_fall_back = '"+params.defaultMessage+"' where app_id = "+appId+""
+        //        println "sqlQuery ::::::::: "+sqlQuery
+        //        rows = db.executeUpdate(sqlQuery)
+        //        println "rows ::: "+rows
         
         jsonMap
     }

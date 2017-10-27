@@ -63,6 +63,7 @@ chatBot.controller("settingsController", function($scope,$rootScope,dashboardSer
             function(payload){
                 $scope.algoList = payload.data
                 $scope.selectedAlgoritm = $scope.algoList[0]
+                $('#algo').attr('disabled', true).trigger("chosen:updated");
                 $scope.toggleGridLoader("app42AppSettingsWidget")
             },
             function(errorPayload) {
@@ -80,6 +81,7 @@ chatBot.controller("settingsController", function($scope,$rootScope,dashboardSer
             function(payload){
                 $scope.langList = payload.data
                 $scope.selectedLanguage = $scope.langList[0]
+                  $('#lang').prop('disabled', true).trigger("chosen:updated");
                 $scope.toggleGridLoader("app42AppSettingsWidget")          
             },
             function(errorPayload) {
