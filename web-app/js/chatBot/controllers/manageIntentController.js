@@ -87,6 +87,26 @@ chatBot.controller("manageIntentController", function($scope, $timeout,$location
     $scope.editIntent = function(intent){
         $location.path("/editIntent/"+intent.id)
     }
+    
+    $scope.deleteIntent = function(intent){
+        console.log( " $scope.deleteIntent ")
+        $scope.toggleGridLoader("manageIntentWidget")
+        var params = {
+            appId : $scope.appId,
+            intentId : intent.id
+        }
+        var promise = dashboardService.deleteIntent(params)
+        promise.then(
+            function(payload){
+                $scope.toggleGridLoader("manageIntentWidget")
+                console.log("payload deleteIntent ",payload.data)
+                notificationService.info('Intent deleted successfully.');
+                $scope.getAllIntent()
+            },
+            function(errorPayload) {
+                $scope.toggleGridLoader("manageIntentWidget")
+            }) 
+    }
   
     $scope.getAllIntent()
 })

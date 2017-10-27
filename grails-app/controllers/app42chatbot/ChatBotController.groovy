@@ -199,4 +199,9 @@ class ChatBotController {
         def result  = chatBotService.updateAppSetings(params)
         render result as JSON 
     }
+    
+    def deleteIntent = {
+        def result  = chatBotService.deleteIntent(params)
+        render result as JSON 
+    }
 } 

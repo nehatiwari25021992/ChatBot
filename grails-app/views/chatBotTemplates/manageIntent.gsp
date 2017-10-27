@@ -82,7 +82,9 @@
 <!--              <td valign="top" class="wbAll">{{intent.description}}</td>-->
 
               <td valign="top" id="btn_plus" class="">          
-                <a ng-click="editIntent(intent)" class="btn btn-default btn btn-default-blue btn-sm"><i class="fa  fa-bar-chart-o"></i>&nbsp;Edit</a>
+                <a ng-click="editIntent(intent)" class="btn btn-default btn btn-default-blue btn-sm"><i class="fa fa-pencil"></i>&nbsp;Edit</a>
+                <div class="toltipicon"><a  href="javascript:;" ng-click="deleteIntent(intent)" class="btn btn-default btn btn-default-red btn-sm"><i class="fa fa-trash"></i>&nbsp;Delete</a><div class="toltipBox">Intent will be permanently deleted.</div></div> &nbsp;&nbsp;
+
               </td>
             </tr>
           </tbody>

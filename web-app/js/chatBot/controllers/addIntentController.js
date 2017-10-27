@@ -67,14 +67,14 @@ chatBot.controller("addIntentController", function($scope,dashboardService,$loca
         var entityMap = {}
         entityMap.id = 1
         entityMap.parameter = "room"
-        entityMap.entityName = "room"
+        entityMap.entityName = "@room"
         entities.push(entityMap)
         entityMap = {}
         entityMap.id = 2
         entityMap.parameter = "hotel"
-        entityMap.entityName = "hotel"
+        entityMap.entityName = "@hotel"
         entities.push(entityMap)    
-        console.log("entities :: ",entities)
+        console.log("entities :: ",JSON.stringify(entities))
         return entities;
     }
    
