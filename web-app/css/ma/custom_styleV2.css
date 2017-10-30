@@ -817,10 +817,16 @@ box-shadow: 0 2px 2px 0 rgba(0,0,0,.08), 0 2px 8px 0 rgba(0,0,0,.12);}
 .intentWrapper .intentRowB .UXrowData .UXrowInner .delBtn .fa-trash-o:before{color:#000}
 .intentWrapper .intentRowB .UXrowData .errorTxt{padding:10px;margin:0}
 /*****Intent Css Starts*****/
-#addIntentWidget .intentWrapper .intentRowB .UXrowData .UXrowInner{margin: 0 0 0 0 !important; padding: 1.5% 0 !important; border-left: 3px solid #37a0e1 !important;}
+#addIntentWidget .intentWrapper .intentRowB .UXrowData .UXrowInner{margin: 0 0 0 0 !important; padding: 1.5% 0 !important;}
 #addIntentWidget .intentWrapper .intentRowB .UXrowData .UXrowInner:last-child{margin-bottom: 0;}
 #addIntentWidget .intentWrapper .intentRowB .UXrowData .UXrowInner .delBtn{top: 20px; right: 40px;}
-#addIntentWidget .intentWrapper .intentRowB .UXrowData .UXrowInner .input{width: 98%; margin: 0 1%;}
+#addIntentWidget .intentWrapper .intentRowB .UXrowData .UXrowInner .input{width: 96%; margin: 0 2%;}
+.UXrowInner table tr th{border-bottom: 1px solid #dfe0e2; padding: 20px 20px 10px 20px;}
+.UXrowInner table tr th{border-bottom: 1px solid #dfe0e2; padding: 20px 20px 10px 20px;}
+.UXrowInner table tr td{border-bottom: 1px solid #dfe0e2; padding: 0 20px 0 20px;}
+.UXrowInner .dropdown a{padding-left: 0;}
+
+
 /*****Intent Css Ends*****/
 
 
