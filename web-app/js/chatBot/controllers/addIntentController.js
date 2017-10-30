@@ -163,7 +163,7 @@ chatBot.controller("addIntentController", function($scope,dashboardService,$loca
             }) 
     }
     
-     $scope.getAllEntities = function(){
+    $scope.getAllEntities = function(){
         $scope.toggleGridLoader("manageEntityWidget")
         var params = {
             appId : $scope.appId,
@@ -182,6 +182,14 @@ chatBot.controller("addIntentController", function($scope,dashboardService,$loca
             })
     }
     
+    $scope.changeEntity = function(en,param){
+        console.log("en ",en)
+        console.log("param ",param)
+        param.entityName = en.name
+        console.log("param ",param)
+        console.log("userExpList :: ",$scope.userExpList)
+    }
+    
     $scope.init()
-     $scope.getAllEntities()
+    $scope.getAllEntities()
 })
