@@ -43,6 +43,10 @@ chatBot.controller("addIntentController", function($scope,dashboardService,$loca
         $scope.isresposne = "default"
         $scope.isIntent = "default"
     }
+    
+    $scop.showExpEntity = function(expObj){
+        expObj.show = !expObj.show
+    }
    
     $scope.addUserSays = function(){
         $scope.isuserExp = "default"
@@ -54,6 +58,7 @@ chatBot.controller("addIntentController", function($scope,dashboardService,$loca
         }else{
             var map = {}
             map.name = $scope.userExp
+            map.show = false
             map.entity = $scope.getEntityForUserExpression($scope.userExp)
             $scope.userExpList.push( map)
             $scope.userExp = ""
@@ -95,7 +100,6 @@ chatBot.controller("addIntentController", function($scope,dashboardService,$loca
             $scope.resposneList.push($scope.resposne)
             $scope.resposne = ""
         }
-
         console.log( "$scope.resposneList  ", $scope.resposneList)
     }
    
