@@ -816,6 +816,15 @@ box-shadow: 0 2px 2px 0 rgba(0,0,0,.08), 0 2px 8px 0 rgba(0,0,0,.12);}
 .intentWrapper .intentRowB .UXrowData .UXrowInner .delBtn{position:absolute; right:25px; top:10px;}
 .intentWrapper .intentRowB .UXrowData .UXrowInner .delBtn .fa-trash-o:before{color:#000}
 .intentWrapper .intentRowB .UXrowData .errorTxt{padding:10px;margin:0}
+/*****Intent Css Starts*****/
+#addIntentWidget .intentWrapper .intentRowB .UXrowData .UXrowInner{margin: 0 0 0 0 !important; padding: 1.5% 0 !important; border-left: 3px solid #37a0e1 !important;}
+#addIntentWidget .intentWrapper .intentRowB .UXrowData .UXrowInner:last-child{margin-bottom: 0;}
+#addIntentWidget .intentWrapper .intentRowB .UXrowData .UXrowInner .delBtn{top: 20px; right: 40px;}
+#addIntentWidget .intentWrapper .intentRowB .UXrowData .UXrowInner .input{width: 98%; margin: 0 1%;}
+/*****Intent Css Ends*****/
+
+
+
 @media screen and (-webkit-min-device-pixel-ratio:0) {
 .intentWrapper .intentRow .input{ padding:2% 1.5%}
 }
