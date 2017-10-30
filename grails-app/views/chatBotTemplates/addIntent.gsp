@@ -64,7 +64,7 @@
         </div>
         <div class="intentRowB">
           <div class="UXrowInput"   ng-class="{'has-warning has-iconed' : isuserExp != 'default'}" >
-            <textarea class="input" placeholder="Add user expression" type="text" rows="7" cols="30" ng-enter="addUserSays()" ng-model="userExp" maxlength="50"></textarea>
+            <textarea class="input" placeholder="Add user expression" type="text" rows="4" cols="30" ng-enter="addUserSays()" ng-model="userExp" maxlength="50"></textarea>
             <div class="uxTitle">User Expressions</div>
           </div>
           <div class="UXrowData bgA">

@@ -47,7 +47,7 @@ chatBot.controller("addIntentController", function($scope,dashboardService,$loca
     $scope.showExpEntity = function(expObj){
         $scope.userExpList.forEach(function(u){
             if(u.name == expObj.name){
-                u.show = true
+                u.show = ! u.show
             }else{
                 u.show = false
             }
