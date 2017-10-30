@@ -66,7 +66,7 @@
           <div class="UXrowData bgA">
             <p class="help-block errorTxt" ng-if="isuserExp == 'blank'">Expression required.</p>
             <p class="help-block errorTxt" ng-if="isuserExp == 'invalid'">Expression with same name  already exists.</p>
-            <div class="UXrowInner" ng-repeat="say in userExpList | reverse">
+            <div class="UXrowInner" ng-repeat="say in userExpList | reverse" ng-class="{'selectElBorder' : say.show}">
               <input type="text" class="input" readonly="" value="{{say.name}}" ng-click="showExpEntity(say)">
               <a href="javascript:;" ng-click="removeSay(say)" class="delBtn"><i class="fa fa-trash-o"></i></a>
               <table ng-show="say.entity.length > 0 && say.show" style="width: 100%;" >
