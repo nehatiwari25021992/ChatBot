@@ -50,13 +50,14 @@
           <textarea class="input form-control" placeholder="Enter Name"  ng-model="intentName" type="text" rows="1" cols="30"></textarea>
           <p class="help-block errorTxt" ng-if="isIntent == 'blank'">Intent name required.</p>
         </div>
-        <div class="intentRow"   >
-          <div class="intlabel">Output Context</div>
-          <textarea class="input form-control" placeholder="Enter Output Context"  ng-model="outputContext" type="text" rows="1" cols="30"></textarea>
-        </div>
+
         <div class="intentRow"  >
           <div class="intlabel">Input Context</div>
           <textarea class="input form-control" placeholder="Enter Input Context"  ng-model="inputContext" type="text" rows="1" cols="30"></textarea>
+        </div>
+        <div class="intentRow"   >
+          <div class="intlabel">Output Context</div>
+          <textarea class="input form-control" placeholder="Enter Output Context"  ng-model="outputContext" type="text" rows="1" cols="30"></textarea>
         </div>
         <div class="intentRowB">
           <div class="UXrowInput"   ng-class="{'has-warning has-iconed' : isuserExp != 'default'}" >

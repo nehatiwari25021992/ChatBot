@@ -504,6 +504,16 @@ class ChatBotService {
             def rows4 = db.executeInsert(sqlQuery,[params.actions,"-",tagId])  
         }
         
+        if(params.outputContext != null && params.outputContext  != ""){
+            sqlQuery  = "INSERT INTO contexts ( `name`, `type`, `tag_id`) VALUES (?,?,?);";
+            def rows5 = db.executeInsert(sqlQuery,[params.outputContext,"output",tagId])  
+        }
+        
+        if(params.inputContext != null && params.inputContext  != ""){
+            sqlQuery  = "INSERT INTO contexts ( `name`, `type`, `tag_id`) VALUES (?,?,?);";
+            def rows6 = db.executeInsert(sqlQuery,[params.inputContext,"input",tagId])  
+        }
+        
         if(params.resposneList != null){
             println "params.resposneList "+params.resposneList
             println "params.resposneList "+params.resposneList.getClass()
