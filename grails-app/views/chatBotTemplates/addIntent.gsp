@@ -88,13 +88,13 @@
 
                         <ul class="nav navbar-nav navbar-left">
                           <li class="dropdown">
-                            <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">{{param.parameter}}</a>
+                            <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">{{param.entityName}}</a>
                             <ul class="dropdown-menu" style=" height: 200px;overflow-y: auto;">
                               <li>
                                 <input type="text" ng-model="searchEntity" placeholder="Filter"/>
                               </li>
                               <li ng-repeat="en in entityList">
-                                <a href="javascript:;">{{en.name}}</a>
+                                <a ng-click="changeEntity(en,param)" href="javascript:;">{{en.name}}</a>
                               </li>
                             </ul>
                           </li>
