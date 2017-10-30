@@ -56,9 +56,30 @@ chatBot.controller("editIntentController", function($scope,dashboardService,$loc
             map.name = $scope.userExp
             map.isDelete = false
             map.isPresent = false 
+            map.show = false
+            map.entity = $scope.getEntityForUserExpression($scope.userExp)
             $scope.userExpList.push(map)
             $scope.userExp = ""
         }
+    }
+   
+   
+      
+    $scope.getEntityForUserExpression = function (exp) {
+        //ajax call to get entity 
+        var entities = [];
+        var entityMap = {}
+        entityMap.id = 1
+        entityMap.parameter = "room"
+        entityMap.entityName = "@room"
+        entities.push(entityMap)
+        entityMap = {}
+        entityMap.id = 2
+        entityMap.parameter = "hotel"
+        entityMap.entityName = "@hotel"
+        entities.push(entityMap)    
+        console.log("entities :: ",JSON.stringify(entities))
+        return entities;
     }
    
     $scope.removeSay = function (item) {

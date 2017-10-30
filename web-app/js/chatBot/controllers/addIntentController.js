@@ -44,7 +44,7 @@ chatBot.controller("addIntentController", function($scope,dashboardService,$loca
         $scope.isIntent = "default"
     }
     
-    $scop.showExpEntity = function(expObj){
+    $scope.showExpEntity = function(expObj){
         expObj.show = !expObj.show
     }
    
@@ -56,9 +56,12 @@ chatBot.controller("addIntentController", function($scope,dashboardService,$loca
         }else if($scope.userExpList.indexOf(item) > -1){
             $scope.isuserExp = "invalid"
         }else{
+            $scope.userExpList.forEach(function(u){
+                u.show = false
+            })
             var map = {}
             map.name = $scope.userExp
-            map.show = false
+            map.show = true
             map.entity = $scope.getEntityForUserExpression($scope.userExp)
             $scope.userExpList.push( map)
             $scope.userExp = ""
