@@ -479,16 +479,23 @@ class ChatBotService {
         def sqlQuery  = "INSERT INTO tags ( `name`, `description`, `app_id`,`intent_id`) VALUES (?,?,?,?);";
         def rows2 = db.executeInsert(sqlQuery,[params.intentName,params.description,appId,intent_id])
         def tagId = rows2[0][0]
+        sqlQuery  = "select id from intents where app_id = ? ";
+        def intent = db.firstRow(sqlQuery,[appId])
+        def intentId = intent.id
+        println "intentId :::::: "+intentId
         if(params.userExpList != null){
             println "params.userExpList  "+params.userExpList
             println "params.userExpList  "+params.userExpList.getClass()
             if(params.userExpList instanceof String){
+                def usrjson = JSON.parse(params.userExpList)
                 sqlQuery  = "INSERT INTO patterns ( `name`, `description`, `tag_id`) VALUES (?,?,?);";
-                def rows3 = db.executeInsert(sqlQuery,[params.userExpList,"-",tagId])
+                def rows3 = db.executeInsert(sqlQuery,[usrjson.name,"-",tagId])     
+                saveEntityIntentMapping(appId,intentId,usrjson.entity)
             }else{
                 params.userExpList.each{u->
                     sqlQuery  = "INSERT INTO patterns ( `name`, `description`, `tag_id`) VALUES (?,?,?);";
                     def rows3 = db.executeInsert(sqlQuery,[u.name,"-",tagId])
+                    saveEntityIntentMapping(appId,intentId,usrjson.entity)
                 }   
             }
         }
@@ -510,6 +517,20 @@ class ChatBotService {
                     def rows5 = db.executeInsert(sqlQuery,[u,"-",tagId])
                 }  
             }
+        }
+    }
+    
+    def saveEntityIntentMapping(appId,tagId,entity){
+        println "saveEntityIntentMapping entity "+entity
+        def jsonMap = [:]
+        jsonMap.data  = []
+        def db = new Sql(dataSource)
+        def sqlQuery  = "INSERT INTO parameters ( `name`, `value`, `app_id`, `intent_id`, `entity_id`) VALUES (?,?,?,?,?);";
+        
+        entity.each{e->
+            def entityId = e.id.toLong()
+            def rows2 = db.executeInsert(sqlQuery,[e.parameter,e.entityName,appId,tagId,entityId])
+            println "saveEntityIntentMapping rows2 "+rows2
         }
     }
     
@@ -611,6 +632,30 @@ class ChatBotService {
         jsonMap.resposneList  = resposneList
         
         println "jsonMap getIntentDetails ------------------- "+jsonMap
+        jsonMap
+    }
+    
+    
+    def deleteIntent(params){
+        println "deleteIntent params "+params
+        def jsonMap = [:]
+        jsonMap.success = true
+        def db = new Sql(dataSource)
+        def appId = params.appId.toLong()
+        def intentId = params.intentId
+        
+        def sqlQuery  = "delete from patterns where  tag_id = ?";
+        def rows3 = db.execute(sqlQuery,[intentId])
+        
+        sqlQuery  = "delete from actions where  tag_id = ?";
+        def rows4 = db.execute(sqlQuery,[intentId])
+        
+        sqlQuery  = "delete from responses where  tag_id = ?";
+        def rows5 = db.execute(sqlQuery,[intentId])
+        
+        sqlQuery  = "delete from tags where app_id = ? and id = ?";
+        def rows2 = db.execute(sqlQuery,[appId,intentId])
+        
         jsonMap
     }
     

@@ -178,6 +178,16 @@ chatBot.factory('dashboardService', function($rootScope,$http) {
             })
             return promise;
         },
+        deleteIntent : function(params) {
+            var promise = $http({
+                method: 'POST', 
+                url: '../chatBot/deleteIntent',
+                params:params
+            }).success(function(data, status, headers, config) {
+                return data;
+            })
+            return promise;
+        },
         updateEntity : function(params) {
             var promise = $http({
                 method: 'POST', 
