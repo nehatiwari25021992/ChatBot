@@ -55,9 +55,9 @@
       </div>
 
       <div class="widget-content left fs">        
-        <div class="row">
+        <div class="row blockRow">
           <div class="mrtp20">
-            <div class="col-lg-3 col-md-3 col-sm-6 pdrg5">
+            <div class="col-lg-3 col-md-3 col-sm-6 col1 pdltprj0">
               <section class="blockB">
                 <div class="symbol">
                   <div class="symbbBb"><img src="../images/chatbot/total-msg.png" alt=""></div>
@@ -68,7 +68,7 @@
                 </div>
               </section> 
             </div>
-            <div class="col-lg-3 col-md-3 col-sm-6 pdrg5">
+            <div class="col-lg-3 col-md-3 col-sm-6 pdltprj0">
               <section class="blockB">
                 <div class="symbol">
                   <div class="symbbBr"><img src="../images/chatbot/total-conversation.png" alt=""></div>
@@ -79,7 +79,7 @@
                 </div>
               </section> 
             </div>
-            <div class="col-lg-3 col-md-3 col-sm-6 pdrg5">
+            <div class="col-lg-3 col-md-3 col-sm-6 pdltprj0">
               <section class="blockB">
                 <div class="symbol">
                   <div class="symbbBg"><img src="../images/chatbot/avg-conv-per-user.png" alt=""></div>
@@ -90,7 +90,7 @@
                 </div>
               </section> 
             </div>
-            <div class="col-lg-3 col-md-3 col-sm-6 pdrg5">
+            <div class="col-lg-3 col-md-3 col-sm-6 pdltprj0">
               <section class="blockB">
                 <div class="symbol">
                   <div class="symbbBp"><img src="../images/chatbot/avg-conv-steps-per-user.png" alt=""></div>
@@ -103,9 +103,9 @@
             </div>             
           </div>          
         </div>
-        <div class="row">         
+        <div class="row blockRow">         
           <div class="mrtp20">    
-            <div class="col-lg-3 col-md-3 col-sm-6 pdrg5">
+            <div class="col-lg-3 col-md-3 col-sm-6 col1 pdltprj0">
               <section class="blockB">
                 <div class="symbol">
                   <div class="symbbBp"><img src="../images/chatbot/total-user.png" alt=""></div>
@@ -116,7 +116,7 @@
                 </div>
               </section> 
             </div>              
-            <div class="col-lg-3 col-md-3 col-sm-6 pdrg5">
+            <div class="col-lg-3 col-md-3 col-sm-6 pdltprj0">
               <section class="blockB">
                 <div class="symbol">
                   <div class="symbbBp"><img src="../images/chatbot/total-sent.png" alt=""></div>
@@ -127,7 +127,7 @@
                 </div>
               </section> 
             </div>
-            <div class="col-lg-3 col-md-3 col-sm-6 pdrg5">
+            <div class="col-lg-3 col-md-3 col-sm-6 pdltprj0">
               <section class="blockB">
                 <div class="symbol">
                   <div class="symbbBp"><img src="../images/chatbot/total-rcvd.png" alt=""></div>
@@ -138,7 +138,7 @@
                 </div>
               </section> 
             </div>
-            <div class="col-lg-3 col-md-3 col-sm-6 pdrg5">
+            <div class="col-lg-3 col-md-3 col-sm-6 pdltprj0">
               <section class="blockB">
                 <div class="symbol">
                   <div class="symbbBp"><img src="../images/chatbot/avg-session-lngth.png" alt=""></div>

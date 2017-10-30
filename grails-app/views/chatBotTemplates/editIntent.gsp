@@ -129,9 +129,8 @@
         </div>
       </div>
     </form>
-  </div>
-  <div class="buttonStrip">
+    <div class="buttonStrip">
     <button class="btn btn-default" type="button" ng-click="updateIntent()">Update</button>
-
   </div>
+  </div>  
 </div>

@@ -37,8 +37,22 @@
 .btn_cont{height: 100px;}
 /********ChatBotCss Starts********/
 #chatbotDashboardWidget .eventCount{right: 0 !important;}
-#chatbotNav li a img {display: block !important;
-}
+/**** #chatbotNav li a img {display: block !important; ****/
+.pdltprj0{padding-left: 0px !important;}
+.pdrgprj0{padding-right: 0px !important;}
+.blockRow .col1{padding-left: 15px !important;}
+.blockB .symbol{width: 35%;}
+.blockB .symbol img{width: 80%;}
+#userDetailsWidget .userInfoRow .userInfoCol{margin: 0 2% 0 1%;}
+#userDetailsWidget .profilepic img{height: 80px; width: 80px;}
+.intentWrapper .intentRowB .UXrowInput .input{padding: 6% 1.5% 0 1.5%;}
+.intentWrapper .intentRow .intlabel{width: 20%;}
+.intentWrapper .intentRowB .UXrowInput .input{width: 80%;}
+.intentWrapper .intentRowB .UXrowInput .uxTitle{left: 21.5%;}
+.intentWrapper .intentRowB .UXrowData{width: 80%;}
+.intentWrapper .intentRowB .UXrowData .UXrowInner .input{margin-bottom: 15px;}
+.page-profile .chosen-container{width: 320px !important;}
+.intentWrapper .intentRowB .UXrowData .UXrowInner .delBtn{top: 5px !important;}
 
 /********ChatBotCss Ends********/
 }

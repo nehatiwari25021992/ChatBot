@@ -295,7 +295,7 @@ html .jspCorner { margin: 0 -3px 0 0 }
     .dbWrapper .auRow .usersMap, .dbWrapper .auRow .spanusers_statitics, .dbWrapper .comparision .graphWrapper, .dbWrapper .trendingEvents .tEventsWrapper{ margin-top:35px;}
     .sidebar-wrapper ul{padding: 0px 3px 0 0!important;}
     .sidebar-wrapper li span{width: 65px !important;}
-    .sidebar-wrapper ul > li a img{ display: none!important;}
+    /**** .sidebar-wrapper ul > li a img{ display: none!important;} ****/
     .sidebar-wrapper ul > li{height:54px !important;}
 
     .dash{background-image:url(../../images/iconNewUI/maNewIcons/dashboardR.png); background-repeat: no-repeat; background-position: center center; height: 28px;}
@@ -800,13 +800,13 @@ div.toltipicon .toltipBox:before {border-right: 10px solid transparent; border-l
 .testCSS{ float:left; width:100%; background-color:#000; color:#fff;}
 .intentWrapper{ float:left; width: 100%; margin: 30px 0 0 0; padding:0;}
 .intentWrapper .intentRow{ float: left; width: 100%; margin: 0 0 30px 0; display:table;}
-.intentWrapper .intentRow .intlabel{ width: 10%; display:table-cell; vertical-align:middle; padding:0; font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 17px; color: #4b5159; text-align:left; font-weight:normal;}
+.intentWrapper .intentRow .intlabel{ width: 15%; display:table-cell; vertical-align:middle; padding:0; font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 17px; color: #4b5159; text-align:left; font-weight:normal;}
 .intentWrapper .intentRow .input { border: 1px solid #ccc;border-radius: 5px;float: left;padding: 2% 1.5% 0 1.5%;width: 100%;font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 14px; color: #4b5159;}
 .intentWrapper .intentRowB{ float: left; width: 100%; margin: 0; display:table;}
 .intentWrapper .intentRowB .UXrowInput{ float:left; width:100%; position:relative;}
-.intentWrapper .intentRowB .UXrowInput .input { border: 1px solid #ccc;border-radius: 5px 5px 0 0;float: right;padding: 4% 1.5% 0 1.5%;width: 90%;font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 14px; color: #4b5159; background: #f7f7f7 none repeat scroll 0 0;}
-.intentWrapper .intentRowB .UXrowInput .uxTitle{ position:absolute; top:10px; left:11.5%; font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 17px; color: #4b5159;}
-.intentWrapper .intentRowB .UXrowData{float: right;margin: 0 0 10px;padding: 0;width: 90%;}
+.intentWrapper .intentRowB .UXrowInput .input { border: 1px solid #ccc;border-radius: 5px 5px 0 0;float: right;padding: 4% 1.5% 0 1.5%;width: 85%;font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 14px; color: #4b5159; background: #f7f7f7 none repeat scroll 0 0;}
+.intentWrapper .intentRowB .UXrowInput .uxTitle{ position:absolute; top:10px; left:16.5%; font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 18px; color: #4b5159;}
+.intentWrapper .intentRowB .UXrowData{float: right;margin: 0 0 10px;padding: 0;width: 85%;}
 .intentWrapper .intentRowB .UXrowData.bgA{background-color: #f6f4da;} 
 .intentWrapper .intentRowB .UXrowData.bgB{background-color: #d2e9f9;}   
 .intentWrapper .intentRowB .UXrowData .UXrowInner{float:left; width:100%; margin:1.5% 0 0 0; padding:0 1.5%; position:relative;} 

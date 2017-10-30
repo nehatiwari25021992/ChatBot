@@ -90,7 +90,7 @@
                   <ul class="chat-messages-list" style="height: 400px; overflow-y: auto;">
                     <li  ng-repeat="obj in userChats | reverse"  >
                       <div class="row" ng-if="!obj.position">
-                        <div class="col-xs-2">
+                        <div class="col-xs-2 pdrgprj0">
                           <div class="avatar">
                             <img src="${request.getContextPath()}/images/ma/default.png" alt="">
                           </div>
