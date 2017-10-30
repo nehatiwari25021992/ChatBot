@@ -26,6 +26,10 @@
     line-height: 16px;
     position: absolute;
   }
+
+  .selectElBorder{
+    border-left: 3px solid #37a0e1 !important;
+  }
 </style> 
 
 
@@ -49,17 +53,18 @@
           <div class="intlabel">Intent</div>
           <textarea class="input form-control"  ng-model="intentName" type="text" rows="1" cols="30"></textarea>
         </div>
-        <div class="intentRow"   >
-          <div class="intlabel">Output Context</div>
-          <textarea class="input form-control" placeholder="Enter Output Context"  ng-model="outputContext" type="text" rows="1" cols="30"></textarea>
-        </div>
         <div class="intentRow"  >
           <div class="intlabel">Input Context</div>
           <textarea class="input form-control" placeholder="Enter Input Context"  ng-model="inputContext" type="text" rows="1" cols="30"></textarea>
         </div>
+        <div class="intentRow"   >
+          <div class="intlabel">Output Context</div>
+          <textarea class="input form-control" placeholder="Enter Output Context"  ng-model="outputContext" type="text" rows="1" cols="30"></textarea>
+        </div>
+
         <div class="intentRowB">
           <div class="UXrowInput"   ng-class="{'has-warning has-iconed' : isuserExp != 'default'}" >
-            <textarea class="input" placeholder="Add user expression" type="text" rows="7" cols="30" ng-enter="addUserSays()" ng-model="userExp" maxlength="50"></textarea>
+            <textarea class="input" placeholder="Add user expression" type="text" rows="4" cols="30" ng-enter="addUserSays()" ng-model="userExp" maxlength="50"></textarea>
             <div class="uxTitle">User Expressions</div>
             <p class="help-block errorTxt"
                ng-if="isuserExp == 'blank'">Expression
@@ -71,7 +76,7 @@
             <div class="UXrowInner" ng-repeat="say in userExpList">
               <input  ng-show="!say.isDelete" type="text" class="input" readonly="" value="{{say.name}}">
               <a   ng-show="!say.isDelete" href="javascript:;" ng-click="removeSay(say)" class="delBtn"><i class="fa fa-trash-o"></i></a>
-<table class="content-table intent-parameters-table">
+<!--              <table class="content-table intent-parameters-table">
                 <thead>
                   <tr>
                     <th>Parameter name</th>
@@ -81,7 +86,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <!-- ngRepeat: param in vm.autoParams track by $index --><tr class="autoparams template-editor-params-tr ng-scope" ng-repeat="param in vm.autoParams track by $index">
+                   ngRepeat: param in vm.autoParams track by $index <tr class="autoparams template-editor-params-tr ng-scope" ng-repeat="param in vm.autoParams track by $index">
                     <td>
                       <input class="user-says-alias-editor template-editor-param-alias-editor ng-pristine ng-valid ng-not-empty ng-valid-maxlength ng-touched" ng-model="param.alias" ng-change="vm.changeParamAlias(param, 'hotel', $event)" tabindex="-1" ng-keydown="vm.paramKeyDownCb($event)" maxlength="30" ng-disabled="vm.isAgentReadOnly" aria-invalid="false" style="">
                     </td>
@@ -96,9 +101,9 @@
                         <span class="flaticon stroke x-1"></span>
                       </button>
                     </td>
-                  </tr><!-- end ngRepeat: param in vm.autoParams track by $index -->
+                  </tr> end ngRepeat: param in vm.autoParams track by $index 
                 </tbody>
-              </table>
+              </table>-->
 
             </div>	
           </div>
@@ -112,7 +117,7 @@
         </div>
         <div class="intentRowB">
           <div class="UXrowInput"  ng-class="{'has-warning has-iconed' : isresposne != 'default'}" >
-            <textarea class="input" placeholder="Add response" ng-enter="addResponse()" ng-model="resposne" type="text" rows="7" cols="30"></textarea>
+            <textarea class="input" placeholder="Add response" ng-enter="addResponse()" ng-model="resposne" type="text" rows="4" cols="30"></textarea>
             <div class="uxTitle">Response</div>
             <p class="help-block errorTxt"
                ng-if="isresposne == 'blank'">Response
@@ -121,16 +126,52 @@
                ng-if="isresposne == 'invalid'">Response with same name already exists.</p>
           </div>
           <div class="UXrowData bgB" >
-            <div class="UXrowInner"  ng-repeat="r in resposneList">
+            <div class="UXrowInner"  ng-repeat="r in resposneList| reverse" ng-class="{'selectElBorder' : say.show}">
               <input ng-show="!r.isDelete" type="text" class="input" readonly="" value="{{r.name}}">
               <a ng-show="!r.isDelete" href="javascript:;" ng-click="removeResponse(r)" class="delBtn"><i class="fa fa-trash-o"></i></a>
+              <table ng-show="say.entity.length > 0 && say.show" style="width: 100%;" >
+                <thead>
+                  <tr>
+                    <th>Parameter name</th>
+                    <th>Entity</th>
+                    <th >Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr  ng-repeat="param in say.entity track by $index">
+                    <td>
+                      <span>{{param.parameter}}</span>
+                    </td>
+                    <td >
+                      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav navbar-left">
+                          <li class="dropdown">
+                            <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">{{param.entityName}}</a>
+                            <ul class="dropdown-menu" style=" height: 200px;overflow-y: auto;">
+                              <li>
+                                <input type="text" ng-model="searchEntity" placeholder="Filter"/>
+                              </li>
+                              <li ng-repeat="en in entityList">
+                                <a ng-click="changeEntity(en,param)" href="javascript:;">{{en.name}}</a>
+                              </li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </div>
+                    </td>
+                    <td>
+                      <span><i class="fa fa-trash-o"></i></span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
             </div>	
           </div>
         </div>
       </div>
     </form>
     <div class="buttonStrip">
-    <button class="btn btn-default" type="button" ng-click="updateIntent()">Update</button>
-  </div>
+      <button class="btn btn-default" type="button" ng-click="updateIntent()">Update</button>
+    </div>
   </div>  
 </div>

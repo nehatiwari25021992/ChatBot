@@ -71,10 +71,10 @@
           <div class="UXrowData bgA">
             <p class="help-block errorTxt" ng-if="isuserExp == 'blank'">Expression required.</p>
             <p class="help-block errorTxt" ng-if="isuserExp == 'invalid'">Expression with same name  already exists.</p>
-            <div class="UXrowInner" ng-repeat="say in userExpList | reverse" ng-class="{'selectElBorder' : say.show}">
+            <div class="UXrowInner" ng-repeat="say in userExpList | reverse" >
               <input type="text" class="input" readonly="" value="{{say.name}}" ng-click="showExpEntity(say)">
               <a href="javascript:;" ng-click="removeSay(say)" class="delBtn"><i class="fa fa-trash-o"></i></a>
-              <table ng-show="say.entity.length > 0 && say.show" style="width: 100%;" >
+<!--        ng-class="{'selectElBorder' : say.show}"      <table ng-show="say.entity.length > 0 && say.show" style="width: 100%;" >
                 <thead>
                   <tr>
                     <th>Parameter name</th>
@@ -109,7 +109,7 @@
                     </td>
                   </tr>
                 </tbody>
-              </table>
+              </table>-->
             </div>	
           </div>
         </div>
@@ -121,7 +121,7 @@
         </div>
         <div class="intentRowB">
           <div class="UXrowInput"  ng-class="{'has-warning has-iconed' : isresposne != 'default'}" >
-            <textarea class="input" placeholder="Add response" ng-enter="addResponse()" ng-model="resposne" type="text" rows="7" cols="30"></textarea>
+            <textarea class="input" placeholder="Add response" ng-enter="addResponse()" ng-model="resposne" type="text" rows="4" cols="30"></textarea>
             <div class="uxTitle">Response</div>
           </div>
           <div class="UXrowData bgB" >

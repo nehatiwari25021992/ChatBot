@@ -129,7 +129,9 @@ chatBot.controller("editIntentController", function($scope,dashboardService,$loc
             description : $scope.description,
             userExpList : $scope.userExpList,
             actions : $scope.action,
-            resposneList : $scope.resposneList 
+            resposneList : $scope.resposneList ,
+            inputContext : $scope.inputContext,
+            outputContext : $scope.outputContext
         }
         console.log("params :::::::::::::::::::::: ",params)
         var promise = dashboardService.updateIntent(params)
@@ -163,6 +165,8 @@ chatBot.controller("editIntentController", function($scope,dashboardService,$loc
                 $scope.userExpList = payload.data.userExpList,
                 $scope.action = payload.data.actions,
                 $scope.resposneList = payload.data.resposneList 
+                $scope.inputContext =  payload.data.inputContext 
+                $scope.outputContext =  payload.data.outputContext 
 
             },
             function(errorPayload) {
