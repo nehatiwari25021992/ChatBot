@@ -30,6 +30,10 @@
   .selectElBorder{
     border-left: 3px solid #37a0e1 !important;
   }
+  
+  #editIntentWidget textarea {
+    resize: none;
+  }
 </style> 
 
 

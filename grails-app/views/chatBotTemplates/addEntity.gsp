@@ -26,6 +26,10 @@
     line-height: 16px;
     position: absolute;
   }
+  
+  #addEntityWidget textarea {
+    resize: none;
+  }
 </style> 
 
 
@@ -53,7 +57,7 @@
 
         <div class="intentRowB">
           <div class="UXrowInput"   ng-class="{'has-warning has-iconed' : isSynonymValid != 'default'}" >
-            <textarea class="input" placeholder="Add Synonym" type="text" rows="7" cols="30" ng-enter="addSynonyms()" ng-model="synExp" maxlength="50"></textarea>
+            <textarea class="input" placeholder="Add Synonym" type="text" rows="4" cols="30" ng-enter="addSynonyms()" ng-model="synExp" maxlength="50"></textarea>
             <div class="uxTitle">Synonym</div>
           </div>
           <div class="UXrowData bgA">

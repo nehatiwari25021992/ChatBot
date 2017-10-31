@@ -183,8 +183,8 @@ chatBot.controller("dashboardController", function($scope,dashboardService,$root
         });
         $('#activeHours').highcharts({
             charts : {
-              height : 333,
-              width:400
+              //height : 350,
+             // width:470
               
             },
             title: {

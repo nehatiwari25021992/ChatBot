@@ -25,8 +25,8 @@
 
   #chatbotDashboardWidget .trendingEvents .tEventsWrapper {
     float: left;
-    width: 100%;
-    height: 335px;
+    width: 100% !important;
+    height: 350px !important;
     display: table;
     overflow: hidden;
     background-color: #fff;
@@ -179,9 +179,9 @@
               <div class="tr">
                 <div class="titleChat">Most Active Hours</div>
               </div>
-              <div class="activeSession" >
-                <div id="activeHours" style="height: 333px; display:none"></div>
-                <div class="graphBox" id="noActiveHours"><span id="noDataText">No Data</span> </div>
+              <div class="activeSession activeHour" >
+                <div id="activeHours" style="height: 350px;    width: 100% !important; display:none; "></div>
+                <div class="graphBox" id="noActiveHours" ><span id="noDataText">No Data</span> </div>
 
               </div>
             </div>

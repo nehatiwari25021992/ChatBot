@@ -26,9 +26,13 @@
     line-height: 16px;
     position: absolute;
   }
-  
+
   .selectElBorder{
     border-left: 3px solid #37a0e1 !important;
+  }
+
+  #addIntentWidget textarea {
+    resize: none;
   }
 </style> 
 
