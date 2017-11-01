@@ -43,7 +43,8 @@
     <link rel='stylesheet' href='${resource(dir:'css/ma',file:'prettify.css')}'>
     <link rel='stylesheet' href='${resource(dir:'css/ma',file:'jquery.mCustomScrollbar.min.css')}'>
     <link href='https://rawgit.com/rzajac/angularjs-slider/master/dist/rzslider.css' rel='stylesheet' type='text/css'>
-
+    <script src="go.js"></script>
+    <link rel='stylesheet' href='${resource(dir:'css',file:'goSamples.css')}'>
   <g:layoutHead />
 
 </head>
@@ -120,6 +121,7 @@ var baseURL = "${baseURL}"
 <script src="${resource(dir:'js/eventAndSession/highCharts',file:'exporting.js?version=1')}"></script>
 <script src="${resource(dir:'js/eventAndSession/highCharts',file:'data.js?version=1')}"></script>
 <script src="${resource(dir:'js/eventAndSession',file:'angular-toggle-switch.min.js')}"></script>
+<script src="${resource(dir:'js',file:'goSamples.js')}"></script>
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
 <script src="https://rawgit.com/rzajac/angularjs-slider/master/dist/rzslider.js"></script>
 </body>
