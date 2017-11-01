@@ -67,6 +67,11 @@
                         <option value="LiveChat" callback="outerFunction">Live Chat</option>
                       </select>
                       <div conv-fork="flow">
+                        <!--Query Flow-->
+                        <div conv-case="LiveChat">
+                          <input type="text" conv-question="Please wait while we find an Agent for you." >
+                        </div>
+                        <!--Query Flow End-->
                         <!--Dialog Flow-->
                         <div conv-case="Dialog">
 
@@ -119,23 +124,11 @@
                               </div>
                             </div>
                           </div>
-                          <input type="text" conv-question="Cool. This flow is completed." no-answer="true">
-                          <input type="text" conv-question="Query flow will begin now." no-answer="true">
-                          <select name="typeOfQuery1" conv-question="Please choose type of query?">
-                            <option value="Custom1" callback="outerFunction">Custom</option>
-                          </select>
-                          <div conv-fork="typeOfQuery1">
-
-                            <div conv-case="Custom1">
-
-                              <input conv-question="Type in your query below?"  id="q1" type="text" name="q1" required placeholder="Type your Query" >
-
-                            </div>
-                          </div>
+                          
                         </div>
                         <!-- New User Case End-->   
                       </div>
-                      <input type="text" conv-question="Cool. This flow is completed." no-answer="true">
+<!--                      <input type="text" conv-question="Cool. This flow is completed." no-answer="true">
                       <input type="text" conv-question="Query flow will begin now." no-answer="true">
                       <select name="typeOfQuery1" conv-question="Please choose type of query?">
                         <option value="Custom1" callback="outerFunction">Custom</option>
@@ -147,7 +140,7 @@
                           <input conv-question="Type in your query below?"  id="q1" type="text" name="q1" required placeholder="Type your Query" >
 
                         </div>
-                      </div>
+                      </div>-->
                     </form>
                   </div>
                 </div>
