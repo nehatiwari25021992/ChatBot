@@ -53,6 +53,7 @@ chatBot.controller("unknownController", function($scope,dashboardService,$locati
     $scope.matchToExciting = function(u){
         $scope.selectedIntent = u
         $scope.getAllIntent()
+        
         $("#matchIntentForm").modal("show");
     }
     
@@ -91,6 +92,9 @@ chatBot.controller("unknownController", function($scope,dashboardService,$locati
                 $scope.toggleGridLoader("manageIntentWidget")
                 $scope.intentList = payload.data
                 $scope.matchedIntent =  $scope.intentList[0]
+                $("chosen-container").chosen({
+                    width: '100%'
+                });
             },
             function(errorPayload) {
                 $scope.toggleGridLoader("manageIntentWidget")

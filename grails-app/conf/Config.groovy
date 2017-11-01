@@ -67,7 +67,7 @@ environments {
     }
     production {
         grails.logging.jul.usebridge = false
-        app.baseURL = "http://localhost:8080/"
+        app.baseURL = "http://52.172.31.113:8080/"
         app.socketURL = "http://52.172.31.113:5000"
         // TODO: grails.serverURL = "http://www.changeme.com"
     }

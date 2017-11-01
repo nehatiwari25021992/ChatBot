@@ -1,3 +1,11 @@
+<style>
+.chosen-container  {
+  width: 238px !important
+}
+</style>
+
+
+
 <div class="widget widget-blue" id="unknownWidget">
   <div class="widget-title">
     <div class="widget-controls">
@@ -94,15 +102,15 @@
               <div class="form-group">
                 <label class="col-md-3 control-label" style="text-align:right">Intent :</label>
                 <div class="col-md-6">
-                  <div >
+                  
                     <select chosen ng-model="matchedIntent"
                             data-placeholder="Select Intent"
                             ng-options="color.name for color in intentList"
-                            style="width: 220px;" size="1"
+                            style="width: 150px"
                             aria-controls="DataTables_Table_0"
                             class="form-control chosen-select">
                     </select>
-                  </div>
+                  
                 </div>
                 <div class="col-md-3">
                   <button class="btn btn-primary" type="button" ng-click="matchItToIntent()">Submit</button>
